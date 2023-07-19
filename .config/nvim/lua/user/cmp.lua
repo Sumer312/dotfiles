@@ -16,7 +16,7 @@ local check_backspace = function()
 end
 
 local kind_icons = {
-	Text = "",
+	Text = "󰉿",
 	Method = "m",
 	Function = "󰊕",
 	Constructor = "",
@@ -43,7 +43,6 @@ local kind_icons = {
 	TypeParameter = "󰊄",
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
-
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -123,8 +122,8 @@ cmp.setup({
 	-- window.documentation =
 	window = {
 		completion = {
-			border = "rounded",
-			scrollbar = " ║",
+			border = "double",
+			scrollbar = "║",
 		},
 		documentation = { -- no border; native-style scrollbar
 			border = "rounded",

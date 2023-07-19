@@ -49,7 +49,6 @@ return {
 				override_by_extension = {
 					["sol"] = {
 						icon = "󰡪",
-						color = "#ff3d00",
 						name = "ethereum",
 					},
 					["exe"] = {
@@ -60,41 +59,18 @@ return {
 						icon = "󰕳",
 						name = "mod",
 					},
-					["js"] = {
-						icon = "",
-						color = "#FFC107",
-						name = "javascript",
-					},
 					["d.ts"] = {
 						icon = "󰛦",
-						color = "#29b6f6",
 						name = "definitionTypesctipt",
-					},
-					["config.ts"] = {
-						icon = "󰛦",
-						color = "#8bc34a",
-						name = "configTypesctipt",
-					},
-					["config.js"] = {
-						icon = "",
-						color = "#8bc34a",
-						name = "configJavscript",
 					},
 				},
 				override_by_filename = {
-					["dockerfile"] = {
-						icon = "",
-						color = "#80deea",
-						name = "dockerfile",
-					},
 					["tailwind.config.js"] = {
 						icon = "󱏿",
-						color = "#00897b",
 						name = "tailwind",
 					},
 					["yarn.lock"] = {
 						icon = "",
-						color = "#607d8b",
 						name = "yarnLocke",
 					},
 				},

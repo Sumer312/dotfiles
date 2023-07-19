@@ -44,7 +44,6 @@ end
 
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
-vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work
 vim.cmd([[set clipboard+=unnamedplus]])
 vim.cmd([[    
 if has('termguicolors')
@@ -70,3 +69,6 @@ vim.cmd(
 	[[let g:startify_bookmarks = [{ "A": '~/.zshrc'}, {"C" : "~/.config/nvim/lua/user/colorschemes.lua"}, {"I": "~/.config/nvim/init.lua"}, {"K": "~/.config/kitty/kitty.conf"}, {"J": "~/.config/awesome/rc.lua"} ]
 ]]
 )
+
+
+--vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work

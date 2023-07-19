@@ -1,6 +1,6 @@
-#! /bin/zsh
+#!/bin/bash
 
-if [ -n $(xrandr | grep "HDMI-A-0 disconnected") ]
+if [[ -z $(xrandr | grep "HDMI-A-0 disconnected") ]];
 then
 xrandr --output HDMI-A-0 --mode 1360x768 --rate 60 --primary && xrandr --output eDP --off
 else

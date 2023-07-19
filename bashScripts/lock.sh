@@ -1,9 +1,9 @@
 #!/bin/bash
- 
-if [ -n $(xrandr | grep "HDMI-A-0 disconnected") ]
+
+if [[ -z $(xrandr | grep "HDMI-A-0 disconnected") ]];
 then
-i3lock -i ~/Pictures/Wallpapers/debianLockScreen.png
+i3lock -e --image ~/Pictures/debianLockScreen.png
 else
-i3lock -i ~/Pictures/Wallpapers/debianWallpaper.png
+i3lock -e --image ~/Pictures/Wallpapers/debianWallpaper.png 
 fi
  

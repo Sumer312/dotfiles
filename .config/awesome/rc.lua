@@ -71,7 +71,7 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty"
-editor = os.getenv("nvim") or "xed"
+editor = os.getenv("nvim") or "vim" or "xed" or "gedit"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -84,13 +84,13 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
 	--[[ awful.layout.suit.floating, ]]
-	--[[ awful.layout.suit.tile, ]]
+	awful.layout.suit.tile,
 	--[[ awful.layout.suit.tile.left, ]]
 	--[[ awful.layout.suit.tile.bottom, ]]
 	--[[ awful.layout.suit.tile.top, ]]
 	--[[ awful.layout.suit.fair, ]]
 	--[[ awful.layout.suit.fair.horizontal, ]]
-	awful.layout.suit.spiral,
+	--[[ awful.layout.suit.spiral, ]]
 	--[[ awful.layout.suit.spiral.dwindle, ]]
 	--[[ awful.layout.suit.max, ]]
 	--[[ awful.layout.suit.max.fullscreen, ]]
@@ -454,9 +454,9 @@ awful.rules.rules = {
 	-- Set Firefox to always map on the tag named "2" on screen 1.
 	-- { rule = { class = "Firefox" },
 	--   properties = { screen = 1, tag = "2" } },flatpak run org.mozilla.firefox
-	{ rule = { class = "librewolf" }, properties = { tag = "3" } },
+	{ rule = { class = "librewolf" }, properties = { tag = "2" } },
 	{ rule = { class = "gzdoom" }, properties = { tag = "9" } },
-	{ rule = { class = "firefox" }, properties = { tag = "4" } },
+	{ rule = { class = "firefox" }, properties = { tag = "3" } },
 	{ rule = { class = "Polybar" }, properties = { border_width = 0 } },
 }
 -- }}}
@@ -481,13 +481,13 @@ beautiful.useless_gap = 4
 awful.spawn.with_shell("compton --config ~/.config/compton/compton.conf")
 --[[ awful.spawn.with_shell("feh --recursive --bg-fill --randomize ~/Pictures/Wallpapers") ]]
 awful.spawn.with_shell("nitrogen --set-zoom-fill --random ~/Pictures/Wallpapers/")
---[[ awful.spawn.with_shell("xinput set-prop 11 292 1") ]]
-awful.spawn.with_shell("xinput set-prop 10 300 1")
+awful.spawn.with_shell("xinput set-prop 13 292 1")
+--[[ awful.spawn.with_shell("xinput set-prop 10 300 1") ]]
 awful.spawn.with_shell("/home/sumer/.config/polybar/launch.sh")
 awful.spawn.with_shell('xinput set-prop "ELAN071A:00 04F3:30FD Touchpad" "libinput Tapping Enabled" 1')
 --[[ client.connect_signal("focus", function(c) ]]
 --[[ 	c.border_color = "#ffffff" ]]
 --[[ end) ]]
 awful.spawn.with_shell("~/Documents/bashScripts/displayScript.sh")
-awful.spawn.with_shell("xautolock -time 10 -locker ~/Documents/bashScripts/lock.sh &")
+awful.spawn.with_shell("xautolock -time 8 -locker i3lockmore --blur -e")
 awful.spawn.with_shell("~/Documents/bashScripts/startupSound.sh")

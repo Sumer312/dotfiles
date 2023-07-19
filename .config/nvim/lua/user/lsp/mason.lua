@@ -1,15 +1,17 @@
 local servers = {
-  "lua_ls",
+	"lua_ls",
 	"pyright",
 	"jsonls",
-  "solc",
-  "gopls",
-  "html"
+	"solc",
+	"gopls",
+	"html",
 }
 
 local settings = {
 	ui = {
-		border = "none",
+		border = "double",
+		width = 0.8,
+		height = 0.9,
 		icons = {
 			package_installed = "◍",
 			package_pending = "◍",
