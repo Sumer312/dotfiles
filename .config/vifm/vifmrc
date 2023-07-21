@@ -12,7 +12,7 @@ highlight User3 ctermbg=none ctermfg=red cterm=bold
 highlight User4 ctermbg=none ctermfg=yellow cterm=bold
 highlight User5 ctermbg=none ctermfg=blue
 
-set statusline="%1* %-10t %2* owner:%u:%-7g %5* size:%s %3* attr:%A %4* %20d"
+set statusline="%1* %-10t %2* owner:%u:%-7g %5* size:%s %3* attr:%A %4* %10d"
 
 filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c
 filextype *.epub zathura %c %i &, apvlv %c, xepub %c
@@ -32,7 +32,7 @@ filextype *.mp4,*.mp3
 " file types
 set classify='󰉋 :dir:/, :exe:, :reg:, :link:'
 " various file names
-set classify+=' ::../::, ::*.sh::, ::*.[hc]pp::, ::*.[hc]::, ::/^copying|license$/::, ::.git/,,*.git/::, ::*.epub,,*.fb2,,*.djvu::, ::*.pdf::, ::*.htm,,*.html,,**.[sx]html,,*.xml::'
+set classify+=' ::../::, ::*.sh::, ::*.[hc]pp::, ::*.[hc]::, ::/^copying|license$/::, ::.git/,,*.git/::, ::*.epub,,*.fb2,,*.djvu::, ::*.pdf::, ::*.htm,,*.html,,**.[sx]html,,*.xml::'
 " archives
 set classify+=' ::*.7z,,*.ace,,*.arj,,*.bz2,,*.cpio,,*.deb,,*.dz,,*.gz,,*.jar,,*.lzh,,*.lzma,,*.rar,,*.rpm,,*.rz,,*.tar,,*.taz,,*.tb2,,*.tbz,,*.tbz2,,*.tgz,,*.tlz,,*.trz,,*.txz,,*.tz,,*.tz2,,*.xz,,*.z,,*.zip,,*.zoo::'
 " images
@@ -43,5 +43,6 @@ set classify+=' ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.m
 set classify+=' ::*.avi,,*.ts,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mkv,,*.mov,,*.mp4,,*.flv,,*.mp4v,,*.mpeg,,*.mpg,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.wmv,,*.xvid::'
 " office files
 set classify+=' ::*.doc,,*.docx::, ::*.xls,,*.xls[mx]::, ::*.pptx,,*.ppt::'
+set classify+=' ::*.go::, ::*js::,󰛦 ::.*ts::, ::*.css::, ::*yml,,*yaml::, ::*lua::'
 
 nnoremap w :view<cr>

@@ -15,6 +15,7 @@ null_ls.setup({
 		formatting.stylua,
 		formatting.golines,
 		formatting.black,
-		--[[ diagnostics.pylint, ]]
+		formatting.yamlfmt,
+		formatting.shfmt, --[[ diagnostics.pylint, ]]
 	},
 })

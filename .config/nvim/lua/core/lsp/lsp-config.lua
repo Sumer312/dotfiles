@@ -4,9 +4,9 @@ require("mason-lspconfig").setup({
 })
 
 local opts = {
-	on_attach = require("user.lsp.handlers").on_attach,
-	capabilities = require("user.lsp.handlers").capabilities,
-	lua_ls_opts = require("user.lsp.settings.lua-ls").settings,
+	on_attach = require("core.lsp.handlers").on_attach,
+	capabilities = require("core.lsp.handlers").capabilities,
+	lua_ls_opts = require("core.lsp.settings.lua-ls").settings,
 }
 
 require("lspconfig").lua_ls.setup({
@@ -56,6 +56,21 @@ require("lspconfig").pyright.setup({
 })
 
 require("lspconfig").clangd.setup({
+	on_attach = opts.on_attach,
+	capabilities = opts.capabilities,
+})
+
+require("lspconfig").sqlls.setup({
+	on_attach = opts.on_attach,
+	capabilities = opts.capabilities,
+})
+
+require("lspconfig").yamlls.setup({
+	on_attach = opts.on_attach,
+	capabilities = opts.capabilities,
+})
+
+require("lspconfig").vimls.setup({
 	on_attach = opts.on_attach,
 	capabilities = opts.capabilities,
 })

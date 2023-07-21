@@ -1,6 +1,5 @@
 return {
 	-- My plugins here
-
 	-- colorschemes
 	"https://gitlab.com/__tpb/monokai-pro.nvim",
 	"sainnhe/sonokai",
@@ -38,6 +37,10 @@ return {
 	"windwp/nvim-autopairs",
 	"numToStr/Comment.nvim",
 	"kyazdani42/nvim-tree.lua",
+	"https://github.com/stevearc/oil.nvim",
+	"https://github.com/tpope/vim-fugitive",
+	"https://github.com/tpope/vim-surround",
+	"https://github.com/tpope/vim-dadbod",
 	"ThePrimeagen/harpoon",
 	"ThePrimeagen/vim-be-good",
 	"mbbill/undotree",
@@ -50,6 +53,14 @@ return {
 					["sol"] = {
 						icon = "󰡪",
 						name = "ethereum",
+					},
+					["yml"] = {
+						icon = "",
+						name = "yaml",
+					},
+					["yaml"] = {
+						icon = "",
+						name = "yaml",
 					},
 					["exe"] = {
 						icon = "",
@@ -165,13 +176,5 @@ return {
 	"lewis6991/gitsigns.nvim",
 
 	--Dashboard
-	{
-		"mhinz/vim-startify",
-
-		--[[ ["I"] = "~/.config/nvim/init.lua", ]]
-		--[[ ["K"] = "~/.config/kitty/kitty.conf", ]]
-	},
-
-	--Database
-	{ "dinhhuy258/vim-database", version = "master", build = ":UpdateRemotePlugins" },
+	"mhinz/vim-startify",
 }

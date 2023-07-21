@@ -1,4 +1,3 @@
-
 -- Automatically install lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -21,4 +20,4 @@ if not status_ok then
 	return
 end
 
-return lazy.setup(require("user.plugins"))
+return lazy.setup({ require("core.plugins") })

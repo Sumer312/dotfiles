@@ -209,7 +209,7 @@ globalkeys = gears.table.join(
 
 	awful.key({ modkey }, "i", function()
 		awful.util.spawn_with_shell("rofi-wifi-menu")
-	end, { description = "power off", group = "awesome" }),
+	end, { description = "wifi", group = "awesome" }),
 
 	awful.key({ modkey }, "j", function()
 		awful.client.focus.byidx(1)
@@ -475,7 +475,7 @@ client.connect_signal("manage", function(c)
 end)
 
 --Gaps
-beautiful.useless_gap = 4
+beautiful.useless_gap = 3
 
 -- On Start CMDs
 awful.spawn.with_shell("compton --config ~/.config/compton/compton.conf")
@@ -486,8 +486,9 @@ awful.spawn.with_shell("xinput set-prop 13 292 1")
 awful.spawn.with_shell("/home/sumer/.config/polybar/launch.sh")
 awful.spawn.with_shell('xinput set-prop "ELAN071A:00 04F3:30FD Touchpad" "libinput Tapping Enabled" 1')
 --[[ client.connect_signal("focus", function(c) ]]
---[[ 	c.border_color = "#ffffff" ]]
+--[[ 	c.border_color = "#b8b4d0" ]]
 --[[ end) ]]
 awful.spawn.with_shell("~/Documents/bashScripts/displayScript.sh")
-awful.spawn.with_shell("xautolock -time 8 -locker i3lockmore --blur -e")
+awful.spawn.with_shell("killall rofi")
+awful.spawn.with_shell("xautolock -time 8 -locker ~/Documents/bashScripts/lock.sh &")
 awful.spawn.with_shell("~/Documents/bashScripts/startupSound.sh")
