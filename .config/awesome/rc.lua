@@ -2,12 +2,14 @@
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
+local awesome, client, mouse, screen, tag = awesome, client, mouse, screen, tag
+local ipairs, string, os, table, tostring, tonumber, type = ipairs, string, os, table, tostring, tonumber, type
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
 -- Widget and layout library
---[[ local wibox = require("wibox") ]]
+local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
@@ -21,19 +23,27 @@ require("awful.hotkeys_popup.keys")
 -- Load Debian menu entries
 local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
-
-local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
-local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
-
-volume_widget({
-	widget_type = "arc",
+local lain = require("lain")
+local markup = lain.util.markup
+local mycpu = require("lain.widget.cpu")
+local mytemp = require("lain.widget.temp")
+local net_widgets = require("net_widgets")
+local ram_widget_lian = require("lain.widget.mem")
+local volume_widget = require("./volume-widget.volume")
+local brightness_widget = require("./brightness-widget.brightness")
+local batteryarc_widget = require("./batteryarc-widget.batteryarc")
+local dpi = beautiful.xresources.apply_dpi
+beautiful.fg_normal = "#b8b4d0"
+local net_wireless = net_widgets.wireless({
+	interface = "wlo1",
+	widget = wibox.layout.fixed.horizontal(),
+	font = "JetBrainsMonoNerdFont",
 })
-brightness_widget({
-	type = "arc",
-	program = "brightnessctl",
-	step = 10,
+local net_indicator = net_widgets.indicator({
+	interface = "wlo1",
+	font = "JetBrainsMonoNerdFont",
+	timeout = 5,
 })
-
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -65,21 +75,34 @@ do
 end
 -- }}}
 
+lain.layout.termfair.nmaster = 3
+lain.layout.termfair.ncol = 1
+lain.layout.termfair.center.nmaster = 3
+lain.layout.termfair.center.ncol = 1
+lain.layout.cascade.tile.offset_x = 2
+lain.layout.cascade.tile.offset_y = 32
+lain.layout.cascade.tile.extra_padding = 5
+lain.layout.cascade.tile.nmaster = 5
+lain.layout.cascade.tile.ncol = 2
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+--[[ local chosen_theme = "blackburn" ]]
+--[[ beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)) ]]
+beautiful.init(string.format("%s/.config/awesome/my_theme.lua", os.getenv("HOME")))
+
+--[[ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua") ]]
 
 -- This is used later as the default terminal and editor to run.
-terminal = "kitty"
-editor = os.getenv("nvim") or "vim" or "xed" or "gedit"
-editor_cmd = terminal .. " -e " .. editor
+local terminal = "kitty"
+local editor = os.getenv("nvim") or "vim" or "xed" or "gedit"
+local editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
 -- If you do not like this or do not have such a key,
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
-modkey = "Mod4"
+local modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -104,7 +127,7 @@ awful.layout.layouts = {
 
 -- {{{ Menu
 -- Create a launcher widget and a main menu
-myawesomemenu = {
+local myawesomemenu = {
 	{
 		"hotkeys",
 		function()
@@ -143,46 +166,181 @@ else
 	})
 end
 
+local mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
+
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
 
---[[ local function set_wallpaper(s) ]]
---[[ 	-- Wallpaper ]]
---[[ 	if beautiful.wallpaper then ]]
---[[ 		local wallpaper = beautiful.wallpaper ]]
---[[ 		-- If wallpaper is a function, call it with the screen ]]
---[[ 		if type(wallpaper) == "function" then ]]
---[[ 			wallpaper = wallpaper(s) ]]
---[[ 		end ]]
---[[ 		gears.wallpaper.maximized(wallpaper, s, true) ]]
---[[ 	end ]]
---[[ end ]]
+-- Keyboard map indicator and switcher
+local mykeyboardlayout = awful.widget.keyboardlayout()
 
--- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
---[[ screen.connect_signal("property::geometry", set_wallpaper) ]]
+-- {{{ Wibar
+-- Create a textclock widget
+local mytextclock = wibox.widget.textclock()
+
+-- Create a wibox for each screen and add it
+local taglist_buttons = gears.table.join(
+	awful.button({}, 1, function(t)
+		t:view_only()
+	end),
+	awful.button({ modkey }, 1, function(t)
+		if client.focus then
+			client.focus:move_to_tag(t)
+		end
+	end),
+	awful.button({}, 3, awful.tag.viewtoggle),
+	awful.button({ modkey }, 3, function(t)
+		if client.focus then
+			client.focus:toggle_tag(t)
+		end
+	end),
+	awful.button({}, 4, function(t)
+		awful.tag.viewnext(t.screen)
+	end),
+	awful.button({}, 5, function(t)
+		awful.tag.viewprev(t.screen)
+	end)
+)
+
+local tasklist_buttons = gears.table.join(
+	awful.button({}, 1, function(c)
+		if c == client.focus then
+			c.minimized = true
+		else
+			c:emit_signal("request::activate", "tasklist", { raise = true })
+		end
+	end),
+	awful.button({}, 3, function()
+		awful.menu.client_list({ theme = { width = 250 } })
+	end),
+	awful.button({}, 4, function()
+		awful.client.focus.byidx(1)
+	end),
+	awful.button({}, 5, function()
+		awful.client.focus.byidx(-1)
+	end)
+)
 
 awful.screen.connect_for_each_screen(function(s)
 	-- Wallpaper
-	--[[ set_wallpaper(s) ]]
 
 	-- Each screen has its own tag table.
 	awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+
+	-- Create a promptbox for each screen
+	s.mypromptbox = awful.widget.prompt()
+	-- Create an imagebox widget which will contain an icon indicating which layout we're using.
+	-- We need one layoutbox per screen.
+	s.mylayoutbox = awful.widget.layoutbox(s)
+	s.mylayoutbox:buttons(gears.table.join(
+		awful.button({}, 1, function()
+			awful.layout.inc(1)
+		end),
+		awful.button({}, 3, function()
+			awful.layout.inc(-1)
+		end),
+		awful.button({}, 4, function()
+			awful.layout.inc(1)
+		end),
+		awful.button({}, 5, function()
+			awful.layout.inc(-1)
+		end)
+	))
+	-- Create a taglist widget
+	s.mytaglist = awful.widget.taglist({
+		screen = s,
+		filter = awful.widget.taglist.filter.all,
+		buttons = taglist_buttons,
+	})
+
+	-- Create a tasklist widget
+	s.mytasklist = awful.widget.tasklist({
+		screen = s,
+		filter = awful.widget.tasklist.filter.currenttags,
+		buttons = tasklist_buttons,
+	})
+
+	-- Create the wibox
+	s.mywibox = awful.wibar({ position = beautiful.wibar_position, screen = s, border_width = 0, opacity = 0.9 })
+
+	-- Add widgets to the wibox
+	s.mywibox:setup({
+		layout = wibox.layout.align.horizontal,
+		{ -- Left widgets
+			spacing = dpi(10),
+			layout = wibox.layout.fixed.horizontal,
+			--[[ mylauncher, ]]
+			s.mytaglist,
+			--[[ s.mypromptbox, ]]
+		},
+		s.mytasklist, -- Middle widget
+		{ -- Right widgets
+			spacing = dpi(16),
+			layout = wibox.layout.fixed.horizontal,
+			wibox.widget.systray(),
+			mytextclock,
+			mycpu({
+				settings = function()
+					widget:set_markup(
+						markup.fontfg("JetBrainsMonoNerdFont 14", "#D27E99", " " .. cpu_now.usage .. "%")
+					)
+				end,
+			}),
+			mytemp({
+				settings = function()
+					widget:set_markup(
+						markup.fontfg("JetBrainsMonoNerdFont 13", "#FF9E3B", " " .. coretemp_now .. "󰔄 ")
+					)
+				end,
+			}),
+			ram_widget_lian({
+				settings = function()
+					widget:set_markup(
+						markup.fontfg("JetBrainsMonoNerdFont 14", "#7FB4CA", " " .. mem_now.perc .. "%")
+					)
+				end,
+			}),
+			net_wireless,
+			net_indicator,
+			brightness_widget({
+				type = "icon_and_text",
+				program = "brightnessctl",
+				step = 5,
+			}),
+			volume_widget({
+				widget_type = "icon_and_text",
+				size = 40,
+				thickness = 3,
+				main_color = "#98BB6C",
+				mute_color = "#E82424",
+			}),
+			batteryarc_widget({
+				font = "JetBrainsMonoNerdFont-Bold",
+				show_current_level = true,
+				arc_thickness = 2,
+				enable_battery_warning = false,
+				show_notification_mode = "off",
+				size = 40,
+				main_color = "#98BB6C",
+				medium_level_color = "#FF9E3B",
+				low_level_color = "#E82424",
+				charging_color = "#7FB4CA",
+			}),
+		},
+	})
 end)
 -- }}}
 
 -- {{{ Mouse bindings
-root.buttons(gears.table.join(
-	awful.button({}, 3, function()
-		mymainmenu:toggle()
-	end),
-	awful.button({}, 4, awful.tag.viewnext),
-	awful.button({}, 5, awful.tag.viewprev)
-))
+root.buttons(gears.table.join(awful.button({}, 3, function()
+	mymainmenu:toggle()
+end)--[[ awful.button({}, 4, awful.tag.viewnext), ]]--[[ awful.button({}, 5, awful.tag.viewprev) ]]))
 -- }}}
 
 -- {{{ Key bindings
-globalkeys = gears.table.join(
+local globalkeys = gears.table.join(
+
 	awful.key({}, "XF86AudioRaiseVolume", function()
 		volume_widget:inc(5)
 	end, { description = "volume up", group = "hotkeys" }),
@@ -199,17 +357,11 @@ globalkeys = gears.table.join(
 	awful.key({}, "XF86MonBrightnessDown", function()
 		brightness_widget:dec()
 	end, { description = "decrease brightness", group = "hotkeys" }),
+
 	awful.key({ modkey }, "s", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
 	awful.key({ modkey }, "Left", awful.tag.viewprev, { description = "view previous", group = "tag" }),
 	awful.key({ modkey }, "Right", awful.tag.viewnext, { description = "view next", group = "tag" }),
 	awful.key({ modkey }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }),
-	awful.key({ modkey }, "q", function()
-		awful.util.spawn_with_shell("rofi -show power-menu -modi power-menu:rofi-power-menu")
-	end, { description = "power off", group = "awesome" }),
-
-	awful.key({ modkey }, "i", function()
-		awful.util.spawn_with_shell("rofi-wifi-menu")
-	end, { description = "wifi", group = "awesome" }),
 
 	awful.key({ modkey }, "j", function()
 		awful.client.focus.byidx(1)
@@ -283,19 +435,35 @@ globalkeys = gears.table.join(
 	end, { description = "restore minimized", group = "client" }),
 
 	-- Prompt
+	--[[ awful.key({ modkey }, "x", function() ]]
+	--[[ 	awful.prompt.run({ ]]
+	--[[ 		prompt = "Run Lua code: ", ]]
+	--[[ 		textbox = awful.screen.focused().mypromptbox.widget, ]]
+	--[[ 		exe_callback = awful.util.eval, ]]
+	--[[ 		history_path = awful.util.get_cache_dir() .. "/history_eval", ]]
+	--[[ 	}) ]]
+	--[[ end, { description = "lua execute prompt", group = "awesome" }), ]]
+
+	awful.key({ modkey }, "q", function()
+		awful.util.spawn_with_shell("rofi -show power-menu -modi power-menu:rofi-power-menu")
+	end, { description = "power off", group = "awesome" }),
+
+	awful.key({ modkey }, "i", function()
+		awful.util.spawn_with_shell("rofi-wifi-menu")
+	end, { description = "wifi", group = "awesome" }),
 	awful.key({ modkey }, "r", function()
 		awful.util.spawn("rofi -show run")
 	end, { description = "rofi run", group = "launcher" }),
 	awful.key({ modkey, "Shift" }, "r", function()
 		awful.util.spawn("rofi -show drun")
-	end, { description = "rofi applications", group = "launcher" }),
+	end, { description = "rofi applications", group = "launcher" })
 	-- Menubar
-	awful.key({ modkey }, "p", function()
-		menubar.show()
-	end, { description = "show the menubar", group = "launcher" })
+	--[[ awful.key({ modkey }, "p", function() ]]
+	--[[ 	menubar.show() ]]
+	--[[ end, { description = "show the menubar", group = "launcher" }) ]]
 )
 
-clientkeys = gears.table.join(
+local clientkeys = gears.table.join(
 	awful.key({ modkey }, "f", function(c)
 		c.fullscreen = not c.fullscreen
 		c:raise()
@@ -380,7 +548,7 @@ for i = 1, 9 do
 	)
 end
 
-clientbuttons = gears.table.join(
+local clientbuttons = gears.table.join(
 	awful.button({}, 1, function(c)
 		c:emit_signal("request::activate", "mouse_click", { raise = true })
 	end),
@@ -405,8 +573,8 @@ awful.rules.rules = {
 	{
 		rule = {},
 		properties = {
-			--[[ border_width = beautiful.border_width, ]]
-			--[[ border_color = beautiful.border_normal, ]]
+			border_width = beautiful.border_width,
+			border_color = beautiful.border_normal,
 			focus = awful.client.focus.filter,
 			raise = true,
 			keys = clientkeys,
@@ -453,8 +621,8 @@ awful.rules.rules = {
 
 	-- Set Firefox to always map on the tag named "2" on screen 1.
 	-- { rule = { class = "Firefox" },
-	--   properties = { screen = 1, tag = "2" } },flatpak run org.mozilla.firefox
-	{ rule = { class = "librewolf" }, properties = { tag = "2" } },
+	--   properties = { screen = 1, tag = "2" } },
+	{ rule = { class = "librewolf-default" }, properties = { tag = "2" } },
 	{ rule = { class = "gzdoom" }, properties = { tag = "9" } },
 	{ rule = { class = "firefox" }, properties = { tag = "3" } },
 	{ rule = { class = "Polybar" }, properties = { border_width = 0 } },
@@ -474,8 +642,16 @@ client.connect_signal("manage", function(c)
 	end
 end)
 
+--Border Color
+client.connect_signal("focus", function(c)
+	c.border_color = "#f9d791"
+end)
+client.connect_signal("unfocus", function(c)
+	c.border_color = "#000000"
+end)
+
 --Gaps
-beautiful.useless_gap = 3
+beautiful.useless_gap = 4
 
 -- On Start CMDs
 awful.spawn.with_shell("compton --config ~/.config/compton/compton.conf")
@@ -483,12 +659,9 @@ awful.spawn.with_shell("compton --config ~/.config/compton/compton.conf")
 awful.spawn.with_shell("nitrogen --set-zoom-fill --random ~/Pictures/Wallpapers/")
 awful.spawn.with_shell("xinput set-prop 13 292 1")
 --[[ awful.spawn.with_shell("xinput set-prop 10 300 1") ]]
-awful.spawn.with_shell("/home/sumer/.config/polybar/launch.sh")
+--[[ awful.spawn.with_shell("/home/sumer/.config/polybar/launch.sh") ]]
 awful.spawn.with_shell('xinput set-prop "ELAN071A:00 04F3:30FD Touchpad" "libinput Tapping Enabled" 1')
---[[ client.connect_signal("focus", function(c) ]]
---[[ 	c.border_color = "#b8b4d0" ]]
---[[ end) ]]
 awful.spawn.with_shell("~/Documents/bashScripts/displayScript.sh")
 awful.spawn.with_shell("killall rofi")
-awful.spawn.with_shell("xautolock -time 8 -locker ~/Documents/bashScripts/lock.sh &")
 awful.spawn.with_shell("~/Documents/bashScripts/startupSound.sh")
+awful.spawn.with_shell("xautolock -time 8 -locker ~/Documents/bashScripts/lock.sh &")

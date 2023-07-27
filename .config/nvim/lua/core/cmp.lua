@@ -30,14 +30,14 @@ local kind_icons = {
 	Value = "󰎠",
 	Enum = "",
 	Keyword = "",
-	Snippet = "",
+	Snippet = "",
 	Color = "",
 	File = "󰈙",
 	Reference = "",
 	Folder = "󰉋",
 	EnumMember = "",
 	Constant = "",
-	Struct = "m ",
+	Struct = "",
 	Event = "",
 	Operator = "",
 	TypeParameter = "󰊄",
@@ -123,10 +123,9 @@ cmp.setup({
 	window = {
 		completion = {
 			border = "double",
-			scrollbar = "║",
 		},
 		documentation = { -- no border; native-style scrollbar
-			border = "rounded",
+			border = "double",
 			scrollbar = "",
 			-- other options
 		},

@@ -60,7 +60,7 @@ require("lspconfig").clangd.setup({
 	capabilities = opts.capabilities,
 })
 
-require("lspconfig").sqlls.setup({
+require("lspconfig").sqls.setup({
 	on_attach = opts.on_attach,
 	capabilities = opts.capabilities,
 })

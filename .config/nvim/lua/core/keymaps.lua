@@ -27,14 +27,13 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 
 --Commands in normal mode
 keymap("n", "<Enter>", "<CR>", opts)
-keymap("n", "<leader>F", ":lua vim.lsp.buf.format()<CR>", opts)
-keymap("n", "<C-w>", ":bd!<CR>", opts)
+keymap("n", "<leader>cf", ":lua vim.lsp.buf.format()<CR>", opts)
 keymap("n", "<leader>fc", ":Telescope colorscheme<CR>", opts)
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>fm", ":Telescope media_files<CR>jk", opts)
 keymap("n", "<leader>lg", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>lzg", ":lua _LAZYGIT_TOGGLE()<CR>", opts)
-keymap("n", "<s-Enter>", "o<Esc>", opts)
+keymap("n", "[<CR>", "o<Esc>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -67,10 +66,6 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Nvimtree
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
-
--- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 --Debugging
 keymap("n", "<leader>db", "<cmd>DapToggleBreakpoint <CR>", opts)

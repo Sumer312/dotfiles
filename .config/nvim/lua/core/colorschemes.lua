@@ -9,6 +9,9 @@ function ColorMyPencils(color)
 	vim.api.nvim_set_hl(0, "Error", { fg = "red", undercurl = true })
 	vim.api.nvim_set_hl(0, "Comment", { fg = "#727169", italic = true })
 	vim.api.nvim_set_hl(0, "function", { fg = "#7E9CD8", bold = true })
+	vim.api.nvim_set_hl(0, "TabLine", { bg = "none" })
+	vim.api.nvim_set_hl(0, "WinBar", { bg = "none" })
+	vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#b5cbd2" })
 
 	vim.api.nvim_set_hl(0, "HarpoonWindow", { fg = "#b5cbd2" })
 	vim.api.nvim_set_hl(0, "HarpoonBorder", { fg = "#f9d791" })
@@ -34,7 +37,7 @@ function ColorMyPencils(color)
 	vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = "red", bg = "none" })
 
 	vim.api.nvim_set_hl(0, "Pmenu", { bg = "none" })
-	vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#0d0c0c", fg = "#b5cbd2", bold = true, italic = true })
+	vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#181820", fg = "#b5cbd2", bold = true, italic = true })
 	vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "#b5cbd2" })
 end
 

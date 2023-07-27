@@ -10,7 +10,7 @@ local options = {
 	mouse = "a", -- allow the mouse to be used in neovim
 	pumheight = 10, -- pop up menu height
 	showmode = false, -- we don't need to see things like -- INSERT -- anymore
-	showtabline = 2, -- always show tabs
+	--[[ showtabline = 2, -- always show tabs ]]
 	smartcase = true, -- smart case
 	smartindent = true, -- make indenting smarter again
 	splitbelow = true, -- force all horizontal splits to go below current window
@@ -44,7 +44,6 @@ end
 
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
-vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work
 vim.cmd([[    
 if has('termguicolors')
   set termguicolors
@@ -66,6 +65,6 @@ let g:python3_host_prog = '/usr/bin/python3'
 let g:loaded_python3_provider = 0 
 ]])
 vim.cmd(
-	[[let g:startify_bookmarks = [{ "A": '~/.zshrc'}, {"C" : "~/.config/nvim/lua/core/colorschemes.lua"}, {"I": "~/.config/nvim/init.lua"}, {"K": "~/.config/kitty/kitty.conf"}, {"J": "~/.config/awesome/rc.lua"} ]
+	[[let g:startify_bookmarks = [{"A": '~/.zshrc'},{"B" : '~/.bashrc'}, {"C" : "~/.config/nvim/lua/core/colorschemes.lua"}, {"I": "~/.config/nvim/init.lua"}, {"K": "~/.config/kitty/kitty.conf"}, {"J": "~/.config/awesome/rc.lua"} ]
 ]]
 )

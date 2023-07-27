@@ -4,6 +4,7 @@ return {
 	"https://gitlab.com/__tpb/monokai-pro.nvim",
 	"sainnhe/sonokai",
 	"folke/tokyonight.nvim",
+	"https://github.com/doums/darcula",
 	"sainnhe/everforest",
 	{
 		"rebelot/kanagawa.nvim",
@@ -11,11 +12,6 @@ return {
 			require("kanagawa").setup({
 				compile = true, -- enable compiling the colorscheme
 				undercurl = true, -- enable undercurls
-				commentStyle = { italic = true },
-				functionStyle = {},
-				keywordStyle = { italic = true },
-				statementStyle = { bold = true },
-				typeStyle = {},
 				transparent = true,
 			})
 		end,
@@ -23,12 +19,7 @@ return {
 	{ "catppuccin/nvim", name = "catppuccin" },
 	{ "rose-pine/neovim", name = "rose-pine" },
 	"nyoom-engineering/oxocarbon.nvim",
-	{
-		"nyngwang/nvimgelion",
-		config = function()
-			-- do whatever you want for further customization~
-		end,
-	},
+	"nyngwang/nvimgelion",
 	"Yazeed1s/oh-lucy.nvim",
 
 	--essential
@@ -43,7 +34,9 @@ return {
 	"https://github.com/tpope/vim-dadbod",
 	"ThePrimeagen/harpoon",
 	"ThePrimeagen/vim-be-good",
+	"https://github.com/gelguy/wilder.nvim",
 	"mbbill/undotree",
+	{ "christoomey/vim-tmux-navigator", lazy = false },
 	{
 		"nvim-tree/nvim-web-devicons",
 		config = function()
@@ -88,7 +81,7 @@ return {
 			})
 		end,
 	},
-	{ "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons" },
+	--[[ { "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons" }, ]]
 	"moll/vim-bbye",
 	{
 		"nvim-lualine/lualine.nvim",
@@ -167,10 +160,6 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 	},
-	"https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
-
-	-- Image
-	"https://github.com/edluffy/hologram.nvim",
 
 	-- Git
 	"lewis6991/gitsigns.nvim",
