@@ -2,7 +2,7 @@ configuration {
   display-drun: "Applications";
   display-window: "Windows";
   show-icons: true;
-  icon-theme: "Material-Black-Lime-BE";
+  icon-theme: "Adwaita";
   drun-display-format: "{icon}{name}";
   font: "nf-fa-fighter_jet";
   modi: "window,run,drun";
@@ -73,7 +73,7 @@ message {
 
 listview {
     fixed-height: 1;
-    border: 2px;
+    border: 3px;
     border-radius: 5px;
     reverse: false;
     padding: 3px;
@@ -150,7 +150,8 @@ button.selected {
   text-color: @selected-normal-foreground;
 }
 inputbar {
-  spacing:    8;
+  spacing: 8;
+  border: 2px;
   border-radius: 5px 5px 0 0;
   text-color: @normal-foreground;
   padding:    3px;

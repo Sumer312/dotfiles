@@ -27,23 +27,27 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 
 --Commands in normal mode
 keymap("n", "<Enter>", "<CR>", opts)
-keymap("n", "<leader>cf", ":lua vim.lsp.buf.format()<CR>", opts)
-keymap("n", "<leader>fc", ":Telescope colorscheme<CR>", opts)
-keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>fm", ":Telescope media_files<CR>jk", opts)
-keymap("n", "<leader>lg", ":Telescope live_grep<CR>", opts)
-keymap("n", "<leader>lzg", ":lua _LAZYGIT_TOGGLE()<CR>", opts)
+keymap("n", "<leader>ff", "<cmd>Telescope find_files theme=ivy<CR>", opts)
+keymap("n", "<leader>fm", "<cmd>Telescope media_files theme=ivy<CR>", opts)
+keymap("n", "<leader>fc", "<cmd>Telescope colorscheme theme=ivy<CR>", opts)
+keymap("n", "<leader>lg", "<cmd>Telescope live_grep theme=ivy<CR>", opts)
+keymap("n", "<leader>lzg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 keymap("n", "[<CR>", "o<Esc>", opts)
+keymap("n", "<leader>e", "<cmd>:Oil<CR>", opts)
+keymap("n", "<leader>u", "<cmd>UndotreeToggle <bar> UndotreeFocus<CR>", opts)
+keymap("n", "J", "mzJ`z", opts)
+keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "<C-u>", "<C-u>zz", opts)
+keymap("n", "n", "nzzzv", opts)
+keymap("n", "N", "Nzzzv", opts)
+keymap("n", "-", "i<Space><Esc>w", opts)
+--[[ keymap("n", "<leader>e", "<cmd>lua require('oil').toggle_float('./')<CR>", opts) ]]
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
-
--- Move text up and down
---[[ keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts) ]]
---[[ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts) ]]
+keymap("n", "<C-Up>", "<cmd>resize -2<CR>", opts)
+keymap("n", "<C-Down>", "<cmd>resize +2<CR>", opts)
+keymap("n", "<C-Left>", "<cmd>vertical resize -2<CR>", opts)
+keymap("n", "<C-Right>", "<cmd>vertical resize +2<CR>", opts)
 
 -- Insert --
 -- Press jk fast to enter
@@ -54,8 +58,8 @@ keymap("i", "jk", "<ESC>", opts)
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 keymap("v", "p", '"_dP', opts)
-keymap("v", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("v", "K", ":move '<-2<CR>gv-gv", opts)
+keymap("v", "J", ":move '>+1<CR>gv=gv", opts)
+keymap("v", "K", ":move '<-2<CR>gv=gv", opts)
 
 -- Terminal --
 -- Better terminal navigation
@@ -64,9 +68,10 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
--- Nvimtree
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
-
 --Debugging
-keymap("n", "<leader>db", "<cmd>DapToggleBreakpoint <CR>", opts)
-keymap("n", "<leader>dpy", ":lua require('dap-python').test_method()<CR>", opts)
+--[[ keymap("n", "<leader>db", "<cmd>DapToggleBreakpoint <CR>", opts) ]]
+--[[ keymap("n", "<leader>dpy", "<cmd>lua require('dap-python').test_method()<CR>", opts) ]]
+--
+--[[ keymap("n", "<leader>y", '"+y', opts) ]]
+--[[ keymap("n", "<leader>Y", '"+Y', opts) ]]
+--[[ keymap("v", "<leader>y", '"+y', opts) ]]

@@ -14,10 +14,23 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
---  a protected call so we don't error out on first
 local status_ok, lazy = pcall(require, "lazy")
 if not status_ok then
 	return
 end
 
-return lazy.setup({ require("core.plugins") })
+local opts = {
+	ui = {
+		size = { width = 0.9, height = 0.9 },
+		border = "rounded",
+		title = " Package Manager ",
+		title_pos = "center",
+	},
+}
+
+local status_plugins_ok, plugins = pcall(require, "core.plugins")
+if not status_plugins_ok then
+	return
+end
+
+return lazy.setup(plugins, opts)

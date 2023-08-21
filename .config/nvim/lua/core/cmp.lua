@@ -23,12 +23,12 @@ local kind_icons = {
 	Field = "",
 	Variable = "",
 	Class = "",
-	Interface = "",
+	Interface = "",
 	Module = "",
 	Property = "",
 	Unit = "󰑭",
 	Value = "󰎠",
-	Enum = "",
+	Enum = "",
 	Keyword = "",
 	Snippet = "",
 	Color = "",
@@ -44,6 +44,9 @@ local kind_icons = {
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 cmp.setup({
+	performance = {
+		debounce = 50,
+	},
 	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body) -- For `luasnip` users.
@@ -97,7 +100,7 @@ cmp.setup({
 		format = function(entry, vim_item)
 			-- Kind icons
 			vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-			-- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+			--[[ vim_item.kind = string.format("%s %s ", kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind ]]
 			vim_item.menu = ({
 				nvim_lsp = "[Lsp]",
 				nvim_lua = "[Nvim_lua]",
@@ -122,16 +125,17 @@ cmp.setup({
 	-- window.documentation =
 	window = {
 		completion = {
-			border = "double",
+			winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,CursorLine:PmenuSel",
+			border = "rounded",
 		},
-		documentation = { -- no border; native-style scrollbar
-			border = "double",
+		documentation = {
+			border = "rounded",
+			winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,CursorLine:PmenuSel",
 			scrollbar = "",
 			-- other options
 		},
 	},
 	experimental = {
 		ghost_text = false,
-		native_menu = false,
 	},
 })

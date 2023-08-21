@@ -19,8 +19,8 @@ tmux_set() {
 }
 
 # Options
-right_arrow_icon=$(tmux_get '@tmux_power_right_arrow_icon' '')
-left_arrow_icon=$(tmux_get '@tmux_power_left_arrow_icon' '')
+right_arrow_icon=$(tmux_get '@tmux_power_right_arrow_icon' '')
+left_arrow_icon=$(tmux_get '@tmux_power_left_arrow_icon' '')
 upload_speed_icon=$(tmux_get '@tmux_power_upload_speed_icon' '')
 download_speed_icon=$(tmux_get '@tmux_power_download_speed_icon' '')
 session_icon="$(tmux_get '@tmux_power_session_icon' '')"
@@ -67,7 +67,7 @@ G03=#767676 #243
 G04=#000000 #244
 G05=#181616 #255
 G06=#0d0c0c #246
-G07=#dca561 #247
+G07=#ff5d62 #247
 
 FG="$G02"
 BG="$G04"
@@ -92,14 +92,14 @@ tmux_set @prefix_highlight_output_suffix "#[fg=$TC]#[bg=$BG]$right_arrow_icon"
 #     
 # Left side of status bar
 tmux_set status-left-bg "$G04"
-tmux_set status-left-fg "G03"
+tmux_set status-left-fg "$G03"
 tmux_set status-left-length 150
 user=$(whoami)
-LS="#[fg=$G04,bg=$TC,bold] $user_icon $user@#h #[fg=$TC,bg=$G05,nobold]$right_arrow_icon#[fg=$TC,bg=$G05] $session_icon #S "
+LS="#[fg=$G04,bg=$TC,bold] $user_icon $user@#h #[fg=$TC,bg=$G06,nobold]$right_arrow_icon#[fg=$TC,bg=$G06] $session_icon #S "
 if "$show_upload_speed"; then
-	LS="$LS#[fg=$G05,bg=$G06]$right_arrow_icon#[fg=$TC,bg=$G06] $upload_speed_icon #{upload_speed} #[fg=$G06,bg=$BG]$right_arrow_icon"
+	LS="$LS#[fg=$G06,bg=$G06]$right_arrow_icon#[fg=$TC,bg=$G06] $upload_speed_icon #{upload_speed} #[fg=$G06,bg=$BG]$right_arrow_icon"
 else
-	LS="$LS#[fg=$G05,bg=$BG]$right_arrow_icon"
+	LS="$LS#[fg=$G06,bg=$BG]$right_arrow_icon"
 fi
 if [[ $prefix_highlight_pos == 'L' || $prefix_highlight_pos == 'LR' ]]; then
 	LS="$LS#{prefix_highlight}"
@@ -110,7 +110,7 @@ tmux_set status-left "$LS"
 tmux_set status-right-bg "none"
 tmux_set status-right-fg "G03"
 tmux_set status-right-length 150
-RS="#[fg=$TC,bg=$G05]$left_arrow_icon"
+RS="#[fg=$TC,bg=$G04]$left_arrow_icon"
 if "$show_download_speed"; then
 	RS="#[fg=$G06,bg=$BG]$left_arrow_icon#[fg=$TC,bg=$G06] $download_speed_icon #{download_speed} $RS"
 fi

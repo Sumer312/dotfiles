@@ -33,7 +33,7 @@ local volume_widget = require("./volume-widget.volume")
 local brightness_widget = require("./brightness-widget.brightness")
 local batteryarc_widget = require("./batteryarc-widget.batteryarc")
 local dpi = beautiful.xresources.apply_dpi
-beautiful.fg_normal = "#b8b4d0"
+beautiful.fg_normal = "#68AD99"
 local net_wireless = net_widgets.wireless({
 	interface = "wlo1",
 	widget = wibox.layout.fixed.horizontal(),
@@ -262,7 +262,7 @@ awful.screen.connect_for_each_screen(function(s)
 	})
 
 	-- Create the wibox
-	s.mywibox = awful.wibar({ position = beautiful.wibar_position, screen = s, border_width = 0, opacity = 0.9 })
+	s.mywibox = awful.wibar({ position = beautiful.wibar_position, screen = s, border_width = 0, opacity = 1, bg = "#000000BB" })
 
 	-- Add widgets to the wibox
 	s.mywibox:setup({
@@ -317,6 +317,7 @@ awful.screen.connect_for_each_screen(function(s)
 			}),
 			batteryarc_widget({
 				font = "JetBrainsMonoNerdFont-Bold",
+				timeout = 1,
 				show_current_level = true,
 				arc_thickness = 2,
 				enable_battery_warning = false,
@@ -335,7 +336,7 @@ end)
 -- {{{ Mouse bindings
 root.buttons(gears.table.join(awful.button({}, 3, function()
 	mymainmenu:toggle()
-end)--[[ awful.button({}, 4, awful.tag.viewnext), ]]--[[ awful.button({}, 5, awful.tag.viewprev) ]]))
+end) --[[ awful.button({}, 4, awful.tag.viewnext), ]] --[[ awful.button({}, 5, awful.tag.viewprev) ]]))
 -- }}}
 
 -- {{{ Key bindings
@@ -357,12 +358,10 @@ local globalkeys = gears.table.join(
 	awful.key({}, "XF86MonBrightnessDown", function()
 		brightness_widget:dec()
 	end, { description = "decrease brightness", group = "hotkeys" }),
-
 	awful.key({ modkey }, "s", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
 	awful.key({ modkey }, "Left", awful.tag.viewprev, { description = "view previous", group = "tag" }),
 	awful.key({ modkey }, "Right", awful.tag.viewnext, { description = "view next", group = "tag" }),
 	awful.key({ modkey }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }),
-
 	awful.key({ modkey }, "j", function()
 		awful.client.focus.byidx(1)
 	end, { description = "focus next by index", group = "client" }),
@@ -400,7 +399,6 @@ local globalkeys = gears.table.join(
 	end, { description = "open a terminal", group = "launcher" }),
 	awful.key({ modkey, "Control" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
 	awful.key({ modkey, "Shift" }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
-
 	awful.key({ modkey }, "l", function()
 		awful.tag.incmwfact(0.05)
 	end, { description = "increase master width factor", group = "layout" }),
@@ -644,24 +642,23 @@ end)
 
 --Border Color
 client.connect_signal("focus", function(c)
-	c.border_color = "#f9d791"
+	c.border_color = "#e4d794"
 end)
 client.connect_signal("unfocus", function(c)
 	c.border_color = "#000000"
 end)
 
 --Gaps
-beautiful.useless_gap = 4
+beautiful.useless_gap = 3
 
 -- On Start CMDs
 awful.spawn.with_shell("compton --config ~/.config/compton/compton.conf")
 --[[ awful.spawn.with_shell("feh --recursive --bg-fill --randomize ~/Pictures/Wallpapers") ]]
 awful.spawn.with_shell("nitrogen --set-zoom-fill --random ~/Pictures/Wallpapers/")
-awful.spawn.with_shell("xinput set-prop 13 292 1")
---[[ awful.spawn.with_shell("xinput set-prop 10 300 1") ]]
+--[[ awful.spawn.with_shell("xinput set-prop 13 292 1") ]]
+awful.spawn.with_shell("xinput set-prop 10 300 1")
 --[[ awful.spawn.with_shell("/home/sumer/.config/polybar/launch.sh") ]]
 awful.spawn.with_shell('xinput set-prop "ELAN071A:00 04F3:30FD Touchpad" "libinput Tapping Enabled" 1')
 awful.spawn.with_shell("~/Documents/bashScripts/displayScript.sh")
-awful.spawn.with_shell("killall rofi")
 awful.spawn.with_shell("~/Documents/bashScripts/startupSound.sh")
 awful.spawn.with_shell("xautolock -time 8 -locker ~/Documents/bashScripts/lock.sh &")
