@@ -31,15 +31,15 @@ custom_theme.command = {
 }
 
 custom_theme.visual = {
-  a = { bg = palette.oniViolet2, fg = palette.dragonBlack0, gui = "bold" },
-  b = { bg = palette.dragonBlack0, fg = palette.oniViolet2 },
-  c = { bg = "none", fg = palette.oniViolet2, gui = "bolditalic" },
+  a = { bg = palette.dragonPink, fg = palette.dragonBlack0, gui = "bold" },
+  b = { bg = palette.dragonBlack0, fg = palette.dragonPink },
+  c = { bg = "none", fg = palette.dragonPink, gui = "bolditalic" },
 }
 
 custom_theme.replace = {
-  a = { bg = palette.sakuraPink, fg = palette.dragonBlack0, gui = "bold" },
-  b = { bg = palette.dragonBlack0, fg = palette.sakuraPink },
-  c = { bg = "none", fg = palette.dragonRed, gui = "bolditalic" },
+  a = { bg = palette.waveRed, fg = palette.dragonBlack0, gui = "bold" },
+  b = { bg = palette.dragonBlack0, fg = palette.waveRed },
+  c = { bg = "none", fg = palette.waveRed, gui = "bolditalic" },
 }
 
 custom_theme.inactive = {
@@ -50,7 +50,7 @@ custom_theme.inactive = {
 
 require("lualine").setup({
   options = {
-    icons_enabled = true,
+    icons_enabled = false,
     theme = custom_theme,
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },

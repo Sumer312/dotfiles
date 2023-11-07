@@ -26,21 +26,22 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 --Commands in normal mode
-keymap("n", "<Enter>", "<CR>", opts)
 keymap("n", "<leader>ff", "<cmd>Telescope find_files theme=ivy<CR>", opts)
 keymap("n", "<leader>fm", "<cmd>Telescope media_files theme=ivy<CR>", opts)
 keymap("n", "<leader>fc", "<cmd>Telescope colorscheme theme=ivy<CR>", opts)
 keymap("n", "<leader>lg", "<cmd>Telescope live_grep theme=ivy<CR>", opts)
-keymap("n", "<leader>lzg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
-keymap("n", "[<CR>", "o<Esc>", opts)
+keymap("n", "<leader>lzg", "<cmd>LazyGit<CR>", opts)
+keymap("n", "<leader>lit", "<cmd>lua ColorMyPencils('rose-pine-dawn')<CR>", opts)
+keymap("n", "<leader>dak", "<cmd>lua ColorMyPencils('kanagawa-wave')<CR>", opts)
+keymap("n", "<A-Return>", "o<Esc>", opts)
 keymap("n", "<leader>e", "<cmd>:Oil<CR>", opts)
 keymap("n", "<leader>u", "<cmd>UndotreeToggle <bar> UndotreeFocus<CR>", opts)
 keymap("n", "J", "mzJ`z", opts)
-keymap("n", "<C-d>", "<C-d>zz", opts)
-keymap("n", "<C-u>", "<C-u>zz", opts)
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 keymap("n", "-", "i<Space><Esc>w", opts)
+--[[ keymap("n", "<C-d>", "<C-d>zz", opts) ]]
+--[[ keymap("n", "<C-u>", "<C-u>zz", opts) ]]
 --[[ keymap("n", "<leader>e", "<cmd>lua require('oil').toggle_float('./')<CR>", opts) ]]
 
 -- Resize with arrows
@@ -67,6 +68,10 @@ keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+
+-- Context --
+keymap("n", "<A-k>", ":lua require('treesitter-context').go_to_context()<CR>", { silent = true })
+
 
 --Debugging
 --[[ keymap("n", "<leader>db", "<cmd>DapToggleBreakpoint <CR>", opts) ]]

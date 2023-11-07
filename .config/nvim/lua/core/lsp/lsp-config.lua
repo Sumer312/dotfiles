@@ -31,7 +31,7 @@ lsp_config.tailwindcss.setup({
   capabilities = opts.capabilities,
 })
 
-lsp_config.solc.setup({
+lsp_config.solidity_ls_nomicfoundation.setup({
   on_attach = opts.on_attach,
   capabilities = opts.capabilities,
 })

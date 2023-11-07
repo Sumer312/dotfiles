@@ -2,10 +2,10 @@ require("oil").setup({
 	-- Id is automatically added at the beginning, and name at the end
 	-- See :help oil-columns
 	columns = {
-		"permissions",
-		"size",
-		"mtime",
-		"icon",
+		--[[ "permissions", ]]
+		--[[ "size", ]]
+		--[[ "mtime", ]]
+		{"icon", add_padding = true, directory = ""},
 	},
 	-- Buffer-local options to use for oil buffers
 	buf_options = {
@@ -42,6 +42,7 @@ require("oil").setup({
 	-- Set to `false` to remove a keymap
 	-- See :help oil-actions for a list of all available actions
 	keymaps = {
+		["<leader>e"] = "actions.close",
 		["g?"] = "actions.show_help",
 		["<CR>"] = "actions.select",
 		["l"] = "actions.select",

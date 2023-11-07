@@ -1,6 +1,6 @@
 return {
   -- My plugins here
-  -- colorschemes
+  -- Colorschemes
   "sainnhe/sonokai",
   "folke/tokyonight.nvim",
   "sainnhe/everforest",
@@ -8,21 +8,18 @@ return {
     "rebelot/kanagawa.nvim",
     config = function()
       require("kanagawa").setup({
-        compile = true,   -- enable compiling the colorscheme
-        undercurl = true, -- enable undercurls
+        compile = true,
+        undercurl = true,
         transparent = true,
       })
     end,
   },
-  { "catppuccin/nvim",  name = "catppuccin" },
-  { "rose-pine/neovim", name = "rose-pine" },
-  --[[ "https://github.com/doums/darcula", ]]
-  --[[ "https://gitlab.com/__tpb/monokai-pro.nvim", ]]
-  --[[ "nyoom-engineering/oxocarbon.nvim", ]]
-  --[[ "nyngwang/nvimgelion", ]]
-  --[[ "Yazeed1s/oh-lucy.nvim", ]]
+  {
+    "rose-pine/neovim",
+    name = "rose-pine"
+  },
 
-  --essential
+  --Essential
   "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
   "nvim-lua/plenary.nvim",
   "windwp/nvim-autopairs",
@@ -33,9 +30,12 @@ return {
   "https://github.com/kristijanhusak/vim-dadbod-ui",
   "ThePrimeagen/harpoon",
   "/folke/zen-mode.nvim",
+  "https://github.com/kdheepak/lazygit.nvim",
   "ThePrimeagen/vim-be-good",
   "https://github.com/gelguy/wilder.nvim",
   "mbbill/undotree",
+  "karb94/neoscroll.nvim",
+  "https://github.com/nvim-treesitter/nvim-treesitter-context",
   { "christoomey/vim-tmux-navigator", lazy = false },
   {
     "nvim-tree/nvim-web-devicons",
@@ -46,6 +46,10 @@ return {
           ["sol"] = {
             icon = "󰡪",
             name = "ethereum",
+          },
+          ["vim"] = {
+            icon = "",
+            name = "vim",
           },
           ["yml"] = {
             icon = "",
@@ -77,20 +81,26 @@ return {
             icon = "",
             name = "yarnLocke",
           },
+          [".vimrc"] = {
+            icon = "",
+            name = "vimrc",
+          },
         },
       })
     end,
   },
   "moll/vim-bbye",
-  {
-    "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-  },
-  "akinsho/toggleterm.nvim",
+  "https://github.com/Sumer312/lualine.nvim",
   "ap/vim-css-color",
+  --[[ { ]]
+  --[[   "nvim-lualine/lualine.nvim", ]]
+  --[[   dependencies = { "nvim-tree/nvim-web-devicons" }, ]]
+  --[[ }, ]]
+  --[[ "https://github.com/gen740/SmoothCursor.nvim", ]]
+  --[[ "akinsho/toggleterm.nvim", ]]
   --[[ "https://github.com/tpope/vim-fugitive", ]]
 
-  --cmp plugins
+  --Cmp plugins
   "hrsh7th/nvim-cmp",
   "hrsh7th/cmp-buffer",
   "hrsh7th/cmp-path",
@@ -99,9 +109,9 @@ return {
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/cmp-nvim-lua",
 
-  --snippet engine
-  "L3MON4D3/LuaSnip",             --snippet engine
-  "rafamadriz/friendly-snippets", -- a bunch of snippets
+  --Snippet engine
+  "L3MON4D3/LuaSnip",
+  "rafamadriz/friendly-snippets",
 
   -- LSP
   "neovim/nvim-lspconfig", -- enable LSP
@@ -122,7 +132,6 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
   },
-  --[[ "https://gitlab.com/HiPhish/rainbow-delimiters.nvim", ]]
 
   -- Git
   "lewis6991/gitsigns.nvim",
@@ -130,41 +139,3 @@ return {
   --Dashboard
   "mhinz/vim-startify",
 }
-
---Debugging
---[[ "mfussenegger/nvim-dap", ]]
---[[ { ]]
---[[   "rcarriga/nvim-dap-ui", ]]
---[[   dependencies = { "mfussenegger/nvim-dap" }, ]]
---[[   config = function() ]]
---[[     local dap = require("dap") ]]
---[[     local dapui = require("dapui") ]]
---[[     dapui.setup() ]]
---[[     dap.listeners.after.event_initialized["dapui_config"] = function() ]]
---[[       dapui.open() ]]
---[[     end ]]
---[[     dap.listeners.before.event_terminated["dapui_config"] = function() ]]
---[[       dapui.close() ]]
---[[     end ]]
---[[     dap.listeners.before.event_exited["dapui_config"] = function() ]]
---[[       dapui.close() ]]
---[[     end ]]
---[[   end, ]]
---[[ }, ]]
---[[ { ]]
---[[   "leoluz/nvim-dap-go", ]]
---[[   dependencies = { "mfussenegger/nvim-dap", "rcarriga/nvim-dap-ui" }, ]]
---[[   ft = "go", ]]
---[[   config = function(_, opts) ]]
---[[     require("dap-go").setup(opts) ]]
---[[   end, ]]
---[[ }, ]]
---[[ { ]]
---[[   "mfussenegger/nvim-dap-python", ]]
---[[   dependencies = { "mfussenegger/nvim-dap", "rcarriga/nvim-dap-ui" }, ]]
---[[   ft = "python", ]]
---[[   config = function() ]]
---[[     local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python3" ]]
---[[     require("dap-python").setup(path) ]]
---[[   end, ]]
---[[ }, ]]

@@ -16,7 +16,7 @@ local options = {
   cursorline = true,
   number = true,
   relativenumber = true,
-  numberwidth = 2,
+  numberwidth = 4,
   scrolloff = 8,
   sidescrolloff = 9,
   guifont = "monospace:h17",
@@ -24,18 +24,18 @@ local options = {
   clipboard = "unnamedplus",
   cmdheight = 1,
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp
-  conceallevel = 0, -- so that `` is visible in markdown files
-  timeoutlen = 500, -- time to wait for a mapped sequence to complete (in milliseconds)
-  undofile = true, -- enable persistent undo
-  updatetime = 50, -- faster completion (4000ms default)
-  writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-  expandtab = true, -- convert tabs to spaces
-  shiftwidth = 2, -- the number of spaces inserted for each indentation
-  tabstop = 2, -- insert 2 spaces for a tab
-  signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
-  wrap = false, -- display lines as one long line, or true to wrap within screen
-  linebreak = true, -- companion to wrap, don't split words
-  --[[ guicursor = "", ]]
+  conceallevel = 0,                        -- so that `` is visible in markdown files
+  timeoutlen = 500,                        -- time to wait for a mapped sequence to complete (in milliseconds)
+  undofile = true,                         -- enable persistent undo
+  updatetime = 50,                         -- faster completion (4000ms default)
+  writebackup = false,                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+  expandtab = true,                        -- convert tabs to spaces
+  shiftwidth = 2,                          -- the number of spaces inserted for each indentation
+  tabstop = 2,                             -- insert 2 spaces for a tab
+  signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
+  wrap = false,                            -- display lines as one long line, or true to wrap within screen
+  linebreak = true,                        -- companion to wrap, don't split words
+  guicursor = "",
   --[[ showtabline = 2, -- always show tabs ]]
 }
 
@@ -72,14 +72,14 @@ vim.cmd(
 ]]
 )
 
-vim.cmd([[
-    let g:startify_custom_header = [
-    \ '                                 __                ',
-    \ '	  ___     ___    ___   __  __ /\_\    ___ ___     ',
-    \ '	 / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\   ',
-    \ '	/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \  ',
-    \ '	\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\ ',
-    \ '	 \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/ ',
-    \ '                                                   ',
-    \ ]
-]])
+-- vim.cmd([[
+--     let g:startify_custom_header = [
+--     \ '                                 __                ',
+--     \ '	  ___     ___    ___   __  __ /\_\    ___ ___     ',
+--     \ '	 / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\   ',
+--     \ '	/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \  ',
+--     \ '	\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\ ',
+--     \ '	 \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/ ',
+--     \ '                                                   ',
+--     \ ]
+-- ]])

@@ -4,7 +4,7 @@ local servers = {
 	"sqlls",
 	"bashls",
 	"jsonls",
-	"solc",
+	"solidity_ls_nomicfoundation",
 	"clangd",
 	"gopls",
 	"html",

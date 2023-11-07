@@ -12,10 +12,10 @@ M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 M.setup = function()
   local signs = {
 
-    { name = "DiagnosticSignError", text = " ", texthl = "DiagnosticSignError" },
-    { name = "DiagnosticSignWarn", text = " ", texthl = "DiagnosticSignWarn" },
-    { name = "DiagnosticSignHint", text = "󰛨 ", texthl = "DiagnosticSignHint" },
-    { name = "DiagnosticSignInfo", text = " ", texthl = "DiagnosticSignInfo" },
+    { name = "DiagnosticSignError", text = "", texthl = "DiagnosticSignError" },
+    { name = "DiagnosticSignWarn", text = "", texthl = "DiagnosticSignWarn" },
+    { name = "DiagnosticSignHint", text = "󰌵", texthl = "DiagnosticSignHint" },
+    { name = "DiagnosticSignInfo", text = "", texthl = "DiagnosticSignInfo" },
   }
 
   for _, sign in ipairs(signs) do
@@ -98,6 +98,10 @@ M.on_attach = function(client, bufnr)
   end
 
   if client.name == "sqlls" then
+    client.server_capabilities.documentFormattingProvider = true
+  end
+
+  if client.name == "solidity_ls_nomicfoundation" then
     client.server_capabilities.documentFormattingProvider = true
   end
 
