@@ -449,17 +449,17 @@ local globalkeys = gears.table.join(
   --[[ end, { description = "lua execute prompt", group = "awesome" }), ]]
 
   awful.key({ modkey }, "q", function()
-    awful.util.spawn_with_shell("rofi -show power-menu -modi power-menu:rofi-power-menu")
+    awful.util.spawn_with_shell("/home/sumer/Documents/bashScripts/rofiSounds.sh -q")
   end, { description = "power off", group = "awesome" }),
 
   awful.key({ modkey }, "i", function()
     awful.util.spawn_with_shell("rofi-wifi-menu")
   end, { description = "wifi", group = "awesome" }),
   awful.key({ modkey }, "r", function()
-    awful.util.spawn("rofi -show run")
+    awful.util.spawn("/home/sumer/Documents/bashScripts/rofiSounds.sh -r")
   end, { description = "rofi run", group = "launcher" }),
   awful.key({ modkey, "Shift" }, "r", function()
-    awful.util.spawn("rofi -show drun")
+    awful.util.spawn("/home/sumer/Documents/bashScripts/rofiSounds.sh -a")
   end, { description = "rofi applications", group = "launcher" }),
   awful.key({ modkey }, "b", function()
     awful.util.spawn_with_shell("librewolf")
@@ -661,7 +661,7 @@ end
 --Gaps
 local function gap_adjust(c)
   beautiful.gap_single_client = false
-  beautiful.useless_gap = 7
+  beautiful.useless_gap = 8
 end
 
 client.connect_signal("focus", gap_adjust)

@@ -66,6 +66,7 @@ source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.z
 source /usr/share/autojump/autojump.zsh
 bindkey '^[k' history-substring-search-up
 bindkey '^[j' history-substring-search-down
+bindkey '^ ' autosuggest-accept
 
 export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
 export NVM_DIR="$HOME/.nvm"
