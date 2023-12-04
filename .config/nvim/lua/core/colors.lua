@@ -22,6 +22,7 @@ function ColorMyPencils(color)
   set(0, "DiagnosticWarn", { fg = palatte.surimiOrange })
   set(0, "DiagnosticHint", { fg = palatte.lotusCyan })
   set(0, "DiagnosticInfo", { fg = palatte.springBlue })
+  set(0, "DiagnosticError", { fg = palatte.samuraiRed })
 
   set(0, "HarpoonWindow", { fg = palatte.lotusCyan })
   set(0, "HarpoonBorder", { fg = palatte.lotusYellow4 })
@@ -41,16 +42,6 @@ function ColorMyPencils(color)
   set(0, "TreesitterContextLineNumber",
     { bg = "none", fg = palatte.sakuraPink, bold = true, underdotted = true })
   set(0, "TreesitterContextSeparator", { bg = "none", fg = palatte.dragonRed })
-
-
-  set(0, "SmoothCursor", { bg = "none", fg = palatte.lotusCyan })
-  set(0, "SmoothCursorRed", { bg = "none", fg = palatte.samuraiRed })
-  set(0, "SmoothCursorOrange", { bg = "none", fg = palatte.surimiOrange })
-  set(0, "SmoothCursorYellow", { bg = "none", fg = palatte.roninYellow })
-  set(0, "SmoothCursorGreen", { bg = "none", fg = palatte.springGreen })
-  set(0, "SmoothCursorAqua", { bg = "none", fg = palatte.waveAqua3 })
-  set(0, "SmoothCursorBlue", { bg = "none", fg = palatte.crystalBlue })
-  set(0, "SmoothCursorPurple", { bg = "none", fg = palatte.springViolet1 })
 
   set(0, "LineNr", { fg = palatte.lotusYellow4 })
   set(0, "CursorLineNr", { fg = palatte.springGreen, bold = true, italic = true })

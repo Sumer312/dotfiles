@@ -27,7 +27,6 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 
 --Commands in normal mode
 keymap("n", "<leader>ff", "<cmd>Telescope find_files theme=ivy<CR>", opts)
-keymap("n", "<leader>fm", "<cmd>Telescope media_files theme=ivy<CR>", opts)
 keymap("n", "<leader>fc", "<cmd>Telescope colorscheme theme=ivy<CR>", opts)
 keymap("n", "<leader>lg", "<cmd>Telescope live_grep theme=ivy<CR>", opts)
 keymap("n", "<leader>lzg", "<cmd>LazyGit<CR>", opts)
@@ -40,6 +39,7 @@ keymap("n", "J", "mzJ`z", opts)
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 keymap("n", "-", "i<Space><Esc>w", opts)
+--[[ keymap("n", "<leader>fm", "<cmd>Telescope media_files theme=ivy<CR>", opts) ]]
 --[[ keymap("n", "<C-d>", "<C-d>zz", opts) ]]
 --[[ keymap("n", "<C-u>", "<C-u>zz", opts) ]]
 --[[ keymap("n", "<leader>e", "<cmd>lua require('oil').toggle_float('./')<CR>", opts) ]]
@@ -51,8 +51,6 @@ keymap("n", "<C-Left>", "<cmd>vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", "<cmd>vertical resize +2<CR>", opts)
 
 -- Insert --
--- Press jk fast to enter
-keymap("i", "jk", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -71,12 +69,3 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Context --
 keymap("n", "<A-k>", ":lua require('treesitter-context').go_to_context()<CR>", { silent = true })
-
-
---Debugging
---[[ keymap("n", "<leader>db", "<cmd>DapToggleBreakpoint <CR>", opts) ]]
---[[ keymap("n", "<leader>dpy", "<cmd>lua require('dap-python').test_method()<CR>", opts) ]]
---
---[[ keymap("n", "<leader>y", '"+y', opts) ]]
---[[ keymap("n", "<leader>Y", '"+Y', opts) ]]
---[[ keymap("v", "<leader>y", '"+y', opts) ]]

@@ -22,12 +22,8 @@ return {
   --Essential
   "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
   "nvim-lua/plenary.nvim",
-  "windwp/nvim-autopairs",
   "numToStr/Comment.nvim",
   "https://github.com/stevearc/oil.nvim",
-  "https://github.com/tpope/vim-surround",
-  "https://github.com/tpope/vim-dadbod",
-  "https://github.com/kristijanhusak/vim-dadbod-ui",
   "ThePrimeagen/harpoon",
   "/folke/zen-mode.nvim",
   "https://github.com/kdheepak/lazygit.nvim",
@@ -85,20 +81,16 @@ return {
             icon = "",
             name = "vimrc",
           },
+          ["makefile"] = {
+            icon = "",
+            name = "make",
+          },
         },
       })
     end,
   },
-  "moll/vim-bbye",
-  "https://github.com/Sumer312/lualine.nvim",
   "ap/vim-css-color",
-  --[[ { ]]
-  --[[   "nvim-lualine/lualine.nvim", ]]
-  --[[   dependencies = { "nvim-tree/nvim-web-devicons" }, ]]
-  --[[ }, ]]
-  --[[ "https://github.com/gen740/SmoothCursor.nvim", ]]
-  --[[ "akinsho/toggleterm.nvim", ]]
-  --[[ "https://github.com/tpope/vim-fugitive", ]]
+  "nvim-lualine/lualine.nvim",
 
   --Cmp plugins
   "hrsh7th/nvim-cmp",
@@ -121,17 +113,13 @@ return {
 
   -- Telescope
   { "nvim-telescope/telescope.nvim",  version = "0.1.0" },
-  {
-    "nvim-telescope/telescope-media-files.nvim",
-    dependencies = { "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
-  },
-  "JoosepAlviste/nvim-ts-context-commentstring",
 
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
   },
+  "JoosepAlviste/nvim-ts-context-commentstring",
 
   -- Git
   "lewis6991/gitsigns.nvim",
@@ -139,3 +127,14 @@ return {
   --Dashboard
   "mhinz/vim-startify",
 }
+
+  -- Commented
+    --[[ "moll/vim-bbye", ]]
+    --[[ "https://github.com/tpope/vim-surround", ]]
+    --[[ "https://github.com/tpope/vim-dadbod", ]]
+    --[[ "https://github.com/kristijanhusak/vim-dadbod-ui", ]]
+    --[[ "https://github.com/tpope/vim-fugitive", ]]
+    --[[ "https://github.com/gen740/SmoothCursor.nvim", ]]
+    --[[ "windwp/nvim-autopairs", ]]
+    --[[ "akinsho/toggleterm.nvim", ]]
+    --[[ "nvim-telescope/telescope-media-files.nvim", ]]

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+xinput set-prop "ELAN071A:00 04F3:30FD Touchpad" "libinput Tapping Enabled" 1
 for i in $(echo $(xinput | grep -i Touchpad))
 do
   if [[ -n $(echo "$i" | grep id) ]];then

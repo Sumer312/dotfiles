@@ -14,8 +14,6 @@ tmux_set() {
 }
 
 # Options
-right_arrow_icon=$(tmux_get '@tmux_power_right_arrow_icon' '')
-left_arrow_icon=$(tmux_get '@tmux_power_left_arrow_icon' '')
 upload_speed_icon=$(tmux_get '@tmux_power_upload_speed_icon' '')
 download_speed_icon=$(tmux_get '@tmux_power_download_speed_icon' '')
 session_icon="$(tmux_get '@tmux_power_session_icon' '')"
@@ -63,6 +61,7 @@ G04=#000000 #244
 G05=#181616 #255
 G06=#0d0c0c #246
 G07=#ff5d62 #247
+G08=#000000FF #248
 
 FG="$G02"
 BG="$G04"
@@ -73,20 +72,18 @@ tmux_set status on
 
 # Basic status bar colors
 tmux_set status-fg "$FG"
-tmux_set status-bg "$BG"
+tmux_set status-bg "$G08"
 tmux_set status-attr none
 
 # tmux-prefix-highlight
-tmux_set @prefix_highlight_fg "$BG"
-tmux_set @prefix_highlight_bg "$FG"
+tmux_set @prefix_highlight_fg "$G04"
+tmux_set @prefix_highlight_bg "$TC"
 tmux_set @prefix_highlight_show_copy_mode 'on'
-tmux_set @prefix_highlight_copy_mode_attr "fg=$TC,bg=$BG,bold"
-tmux_set @prefix_highlight_output_prefix "#[fg=$TC]#[bg=$BG]$left_arrow_icon#[bg=$TC]#[fg=$BG]"
-tmux_set @prefix_highlight_output_suffix "#[fg=$TC]#[bg=$BG]$right_arrow_icon"
+tmux_set @prefix_highlight_copy_mode_attr "fg=$G04,bg=$TC,bold"
 
 #     
 # Left side of status bar
-tmux_set status-left-bg "$G04"
+tmux_set status-left-bg "$TC"
 tmux_set status-left-fg "$G03"
 tmux_set status-left-length 150
 user=$(whoami)
@@ -102,8 +99,8 @@ fi
 tmux_set status-left "$LS"
 
 # Right side of status bar
-tmux_set status-right-bg "none"
-tmux_set status-right-fg "G03"
+tmux_set status-right-bg "$G08"
+tmux_set status-right-fg "$G03"
 tmux_set status-right-length 150
 RS="#[fg=$TC,bg=$G04]$left_arrow_icon"
 if "$show_download_speed"; then

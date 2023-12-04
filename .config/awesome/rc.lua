@@ -93,7 +93,7 @@ beautiful.init(string.format("%s/.config/awesome/my_theme.lua", os.getenv("HOME"
 --[[ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua") ]]
 
 -- This is used later as the default terminal and editor to run.
-local terminal = "kitty" or "st"
+local terminal = "alacritty" or "st"
 local editor = os.getenv("nvim") or "vim" or "xed" or "gedit"
 local editor_cmd = terminal .. " -e " .. editor
 
@@ -267,7 +267,7 @@ awful.screen.connect_for_each_screen(function(s)
     screen = s,
     border_width = 0,
     opacity = 1,
-    bg = "#000000EE"
+    bg = "#000000DD"
   })
 
   -- Add widgets to the wibox
@@ -449,17 +449,17 @@ local globalkeys = gears.table.join(
   --[[ end, { description = "lua execute prompt", group = "awesome" }), ]]
 
   awful.key({ modkey }, "q", function()
-    awful.util.spawn_with_shell("/home/sumer/Documents/bashScripts/rofiSounds.sh -q")
+    awful.util.spawn_with_shell("/home/sumer/Documents/bashScripts/rofi.sh -q")
   end, { description = "power off", group = "awesome" }),
 
   awful.key({ modkey }, "i", function()
-    awful.util.spawn_with_shell("rofi-wifi-menu")
+    awful.util.spawn_with_shell("/home/sumer/Documents/bashScripts/rofi.sh -i")
   end, { description = "wifi", group = "awesome" }),
   awful.key({ modkey }, "r", function()
-    awful.util.spawn("/home/sumer/Documents/bashScripts/rofiSounds.sh -r")
+    awful.util.spawn("/home/sumer/Documents/bashScripts/rofi.sh -r")
   end, { description = "rofi run", group = "launcher" }),
   awful.key({ modkey, "Shift" }, "r", function()
-    awful.util.spawn("/home/sumer/Documents/bashScripts/rofiSounds.sh -a")
+    awful.util.spawn("/home/sumer/Documents/bashScripts/rofi.sh -a")
   end, { description = "rofi applications", group = "launcher" }),
   awful.key({ modkey }, "b", function()
     awful.util.spawn_with_shell("librewolf")
@@ -673,7 +673,7 @@ awful.spawn.with_shell("compton --config ~/.config/compton/compton.conf")
 --[[ awful.spawn.with_shell("feh --recursive --bg-fill --randomize ~/Pictures/Wallpapers") ]]
 awful.spawn.with_shell("nitrogen --set-zoom-fill --random ~/Pictures/Wallpapers/")
 awful.spawn.with_shell('xinput set-prop "ELAN071A:00 04F3:30FD Touchpad" "libinput Tapping Enabled" 1')
-awful.spawn.with_shell("~/Documents/bashScripts/touchpadScroll.sh")
+awful.spawn.with_shell("~/Documents/bashScripts/touchpad.sh")
 awful.spawn.with_shell("~/Documents/bashScripts/displayScript.sh")
 awful.spawn.with_shell("~/Documents/bashScripts/startupSound.sh")
 awful.spawn.with_shell("xautolock -time 8 -locker ~/Documents/bashScripts/lock.sh &")

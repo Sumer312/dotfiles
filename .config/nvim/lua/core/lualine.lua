@@ -50,7 +50,7 @@ custom_theme.inactive = {
 
 require("lualine").setup({
   options = {
-    icons_enabled = false,
+    icons_enabled = true,
     theme = custom_theme,
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
