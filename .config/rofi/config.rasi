@@ -1,46 +1,45 @@
 configuration {
-  display-drun: "Applications";
+  display-drun: "Drun";
   display-window: "Windows";
   display-run: "Run";
   show-icons: false;
   icon-theme: "Adwaita";
-  drun-display-format: "{icon}{name}";
   font: "nf-fa-fighter_jet";
   modi: "window,run,drun";
-  terminal: "/usr/bin/kitty";
+  terminal: "/usr/bin/alacritty";
 }
 
 @theme "/dev/null"
 
 * {
-    border-color:                gold;
-    spacing:                     3;
+    border-color:                #7FB4CA;
+    spacing:                     2;
     foreground:                  white;
-    urgent-foreground:           rgba ( 239, 97, 85, 100 % );
+    urgent-foreground:           red;
     active-foreground:           #ffffff;
     normal-foreground:           @foreground;
-    active-background:           rgba ( 47, 30, 46, 15 % );
-    background-color:            rgba ( 0, 0, 0, 0 % );
-    selected-normal-foreground:  white;
-    alternate-normal-background: black;
+    active-background:           @border-color;
+    background-color:            #00000000;
+    selected-normal-foreground:  @border-color;
+    alternate-normal-background: #000000DD;
     alternate-normal-foreground: @foreground;
-    normal-background:           black;
-    selected-normal-background:  #282727;
-    urgent-background:           rgba ( 47, 30, 46, 15 % );
-    selected-urgent-background:  rgba ( 129, 91, 164, 33 % );
-    alternate-urgent-background: rgba ( 47, 30, 46, 18 % );
-    selected-urgent-foreground:  rgba ( 239, 97, 85, 100 % );
+    normal-background:           #000000DD;
+    selected-normal-background:  #000000;
+    urgent-background:           #000000;
+    selected-urgent-background:  @normal-background;
+    alternate-urgent-background: @alternate-normal-background;
+    selected-urgent-foreground:  @urgent-foreground;
     alternate-urgent-foreground: @urgent-foreground;
     selected-active-foreground:  #000000;
     alternate-active-foreground: @border-color;
     selected-active-background:  @border-color;
-    alternate-active-background: rgba ( 47, 30, 46, 18 % );
+    alternate-active-background: none;
 }
 
 
 window {
     border: 0;
-    border-radius : 3px;
+    border-radius : 0px;
     padding: 5px;
     children: [ inputbar, message, wrapper-mode-switcher, listview  ];
 }
@@ -53,10 +52,10 @@ wrapper-mode-switcher {
 }
 
 mode-switcher {
-    border:  0px;
-    border-radius: 0 0 3px 3px;
+    border:  1px;
+    border-radius: 0 0 0px 0px;
     expand: true;
-    margin: 0 0 3px 0;
+    margin: 0 0 0px 0;
     padding: 0.5em 1em;
     background-color: @border-color;
 }
@@ -69,18 +68,18 @@ mainbox {
 message {
     border: 1px;
     padding: 1em;
-    background-color: black;
+    background-color: @normal-background;
     text-color: white;
 }
 
 listview {
     fixed-height: 1;
-    border: 3px;
-    border-radius: 3px;
+    border: 2px;
+    border-radius: 0px;
     reverse: false;
-    padding: 3px;
+    padding: 4px;
     columns: 3;
-    background-color: black;
+    background-color: @normal-background;
 }
 
 textbox {
@@ -98,7 +97,7 @@ element-text {
 }
 
 element.normal.normal {
-  background-color: @normal-background;
+  background-color: none;
   text-color:       @normal-foreground;
 }
 
@@ -115,7 +114,7 @@ element.normal.active {
 element.selected.normal {
   background-color: @selected-normal-background;
   text-color:       @selected-normal-foreground;
-  border-radius: 3px;
+  border-radius: 0px;
 }
 
 element.selected.urgent {
@@ -126,11 +125,11 @@ element.selected.urgent {
 element.selected.active {
   background-color: @selected-active-background;
   text-color:       @selected-active-foreground;
-  border-radius: 3px;
+  border-radius: 0px;
 }
 
 element.alternate.normal {
-  background-color: @alternate-normal-background;
+  background-color: none;
   text-color:       @alternate-normal-foreground;
 }
 
@@ -144,20 +143,19 @@ element.alternate.active {
   text-color:       @alternate-active-foreground;
 }
 
-
 button.selected {
   background-color: @selected-normal-background;
   border : 15;
-  border-radius: 3px;
+  border-radius: 0px;
   border-color: @selected-normal-background;
   text-color: @selected-normal-foreground;
 }
 inputbar {
   spacing: 8;
   border: 2px;
-  border-radius: 3px 3px 0 0;
+  border-radius: 0px 0px 0 0;
   text-color: @normal-foreground;
-  padding:    3px;
+  padding:    4px;
   background-color: @border-color;
 }
 case-indicator {
