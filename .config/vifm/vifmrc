@@ -12,7 +12,9 @@ set runexec
 
 colorscheme near_default
 
-set statusline="%10u:%-7g %=%20d  "
+set statusline=" %1*%A %20u:%-7g %=%20d "
+
+" set statusline="%1*%A %2* %u:%g %1* %10E %2*   %d %1* %{system('~/.config/vifm/scripts/fileinfo.sh ' . expand('%c'))}%=󰋊 %a"
 
 filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c
 
