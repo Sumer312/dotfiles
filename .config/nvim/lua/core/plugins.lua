@@ -27,6 +27,7 @@ return {
   "ThePrimeagen/harpoon",
   "/folke/zen-mode.nvim",
   "https://github.com/kdheepak/lazygit.nvim",
+  "akinsho/toggleterm.nvim",
   "ThePrimeagen/vim-be-good",
   "https://github.com/gelguy/wilder.nvim",
   "mbbill/undotree",
@@ -42,6 +43,10 @@ return {
           ["sol"] = {
             icon = "󰡪",
             name = "ethereum",
+          },
+          ["templ"] = {
+            icon = "",
+            name = "goTempl",
           },
           ["vim"] = {
             icon = "",
@@ -128,13 +133,12 @@ return {
   "mhinz/vim-startify",
 }
 
-  -- Commented
-    --[[ "moll/vim-bbye", ]]
-    --[[ "https://github.com/tpope/vim-surround", ]]
-    --[[ "https://github.com/tpope/vim-dadbod", ]]
-    --[[ "https://github.com/kristijanhusak/vim-dadbod-ui", ]]
-    --[[ "https://github.com/tpope/vim-fugitive", ]]
-    --[[ "https://github.com/gen740/SmoothCursor.nvim", ]]
-    --[[ "windwp/nvim-autopairs", ]]
-    --[[ "akinsho/toggleterm.nvim", ]]
-    --[[ "nvim-telescope/telescope-media-files.nvim", ]]
+-- Commented
+--[[ "moll/vim-bbye", ]]
+--[[ "https://github.com/tpope/vim-surround", ]]
+--[[ "https://github.com/tpope/vim-dadbod", ]]
+--[[ "https://github.com/kristijanhusak/vim-dadbod-ui", ]]
+--[[ "https://github.com/tpope/vim-fugitive", ]]
+--[[ "https://github.com/gen740/SmoothCursor.nvim", ]]
+--[[ "windwp/nvim-autopairs", ]]
+--[[ "nvim-telescope/telescope-media-files.nvim", ]]

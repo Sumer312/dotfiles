@@ -6,7 +6,7 @@ wilder.set_option(
 	"renderer",
 	wilder.popupmenu_renderer(wilder.popupmenu_border_theme({
 		highlights = { border = "FloatBorder" },
-		border = "rounded",
+		border = "single",
 	}))
 )
 

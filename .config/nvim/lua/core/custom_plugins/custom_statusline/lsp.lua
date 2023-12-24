@@ -37,36 +37,44 @@ function M.lsp()
   local hints = ""
   local info = ""
   if vim.api.nvim_get_mode().mode == "n" then
+    local res = ""
     if count["errors"] ~= 0 then
-      errors = "%#DiagnosticSignError#" .. M.symbols.icons.error .. count["errors"] .. " "
+      errors = string.format("%s %s%d", "%#DiagnosticSignError#", M.symbols.icons.error, count["errors"])
+      res = string.format("%s", errors)
     end
     if count["warnings"] ~= 0 then
-      warnings = "%#DiagnosticSignWarn# " .. M.symbols.icons.warn .. count["warnings"] .. " "
+      warnings = string.format("%s %s%d", "%#DiagnosticSignWarn#", M.symbols.icons.warn, count["warnings"])
+      res = string.format("%s%s", res, warnings)
     end
     if count["hints"] ~= 0 then
-      hints = "%#DiagnosticSignHint# " .. M.symbols.icons.hint .. count["hints"] .. " "
+      hints = string.format("%s %s%d", "%#DiagnosticSignHint#", M.symbols.icons.hint, count["hints"])
+      res = string.format("%s%s", res, hints)
     end
     if count["info"] ~= 0 then
-      info = "%#DiagnosticSignInfo# " .. M.symbols.icons.info .. count["info"] .. " "
+      info = string.format("%s %s%d", "%#DiagnosticSignInfo#", M.symbols.icons.info, count["info"])
+      res = string.format("%s%s", res, info)
+    end
+    return res
+  else
+    local res = ""
+    if count["errors"] ~= 0 then
+      errors = string.format("%s %s%d", update_mode_colors(), M.symbols.icons.error, count["errors"])
+      res = string.format("%s", errors)
+    end
+    if count["warnings"] ~= 0 then
+      warnings = string.format("%s %s%d", update_mode_colors(), M.symbols.icons.warn, count["warnings"])
+      res = string.format("%s%s", res, warnings)
+    end
+    if count["hints"] ~= 0 then
+      hints = string.format("%s %s%d", update_mode_colors(), M.symbols.icons.hint, count["hints"])
+      res = string.format("%s%s", res, hints)
+    end
+    if count["info"] ~= 0 then
+      info = string.format("%s %s%d", update_mode_colors(), M.symbols.icons.info, count["info"])
+      res = string.format("%s%s", res, info)
     end
 
-    local str = errors .. warnings .. hints .. info
-    return str
-  else
-    if count["errors"] ~= 0 then
-      errors = update_mode_colors() .. M.symbols.icons.error .. count["errors"] .. " "
-    end
-    if count["warnings"] ~= 0 then
-      warnings = update_mode_colors() .. M.symbols.icons.warn .. count["warnings"] .. " "
-    end
-    if count["hints"] ~= 0 then
-      hints = update_mode_colors() .. M.symbols.icons.hint .. count["hints"] .. " "
-    end
-    if count["info"] ~= 0 then
-      info = update_mode_colors() .. M.symbols.icons.info .. count["info"] .. " "
-    end
-    local str = errors .. warnings .. hints .. info
-    return str
+    return res
   end
 end
 

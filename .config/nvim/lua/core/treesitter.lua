@@ -13,6 +13,7 @@ configs.setup({
 		"css",
 		"lua",
 		"go",
+    "templ",
 		"rust",
 		"python",
 		"vim",

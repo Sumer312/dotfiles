@@ -33,7 +33,7 @@ M.setup = function()
     float = {
       focusable = true,
       style = "minimal",
-      border = "rounded",
+      border = "single",
       source = "always",
       header = "",
       prefix = "",
@@ -43,11 +43,11 @@ M.setup = function()
   vim.diagnostic.config(config)
 
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = "rounded",
+    border = "single",
   })
 
   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    border = "rounded",
+    border = "single",
   })
 end
 
@@ -64,7 +64,7 @@ local function lsp_keymaps(bufnr)
   keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
   keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<cr>", opts)
   keymap(bufnr, "n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-  keymap(bufnr, "n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", opts)
+  keymap(bufnr, "n", "<leader>dl", "<cmd>Telescope diagnostics theme=ivy<cr>", opts)
   keymap(bufnr, "n", "<leader>dj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", opts)
   keymap(bufnr, "n", "<leader>dk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", opts)
   keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
@@ -102,6 +102,10 @@ M.on_attach = function(client, bufnr)
   end
 
   if client.name == "solidity_ls_nomicfoundation" then
+    client.server_capabilities.documentFormattingProvider = true
+  end
+
+  if client.name == "templ" then
     client.server_capabilities.documentFormattingProvider = true
   end
 

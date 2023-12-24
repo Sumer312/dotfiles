@@ -23,7 +23,7 @@ local palette = {
 	autumnYellow = "#DCA561",
 
 	-- Diag
-	samuraiRed = "#E82424",
+	samuraiRed = "#e82424",
 	roninYellow = "#FF9E3B",
 	waveAqua1 = "#6A9589",
 	dragonBlue = "#658594",

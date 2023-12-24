@@ -22,7 +22,7 @@ end
 local opts = {
 	ui = {
 		size = { width = 0.9, height = 0.9 },
-		border = "rounded",
+		border = "single",
 		title = " Package Manager ",
 		title_pos = "center",
 	},

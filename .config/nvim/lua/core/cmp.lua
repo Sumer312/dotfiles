@@ -126,10 +126,10 @@ cmp.setup({
 	window = {
 		completion = {
 			winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,CursorLine:PmenuSel",
-			border = "rounded",
+			border = "single",
 		},
 		documentation = {
-			border = "rounded",
+			border = "single",
 			winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,CursorLine:PmenuSel",
 			scrollbar = "",
 			-- other options

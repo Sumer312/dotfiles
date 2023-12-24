@@ -7,12 +7,13 @@ local servers = {
 	"solidity_ls_nomicfoundation",
 	"clangd",
 	"gopls",
+  "templ",
 	"html",
 }
 
 local settings = {
 	ui = {
-		border = "rounded",
+		border = "single",
 		width = 0.9,
 		height = 0.9,
 		icons = {

@@ -41,6 +41,27 @@ function M.update_extra_colors()
   return extra_color
 end
 
+function M.update_lsp_colors()
+  local current_mode = vim.api.nvim_get_mode().mode
+  local lsp_color = "%=%#StatuslineLsp#"
+  if current_mode == "n" then
+    lsp_color = "%=%#StatuslineNormalLsp#"
+  elseif current_mode == "i" or current_mode == "ic" then
+    lsp_color = "%=%#StatuslineInsertLsp#"
+  elseif current_mode == "niI" or current_mode == "ic" then
+    lsp_color = "%#StatuslineInsertAccent#"
+  elseif current_mode == "v" or current_mode == "V" or current_mode == "" then
+    lsp_color = "%=%#StatuslineVisualLsp#"
+  elseif current_mode == "R" then
+    lsp_color = "%=%#StatuslineReplaceLsp#"
+  elseif current_mode == "c" then
+    lsp_color = "%=%#StatuslineCmdLineLsp#"
+  elseif current_mode == "t" then
+    lsp_color = "%=%#StatuslineTerminalLsp#"
+  end
+  return lsp_color
+end
+
 function M.update_file_colors()
   local current_mode = vim.api.nvim_get_mode().mode
   local extra_color = "%#StatuslineFile#"

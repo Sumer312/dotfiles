@@ -12,7 +12,7 @@ configuration {
 @theme "/dev/null"
 
 * {
-    border-color:                #7FB4CA;
+    border-color:                #ffe9ec;
     spacing:                     2;
     foreground:                  white;
     urgent-foreground:           red;
@@ -23,7 +23,7 @@ configuration {
     selected-normal-foreground:  @border-color;
     alternate-normal-background: #000000DD;
     alternate-normal-foreground: @foreground;
-    normal-background:           #000000DD;
+    normal-background:           #000000BB;
     selected-normal-background:  #000000;
     urgent-background:           #000000;
     selected-urgent-background:  @normal-background;
@@ -107,13 +107,13 @@ element.normal.urgent {
 }
 
 element.normal.active {
-  background-color: @active-background;
-  text-color:       @active-foreground;
+  background-color: white;
+  text-color:       black;
 }
 
 element.selected.normal {
-  background-color: @selected-normal-background;
-  text-color:       @selected-normal-foreground;
+  background-color: @border-color;
+  text-color:       black;
   border-radius: 0px;
 }
 

@@ -1,38 +1,39 @@
 set vicmd=nvim
 set syscalls
 set trash
+set undolevels=100
+set vimhelp
+set trashdir="~/.local/share/Trash/files/"
 set wildmenu
 set wildstyle=popup
+set history=100
+set incsearch
+set runexec
 
-colorscheme crown24bit
+colorscheme near_default
 
-highlight User1 ctermbg=magenta ctermfg=black
-highlight User2 ctermbg=none ctermfg=green cterm=bold
-highlight User3 ctermbg=none ctermfg=red cterm=bold
-highlight User4 ctermbg=none ctermfg=yellow cterm=bold
-highlight User5 ctermbg=none ctermfg=blue
-
-set statusline="%1* %-10t %2* owner:%u:%-7g %5* size:%s %3* attr:%A %4* %10d"
+set statusline="%10u:%-7g %=%20d  "
 
 filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c
+
 filextype *.epub zathura %c %i &, apvlv %c, xepub %c
 
-filextype *.png,*.jpg,*jpeg,*.bmp,*.gif,*.xpm
-        \ flatpak run org.gnome.Loupe %f
+filextype *.pptx  
+        \libreoffice %f
 
-fileviewer *.png,*.jpg,*jpeg,*.bmp,*.gif,*.xpm
-    \ kitty +icat --silent --transfer-mode=stream --place=%pwx%ph@%pxx%py %c %N
-    \ %pc
-    \ kitty icat --clear --silent %pd
+filextype *.png,*.jpg,*jpeg,*.bmp,*.gif,*.xpm
+        \ feh %f
 
 filextype *.mp4,*.mp3
         \ mpv %f
 
+filextype *.mp3
+        \ mpv --no-video %f
 
 " file types
-set classify='󰉋 :dir:/, :exe:, :reg:, :link:'
+set classify='󰉋 :dir:/, :exe:, :reg:, :link:'
 " various file names
-set classify+=' ::../::, ::*.sh::, ::*.[hc]pp::, ::*.[hc]::, ::/^copying|license$/::, ::.git/,,*.git/::, ::*.epub,,*.fb2,,*.djvu::, ::*.pdf::, ::*.htm,,*.html,,**.[sx]html,,*.xml::'
+set classify+=' ::../::, ::*.sh::, ::*.[hc]pp::, ::*.[hc]::, ::/^copying|license$/::, ::.git/,,*.git/::, ::*.epub,,*.fb2,,*.djvu::, ::*.pdf::, ::*.htm,,*.html,,**.[sx]html,,*.xml::, ::*text,,*.txt::'
 " archives
 set classify+=' ::*.7z,,*.ace,,*.arj,,*.bz2,,*.cpio,,*.deb,,*.dz,,*.gz,,*.jar,,*.lzh,,*.lzma,,*.rar,,*.rpm,,*.rz,,*.tar,,*.taz,,*.tb2,,*.tbz,,*.tbz2,,*.tgz,,*.tlz,,*.trz,,*.txz,,*.tz,,*.tz2,,*.xz,,*.z,,*.zip,,*.zoo::'
 " images
@@ -40,9 +41,10 @@ set classify+=' ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.ico,,*.png,,*.ppm,,*.svg,,*.
 " audio
 set classify+=' ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.mid,,*.midi,,*.mp3,,*.mpc,,*.oga,,*.ogg,,*.ogx,,*.ra,,*.ram,,*.rm,,*.spx,,*.wav,,*.wma,,*.ac3::'
 " media
-set classify+=' ::*.avi,,*.ts,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mkv,,*.mov,,*.mp4,,*.flv,,*.mp4v,,*.mpeg,,*.mpg,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.wmv,,*.xvid::'
+set classify+=' ::*.avi,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mkv,,*.mov,,*.mp4,,*.flv,,*.mp4v,,*.mpeg,,*.mpg,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.wmv,,*.xvid::'
 " office files
+set classify+=' ::*.go::, ::*.js::,󰛦 ::*.ts::, ::*.css::, ::*.yml,,*.yaml::, ::*.lua::,󰌠 ::*.py::, ::*.vim::, :: *.sol::, ::*.json*::, ::*.[jt]sx::, :: *.vue::'
 set classify+=' ::*.doc,,*.docx::, ::*.xls,,*.xls[mx]::, ::*.pptx,,*.ppt::'
-set classify+=' ::*.go::, ::*js::,󰛦 ::.*ts::, ::*.css::, ::*yml,,*yaml::, ::*lua::'
+set classify+=' ::Makefile::'
 
 nnoremap w :view<cr>

@@ -81,3 +81,9 @@ lsp_config.jsonls.setup({
   capabilities = opts.capabilities,
   opts = opts.jsonls_opts,
 })
+
+lsp_config.templ.setup({
+  on_attach = opts.on_attach,
+  capabilities = opts.capabilities,
+})
+

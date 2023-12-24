@@ -15,7 +15,7 @@ static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
 static const char col_white[]        = "#ffffff";
-static const char col_green[]       = "#b7d0ae";
+static const char col_accent[]       = "#ffe9ec";
 static const char col_black[]       = "#000000";
 static const unsigned int baralpha = 0xDD;
 static const unsigned int borderalpha = OPAQUE;
@@ -26,8 +26,8 @@ static const unsigned int alphas[][3]      = {
 };
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_green, col_black, col_gray2 },
-	[SchemeSel]  = { col_black, col_green,  col_green  },
+	[SchemeNorm] = { col_accent, col_black, col_gray2 },
+	[SchemeSel]  = { col_black, col_accent,  col_accent  },
 };
 
 /* tagging */
@@ -40,6 +40,7 @@ static const Rule rules[] = {
 	 */
 	/* class                instance           title       tags mask     isfloating   monitor */
 	{ "librewolf-default",  "Navigator",       NULL,       2,            0,           -1 },
+	{ "st-256color",        "st",              NULL,       1 << 9,       1,           -1 },
 };
 
 /* layout(s) */
@@ -52,6 +53,7 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
 	{ "[M]",      monocle },
+	// { "><>",      NULL },    /* no layout function means floating behavior */
 };
 
 /* key definitions */
@@ -80,14 +82,16 @@ static const char *vol_mute[] = { "amixer", "-D", "pulse", "sset", "Master", "to
 static const char *brightness_up[] = { "brightnessctl", "set", "+10%", NULL };
 static const char *brightness_down[] = { "brightnessctl", "set", "10-%", NULL };
 
+static const char *htop[] = { "st", "-e", "htop", NULL };
 static const char *browser[] = { "librewolf", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      spawn,          {.v = browser } },
+	{ MODKEY,                       XK_s,      spawn,          {.v = htop } },
 	{ MODKEY,                       XK_r,      spawn,          {.v = rofirun } },
-	{ MODKEY,                       XK_i,      spawn,          {.v = rofiwifi } },
+	{ MODKEY,                       XK_n,      spawn,          {.v = rofiwifi } },
 	{ MODKEY,                       XK_q,      spawn,          {.v = rofipower } },
 	{ MODKEY| ShiftMask,            XK_r,      spawn,          {.v = rofidrun } },
 	{ MODKEY,                       XK_f,      togglebar,      {0} },
@@ -110,6 +114,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
   { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = vol_up} },
   { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = vol_down} },
   { 0,                            XF86XK_AudioMute, spawn, {.v = vol_mute} },
@@ -124,7 +129,6 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
 /* button definitions */

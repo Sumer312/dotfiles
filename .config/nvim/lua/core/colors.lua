@@ -1,4 +1,5 @@
 local palatte = require("core.theme_colors")
+local statusLineTheme = require("core.custom_plugins.custom_statusline.theme")
 
 function ColorMyPencils(color)
   color = color or "kanagawa-wave"
@@ -6,7 +7,7 @@ function ColorMyPencils(color)
   local set = vim.api.nvim_set_hl
 
   set(0, "Normal", { bg = "none" })
-  set(0, "Visual", { bg = palatte.dragonPink, fg = palatte.dragonBlack0 })
+  set(0, "Visual", { bg = palatte.oniViolet2, fg = palatte.dragonBlack0 })
   set(0, "FloatBorder", { fg = palatte.roninYellow })
   set(0, "NormalFloat", { bg = "none" })
   set(0, "Comment", { fg = palatte.katanaGray, italic = true })
@@ -27,8 +28,8 @@ function ColorMyPencils(color)
   set(0, "HarpoonWindow", { fg = palatte.lotusCyan })
   set(0, "HarpoonBorder", { fg = palatte.lotusYellow4 })
 
-  set(0, "OilDir", { fg = palatte.autumnYellow })
-  set(0, "OilFile", { fg = palatte.springGreen })
+  set(0, "OilDir", { fg = palatte.crystalBlue })
+  set(0, "OilFile", { fg = palatte.sakuraPink })
 
   set(0, "TelescopeBorder", { bg = "none", fg = palatte.springGreen })
   set(0, "TelescopeMatching", { bg = "none", fg = palatte.springGreen })
@@ -61,6 +62,8 @@ function ColorMyPencils(color)
   set(0, "PmenuSel", { bg = palatte.roninYellow, fg = palatte.dragonBlack0, bold = true, italic = true })
   set(0, "PmenuThumb", { bg = palatte.waveAqua3, fg = palatte.waveAqua3 })
   set(0, "PmenuSbar", { bg = "none" })
+
+  statusLineTheme.ColorMyLines()
 end
 
 ColorMyPencils("kanagawa-wave")
