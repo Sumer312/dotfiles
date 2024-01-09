@@ -51,7 +51,7 @@ local palette = {
 	boatYellow2 = "#C0A36E",
 	carpYellow = "#E6C384",
 
-	sakuraPink = "#D27E99",
+	sakuraPink = "#ebbcba",
 	waveRed = "#E46876",
 	peachRed = "#FF5D62",
 	surimiOrange = "#FFA066",

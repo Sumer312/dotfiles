@@ -1,5 +1,6 @@
 return {
   -- My plugins here
+
   -- Colorschemes
   "sainnhe/sonokai",
   "folke/tokyonight.nvim",
@@ -33,6 +34,7 @@ return {
   "mbbill/undotree",
   "karb94/neoscroll.nvim",
   "https://github.com/nvim-treesitter/nvim-treesitter-context",
+  "folke/trouble.nvim",
   { "christoomey/vim-tmux-navigator", lazy = false },
   {
     "nvim-tree/nvim-web-devicons",
@@ -59,14 +61,6 @@ return {
           ["yaml"] = {
             icon = "",
             name = "yaml",
-          },
-          ["exe"] = {
-            icon = "",
-            name = "exe",
-          },
-          ["mod"] = {
-            icon = "󰕳",
-            name = "mod",
           },
           ["d.ts"] = {
             icon = "󰛦",

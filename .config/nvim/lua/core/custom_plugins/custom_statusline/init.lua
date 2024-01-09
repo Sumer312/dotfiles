@@ -44,7 +44,7 @@ Statusline.inactive = function()
   }
 end
 
-vim.go.laststatus = 2
+vim.go.laststatus = 3
 
 vim.cmd([[
   augroup Statusline

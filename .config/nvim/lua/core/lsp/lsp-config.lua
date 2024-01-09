@@ -44,6 +44,7 @@ lsp_config.dockerls.setup({
 lsp_config.html.setup({
   on_attach = opts.on_attach,
   capabilities = opts.capabilities,
+  filetypes = { "html", "templ" },
 })
 
 lsp_config.cssls.setup({
@@ -87,3 +88,9 @@ lsp_config.templ.setup({
   capabilities = opts.capabilities,
 })
 
+lsp_config.htmx.setup({
+  on_attach = opts.on_attach,
+  capabilities = opts.capabilities,
+  filetypes = { "html", "templ" },
+  cmd = { "htmx-lsp" }
+})

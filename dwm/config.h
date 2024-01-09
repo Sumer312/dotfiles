@@ -2,7 +2,7 @@
 
 #include <X11/XF86keysym.h>
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int gappx     = 8;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -15,7 +15,7 @@ static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
 static const char col_white[]        = "#ffffff";
-static const char col_accent[]       = "#ffe9ec";
+static const char col_accent[]       = "#daf7a6";
 static const char col_black[]       = "#000000";
 static const unsigned int baralpha = 0xDD;
 static const unsigned int borderalpha = OPAQUE;
@@ -26,8 +26,8 @@ static const unsigned int alphas[][3]      = {
 };
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_accent, col_black, col_gray2 },
-	[SchemeSel]  = { col_black, col_accent,  col_accent  },
+	[SchemeNorm] = { col_white, col_black, col_gray2 },
+	[SchemeSel]  = { col_black, col_white,  col_white  },
 };
 
 /* tagging */
@@ -76,11 +76,11 @@ static const char *rofidrun[] = { "/home/sumer/Documents/bashScripts/rofi.sh", "
 static const char *rofipower[] = { "/home/sumer/Documents/bashScripts/rofi.sh", "-q", NULL };
 static const char *rofiwifi[] = { "/home/sumer/Documents/bashScripts/rofi.sh", "-i",  NULL };
 
-static const char *vol_down[] = { "amixer", "-D", "pulse", "sset", "Master", "5%-", NULL };
-static const char *vol_up[] = { "amixer", "-D", "pulse", "sset", "Master", "5%+", NULL };
-static const char *vol_mute[] = { "amixer", "-D", "pulse", "sset", "Master", "toggle", NULL };
-static const char *brightness_up[] = { "brightnessctl", "set", "+10%", NULL };
-static const char *brightness_down[] = { "brightnessctl", "set", "10-%", NULL };
+static const char *vol_down[] = { "/home/sumer/Documents/bashScripts/volumeNotification.sh", "down", NULL };
+static const char *vol_up[] = { "/home/sumer/Documents/bashScripts/volumeNotification.sh", "up", NULL };
+static const char *vol_mute[] = { "/home/sumer/Documents/bashScripts/volumeNotification.sh", "mute", NULL };
+static const char *brightness_up[] = {"/home/sumer/Documents/bashScripts/brightnessNotification.sh", "up", NULL };
+static const char *brightness_down[] = {"/home/sumer/Documents/bashScripts/brightnessNotification.sh", "down", NULL };
 
 static const char *htop[] = { "st", "-e", "htop", NULL };
 static const char *browser[] = { "librewolf", NULL };

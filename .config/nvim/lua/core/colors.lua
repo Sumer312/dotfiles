@@ -28,7 +28,7 @@ function ColorMyPencils(color)
   set(0, "HarpoonWindow", { fg = palatte.lotusCyan })
   set(0, "HarpoonBorder", { fg = palatte.lotusYellow4 })
 
-  set(0, "OilDir", { fg = palatte.crystalBlue })
+  set(0, "OilDir", { fg = "#daf7a6" })
   set(0, "OilFile", { fg = palatte.sakuraPink })
 
   set(0, "TelescopeBorder", { bg = "none", fg = palatte.springGreen })
@@ -57,12 +57,14 @@ function ColorMyPencils(color)
   set(0, "GitSignsAdd", { fg = palatte.springGreen, bg = "none" })
   set(0, "GitSignsChange", { fg = palatte.roninYellow, bg = "none" })
   set(0, "GitSignsDelete", { fg = palatte.samuraiRed, bg = "none" })
+  set(0, "GitSignsUntracked", { fg = palatte.springBlue, bg = "none" })
 
   set(0, "Pmenu", { bg = "none" })
   set(0, "PmenuSel", { bg = palatte.roninYellow, fg = palatte.dragonBlack0, bold = true, italic = true })
   set(0, "PmenuThumb", { bg = palatte.waveAqua3, fg = palatte.waveAqua3 })
   set(0, "PmenuSbar", { bg = "none" })
 
+  set(0, "LspInfoBorder", { bg = "none", fg = palatte.roninYellow })
   statusLineTheme.ColorMyLines()
 end
 
