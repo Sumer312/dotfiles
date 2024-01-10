@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 i3lockmore --blur -e --lock-icon ~/i3lockmore/lock.png
 # if [[ -z $(xrandr | grep "HDMI-A-0 disconnected") ]]; then

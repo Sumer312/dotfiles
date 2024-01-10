@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 
-function send_notification() {
+send_notification() {
   volume="$(pamixer --get-volume)"
   if $(pamixer --get-mute); then
     dunstify -a "changeVolume" -u normal -r 9992 -h int:value:"$volume" "󰕾 Volume:${volume}%" "󰖁 Muted" -t 2000

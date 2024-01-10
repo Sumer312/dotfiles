@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 
 xinput set-prop "ELAN071A:00 04F3:30FD Touchpad" "libinput Tapping Enabled" 1
 for i in $(echo $(xinput | grep -i Touchpad))
 do
-  if [[ -n $(echo "$i" | grep id) ]];then
+  if [ -n "$(echo "$i" | grep id)" ];then
     arg1=$(echo "$i" | grep id | awk -F "=" '{print $2}')
     echo "$arg1"
     temp=$(xinput list-props "$arg1" | awk '/libinput Natural Scrolling Enabled [(]/{print $0}')

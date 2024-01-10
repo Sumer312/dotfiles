@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 
-function send_notification() {
+send_notification() {
   brightness="$(brightnessctl g)"
   brightness100=$(echo "scale=2; ($brightness/255) * 100" | bc)
   dunstify -a "changeBrightness" -u normal -r 9993 -h int:value:"$brightness100" "󰃟 Brightness:${brightness}" -t 2000

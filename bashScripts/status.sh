@@ -1,34 +1,85 @@
-#!/bin/bash
+#!/bin/sh
 
-function send_notification() {
+send_notification() {
   dunstify -a "batteryNotification" -u critical -r 9994  "󰂃 Plug in charger" -t 2000 &
   mpv --no-video /home/sumer/Music/message-incoming-132126.mp3 &
   wait
 }
 
 while :; do
-  if [[ -z $(nmcli | grep wlo1: | awk '{print $4}') ]] then
-    if [[ -z $(acpi | grep Charging) ]] then
-      if [[ $(acpi | awk -F "%" '{print $1}' | awk -F "," '{print $2}') -lt '20' ]]; then
-        dwm -s "  $(date +"%H:%M")   $(date +"%a %d-%m-%y")  󰤭 $(nmcli | grep wlo1: | awk '{print $2}')   $(acpi -t | awk  '{print $4}') 󰔄  󰂃$(acpi | awk -F"," '{print $2}') "
-        send_notification 
-      else 
-        dwm -s "  $(date +"%H:%M")   $(date +"%a %d-%m-%y")  󰤭 $(nmcli | grep wlo1: | awk '{print $2}')   $(acpi -t | awk  '{print $4}') 󰔄  󱊣$(acpi | awk -F"," '{print $2}') "
-      fi
-    else 
-      dwm -s "  $(date +"%H:%M")   $(date +"%a %d-%m-%y")  󰤭 $(nmcli | grep wlo1: | awk '{print $2}')   $(acpi -t | awk  '{print $4}') 󰔄  󰂄$(acpi | awk -F"," '{print $2}') "
+  bool_network=$(nmcli | grep wlo1: | awk '{print $2}')
+  bool_wifi_name=$(nmcli | grep wlo1: | awk '{print $4}')
+  bool_charging=$(acpi | grep Charging)
+  bool_low_battery_check=$(acpi | awk -F "%" '{print $1}' | awk -F "," '{print $2}')
+
+  var_time=$(date +"%H:%M")
+  var_date=$(date +"%a %d-%m-%y")
+  var_temp=$(acpi -t | awk '{print $4}')
+  var_battery=$(acpi | awk -F "," '{print $2}')
+  var_wifi=$bool_wifi_name
+
+  wifi_speed=$(awk 'NR==3 {print $3}' /proc/net/wireless | awk -F "." '{print $1}')
+
+  icon_battery=""
+  icon_wifi="󰤨"
+  icon_time=""
+  icon_date=""
+  icon_temp=""
+
+  if [ -n "$bool_wifi_name" ]; then
+    if [ "$wifi_speed" -le 50 ]; then
+      icon_wifi="󰤨"
     fi
+
+    if [ "$wifi_speed" -le 60 ] && [ "$wifi_speed" -ge 51 ]; then
+      icon_wifi="󰤥"
+    fi
+
+    if [ "$wifi_speed" -le 70 ] && [ "$wifi_speed" -ge 61 ]; then
+      icon_wifi="󰤢"
+    fi
+
+    if [ "$wifi_speed" -ge 71 ]; then
+      icon_wifi="󰤟"
+    fi
+  else
+    icon_wifi="󰤮"
+    var_wifi=$bool_network
+  fi
+
+  if [ -n "$bool_charging" ]; then
+    icon_battery=""
   else 
-    if [[ -z $(acpi | grep Charging) ]] then
-      if [[ $(acpi | awk -F "%" '{print $1}' | awk -F "," '{print $2}') -lt '20' ]]; then
-        dwm -s "  $(date +"%H:%M")   $(date +"%a %d-%m-%y")  󰤨 $(nmcli | grep wlo1: | awk '{print $4}')   $(acpi -t | awk  '{print $4}') 󰔄  󰂃$(acpi | awk -F"," '{print $2}') "
-        send_notification 
-      else 
-        dwm -s "  $(date +"%H:%M")   $(date +"%a %d-%m-%y")  󰤨 $(nmcli | grep wlo1: | awk '{print $4}')   $(acpi -t | awk  '{print $4}') 󰔄  󱊣$(acpi | awk -F"," '{print $2}') "
-      fi
-    else 
-      dwm -s "  $(date +"%H:%M")   $(date +"%a %d-%m-%y")  󰤨 $(nmcli | grep wlo1: | awk '{print $4}')   $(acpi -t | awk  '{print $4}') 󰔄  󰂄$(acpi | awk -F"," '{print $2}') "
+    if [ "$bool_low_battery_check" -ge 80 ]; then
+      icon_battery=""
+    fi
+
+    if [ "$bool_low_battery_check" -lt 80 ] && [ "$bool_low_battery_check" -ge 60 ]; then
+      icon_battery=""
+    fi
+
+    if [ "$bool_low_battery_check" -lt 60 ] && [ "$bool_low_battery_check" -ge 40 ]; then
+      icon_battery=""
+    fi
+
+    if [ "$bool_low_battery_check" -lt 40 ] && [ "$bool_low_battery_check" -ge 20 ]; then
+      icon_battery=""
+    fi
+
+    if [ "$bool_low_battery_check" -lt 20 ]; then
+      icon_battery=""
     fi
   fi
-  sleep 30s
+
+  while [ -z "$bool_charging" ] && [ "$bool_low_battery_check" -lt 20 ]; do
+    bool_charging=$(acpi | grep Charging)
+    if [ -n "$bool_charging" ]; then
+      break
+    fi
+    dwm -s " $icon_time $var_time  $icon_date $var_date  $icon_wifi $var_wifi  $icon_temp $var_temp 󰔄  $icon_battery $var_battery "
+    send_notification 
+    sleep 30s
+  done
+  dwm -s " $icon_time $var_time  $icon_date $var_date  $icon_wifi $var_wifi  $icon_temp $var_temp 󰔄  $icon_battery $var_battery "
+  sleep 10s
 done
