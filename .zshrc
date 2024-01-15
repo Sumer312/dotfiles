@@ -8,6 +8,8 @@ fi
 HISTFILE=~/.zsh_history
 SAVEHIST=10000
 HISTSIZE=10000
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # unsetopt menu_complete
 # unsetopt flowcontrol
@@ -40,16 +42,13 @@ HISTSIZE=10000
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-if [[ $(echo "$TERM") == "xterm-kitty" ]]; then 
-  alias icat="kitty +kitten icat"
-  alias toggle="/home/sumer/Documents/bashScripts/themeToggle.sh"
-fi
-
 alias py="python3"
-alias goose="~/go/bin/goose"
+# alias goose="/home/sumer/go/bin/goose"
+# alias templ="/home/sumer/go/bin/templ"
 alias lock="~/Documents/bashScripts/lock.sh"
 alias audio="mpv --no-video"
 alias l="lsd -lF"
+alias cat="batcat"
 
 # Flatpak
 alias firefox="flatpak run org.mozilla.firefox"
@@ -69,9 +68,6 @@ bindkey '^[j' history-substring-search-down
 bindkey '^ ' autosuggest-accept
 
 export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
 LANG="en_IN.utf8"
@@ -80,3 +76,6 @@ colorscript -r
 #Enable vi
 # set -o vi
 # bindkey -v
+
+# Created by `pipx` on 2023-11-24 14:56:54
+export PATH="$PATH:/home/sumer/.local/bin"

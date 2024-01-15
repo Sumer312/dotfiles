@@ -10,15 +10,15 @@ while :; do
   bool_network=$(nmcli | grep wlo1: | awk '{print $2}')
   bool_wifi_name=$(nmcli | grep wlo1: | awk '{print $4}')
   bool_charging=$(acpi | grep Charging)
-  bool_low_battery_check=$(acpi | awk -F "%" '{print $1}' | awk -F "," '{print $2}')
+  bool_battery_check=$(acpi | grep "Battery 0"  | awk -F "%" '{print $1}' | awk -F "," '{print $2}')
 
   var_time=$(date +"%H:%M")
   var_date=$(date +"%a %d-%m-%y")
   var_temp=$(acpi -t | awk '{print $4}')
-  var_battery=$(acpi | awk -F "," '{print $2}')
+  var_battery=$(acpi | grep "Battery 0" | awk -F "," '{print $2}')
   var_wifi=$bool_wifi_name
 
-  wifi_speed=$(awk 'NR==3 {print $3}' /proc/net/wireless | awk -F "." '{print $1}')
+  wifi_speed=$(awk 'NR==3 {print $4}' /proc/net/wireless | awk -F "." '{print $1}')
 
   icon_battery=""
   icon_wifi="󰤨"
@@ -27,19 +27,13 @@ while :; do
   icon_temp=""
 
   if [ -n "$bool_wifi_name" ]; then
-    if [ "$wifi_speed" -le 50 ]; then
+    if [ "$wifi_speed" -ge -50 ]; then
       icon_wifi="󰤨"
-    fi
-
-    if [ "$wifi_speed" -le 60 ] && [ "$wifi_speed" -ge 51 ]; then
+    elif [ "$wifi_speed" -ge -60 ] && [ "$wifi_speed" -le -51 ]; then
       icon_wifi="󰤥"
-    fi
-
-    if [ "$wifi_speed" -le 70 ] && [ "$wifi_speed" -ge 61 ]; then
+    elif [ "$wifi_speed" -ge -70 ] && [ "$wifi_speed" -le -61 ]; then
       icon_wifi="󰤢"
-    fi
-
-    if [ "$wifi_speed" -ge 71 ]; then
+    elif [ "$wifi_speed" -le -71 ]; then
       icon_wifi="󰤟"
     fi
   else
@@ -50,28 +44,20 @@ while :; do
   if [ -n "$bool_charging" ]; then
     icon_battery=""
   else 
-    if [ "$bool_low_battery_check" -ge 80 ]; then
+    if [ "$bool_battery_check" -ge 80 ]; then
       icon_battery=""
-    fi
-
-    if [ "$bool_low_battery_check" -lt 80 ] && [ "$bool_low_battery_check" -ge 60 ]; then
+    elif [ "$bool_battery_check" -lt 80 ] && [ "$bool_battery_check" -ge 60 ]; then
       icon_battery=""
-    fi
-
-    if [ "$bool_low_battery_check" -lt 60 ] && [ "$bool_low_battery_check" -ge 40 ]; then
+    elif [ "$bool_battery_check" -lt 60 ] && [ "$bool_battery_check" -ge 40 ]; then
       icon_battery=""
-    fi
-
-    if [ "$bool_low_battery_check" -lt 40 ] && [ "$bool_low_battery_check" -ge 20 ]; then
+    elif [ "$bool_battery_check" -lt 40 ] && [ "$bool_battery_check" -ge 20 ]; then
       icon_battery=""
-    fi
-
-    if [ "$bool_low_battery_check" -lt 20 ]; then
+    elif [ "$bool_battery_check" -lt 20 ]; then
       icon_battery=""
     fi
   fi
 
-  while [ -z "$bool_charging" ] && [ "$bool_low_battery_check" -lt 20 ]; do
+  while [ -z "$bool_charging" ] && [ "$bool_battery_check" -lt 20 ]; do
     bool_charging=$(acpi | grep Charging)
     if [ -n "$bool_charging" ]; then
       break
@@ -81,5 +67,5 @@ while :; do
     sleep 30s
   done
   dwm -s " $icon_time $var_time  $icon_date $var_date  $icon_wifi $var_wifi  $icon_temp $var_temp 󰔄  $icon_battery $var_battery "
-  sleep 10s
+  sleep 5s
 done
