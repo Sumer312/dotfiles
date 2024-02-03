@@ -1,86 +1,65 @@
 local M = {}
-function M.update_mode_colors()
+function M.colors()
   local current_mode = vim.api.nvim_get_mode().mode
-  local mode_color = "%#StatuslineAccent#"
+  local color = "%#Accent#"
   if current_mode == "n" then
-    mode_color = "%#StatuslineNormalAccent#"
+    color = "%#NormalAccent#"
   elseif current_mode == "i" or current_mode == "ic" then
-    mode_color = "%#StatuslineInsertAccent#"
-  elseif current_mode == "niI" or current_mode == "ic" then
-    mode_color = "%#StatuslineInsertAccent#"
+    color = "%#InsertAccent#"
+  elseif current_mode == "niI" then
+    color = "%#INormalAccent#"
   elseif current_mode == "v" or current_mode == "V" or current_mode == "" then
-    mode_color = "%#StatuslineVisualAccent#"
+    color = "%#VisualAccent#"
   elseif current_mode == "R" then
-    mode_color = "%#StatuslineReplaceAccent#"
+    color = "%#ReplaceAccent#"
   elseif current_mode == "c" then
-    mode_color = "%#StatuslineCmdLineAccent#"
+    color = "%#CmdLineAccent#"
   elseif current_mode == "t" then
-    mode_color = "%#StatuslineTerminalAccent#"
+    color = "%#TerminalAccent#"
   end
-  return mode_color
+  return color
 end
 
-function M.update_extra_colors()
+function M.inverse_colors()
   local current_mode = vim.api.nvim_get_mode().mode
-  local extra_color = "%=%#StatuslineExtra#"
+  local inverse_color = "%#Inverse#"
   if current_mode == "n" then
-    extra_color = "%=%#StatuslineNormalExtra#"
+    inverse_color = "%#NormalInverse#"
   elseif current_mode == "i" or current_mode == "ic" then
-    extra_color = "%=%#StatuslineInsertExtra#"
-  elseif current_mode == "niI" or current_mode == "ic" then
-    extra_color = "%#StatuslineInsertAccent#"
+    inverse_color = "%#InsertInverse#"
+  elseif current_mode == "niI" then
+    inverse_color = "%#INormalInverse#"
   elseif current_mode == "v" or current_mode == "V" or current_mode == "" then
-    extra_color = "%=%#StatuslineVisualExtra#"
+    inverse_color = "%#VisualInverse#"
   elseif current_mode == "R" then
-    extra_color = "%=%#StatuslineReplaceExtra#"
+    inverse_color = "%#ReplaceInverse#"
   elseif current_mode == "c" then
-    extra_color = "%=%#StatuslineCmdLineExtra#"
+    inverse_color = "%#CmdLineInverse#"
   elseif current_mode == "t" then
-    extra_color = "%=%#StatuslineTerminalExtra#"
+    inverse_color = "%#TerminalInverse#"
   end
-  return extra_color
+  return inverse_color
 end
 
-function M.update_lsp_colors()
+function M.black_bg_colors()
   local current_mode = vim.api.nvim_get_mode().mode
-  local lsp_color = "%=%#StatuslineLsp#"
+  local blach_bg_color = "%#BlackBg#"
   if current_mode == "n" then
-    lsp_color = "%=%#StatuslineNormalLsp#"
+    blach_bg_color = "%#NormalBlackBg#"
   elseif current_mode == "i" or current_mode == "ic" then
-    lsp_color = "%=%#StatuslineInsertLsp#"
-  elseif current_mode == "niI" or current_mode == "ic" then
-    lsp_color = "%#StatuslineInsertAccent#"
+    blach_bg_color = "%#InsertBlackBg#"
+  elseif current_mode == "niI" then
+    blach_bg_color = "%#INormalBlackBg#"
   elseif current_mode == "v" or current_mode == "V" or current_mode == "" then
-    lsp_color = "%=%#StatuslineVisualLsp#"
+    blach_bg_color = "%#VisualBlackBg#"
   elseif current_mode == "R" then
-    lsp_color = "%=%#StatuslineReplaceLsp#"
+    blach_bg_color = "%#ReplaceBlackBg#"
   elseif current_mode == "c" then
-    lsp_color = "%=%#StatuslineCmdLineLsp#"
+    blach_bg_color = "%#CmdBlackBg#"
   elseif current_mode == "t" then
-    lsp_color = "%=%#StatuslineTerminalLsp#"
+    blach_bg_color = "%#TerminalBlackBg#"
   end
-  return lsp_color
-end
-
-function M.update_file_colors()
-  local current_mode = vim.api.nvim_get_mode().mode
-  local extra_color = "%#StatuslineFile#"
-  if current_mode == "n" then
-    extra_color = "%#StatuslineNormalFile#"
-  elseif current_mode == "i" or current_mode == "ic" then
-    extra_color = "%#StatuslineInsertFile#"
-  elseif current_mode == "niI" or current_mode == "ic" then
-    extra_color = "%#StatuslineInsertFile#"
-  elseif current_mode == "v" or current_mode == "V" or current_mode == "" then
-    extra_color = "%#StatuslineVisualFile#"
-  elseif current_mode == "R" then
-    extra_color = "%#StatuslineReplaceFile#"
-  elseif current_mode == "c" then
-    extra_color = "%#StatuslineCmdLineFile#"
-  elseif current_mode == "t" then
-    extra_color = "%#StatuslineTerminalFile#"
-  end
-  return extra_color
+  return blach_bg_color
 end
 
 return M

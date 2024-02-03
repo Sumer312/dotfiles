@@ -3,12 +3,6 @@ local git = function()
   if not git_info or git_info.head == "" then
     return ""
   end
-local seperator = "⏽"
-  return table.concat {
-    "  ",
-    git_info.head,
-    " ",
-    seperator
-  }
+  return string.format("  %s ", git_info.head)
 end
 return git

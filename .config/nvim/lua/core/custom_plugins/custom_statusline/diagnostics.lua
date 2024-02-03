@@ -1,4 +1,4 @@
-local update_mode_colors = require("core.custom_plugins.custom_statusline.colors").update_mode_colors
+local colors = require("core.custom_plugins.custom_statusline.colors").colors
 
 local M = {}
 
@@ -19,7 +19,7 @@ M.options = {
   sources = { 'nvim_diagnostic', 'coc' },
   sections = { 'error', 'warn', 'info', 'hint' },
 }
-function M.lsp()
+function M.diagnostics()
   local count = {}
   local levels = {
     errors = "Error",
@@ -58,19 +58,19 @@ function M.lsp()
   else
     local res = ""
     if count["errors"] ~= 0 then
-      errors = string.format("%s %s%d", update_mode_colors(), M.symbols.icons.error, count["errors"])
+      errors = string.format("%s %s%d", colors(), M.symbols.icons.error, count["errors"])
       res = string.format("%s", errors)
     end
     if count["warnings"] ~= 0 then
-      warnings = string.format("%s %s%d", update_mode_colors(), M.symbols.icons.warn, count["warnings"])
+      warnings = string.format("%s %s%d", colors(), M.symbols.icons.warn, count["warnings"])
       res = string.format("%s%s", res, warnings)
     end
     if count["hints"] ~= 0 then
-      hints = string.format("%s %s%d", update_mode_colors(), M.symbols.icons.hint, count["hints"])
+      hints = string.format("%s %s%d", colors(), M.symbols.icons.hint, count["hints"])
       res = string.format("%s%s", res, hints)
     end
     if count["info"] ~= 0 then
-      info = string.format("%s %s%d", update_mode_colors(), M.symbols.icons.info, count["info"])
+      info = string.format("%s %s%d", colors(), M.symbols.icons.info, count["info"])
       res = string.format("%s%s", res, info)
     end
 

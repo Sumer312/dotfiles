@@ -69,7 +69,7 @@ let g:python3_host_prog = '/usr/bin/python3'
 let g:loaded_python3_provider = 0
 ]])
 vim.cmd(
-  [[let g:startify_bookmarks = [{"A": '~/.zshrc'},{"B" : '~/.bashrc'}, {"C" : "~/.config/nvim/lua/core/colors.lua"}, {"I": "~/.config/nvim/init.lua"}, {"K": "~/.config/alacritty/alacritty.yml"}, {"J": "~/.config/awesome/rc.lua"} ]
+  [[let g:startify_bookmarks = [{"A": '~/.zshrc'},{"B" : '~/.bashrc'}, {"C" : "~/.config/nvim/lua/core/colors.lua"}, {"I": "~/.config/nvim/init.lua"}, {"K": "~/.config/alacritty/alacritty.yml"}, {"J": "/home/sumer/dwm/config.h"} ]
 ]]
 )
 

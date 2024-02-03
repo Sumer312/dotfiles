@@ -19,7 +19,7 @@
     # will be ignored.
     follow = none
 
-    highlight = "#FFF3DA"
+    highlight = "#dae6ff"
 
     ### Geometry ###
 
@@ -51,7 +51,7 @@
 
     # Set the progress bar height. This includes the frame, so make sure
     # it's at least twice as big as the frame width.
-    progress_bar_height = 10
+    progress_bar_height = 5
 
     # Set the frame width of the progress bar
     progress_bar_frame_width = 1
@@ -70,7 +70,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.). (X11 only)
-    transparency = 10
+    transparency = 0
 
     # Draw a line of "separator_height" pixel height between two
     # notifications.
@@ -310,7 +310,7 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#000000"
+    background = "#000000BB"
     foreground = "#FF9E3B"
     frame_color = "#FF9E3B"
     timeout = 10
@@ -318,7 +318,7 @@
     #default_icon = /path/to/icon
 
 [urgency_normal]
-    background = "#000000"
+    background = "#000000BB"
     foreground = "#FFF3DA"
     frame_color = "#FFF3DA"
     timeout = 10
@@ -326,7 +326,7 @@
     #default_icon = /path/to/icon
 
 [urgency_critical]
-    background = "#000000"
+    background = "#000000BB"
     foreground = "#e82424"
     frame_color = "#e82424"
     timeout = 10

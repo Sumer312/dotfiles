@@ -27,7 +27,6 @@ return {
   "https://github.com/stevearc/oil.nvim",
   "ThePrimeagen/harpoon",
   "/folke/zen-mode.nvim",
-  "https://github.com/kdheepak/lazygit.nvim",
   "akinsho/toggleterm.nvim",
   "ThePrimeagen/vim-be-good",
   "https://github.com/gelguy/wilder.nvim",
@@ -89,7 +88,6 @@ return {
     end,
   },
   "ap/vim-css-color",
-  "nvim-lualine/lualine.nvim",
 
   --Cmp plugins
   "hrsh7th/nvim-cmp",
@@ -134,5 +132,7 @@ return {
 --[[ "https://github.com/kristijanhusak/vim-dadbod-ui", ]]
 --[[ "https://github.com/tpope/vim-fugitive", ]]
 --[[ "https://github.com/gen740/SmoothCursor.nvim", ]]
+--[[ "https://github.com/kdheepak/lazygit.nvim", ]]
 --[[ "windwp/nvim-autopairs", ]]
 --[[ "nvim-telescope/telescope-media-files.nvim", ]]
+  --[[ "nvim-lualine/lualine.nvim", ]]

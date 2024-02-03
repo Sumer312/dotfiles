@@ -62,7 +62,7 @@ local function lsp_keymaps(bufnr)
   keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float(0, { focusable = false })<CR>", opts)
   keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
-  keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<cr>", opts)
+  keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<CR>", opts)
   keymap(bufnr, "n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
   --[[ keymap(bufnr, "n", "<leader>dl", "<cmd>Telescope diagnostics theme=ivy<cr>", opts) ]]
   keymap(bufnr, "n", "<leader>dj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", opts)

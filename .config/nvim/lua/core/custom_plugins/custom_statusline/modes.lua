@@ -2,11 +2,7 @@ local M = {}
 
 M.modes = {
   ['n']     = 'NORMAL',
-  ['no']    = 'O-PENDING',
-  ['nov']   = 'O-PENDING',
-  ['noV']   = 'O-PENDING',
-  ['no\22'] = 'O-PENDING',
-  ['niI']   = 'I-NORMAL',
+  ['niI']   = 'INSERT (NORMAL)',
   ['niR']   = 'NORMAL',
   ['niV']   = 'NORMAL',
   ['nt']    = 'NORMAL',
@@ -44,7 +40,7 @@ function M.get_mode()
   if M.modes[current_mode] == nil then
     return current_mode
   end
-  return string.format("  %s ", M.modes[current_mode]):upper()
+  return string.format("  %s ", M.modes[current_mode])
 end
 
 return M

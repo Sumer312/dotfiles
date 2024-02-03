@@ -16,6 +16,12 @@ lsp_config.lua_ls.setup({
   settings = opts.lua_ls_opts,
 })
 
+lsp_config.bashls.setup({
+  on_attach = opts.on_attach,
+  capabilities = opts.capabilities,
+})
+
+
 lsp_config.gopls.setup({
   on_attach = opts.on_attach,
   capabilities = opts.capabilities,

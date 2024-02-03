@@ -1,3 +1,14 @@
+" The following macros can be used in a command
+" %a is replaced with the user arguments.
+" %c the current file under the cursor.
+" %C the current file under the cursor in the other directory.
+" %f the current selected file, or files.
+" %F the current selected file, or files in the other directory.
+" %b same as %f %F.
+" %d the current directory name.
+" %D the other window directory name.
+" %m run the command in a menu window
+
 set vicmd=nvim
 set syscalls
 set trash
@@ -8,13 +19,13 @@ set wildmenu
 set wildstyle=popup
 set history=100
 set incsearch
-set runexec
+set norunexec
+set ignorecase
+set smartcase
 
 colorscheme near_default
 
 set statusline=" %1*%A %20u:%-7g %=%20d "
-
-" set statusline="%1*%A %2* %u:%g %1* %10E %2*   %d %1* %{system('~/.config/vifm/scripts/fileinfo.sh ' . expand('%c'))}%=󰋊 %a"
 
 filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c
 
@@ -32,19 +43,12 @@ filextype *.mp4,*.mp3
 filextype *.mp3
         \ mpv --no-video %f
 
-" file types
 set classify='󰉋 :dir:/, :exe:, :reg:, :link:'
-" various file names
 set classify+=' ::../::, ::*.sh::, ::*.[hc]pp::, ::*.[hc]::, ::/^copying|license$/::, ::.git/,,*.git/::, ::*.epub,,*.fb2,,*.djvu::, ::*.pdf::, ::*.htm,,*.html,,**.[sx]html,,*.xml::, ::*text,,*.txt::'
-" archives
 set classify+=' ::*.7z,,*.ace,,*.arj,,*.bz2,,*.cpio,,*.deb,,*.dz,,*.gz,,*.jar,,*.lzh,,*.lzma,,*.rar,,*.rpm,,*.rz,,*.tar,,*.taz,,*.tb2,,*.tbz,,*.tbz2,,*.tgz,,*.tlz,,*.trz,,*.txz,,*.tz,,*.tz2,,*.xz,,*.z,,*.zip,,*.zoo::'
-" images
 set classify+=' ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.ico,,*.png,,*.ppm,,*.svg,,*.svgz,,*.tga,,*.tif,,*.tiff,,*.xbm,,*.xcf,,*.xpm,,*.xspf,,*.xwd::'
-" audio
 set classify+=' ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.mid,,*.midi,,*.mp3,,*.mpc,,*.oga,,*.ogg,,*.ogx,,*.ra,,*.ram,,*.rm,,*.spx,,*.wav,,*.wma,,*.ac3::'
-" media
 set classify+=' ::*.avi,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mkv,,*.mov,,*.mp4,,*.flv,,*.mp4v,,*.mpeg,,*.mpg,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.wmv,,*.xvid::'
-" office files
 set classify+=' ::*.go::, ::*.js::,󰛦 ::*.ts::, ::*.css::, ::*.yml,,*.yaml::, ::*.lua::,󰌠 ::*.py::, ::*.vim::, :: *.sol::, ::*.json*::, ::*.[jt]sx::, :: *.vue::'
 set classify+=' ::*.doc,,*.docx::, ::*.xls,,*.xls[mx]::, ::*.pptx,,*.ppt::'
 set classify+=' ::Makefile::'

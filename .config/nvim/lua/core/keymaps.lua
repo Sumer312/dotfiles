@@ -20,8 +20,8 @@ keymap("n", "<leader>lg", "<cmd>Telescope live_grep theme=ivy<CR>", opts)
 
 keymap("n", "<leader>dl", "<cmd>TroubleToggle<CR>", opts)
 
-keymap("n", "<leader>lzg", "<cmd>LazyGit<CR>", opts)
-keymap("n", "<leader>lit", "<cmd>lua ColorMyPencils('rose-pine-dawn')<CR>", opts)
+keymap("n", "<leader>lzg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
+keymap("n", "<leader>lit", "<cmd>lua ColorMyPencils('rose-pine-main')<CR>", opts)
 keymap("n", "<leader>dak", "<cmd>lua ColorMyPencils('kanagawa-wave')<CR>", opts)
 keymap("n", "<A-Return>", "o<Esc>", opts)
 keymap("n", "<leader>e", "<cmd>:Oil<CR>", opts)
