@@ -19,7 +19,7 @@
     # will be ignored.
     follow = none
 
-    highlight = "#dae6ff"
+    highlight = "#FFF3DA"
 
     ### Geometry ###
 

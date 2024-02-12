@@ -1,102 +1,40 @@
 return {
-  -- My plugins here
-
   -- Colorschemes
   "sainnhe/sonokai",
   "folke/tokyonight.nvim",
   "sainnhe/everforest",
-  {
-    "rebelot/kanagawa.nvim",
-    config = function()
-      require("kanagawa").setup({
-        compile = true,
-        undercurl = true,
-        transparent = true,
-      })
-    end,
-  },
-  {
-    "rose-pine/neovim",
-    name = "rose-pine"
-  },
+  "rebelot/kanagawa.nvim",
+  "rose-pine/neovim",
 
   --Essential
   "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
   "nvim-lua/plenary.nvim",
   "numToStr/Comment.nvim",
-  "https://github.com/stevearc/oil.nvim",
-  "ThePrimeagen/harpoon",
-  "/folke/zen-mode.nvim",
   "akinsho/toggleterm.nvim",
-  "ThePrimeagen/vim-be-good",
-  "https://github.com/gelguy/wilder.nvim",
   "mbbill/undotree",
-  "karb94/neoscroll.nvim",
-  "https://github.com/nvim-treesitter/nvim-treesitter-context",
-  "folke/trouble.nvim",
-  { "christoomey/vim-tmux-navigator", lazy = false },
   {
-    "nvim-tree/nvim-web-devicons",
-    config = function()
-      require("nvim-web-devicons").setup({
-        color_icons = true,
-        override_by_extension = {
-          ["sol"] = {
-            icon = "󰡪",
-            name = "ethereum",
-          },
-          ["templ"] = {
-            icon = "",
-            name = "goTempl",
-          },
-          ["vim"] = {
-            icon = "",
-            name = "vim",
-          },
-          ["yml"] = {
-            icon = "",
-            name = "yaml",
-          },
-          ["yaml"] = {
-            icon = "",
-            name = "yaml",
-          },
-          ["d.ts"] = {
-            icon = "󰛦",
-            name = "definitionTypesctipt",
-          },
-        },
-        override_by_filename = {
-          ["tailwind.config.js"] = {
-            icon = "󱏿",
-            name = "tailwind",
-          },
-          ["yarn.lock"] = {
-            icon = "",
-            name = "yarnLocke",
-          },
-          [".vimrc"] = {
-            icon = "",
-            name = "vimrc",
-          },
-          ["makefile"] = {
-            icon = "",
-            name = "make",
-          },
-        },
-      })
-    end,
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
   },
+  "folke/trouble.nvim",
+
+  --Optional
+  "karb94/neoscroll.nvim",
+  "gelguy/wilder.nvim",
+  "nvim-tree/nvim-web-devicons",
+  "folke/zen-mode.nvim",
+  "ThePrimeagen/vim-be-good",
   "ap/vim-css-color",
+  { "christoomey/vim-tmux-navigator", lazy = false },
 
   --Cmp plugins
   "hrsh7th/nvim-cmp",
   "hrsh7th/cmp-buffer",
   "hrsh7th/cmp-path",
   "hrsh7th/cmp-cmdline",
-  "saadparwaiz1/cmp_luasnip",
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/cmp-nvim-lua",
+  "saadparwaiz1/cmp_luasnip",
 
   --Snippet engine
   "L3MON4D3/LuaSnip",
@@ -109,7 +47,7 @@ return {
 
 
   -- Telescope
-  { "nvim-telescope/telescope.nvim",  version = "0.1.0" },
+  "nvim-telescope/telescope.nvim",
 
   -- Treesitter
   {
@@ -117,6 +55,7 @@ return {
     build = ":TSUpdate",
   },
   "JoosepAlviste/nvim-ts-context-commentstring",
+  "nvim-treesitter/nvim-treesitter-context",
 
   -- Git
   "lewis6991/gitsigns.nvim",
@@ -126,13 +65,10 @@ return {
 }
 
 -- Commented
---[[ "moll/vim-bbye", ]]
 --[[ "https://github.com/tpope/vim-surround", ]]
 --[[ "https://github.com/tpope/vim-dadbod", ]]
 --[[ "https://github.com/kristijanhusak/vim-dadbod-ui", ]]
 --[[ "https://github.com/tpope/vim-fugitive", ]]
---[[ "https://github.com/gen740/SmoothCursor.nvim", ]]
---[[ "https://github.com/kdheepak/lazygit.nvim", ]]
---[[ "windwp/nvim-autopairs", ]]
 --[[ "nvim-telescope/telescope-media-files.nvim", ]]
-  --[[ "nvim-lualine/lualine.nvim", ]]
+--[[ "nvim-lualine/lualine.nvim", ]]
+--[[ "stevearc/oil.nvim", ]]

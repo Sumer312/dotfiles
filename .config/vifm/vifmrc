@@ -9,12 +9,17 @@
 " %D the other window directory name.
 " %m run the command in a menu window
 
-set vicmd=nvim
+if executable('nvim')
+    set vicmd=nvim
+elseif executable('vim')
+    set vicmd=vim
+endif
+
 set syscalls
 set trash
+set trashdir="~/.local/share/Trash/files/"
 set undolevels=100
 set vimhelp
-set trashdir="~/.local/share/Trash/files/"
 set wildmenu
 set wildstyle=popup
 set history=100
@@ -22,12 +27,21 @@ set incsearch
 set norunexec
 set ignorecase
 set smartcase
+set nohlsearch
+set incsearch
+set nofollowlinks
+set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
+set sortnumbers
 
 colorscheme near_default
 
 set statusline=" %1*%A %20u:%-7g %=%20d "
 
 filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c
+
+filextype *.xcf
+        \ {Open in GIMP}
+        \ gimp %f,
 
 filextype *.epub zathura %c %i &, apvlv %c, xepub %c
 

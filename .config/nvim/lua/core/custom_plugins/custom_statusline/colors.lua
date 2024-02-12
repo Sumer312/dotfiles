@@ -1,7 +1,7 @@
 local M = {}
 function M.colors()
   local current_mode = vim.api.nvim_get_mode().mode
-  local color = "%#Accent#"
+  local color = "%#NormalAccent#"
   if current_mode == "n" then
     color = "%#NormalAccent#"
   elseif current_mode == "i" or current_mode == "ic" then
@@ -22,7 +22,7 @@ end
 
 function M.inverse_colors()
   local current_mode = vim.api.nvim_get_mode().mode
-  local inverse_color = "%#Inverse#"
+  local inverse_color = "%#NormalInverse#"
   if current_mode == "n" then
     inverse_color = "%#NormalInverse#"
   elseif current_mode == "i" or current_mode == "ic" then
@@ -43,7 +43,7 @@ end
 
 function M.black_bg_colors()
   local current_mode = vim.api.nvim_get_mode().mode
-  local blach_bg_color = "%#BlackBg#"
+  local blach_bg_color = "%#NormalBlackBg#"
   if current_mode == "n" then
     blach_bg_color = "%#NormalBlackBg#"
   elseif current_mode == "i" or current_mode == "ic" then

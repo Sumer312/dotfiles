@@ -15,6 +15,7 @@ Statusline = {}
 Statusline.active = function()
   local lspTable = {}
   local lspString = ""
+  local lsPrefix = ""
   pcall(function()
     local length = #vim.lsp.get_clients({ bufnr = vim.fn.bufnr() })
 
@@ -28,8 +29,13 @@ Statusline.active = function()
       ::continue::
     end
 
-    if #lspString == 0 then
+    if #lspTable == 0 then
       lspString = " "
+      lsPrefix = "Language Server"
+    elseif #lspTable == 1 then
+      lsPrefix = "Language Server"
+    else
+      lsPrefix = "Language Servers"
     end
   end)
   return table.concat {
@@ -44,7 +50,7 @@ Statusline.active = function()
     diagnostics(),
     inverse_colors(),
     "%=",
-    string.format("Language Servers: %s  ", lspString),
+    string.format("%s: %s  ", lsPrefix, lspString),
     colors(),
     lineinfo(),
   }
@@ -70,4 +76,3 @@ vim.cmd([[
   au WinLeave,BufLeave * setlocal statusline=%!v:lua.Statusline.inactive()
   augroup END
 ]], false)
-

@@ -13,10 +13,6 @@ vim.keymap.set("n", "<leader>zz", function()
 			},
 			plugins = {
 				tmux = { enabled = false },
-				kitty = {
-					enabled = true,
-					font = "+4",
-				},
 			},
 		},
 	})

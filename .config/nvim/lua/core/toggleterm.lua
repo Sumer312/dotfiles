@@ -2,7 +2,7 @@ local status_ok, toggleterm = pcall(require, "toggleterm")
 if not status_ok then
   return
 end
-local palatte = require("core.theme_colors")
+local palatte = require("core.color_palatte")
 toggleterm.setup({
   size = 40,
   open_mapping = [[<c-\>]],
@@ -17,7 +17,7 @@ toggleterm.setup({
   close_on_exit = true,
   shell = vim.o.shell,
   float_opts = {
-    border = "double",
+    border = "single",
     width = 190,
     height = 35,
     zindex = 10,
@@ -25,7 +25,7 @@ toggleterm.setup({
   },
   highlights = {
     FloatBorder = {
-      guifg = palatte.springBlue,
+      guifg = palatte.fujiWhite,
     },
   },
 })

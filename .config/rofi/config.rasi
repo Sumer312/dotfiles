@@ -12,11 +12,11 @@ configuration {
 @theme "/dev/null"
 
 * {
-    border-color:                #ffe9ec;
-    spacing:                     2;
+    border-color:                #FFF3DA;
+    spacing:                     1;
     foreground:                  white;
     urgent-foreground:           red;
-    active-foreground:           #ffffff;
+    active-foreground:           #daf7a6;
     normal-foreground:           @foreground;
     active-background:           @border-color;
     background-color:            #00000000;
@@ -107,7 +107,7 @@ element.normal.urgent {
 }
 
 element.normal.active {
-  background-color: white;
+  background-color: #daf7a6;
   text-color:       black;
 }
 

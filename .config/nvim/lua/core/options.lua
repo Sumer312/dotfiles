@@ -45,29 +45,26 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
+vim.cmd([[set iskeyword+=-]])
 vim.g.skip_ts_context_commentstring_module = true
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
 vim.cmd([[
-if has('termguicolors')
-set termguicolors
-endif
 let g:sonokai_style = 'espresso'
-let g:sonokai_better_performance = 1
+let g:sonokai_better_performance = 0
+let g:sonokai_transparent_background = 2
 ]])
 
 vim.cmd([[
-if has('termguicolors')
-set termguicolors
-endif
 let g:everforest_background = 'hard'
-let g:everforest_better_performance = 1
+let g:everforest_better_performance = 0
 ]])
 
 vim.cmd([[
 let g:python3_host_prog = '/usr/bin/python3'
 let g:loaded_python3_provider = 0
 ]])
+
 vim.cmd(
   [[let g:startify_bookmarks = [{"A": '~/.zshrc'},{"B" : '~/.bashrc'}, {"C" : "~/.config/nvim/lua/core/colors.lua"}, {"I": "~/.config/nvim/init.lua"}, {"K": "~/.config/alacritty/alacritty.yml"}, {"J": "/home/sumer/dwm/config.h"} ]
 ]]

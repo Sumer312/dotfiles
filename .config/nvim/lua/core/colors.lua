@@ -1,4 +1,4 @@
-local palatte = require("core.theme_colors")
+local palatte = require("core.color_palatte")
 local ColorMyLines = require("core.custom_plugins.custom_statusline.theme").ColorMyLines
 
 function ColorMyPencils(color)
@@ -16,8 +16,7 @@ function ColorMyPencils(color)
   set(0, "TabLineFill", { bg = "none" })
   set(0, "TabLineSel", { bg = "none" })
   set(0, "WinBar", { bg = "none" })
-  set(0, "EndOfBuffer", { fg = palatte.dragonGreen })
-  set(0, "StatusLine", { bg = palatte.fujiWhite, fg = palatte.dragonBlack0 })
+  set(0, "EndOfBuffer", { fg = palatte.katanaGray })
   set(0, "WinSeparator", { fg = palatte.lotusWhite5 })
 
   set(0, "DiagnosticWarn", { fg = palatte.surimiOrange })
@@ -25,15 +24,12 @@ function ColorMyPencils(color)
   set(0, "DiagnosticInfo", { fg = palatte.springBlue })
   set(0, "DiagnosticError", { fg = palatte.samuraiRed })
 
-  set(0, "HarpoonWindow", { fg = palatte.sakuraPink })
+  set(0, "Harpoon", { fg = palatte.sakuraPink })
   set(0, "HarpoonBorder", { fg = palatte.lotusYellow4 })
 
   set(0, "CmpItemAbbrMatch", { fg = palatte.waveRed })
   set(0, "CmpItemAbbr", { fg = palatte.fujiWhite })
   set(0, "CmpItemMenu", { fg = palatte.katanaGray })
-
-  set(0, "OilDir", { fg = "#daf7a6" })
-  set(0, "OilFile", { fg = palatte.sakuraPink })
 
   set(0, "TelescopeBorder", { bg = "none", fg = palatte.springGreen })
   set(0, "TelescopeMatching", { bg = "none", fg = palatte.springGreen })
@@ -43,7 +39,7 @@ function ColorMyPencils(color)
   set(0, "TelescopePromptBorder", { bg = "none", fg = palatte.springGreen })
   set(0, "TelescopePreviewBorder", { bg = "none", fg = palatte.oniViolet2 })
 
-  set(0, "TreesitterContext", { bg = "none", fg = palatte.sakuraPink, bold = true, italic = true, underdotted = true })
+  set(0, "TreesitterContext", { bg = "none", bold = true, italic = true })
   set(0, "TreesitterContextLineNumber",
     { bg = "none", fg = palatte.sakuraPink, bold = true, underdotted = true })
   set(0, "TreesitterContextSeparator", { bg = "none", fg = palatte.dragonRed })

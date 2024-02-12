@@ -6,26 +6,16 @@ local M = {}
 local symbols = {
   modified = '[+]',
   readonly = '[-]',
-  unnamed = '[No Name]',
-  newfile = '[New]',
+  unnamed = '[No Name]'
 }
-
-function M.filepath()
-end
 
 function M.filename()
   local fpath = vim.fn.expand("%:p:~")
-  local fname = vim.fn.expand("%:t")
-  if vim.bo.modified then
-    fname = string.format("%s %s", fname, symbols.modified)
+  if vim.bo.modifiable == true and vim.bo.modified then
     fpath = string.format("%s %s", fpath, symbols.modified)
   end
-  if vim.bo.modifiable == false or vim.bo.readonly then
-    fname = fname .. ' ' .. symbols.readonly
-    fpath = fpath .. ' ' .. symbols.readonly
-  end
-  if fpath == "" or fpath == "." then
-    return string.format(" %s ", fname)
+  if vim.bo.modifiable == false or vim.bo.readonly == true then
+    fpath = string.format("%s %s", fpath, symbols.readonly)
   end
   return string.format(" %s ", fpath)
 end
