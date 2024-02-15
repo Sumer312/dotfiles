@@ -9,7 +9,7 @@ function M.getIcon()
     end
 
     if icon == nil and icon_highlight_group == nil then
-      icon = ''
+      icon = ''
       icon_highlight_group = 'DevIconDefault'
     end
   end

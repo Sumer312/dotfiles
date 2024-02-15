@@ -19,7 +19,7 @@ local options = {
   numberwidth = 4,
   scrolloff = 8,
   sidescrolloff = 9,
-  guifont = "monospace:h17",
+  guifont = "JetBrainsMono Nerd Font:h8",
   backup = false,
   clipboard = "unnamedplus",
   cmdheight = 1,
@@ -45,17 +45,27 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
+if vim.g.neovide then
+  vim.g.neovide_scale_factor = 1.0
+  vim.g.neovide_cursor_vfx_mode = "railgun"
+  vim.g.neovide_window_blurred = true
+  vim.g.neovide_fullscreen = true
+  vim.g.neovide_transparency = 0.8
+end
+
 vim.cmd([[set iskeyword+=-]])
 vim.g.skip_ts_context_commentstring_module = true
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
 vim.cmd([[
+let g:startify_fortune_use_unicode = 1
+let g:startify_custom_header = 'startify#pad(startify#fortune#cowsay())'
+let g:startify_bookmarks = [{"A": '~/.zshrc'},{"B" : '~/.bashrc'}, {"C" : "~/.config/nvim/lua/core/colors.lua"}, {"I": "~/.config/nvim/init.lua"}, {"K": "~/.config/alacritty/alacritty.yml"}, {"J": "/home/sumer/dwm/config.h"} ]
+
 let g:sonokai_style = 'espresso'
 let g:sonokai_better_performance = 0
 let g:sonokai_transparent_background = 2
-]])
 
-vim.cmd([[
 let g:everforest_background = 'hard'
 let g:everforest_better_performance = 0
 ]])
@@ -64,20 +74,3 @@ vim.cmd([[
 let g:python3_host_prog = '/usr/bin/python3'
 let g:loaded_python3_provider = 0
 ]])
-
-vim.cmd(
-  [[let g:startify_bookmarks = [{"A": '~/.zshrc'},{"B" : '~/.bashrc'}, {"C" : "~/.config/nvim/lua/core/colors.lua"}, {"I": "~/.config/nvim/init.lua"}, {"K": "~/.config/alacritty/alacritty.yml"}, {"J": "/home/sumer/dwm/config.h"} ]
-]]
-)
-
--- vim.cmd([[
---     let g:startify_custom_header = [
---     \ '                                 __                ',
---     \ '	  ___     ___    ___   __  __ /\_\    ___ ___     ',
---     \ '	 / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\   ',
---     \ '	/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \  ',
---     \ '	\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\ ',
---     \ '	 \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/ ',
---     \ '                                                   ',
---     \ ]
--- ]])

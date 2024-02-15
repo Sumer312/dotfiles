@@ -72,6 +72,7 @@ vim.go.laststatus = 3
 vim.cmd([[
   augroup Statusline
   au!
+  au User StartifyReady setlocal statusline=%!v:lua.Statusline.active()
   au WinEnter,BufEnter * setlocal statusline=%!v:lua.Statusline.active()
   au WinLeave,BufLeave * setlocal statusline=%!v:lua.Statusline.inactive()
   augroup END

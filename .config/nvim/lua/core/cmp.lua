@@ -138,3 +138,13 @@ cmp.setup({
     ghost_text = false,
   },
 })
+
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'cmdline' },
+  },
+  formatting = {
+    fields = { "abbr" },
+  },
+})
