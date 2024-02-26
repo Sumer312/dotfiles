@@ -20,12 +20,28 @@ return {
 
   --Optional
   "karb94/neoscroll.nvim",
-  "gelguy/wilder.nvim",
+  {
+    'kristijanhusak/vim-dadbod-ui',
+    dependencies = {
+      { 'tpope/vim-dadbod', lazy = true },
+      {
+        'kristijanhusak/vim-dadbod-completion',
+        ft = { 'sql', 'mysql', 'plsql' },
+        lazy = true
+      },
+    }
+  },
   "nvim-tree/nvim-web-devicons",
   "folke/zen-mode.nvim",
   "ThePrimeagen/vim-be-good",
   "ap/vim-css-color",
   { "christoomey/vim-tmux-navigator", lazy = false },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
+  },
 
   --Cmp plugins
   "hrsh7th/nvim-cmp",
@@ -63,12 +79,3 @@ return {
   --Dashboard
   "mhinz/vim-startify",
 }
-
--- Commented
---[[ "https://github.com/tpope/vim-surround", ]]
---[[ "https://github.com/tpope/vim-dadbod", ]]
---[[ "https://github.com/kristijanhusak/vim-dadbod-ui", ]]
---[[ "https://github.com/tpope/vim-fugitive", ]]
---[[ "nvim-telescope/telescope-media-files.nvim", ]]
---[[ "nvim-lualine/lualine.nvim", ]]
---[[ "stevearc/oil.nvim", ]]

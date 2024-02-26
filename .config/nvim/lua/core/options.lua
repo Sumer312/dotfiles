@@ -65,9 +65,18 @@ let g:startify_bookmarks = [{"A": '~/.zshrc'},{"B" : '~/.bashrc'}, {"C" : "~/.co
 let g:sonokai_style = 'espresso'
 let g:sonokai_better_performance = 0
 let g:sonokai_transparent_background = 2
+let g:sonokai_enable_italic = 1
+let g:sonokai_disable_italic_comment = 1
+let g:sonokai_diagnostic_text_highlight = 1
+let g:sonokai_diagnostic_line_highlight = 1
+let g:sonokai_diagnostic_virtual_text = 'highlighted'
 
 let g:everforest_background = 'hard'
 let g:everforest_better_performance = 0
+set background=light
+
+let g:undotree_WindowLayout = 4
+let g:undotree_SplitWidth = 40
 ]])
 
 vim.cmd([[

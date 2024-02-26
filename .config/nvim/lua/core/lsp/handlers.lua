@@ -85,6 +85,10 @@ M.on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = true
   end
 
+  if client.name == "templ" then
+    client.server_capabilities.documentFormattingProvider = true
+  end
+
   if client.name == "clangd" then
     client.server_capabilities.documentFormattingProvider = true
   end
@@ -102,10 +106,6 @@ M.on_attach = function(client, bufnr)
   end
 
   if client.name == "solidity_ls_nomicfoundation" then
-    client.server_capabilities.documentFormattingProvider = true
-  end
-
-  if client.name == "templ" then
     client.server_capabilities.documentFormattingProvider = true
   end
 

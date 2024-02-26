@@ -63,8 +63,10 @@ set classify+=' ::*.7z,,*.ace,,*.arj,,*.bz2,,*.cpio,,*.deb,,*.dz,,*.gz,,*.jar
 set classify+=' ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.ico,,*.png,,*.ppm,,*.svg,,*.svgz,,*.tga,,*.tif,,*.tiff,,*.xbm,,*.xcf,,*.xpm,,*.xspf,,*.xwd::'
 set classify+=' ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.mid,,*.midi,,*.mp3,,*.mpc,,*.oga,,*.ogg,,*.ogx,,*.ra,,*.ram,,*.rm,,*.spx,,*.wav,,*.wma,,*.ac3::'
 set classify+=' ::*.avi,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mkv,,*.mov,,*.mp4,,*.flv,,*.mp4v,,*.mpeg,,*.mpg,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.wmv,,*.xvid::'
-set classify+=' ::*.go::, ::*.js::,󰛦 ::*.ts::, ::*.css::, ::*.yml,,*.yaml::, ::*.lua::,󰌠 ::*.py::, ::*.vim::, :: *.sol::, ::*.json*::, ::*.[jt]sx::, :: *.vue::'
+set classify+=' ::*.go::, ::*.js::,󰛦 ::*.ts::, ::*.css::, ::*.yml,,*.yaml::, ::*.lua::,󰌠 ::*.py::, ::*.vim::, :: *.sol::, ::*.json*::, ::*.[jt]sx::, :: *.vue::, ::*.templ::, ::*.org::, ::*.el::'
 set classify+=' ::*.doc,,*.docx::, ::*.xls,,*.xls[mx]::, ::*.pptx,,*.ppt::'
 set classify+=' ::Makefile::'
 
 nnoremap w :view<cr>
+nnoremap <space>t :touch
+nnoremap <space>ch :chmod<cr>

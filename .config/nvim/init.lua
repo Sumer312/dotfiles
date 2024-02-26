@@ -15,4 +15,3 @@ require("core.zen_mode")
 require("core.globals")
 require("core.colors")
 require("core.custom_plugins.custom_statusline")
---[[ require("core.neoscroll") ]]

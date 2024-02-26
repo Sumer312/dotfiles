@@ -20,15 +20,21 @@ keymap("n", "<leader>lg", "<cmd>Telescope live_grep theme=ivy<CR>", opts)
 
 keymap("n", "<leader>dl", "<cmd>TroubleToggle<CR>", opts)
 
-keymap("n", "<leader>lzg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
+keymap("n", "<leader>son", "<cmd>lua ColorMyPencils('sonokai')<CR>", opts)
+keymap("n", "<leader>kan", "<cmd>lua ColorMyPencils('kanagawa-wave')<CR>", opts)
 keymap("n", "<leader>u", "<cmd>UndotreeToggle <bar> UndotreeFocus<CR>", opts)
+
+keymap("n", "<leader>lzg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
+keymap("n", "<leader>db", "<cmd>DBUIToggle<CR>", opts)
 keymap("n", "<A-Return>", "o<Esc>", opts)
 keymap("n", "J", "mzJ`z", opts)
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
-keymap("n", "-", "i<Space><Esc>w", opts)
+keymap("n", "-", "<cmd>Explore<CR>", opts)
 
 keymap("n", "<C-Right>", "<cmd>vertical resize +2<CR>", opts)
+
+keymap("i", "<C-c>", "<esc>", opts)
 
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)

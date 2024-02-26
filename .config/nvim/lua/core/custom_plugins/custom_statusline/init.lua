@@ -42,10 +42,9 @@ Statusline.active = function()
     colors(),
     mode(),
     black_bg_colors(),
-    getIcon(),
-    filetype(),
     git(),
     inverse_colors(),
+    getIcon(),
     filename(),
     diagnostics(),
     inverse_colors(),
@@ -74,6 +73,7 @@ vim.cmd([[
   au!
   au User StartifyReady setlocal statusline=%!v:lua.Statusline.active()
   au WinEnter,BufEnter * setlocal statusline=%!v:lua.Statusline.active()
+  au WinEnter,BufEnter netrw setlocal statusline=%!v:lua.Statusline.active()
   au WinLeave,BufLeave * setlocal statusline=%!v:lua.Statusline.inactive()
   augroup END
 ]], false)
