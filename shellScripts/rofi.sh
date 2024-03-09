@@ -4,7 +4,7 @@ run(){
    rofi -show run
 }
 
-applications(){
+drun(){
    rofi -show drun
 }
 
@@ -16,15 +16,22 @@ network(){
   rofi-wifi-menu
 }
 
-while getopts 'raqi' OPTION; do
+pass(){
+  rofi-pass
+}
+
+
+while getopts 'rdqnp' OPTION; do
   case "${OPTION}" in
     r) run
       ;;
-    a) applications
+    d) drun
       ;;
     q) quit
       ;;
-    i) network
+    n) network
+      ;;
+    p) pass
       ;;
   esac
 done
