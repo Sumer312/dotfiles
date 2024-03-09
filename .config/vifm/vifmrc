@@ -45,28 +45,31 @@ filextype *.xcf
 
 filextype *.epub zathura %c %i &, apvlv %c, xepub %c
 
-filextype *.pptx  
+filextype *.pptx, *.docx
         \libreoffice %f
 
 filextype *.png,*.jpg,*jpeg,*.bmp,*.gif,*.xpm
         \ feh %f
 
-filextype *.mp4,*.mp3
+filextype *.mp4
         \ mpv %f
 
 filextype *.mp3
         \ mpv --no-video %f
 
-set classify='󰉋 :dir:/, :exe:, :reg:, :link:'
+set classify='󰉋 :dir:/, :exe:, :reg:, :link:'
 set classify+=' ::../::, ::*.sh::, ::*.[hc]pp::, ::*.[hc]::, ::/^copying|license$/::, ::.git/,,*.git/::, ::*.epub,,*.fb2,,*.djvu::, ::*.pdf::, ::*.htm,,*.html,,**.[sx]html,,*.xml::, ::*text,,*.txt::'
 set classify+=' ::*.7z,,*.ace,,*.arj,,*.bz2,,*.cpio,,*.deb,,*.dz,,*.gz,,*.jar,,*.lzh,,*.lzma,,*.rar,,*.rpm,,*.rz,,*.tar,,*.taz,,*.tb2,,*.tbz,,*.tbz2,,*.tgz,,*.tlz,,*.trz,,*.txz,,*.tz,,*.tz2,,*.xz,,*.z,,*.zip,,*.zoo::'
 set classify+=' ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.ico,,*.png,,*.ppm,,*.svg,,*.svgz,,*.tga,,*.tif,,*.tiff,,*.xbm,,*.xcf,,*.xpm,,*.xspf,,*.xwd::'
 set classify+=' ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.mid,,*.midi,,*.mp3,,*.mpc,,*.oga,,*.ogg,,*.ogx,,*.ra,,*.ram,,*.rm,,*.spx,,*.wav,,*.wma,,*.ac3::'
 set classify+=' ::*.avi,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mkv,,*.mov,,*.mp4,,*.flv,,*.mp4v,,*.mpeg,,*.mpg,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.wmv,,*.xvid::'
-set classify+=' ::*.go::, ::*.js::,󰛦 ::*.ts::, ::*.css::, ::*.yml,,*.yaml::, ::*.lua::,󰌠 ::*.py::, ::*.vim::, :: *.sol::, ::*.json*::, ::*.[jt]sx::, :: *.vue::, ::*.templ::, ::*.org::, ::*.el::'
+set classify+=' ::*.go::, ::*.js::,󰛦 ::*.ts::, ::*.css::, ::*.yml,,*.yaml::, ::*.lua::,󰌠 ::*.py::, ::*.vim::, :: *.sol::, ::*.json*::, ::*.[jt]sx::'
+set classify+=' :: *.vue::, ::*.templ::, ::*.org::, ::*.el::, ::.gitignore::, ::dockerfile::, ::.env::, ::*.md::, ::.dockerignore::, ::yarn.lock::,'
 set classify+=' ::*.doc,,*.docx::, ::*.xls,,*.xls[mx]::, ::*.pptx,,*.ppt::'
 set classify+=' ::Makefile::'
 
+nnoremap <space> nop 
 nnoremap w :view<cr>
 nnoremap <space>t :touch
 nnoremap <space>ch :chmod<cr>
+nnoremap <space>mk :mkdir

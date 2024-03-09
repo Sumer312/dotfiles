@@ -13,12 +13,13 @@ do
   kill -9 "$i"
 done
 
+setxkbmap -option "ctrl:swapcaps"
 dunst &
-mpv --no-video /home/sumer/Music/startup/psp_startup.mp3 &
-xautolock -time 8 -locker /home/sumer/Documents/bashScripts/lock.sh -notify 20 -notifier /home/sumer/Documents/bashScripts/lockNotification.sh &
-/home/sumer/Documents/bashScripts/displayScript.sh &
-/home/sumer/Documents/bashScripts/touchpad.sh &
-/home/sumer/Documents/bashScripts/status.sh &
 lxpolkit &
+mpv --no-video /home/sumer/Music/startup/psp_game_startup.mp3 &
+xautolock -time 8 -locker /home/sumer/shellScripts/lock.sh -notify 20 -notifier /home/sumer/shellScripts/lockNotification.sh &
+/home/sumer/shellScripts/displayScript.sh &
+/home/sumer/shellScripts/touchpad.sh &
+/home/sumer/shellScripts/status.sh &
 nitrogen --set-zoom-fill --random /home/sumer/Pictures/Wallpapers/ 
 compton --config /home/sumer/.config/compton/compton.conf

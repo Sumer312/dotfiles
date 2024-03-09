@@ -73,7 +73,7 @@ let g:sonokai_diagnostic_virtual_text = 'highlighted'
 
 let g:everforest_background = 'hard'
 let g:everforest_better_performance = 0
-set background=light
+" set background=light
 
 let g:undotree_WindowLayout = 4
 let g:undotree_SplitWidth = 40
