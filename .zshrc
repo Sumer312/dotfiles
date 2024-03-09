@@ -45,7 +45,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 alias py="python3"
 # alias goose="/home/sumer/go/bin/goose"
 # alias templ="/home/sumer/go/bin/templ"
-alias lock="~/Documents/bashScripts/lock.sh"
+alias lock="/home/sumer/shellScripts/lock.sh"
 alias audio="mpv --no-video"
 alias l="lsd -lF"
 alias cat="batcat"
@@ -68,6 +68,7 @@ bindkey '^[j' history-substring-search-down
 bindkey '^ ' autosuggest-accept
 
 export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
+export ROFI_PASS_CONFIG=$HOME/.config/rofi-pass/config
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
 LANG="en_IN.utf8"
