@@ -17,8 +17,10 @@ endif
 
 set syscalls
 set trash
-set trashdir="~/.local/share/Trash/files/"
+set trashdir="/home/sumer/.local/share/Trash/files/"
+set sizefmt=units:iec,precision:2,space
 set undolevels=100
+set dirsize=nitems
 set vimhelp
 set wildmenu
 set wildstyle=popup
@@ -35,7 +37,7 @@ set sortnumbers
 
 colorscheme near_default
 
-set statusline=" %1*%A %20u:%-7g %=%20d "
+set statusline=" %u  %1*%A %6E %=%20d "
 
 filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c
 
@@ -48,8 +50,8 @@ filextype *.epub zathura %c %i &, apvlv %c, xepub %c
 filextype *.pptx, *.docx
         \libreoffice %f
 
-filextype *.png,*.jpg,*jpeg,*.bmp,*.gif,*.xpm
-        \ feh %f
+filextype *.png,*.jpg,*jpeg,*.bmp,*.gif,*.xpm,*.webp
+        \ feh -F %f
 
 filextype *.mp4
         \ mpv %f
@@ -57,10 +59,10 @@ filextype *.mp4
 filextype *.mp3
         \ mpv --no-video %f
 
-set classify='󰉋 :dir:/, :exe:, :reg:, :link:'
+set classify='󰉋 :dir:/, :exe:, :reg:, :link:'
 set classify+=' ::../::, ::*.sh::, ::*.[hc]pp::, ::*.[hc]::, ::/^copying|license$/::, ::.git/,,*.git/::, ::*.epub,,*.fb2,,*.djvu::, ::*.pdf::, ::*.htm,,*.html,,**.[sx]html,,*.xml::, ::*text,,*.txt::'
 set classify+=' ::*.7z,,*.ace,,*.arj,,*.bz2,,*.cpio,,*.deb,,*.dz,,*.gz,,*.jar,,*.lzh,,*.lzma,,*.rar,,*.rpm,,*.rz,,*.tar,,*.taz,,*.tb2,,*.tbz,,*.tbz2,,*.tgz,,*.tlz,,*.trz,,*.txz,,*.tz,,*.tz2,,*.xz,,*.z,,*.zip,,*.zoo::'
-set classify+=' ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.ico,,*.png,,*.ppm,,*.svg,,*.svgz,,*.tga,,*.tif,,*.tiff,,*.xbm,,*.xcf,,*.xpm,,*.xspf,,*.xwd::'
+set classify+=' ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.ico,,*.png,,*.ppm,,*.svg,,*.svgz,,*.tga,,*.tif,,*.tiff,,*.xbm,,*.xcf,,*.xpm,,*.xspf,,*.xwd,,*.webp::'
 set classify+=' ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.mid,,*.midi,,*.mp3,,*.mpc,,*.oga,,*.ogg,,*.ogx,,*.ra,,*.ram,,*.rm,,*.spx,,*.wav,,*.wma,,*.ac3::'
 set classify+=' ::*.avi,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mkv,,*.mov,,*.mp4,,*.flv,,*.mp4v,,*.mpeg,,*.mpg,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.wmv,,*.xvid::'
 set classify+=' ::*.go::, ::*.js::,󰛦 ::*.ts::, ::*.css::, ::*.yml,,*.yaml::, ::*.lua::,󰌠 ::*.py::, ::*.vim::, :: *.sol::, ::*.json*::, ::*.[jt]sx::'
