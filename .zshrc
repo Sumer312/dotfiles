@@ -43,11 +43,9 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 alias py="python3"
-# alias goose="/home/sumer/go/bin/goose"
-# alias templ="/home/sumer/go/bin/templ"
 alias lock="/home/sumer/shellScripts/lock.sh"
 alias audio="mpv --no-video"
-alias l="lsd -lF"
+alias ls="lsd -lF"
 alias cat="batcat"
 
 # Flatpak
@@ -71,12 +69,8 @@ export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
 export ROFI_PASS_CONFIG=$HOME/.config/rofi-pass/config
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
-LANG="en_IN.utf8"
-export LANG
+export LANG="en_IN.utf8"
 colorscript -r
-#Enable vi
-# set -o vi
-# bindkey -v
 
 # Created by `pipx` on 2023-11-24 14:56:54
-export PATH="$PATH:/home/sumer/.local/bin"
+# export PATH="$PATH:/home/sumer/.local/bin"

@@ -13,7 +13,7 @@ quit(){
 }
 
 network(){
-  rofi-wifi-menu
+  /home/sumer/shellScripts/rofi-wifi-menu.sh
 }
 
 pass(){

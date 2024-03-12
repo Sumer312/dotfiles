@@ -2,7 +2,7 @@ EDITOR='nvim -f'
 
 default_do='copyPass' # menu, autotype, copyPass, typeUser, typePass, copyUser, copyUrl, viewEntry, typeMenu, actionMenu, copyMenu, openUrl
 auto_enter='false'
-notify='true'
+notify='false'
 
 help_color="#4872FF"
 clip=clipboard

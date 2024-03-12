@@ -14,12 +14,8 @@ tmux_set() {
 }
 
 # Options
-upload_speed_icon=$(tmux_get '@tmux_power_upload_speed_icon' '')
-download_speed_icon=$(tmux_get '@tmux_power_download_speed_icon' '')
 session_icon="$(tmux_get '@tmux_power_session_icon' '')"
 user_icon="$(tmux_get '@tmux_power_user_icon' '')"
-show_upload_speed="$(tmux_get @tmux_power_show_upload_speed true)"
-show_download_speed="$(tmux_get @tmux_power_show_download_speed true)"
 prefix_highlight_pos=$(tmux_get @tmux_power_prefix_highlight_pos)
 
 # short for Theme-Colour
@@ -88,11 +84,7 @@ tmux_set status-left-fg "$G03"
 tmux_set status-left-length 150
 user=$(whoami)
 LS="#[fg=$G04,bg=$TC,bold] $user_icon $user@#h #[fg=$TC,bg=$G06,nobold]$right_arrow_icon#[fg=$TC,bg=$G06] $session_icon #S "
-if "$show_upload_speed"; then
-	LS="$LS#[fg=$G06,bg=$G06]$right_arrow_icon#[fg=$TC,bg=$G06] $upload_speed_icon #{upload_speed} #[fg=$G06,bg=$BG]$right_arrow_icon"
-else
-	LS="$LS#[fg=$G06,bg=$BG]$right_arrow_icon"
-fi
+LS="$LS#[fg=$G06,bg=$BG]$right_arrow_icon"
 if [[ $prefix_highlight_pos == 'L' || $prefix_highlight_pos == 'LR' ]]; then
 	LS="$LS#{prefix_highlight}"
 fi
@@ -103,9 +95,6 @@ tmux_set status-right-bg "$G08"
 tmux_set status-right-fg "$G03"
 tmux_set status-right-length 150
 RS="#[fg=$TC,bg=$G04]$left_arrow_icon"
-if "$show_download_speed"; then
-	RS="#[fg=$G06,bg=$BG]$left_arrow_icon#[fg=$TC,bg=$G06] $download_speed_icon #{download_speed} $RS"
-fi
 if [[ $prefix_highlight_pos == 'R' || $prefix_highlight_pos == 'LR' ]]; then
 	RS="#{prefix_highlight}$RS"
 fi
