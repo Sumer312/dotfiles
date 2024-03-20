@@ -1,19 +1,22 @@
 configuration {
-  display-drun: "Drun";
-  display-window: "Windows";
-  display-run: "Run";
+  font: "JetBrainsMono Nerd Font 13";
+  display-drun: "󰧨 Drun";
+  display-window: " Windows";
+  display-run: " Run";
   show-icons: false;
   icon-theme: "Adwaita";
-  font: "JetBrainsMono Nerd Font Italic 12";
   modi: "window,run,drun";
   terminal: "/usr/bin/alacritty";
+  kb-accept-entry: "Return";
+  kb-cancel: "Control+c";
 }
 
 @theme "/dev/null"
 
 * {
-    accent-color:                #FFF3DA;
-    spacing:                     1;
+    accent-color:                #FAEEE7;
+    height:                      272;
+    spacing:                     7;
     border-color:                @accent-color;
     foreground:                  white;
     urgent-foreground:           red;
@@ -37,89 +40,65 @@ configuration {
     alternate-active-background: none;
 }
 
-window {
-    border: 0;
-    border-radius : 0px;
-    padding: 5px;
-    children: [ inputbar, message, wrapper-mode-switcher, listview  ];
-}
-
-inputbar {
-  children:   [ prompt, textbox-prompt-colon, entry, case-indicator ];
-}
-
-entry {
-  spacing:    2;
-  text-color: black;
-}
-
-prompt {
-  spacing:    0;
-  font: "JetBrainsMono Nerd Font ExtraBold Italic 12";
-  text-color: black;
-}
-
-textbox-prompt-colon {
-  expand:     false;
-  str:        ":";
-  margin:     0px 0.3em 0em 0em ;
-  text-color: black;
-}
-
-inputbar {
-  spacing: 8;
-  border: 2px;
-  border-radius: 0px 0px 0 0;
-  text-color: @normal-foreground;
-  padding:    8px;
-  background-color: @accent-color;
-}
-
-case-indicator {
-  spacing:    0;
-  text-color: @normal-foreground;
-}
-
-wrapper-mode-switcher {
-    orientation: horizontal;
-    expand:     false;
-    spacing:    3;
-    children: [ mode-switcher ];
-}
-
-mode-switcher {
-    border:  8px;
-    border-radius: 0 0 0px 0px;
+error-message {
     expand: true;
-    margin: 0 0 0px 0;
-    padding: 0.5em 1em;
-    background-color: @accent-color;
+    background-color: white;
+    border: 1px;
+    padding: 1em;
+}
+
+window {
+  children: [ inputbar, message, listview ];
 }
 
 message {
     border: 1px;
     padding: 1em;
     background-color: @normal-background;
-    text-color: black;
+    text-color: white;
+}
+
+inputbar {
+  children: [ prompt, textbox-prompt-colon, entry ];
+}
+
+entry {
+  font: "JetBrainsMono Nerd Font Bold Italic 13";
+  text-color: @accent-color;
+}
+
+prompt {
+  font: "JetBrainsMono Nerd Font ExtraBold 13";
+  text-color: @accent-color;
+}
+
+textbox-prompt-colon {
+  expand:     false;
+  str:        ":";
+  text-color: @accent-color;
+}
+
+inputbar {
+  border: 1px;
+  padding: 7px;
+  text-color: @accent-color;
+  background-color: @normal-background;
 }
 
 listview {
-    fixed-height: 1;
-    border: 3px;
-    border-radius: 0px;
-    reverse: false;
-    spacing: 4;
-    padding: 5px;
+    border: 1px;
+    padding: 4px 4px 4px 4px;
     columns: 2;
     background-color: @normal-background;
 }
 
 element {
-  border:  0;
-  padding: 2px ;
+  padding: 3px;
 }
 
 element-text {
+  cursor: pointer;
+  highlight: underline bold italic;
   background-color: inherit;
   text-color:       inherit;
 }
@@ -135,14 +114,13 @@ element.normal.urgent {
 }
 
 element.normal.active {
-  background-color: #daf7a6;
+  background-color: #FFFFFF;
   text-color:       black;
 }
 
 element.selected.normal {
   background-color: @accent-color;
   text-color:       black;
-  border-radius: 0px;
 }
 
 element.selected.urgent {
@@ -153,7 +131,6 @@ element.selected.urgent {
 element.selected.active {
   background-color: @selected-active-background;
   text-color:       @selected-active-foreground;
-  border-radius: 0px;
 }
 
 element.alternate.normal {
@@ -167,14 +144,7 @@ element.alternate.urgent {
 }
 
 element.alternate.active {
-  background-color: @alternate-active-background;
-  text-color:       @alternate-active-foreground;
+  background-color: #FFFFFF;
+  text-color:       black;
 }
 
-button.selected {
-  background-color: @selected-normal-background;
-  border-color: @selected-normal-background;
-  text-color: @selected-normal-foreground;
-  border : 10;
-  border-radius: 0px;
-}

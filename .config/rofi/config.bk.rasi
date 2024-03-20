@@ -1,0 +1,142 @@
+configuration {
+  font: "JetBrainsMono Nerd Font 13";
+  display-drun: "󰧨 Drun";
+  display-window: " Windows";
+  display-run: " Run";
+  show-icons: false;
+  icon-theme: "Adwaita";
+  modi: "window,run,drun";
+  terminal: "/usr/bin/alacritty";
+  kb-accept-entry: "Return";
+  kb-cancel: "Control+c";
+}
+
+@theme "/dev/null"
+
+* {
+    accent-color:                #C9F658;
+    height:                      272;
+    spacing:                     7;
+    border-color:                @accent-color;
+    foreground:                  white;
+    urgent-foreground:           red;
+    active-foreground:           #DAF7A6;
+    normal-foreground:           @foreground;
+    active-background:           @accent-color;
+    background-color:            #00000000;
+    selected-normal-foreground:  @accent-color;
+    alternate-normal-background: #000000DD;
+    alternate-normal-foreground: @foreground;
+    normal-background:           #000000BB;
+    selected-normal-background:  #000000;
+    urgent-background:           #000000;
+    selected-urgent-background:  @normal-background;
+    alternate-urgent-background: @alternate-normal-background;
+    selected-urgent-foreground:  @urgent-foreground;
+    alternate-urgent-foreground: @urgent-foreground;
+    selected-active-foreground:  #000000;
+    alternate-active-foreground: @accent-color;
+    selected-active-background:  @accent-color;
+    alternate-active-background: none;
+}
+
+window {
+  children: [ inputbar, message, listview ];
+}
+
+message {
+    border: 1px;
+    padding: 1em;
+    background-color: @normal-background;
+    text-color: white;
+}
+
+inputbar {
+  children: [ prompt, textbox-prompt-colon, entry ];
+}
+
+entry {
+  font: "JetBrainsMono Nerd Font Bold Italic 13";
+  text-color: @accent-color;
+}
+
+prompt {
+  font: "JetBrainsMono Nerd Font ExtraBold 13";
+  text-color: @accent-color;
+}
+
+textbox-prompt-colon {
+  expand:     false;
+  str:        ":";
+  text-color: @accent-color;
+}
+
+inputbar {
+  border: 1px;
+  padding: 7px;
+  text-color: @accent-color;
+  background-color: @normal-background;
+}
+
+listview {
+    border: 1px;
+    padding: 4px 4px 4px 4px;
+    columns: 2;
+    background-color: @normal-background;
+}
+
+element {
+  padding: 3px;
+}
+
+element-text {
+  cursor: pointer;
+  highlight: underline bold italic;
+  background-color: inherit;
+  text-color:       inherit;
+}
+
+element.normal.normal {
+  background-color: none;
+  text-color:       @normal-foreground;
+}
+
+element.normal.urgent {
+  background-color: @urgent-background;
+  text-color:       @urgent-foreground;
+}
+
+element.normal.active {
+  background-color: #FFFFFF;
+  text-color:       black;
+}
+
+element.selected.normal {
+  background-color: @accent-color;
+  text-color:       black;
+}
+
+element.selected.urgent {
+  background-color: @selected-urgent-background;
+  text-color:       @selected-urgent-foreground;
+}
+
+element.selected.active {
+  background-color: @selected-active-background;
+  text-color:       @selected-active-foreground;
+}
+
+element.alternate.normal {
+  background-color: none;
+  text-color:       @alternate-normal-foreground;
+}
+
+element.alternate.urgent {
+  background-color: @alternate-urgent-background;
+  text-color:       @alternate-urgent-foreground;
+}
+
+element.alternate.active {
+  background-color: #FFFFFF;
+  text-color:       black;
+}

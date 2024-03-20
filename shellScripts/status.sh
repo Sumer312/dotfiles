@@ -15,16 +15,16 @@ while :; do
   var_time=$(date +"%H:%M")
   var_date=$(date +"%a %d-%m-%y")
   var_temp=$(acpi -t | awk '{print $4}')
-  var_battery=$(acpi | grep "Battery 0" | awk -F "," '{print $2}')
+  var_battery=$(acpi | grep "Battery 0" | awk -F "," '{print $2}' | xargs)
   var_wifi=$bool_wifi_name
 
   wifi_speed=$(awk 'NR==3 {print $4}' /proc/net/wireless | awk -F "." '{print $1}')
 
-  icon_battery=""
+  icon_battery=" "
   icon_wifi="󰤨"
-  icon_time=""
-  icon_date=""
-  icon_temp=""
+  icon_time=""
+  icon_date=""
+  icon_temp=""
 
   if [ -n "$bool_wifi_name" ]; then
     if [ "$wifi_speed" -ge -50 ]; then
@@ -42,16 +42,16 @@ while :; do
   fi
 
   if [ -n "$bool_charging" ]; then
-    icon_battery=""
+    icon_battery=" "
   else 
     if [ "$bool_battery_check" -ge 80 ]; then
-      icon_battery=""
+      icon_battery=" "
     elif [ "$bool_battery_check" -lt 80 ] && [ "$bool_battery_check" -ge 60 ]; then
-      icon_battery=""
+      icon_battery=" "
     elif [ "$bool_battery_check" -lt 60 ] && [ "$bool_battery_check" -ge 40 ]; then
-      icon_battery=""
+      icon_battery=" "
     elif [ "$bool_battery_check" -lt 40 ] && [ "$bool_battery_check" -ge 20 ]; then
-      icon_battery=""
+      icon_battery=" "
     elif [ "$bool_battery_check" -lt 20 ]; then
       icon_battery=""
     fi
@@ -72,5 +72,5 @@ while :; do
     sleep 30s
   done
   dwm -s " $icon_time $var_time  $icon_date $var_date  $icon_wifi $var_wifi  $icon_temp $var_temp 󰔄  $icon_battery $var_battery "
-  sleep 4s
+  sleep 5s
 done

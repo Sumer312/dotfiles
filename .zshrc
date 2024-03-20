@@ -50,7 +50,6 @@ alias cat="batcat"
 
 # Flatpak
 alias firefox="flatpak run org.mozilla.firefox"
-alias thunderbird="flatpak run org.mozilla.Thunderbird"
 
 #Packages
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
