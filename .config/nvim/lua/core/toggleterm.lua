@@ -25,7 +25,7 @@ toggleterm.setup({
   },
   highlights = {
     FloatBorder = {
-      guifg = palatte.fujiWhite,
+      guifg = palatte.carpYellow,
     },
   },
 })

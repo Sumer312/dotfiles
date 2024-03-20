@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # $1: option
 # $2: default value
@@ -83,10 +83,9 @@ tmux_set status-left-bg "$TC"
 tmux_set status-left-fg "$G03"
 tmux_set status-left-length 150
 user=$(whoami)
-LS="#[fg=$G04,bg=$TC,bold] $user_icon $user@#h #[fg=$TC,bg=$G06,nobold]$right_arrow_icon#[fg=$TC,bg=$G06] $session_icon #S "
-LS="$LS#[fg=$G06,bg=$BG]$right_arrow_icon"
-if [[ $prefix_highlight_pos == 'L' || $prefix_highlight_pos == 'LR' ]]; then
-	LS="$LS#{prefix_highlight}"
+LS="#[fg=$G04,bg=$TC,bold] $user_icon $user@#h #[fg=$TC,bg=$G06] $session_icon #S "
+if [ $prefix_highlight_pos = 'L' ] || [ $prefix_highlight_pos = 'LR' ]; then
+	LS="$LS#[fg=$G04,bg=$TC,bold]#{prefix_highlight}"
 fi
 tmux_set status-left "$LS"
 
@@ -94,9 +93,8 @@ tmux_set status-left "$LS"
 tmux_set status-right-bg "$G08"
 tmux_set status-right-fg "$G03"
 tmux_set status-right-length 150
-RS="#[fg=$TC,bg=$G04]$left_arrow_icon"
-if [[ $prefix_highlight_pos == 'R' || $prefix_highlight_pos == 'LR' ]]; then
-	RS="#{prefix_highlight}$RS"
+if [ $prefix_highlight_pos = 'R' ] || [ $prefix_highlight_pos = 'LR' ]; then
+	RS="#[fg=$G04,bg=$TC,bold]#{prefix_highlight}"
 fi
 tmux_set status-right "$RS"
 
@@ -105,29 +103,26 @@ tmux_set window-status-format "#[fg=$G07] #I:#W#F "
 tmux_set window-status-current-format "#[fg=$TC,bold] #I:#W#F"
 
 # Window separator
-tmux_set window-status-separator ""
+tmux_set window-status-separator "|"
 
 # Window status alignment
 tmux_set status-justify left
-
-# Current window status
-tmux_set window-status-current-statys "fg=$TC,bg=$BG"
 
 # Pane border
 tmux_set pane-border-style "fg=$G01,bg=default"
 
 # Active pane border
-tmux_set pane-active-border-style "fg=$TC,bg=$BG"
+tmux_set pane-active-border-style "fg=$TC,bg=default"
 
 # Pane number indicator
 tmux_set display-panes-colour "$G01"
 tmux_set display-panes-active-colour "$TC"
 
 # Message
-tmux_set message-style "fg=$TC,bg=$BG"
+tmux_set message-style "fg=$TC,bg=default, bold"
 
 # Command message
-tmux_set message-command-style "fg=$TC,bg=$BG"
+tmux_set message-command-style "fg=$TC,bg=default"
 
 # Copy mode highlight
 tmux_set mode-style "bg=$TC,fg=$FG"

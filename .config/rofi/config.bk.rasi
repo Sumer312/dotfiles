@@ -14,7 +14,7 @@ configuration {
 @theme "/dev/null"
 
 * {
-    accent-color:                #FAEEE7;
+    accent-color:                #C9F658;
     height:                      272;
     spacing:                     7;
     border-color:                @accent-color;
@@ -38,13 +38,6 @@ configuration {
     alternate-active-foreground: @accent-color;
     selected-active-background:  @accent-color;
     alternate-active-background: none;
-}
-
-error-message {
-    expand: true;
-    background-color: white;
-    border: 1px;
-    padding: 1em;
 }
 
 window {
@@ -147,4 +140,3 @@ element.alternate.active {
   background-color: #FFFFFF;
   text-color:       black;
 }
-
