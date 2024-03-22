@@ -85,11 +85,13 @@ static const char *brightness_down[]    = {"/home/sumer/shellScripts/brightnessN
 
 static const char *browsercmd[]            = { "librewolf", NULL };
 static const char *emailcmd[]              = { "thunderbird", NULL };
+static const char *topcmd[]               = { "st", "-g", "144x36", "-i", "-e", "top", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key                          function               argument */
 	{ MODKEY,                       XK_Return,                   spawn,                 {.v = termcmd } },
 	{ MODKEY,                       XK_b,                        spawn,                 {.v = browsercmd } },
+	{ MODKEY,                       XK_s,                        spawn,                 {.v = topcmd } },
 	{ MODKEY,                       XK_e,                        spawn,                 {.v = emailcmd } },
 	{ MODKEY,                       XK_r,                        spawn,                 {.v = rofirun } },
 	{ MODKEY| ShiftMask,            XK_r,                        spawn,                 {.v = rofidrun } },

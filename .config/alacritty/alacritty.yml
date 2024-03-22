@@ -45,7 +45,7 @@ shell:
  program: /bin/zsh
 
 key_bindings:
-  - { key: J,         mods: Control,   mode: ~Alt,        action: ScrollPageDown }
-  - { key: K,         mods: Control,   mode: ~Alt,        action: ScrollPageUp   }
-  - { key: Home,      mods: Shift,     mode: ~Alt,        action: ScrollToTop    }
-  - { key: End,       mods: Shift,     mode: ~Alt,        action: ScrollToBottom }
+  - { key: PageUp,    mods: Shift,   mode: ~Alt,        action: ScrollPageUp   }
+  - { key: PageDown,  mods: Shift,   mode: ~Alt,        action: ScrollPageDown }
+  - { key: Home,      mods: Shift,   mode: ~Alt,        action: ScrollToTop    }
+  - { key: End,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }

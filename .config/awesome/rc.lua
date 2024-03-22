@@ -88,7 +88,7 @@ lain.layout.cascade.tile.ncol = 2
 -- Themes define colours, icons, font and wallpapers.
 --[[ local chosen_theme = "blackburn" ]]
 --[[ beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)) ]]
-beautiful.init(string.format("%s/.config/awesome/my_theme.lua", os.getenv("HOME")))
+--[[ beautiful.init(string.format("%s/.config/awesome/my_theme.lua", os.getenv("HOME"))) ]]
 
 --[[ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua") ]]
 
@@ -106,22 +106,7 @@ local modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-  --[[ awful.layout.suit.floating, ]]
   awful.layout.suit.tile,
-  --[[ awful.layout.suit.tile.left, ]]
-  --[[ awful.layout.suit.tile.bottom, ]]
-  --[[ awful.layout.suit.tile.top, ]]
-  --[[ awful.layout.suit.fair, ]]
-  --[[ awful.layout.suit.fair.horizontal, ]]
-  --[[ awful.layout.suit.spiral, ]]
-  --[[ awful.layout.suit.spiral.dwindle, ]]
-  --[[ awful.layout.suit.max, ]]
-  --[[ awful.layout.suit.max.fullscreen, ]]
-  --[[ awful.layout.suit.magnifier, ]]
-  --[[ awful.layout.suit.corner.nw, ]]
-  -- awful.layout.suit.corner.ne,
-  -- awful.layout.suit.corner.sw,
-  -- awful.layout.suit.corner.se,
 }
 -- }}}
 
@@ -263,9 +248,32 @@ awful.screen.connect_for_each_screen(function(s)
 
   -- Create the wibox
   s.mywibox = awful.wibar({
-    position = beautiful.wibar_position,
-    screen = s,
+    font = "JetBrainsMonoNerdFont-Bold",
+    taglist_font = "JetBrainsMonoNerdFont-Bold 14",
+    tasklist_bg_focus = "#00000000",
+    tasklist_bg_normal = "#00000000",
+    menu_height = dpi(15),
+    menu_width = dpi(130),
+    fg_normal = "#a292a3",
+    tasklist_plain_task_name = true,
+    tasklist_disable_icon = true,
+    fg_focus = "#98BB6C",
+    bg_normal = "#000000DD",
+    bg_focus = "#000000DD",
+    fg_urgent = "#CC9393",
+    bg_urgent = "#2A1F1E",
+    taglist_fg_focus = "#f9d791",
+    taglist_fg_urgent = "#E82424",
+    taglist_bg_focus = "#00000000",
+    taglist_bg_urgent = "#00000000",
+    tasklist_fg_focus = "#f9d791",
+    tasklist_fg_normal = "#9CABCA",
     border_width = 0,
+    position = beautiful.wibar_position,
+    awesome_icon = os.getenv("HOME") .. "/.config/awesome/themes/blackburn" .. "/icons/awesome.png",
+    taglist_squares_sel = os.getenv("HOME") .. "/.config/awesome/themes/blackburn" .. "/icons/custom_square_sel.png",
+    taglist_squares_unsel = os.getenv("HOME") .. "/.config/awesome/themes/blackburn" .. "/icons/custom_square_unsel.png",
+    screen = s,
     opacity = 1,
     bg = "#000000DD"
   })
