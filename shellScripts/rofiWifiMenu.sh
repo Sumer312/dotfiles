@@ -16,7 +16,7 @@ substring=$(printf "%s" "$selected_option" | cut -c 4-)
 chosen_id=$(printf "%s" "$substring" | xargs)
 
 if [ "$selected_option" = "" ]; then
-  exit
+  exit 130
 elif echo "$selected_option" | grep -q "󰤮 Disable Wi-Fi"; then
   nmcli radio wifi off
 elif echo "$selected_option" | grep -q "󰤨 Enable Wi-Fi"; then
@@ -33,3 +33,4 @@ else
     notify-send -u critical "Connection activation failed" 
   fi
 fi
+

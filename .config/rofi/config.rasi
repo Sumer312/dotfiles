@@ -14,7 +14,7 @@ configuration {
 @theme "/dev/null"
 
 * {
-    accent-color:                #FAEEE7;
+    accent-color:                #F0CEFF;   
     height:                      272;
     spacing:                     7;
     border-color:                @accent-color;

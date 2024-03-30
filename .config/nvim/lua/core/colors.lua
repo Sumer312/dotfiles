@@ -49,7 +49,7 @@ function ColorMyPencils(color)
   set(0, "DiagnosticVirtualTextHint", { fg = palatte.lightBlue, bg = "none", italic = true })
   set(0, "DiagnosticVirtualTextInfo", { fg = palatte.springBlue, bg = "none", italic = true })
 
-  set(0, "CmpItemAbbrMatch", { fg = palatte.lotusCyan })
+  set(0, "CmpItemAbbrMatch", { fg = palatte.lotusCyan, underdotted = true })
   set(0, "CmpItemAbbr", { fg = palatte.carpYellow })
   set(0, "CmpItemMenu", { fg = palatte.katanaGray })
 

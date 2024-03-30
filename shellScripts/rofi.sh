@@ -13,11 +13,11 @@ quit(){
 }
 
 network(){
-  /home/sumer/shellScripts/rofi-wifi-menu.sh
+  /home/sumer/shellScripts/rofiWifiMenu.sh
 }
 
 pass(){
-  rofi-pass
+  /home/sumer/shellScripts/rofiPass.sh
 }
 
 

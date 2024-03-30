@@ -44,6 +44,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # export ARCHFLAGS="-arch x86_64"
 alias py="python3"
 alias lock="/home/sumer/shellScripts/lock.sh"
+alias toggleascii="/home/sumer/shellScripts/toggleAscii.sh"
 alias audio="mpv --no-video"
 alias ls="lsd -lF"
 alias cat="batcat"
@@ -68,6 +69,7 @@ export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
 export ROFI_PASS_CONFIG=$HOME/.config/rofi-pass/config
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
+export PASSWORD_STORE_DIR=/home/sumer/.password-store
 export LANG="en_IN.utf8"
 colorscript -r
 
