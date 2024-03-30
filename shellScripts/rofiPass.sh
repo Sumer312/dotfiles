@@ -12,6 +12,8 @@ fi
 pass show -c "$selected_option"
 if [ $? -eq 2 ]; then
   dunstify -u low "  not in clip" -t 2000
+  exit 2
 else
   dunstify  "  in clip" "will be cleared in 25s" -t 2000
 fi
+exit 0
