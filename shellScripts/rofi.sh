@@ -9,15 +9,15 @@ drun(){
 }
 
 quit(){
-   rofi -show power-menu -modi power-menu:rofi-power-menu
+  /home/sumer/shellScripts/rofiPower.sh
 }
 
 network(){
-  /home/sumer/shellScripts/rofi-wifi-menu.sh
+  /home/sumer/shellScripts/rofiWifiMenu.sh
 }
 
 pass(){
-  rofi-pass
+  /home/sumer/shellScripts/rofiPass.sh
 }
 
 

@@ -19,17 +19,17 @@
     # will be ignored.
     follow = none
 
-    highlight = "#FAEEE7"
+    highlight = "#F0CEFF"
 
     ### Geometry ###
 
     # dynamic width from 0 to 300
     # width = (0, 300)
     # constant width of 300
-    width = 300
+    width = 350
 
     # The maximum height of a single notification, excluding the frame.
-    height = 300
+    height = 350
 
     # Position the notification in the top right corner
     origin = top-right
@@ -60,7 +60,7 @@
     progress_bar_min_width = 150
 
     # Set the maximum width for the progress bar
-    progress_bar_max_width = 300
+    progress_bar_max_width = 350
 
 
     # Show how many messages are currently hidden (because of
@@ -120,7 +120,7 @@
 
     ### Text ###
 
-    font = JetBrainsMono Nerd Font 12
+    font = JetBrainsMono Nerd Font 13
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -319,8 +319,8 @@
 
 [urgency_normal]
     background = "#000000BB"
-    foreground = "#FAEEE7"
-    frame_color = "#FAEEE7"
+    foreground = "#F0CEFF"
+    frame_color = "#F0CEFF"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #default_icon = /path/to/icon

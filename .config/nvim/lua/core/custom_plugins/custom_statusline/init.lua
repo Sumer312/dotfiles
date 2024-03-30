@@ -4,7 +4,6 @@ local black_bg_colors = require("core.custom_plugins.custom_statusline.colors").
 local inverse_colors = require("core.custom_plugins.custom_statusline.colors").inverse_colors
 local diagnostics = require("core.custom_plugins.custom_statusline.diagnostics").diagnostics
 local filename = require("core.custom_plugins.custom_statusline.file").filename
-local filetype = require("core.custom_plugins.custom_statusline.file").filetype
 local lineinfo = require("core.custom_plugins.custom_statusline.file").lineinfo
 local getIcon = require("core.custom_plugins.custom_statusline.icons").getIcon
 local git = require("core.custom_plugins.custom_statusline.git_branch")

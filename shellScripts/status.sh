@@ -59,6 +59,7 @@ while :; do
 
   while [ -z "$bool_charging" ] && [ "$bool_battery_check" -lt 20 ]; do
     bool_charging=$(acpi | grep Charging)
+    bool_battery_check=$(acpi | grep "Battery 0"  | awk -F "%" '{print $1}' | awk -F "," '{print $2}')
     var_time=$(date +"%H:%M")
     var_date=$(date +"%a %d-%m-%y")
     var_temp=$(acpi -t | awk '{print $4}')
