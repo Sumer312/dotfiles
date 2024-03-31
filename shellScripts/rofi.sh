@@ -9,7 +9,7 @@ drun(){
 }
 
 quit(){
-   rofi -show power-menu -modi power-menu:rofi-power-menu
+  /home/sumer/shellScripts/rofiPower.sh
 }
 
 network(){

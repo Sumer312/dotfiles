@@ -1,6 +1,6 @@
 #!/bin/sh
 
-notify-send "Getting list of available Wi-Fi networks..."
+dunstify "Getting list of available Wi-Fi networks..." -t 2500
 
 wifi_list=$(nmcli --fields "SECURITY,SSID" device wifi list | sed 1d | sed 's/  */ /g' | sed -E "s/WPA*.?\S/ /g" | sed "s/^--/ /g" | sed "s/  //g" | sed "/--/d")
 connected=$(nmcli --fields WIFI g)
@@ -11,7 +11,7 @@ else
   toggle="󰤮 Disable Wi-Fi"
 fi
 
-selected_option=$(printf "$toggle\n$wifi_list" | uniq -u | rofi -dmenu -i -selected-row 0 -p "  SSID" )
+selected_option=$(printf "$toggle\n$wifi_list" | uniq -u | rofi -dmenu -i  -p "  SSID" )
 substring=$(printf "%s" "$selected_option" | cut -c 4-)
 chosen_id=$(printf "%s" "$substring" | xargs)
 
@@ -28,9 +28,9 @@ else
     wifi_password=$(rofi -dmenu -p "Password: ")
   fi
   if nmcli device wifi connect "$chosen_id" password "$wifi_password" | grep "successfully"; then
-    notify-send "Connection Established" "$success_message"
+    dunstify "Connection Established" "$success_message" -t 2000
   else
-    notify-send -u critical "Connection activation failed" 
+    dunstify -u critical "Connection activation failed" -t 2000
   fi
 fi
 
