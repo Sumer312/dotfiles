@@ -11,6 +11,7 @@ configs.setup({
 		"typescript",
 		"html",
 		"css",
+    "scss",
 		"lua",
 		"go",
     "templ",

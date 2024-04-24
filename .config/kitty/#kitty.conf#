@@ -1,11 +1,4 @@
-# vim:fileencoding=utf-8:foldmethod=marker
- include ./custom-theme.conf
-
-#: Fonts {{{
-
-#: kitty has very powerful font management. You can configure
-#: individual font faces and even specify special fonts for particular
-#: characters.
+: characters.
 
 font_family      JetBrainsMonoNL NF Medium
 bold_font        JetBrainsMonoNL NF ExtraBold
@@ -181,7 +174,7 @@ adjust_column_width  100%
 #: decreasing it lowers them. Decreasing the cell size might cause
 #: rendering artifacts, so use with care.
 
- box_drawing_scale 0.001, 1, 1.5, 2
+# box_drawing_scale 0.001, 1, 1.5, 2
 
 #: The sizes of the lines used for the box drawing Unicode characters.
 #: These values are in pts. They will be scaled by the monitor DPI to

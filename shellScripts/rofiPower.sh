@@ -7,7 +7,7 @@ confirmation_yes="󰡕 Yes"
 confirmation_no=" No"
 
 display_list=""
-set -- "$lock" "$reboot" "$shutdown"
+set -- "$shutdown" "$lock" "$reboot"
 for ele in "$@"; do
   if [ ${#display_list} -eq 0 ]; then
     display_list="$ele"
@@ -26,7 +26,7 @@ for ele in "$@"; do
   fi
 done
 
-selected_option=$(echo "$display_list" | rofi -dmenu -p "⏼ Power Menu")
+selected_option=$(echo "$display_list" | rofi -dmenu -p "󰐦 Power Menu")
 
 if [ "$selected_option" = "" ]; then 
   exit 130

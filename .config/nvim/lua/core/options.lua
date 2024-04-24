@@ -62,7 +62,7 @@ let g:startify_fortune_use_unicode = 1
 let g:startify_custom_header = 'startify#pad(startify#fortune#cowsay())'
 let g:startify_bookmarks = [{"A": '~/.zshrc'},{"B" : '~/.bashrc'}, {"C" : "~/.config/nvim/lua/core/colors.lua"}, {"I": "~/.config/nvim/init.lua"}, {"K": "~/.config/alacritty/alacritty.yml"}, {"J": "/home/sumer/dwm/config.h"} ]
 
-let g:sonokai_style = 'espresso'
+let g:sonokai_style = 'shusia'
 let g:sonokai_better_performance = 0
 let g:sonokai_transparent_background = 2
 let g:sonokai_enable_italic = 1
@@ -73,7 +73,6 @@ let g:sonokai_diagnostic_virtual_text = 'highlighted'
 
 let g:everforest_background = 'hard'
 let g:everforest_better_performance = 0
-" set background=light
 
 let g:undotree_WindowLayout = 4
 let g:undotree_SplitWidth = 40
@@ -83,3 +82,10 @@ vim.cmd([[
 let g:python3_host_prog = '/usr/bin/python3'
 let g:loaded_python3_provider = 0
 ]])
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlighting when yanking text",
+  callback = function()
+    vim.highlight.on_yank({ higroup = 'Substitute', timeout= 60 })
+  end,
+})

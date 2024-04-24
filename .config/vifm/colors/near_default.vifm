@@ -20,27 +20,29 @@
 " XTerm*color12: #a8a8ff
 
 highlight clear
-highlight Win        cterm=none                   ctermfg=white   ctermbg=none
-highlight BrokenLink cterm=bold                   ctermfg=red     ctermbg=default
-highlight Socket     cterm=bold                   ctermfg=magenta ctermbg=default
-highlight Device     cterm=bold,reverse           ctermfg=red     ctermbg=default
-highlight Fifo       cterm=bold,reverse           ctermfg=cyan    ctermbg=default
-highlight CurrLine   cterm=reverse,bold           ctermfg=default ctermbg=default
-highlight TopLine    cterm=none                   ctermfg=white   ctermbg=none
-highlight TopLineSel cterm=bold                   ctermfg=229     ctermbg=none
-highlight StatusLine cterm=bold                   ctermfg=190     ctermbg=0
-highlight WildMenu   cterm=underline,bold,reverse ctermfg=yellow  ctermbg=0
-highlight CmdLine    cterm=bold                   ctermfg=123     ctermbg=default
-highlight ErrorMsg   cterm=bold                   ctermfg=white   ctermbg=red
-highlight Border     cterm=none                   ctermfg=white   ctermbg=default
-highlight OtherLine  cterm=reverse                ctermfg=234     ctermbg=white
-highlight SuggestBox cterm=bold,reverse           ctermfg=cyan    ctermbg=default
+highlight Win        cterm=none                   ctermfg=15          ctermbg=none
+highlight BrokenLink cterm=bold                   ctermfg=red         ctermbg=default
+highlight Socket     cterm=bold                   ctermfg=magenta     ctermbg=default
+highlight Device     cterm=bold                   ctermfg=150         ctermbg=default
+highlight Fifo       cterm=bold,reverse           ctermfg=cyan        ctermbg=default
+highlight CurrLine   cterm=reverse,bold           ctermfg=default     ctermbg=default
+highlight TopLine    cterm=none                   ctermfg=15          ctermbg=none
+highlight TopLineSel cterm=bold                   ctermfg=14          ctermbg=none
+highlight StatusLine cterm=bold                   ctermfg=15          ctermbg=default
+highlight WildMenu   cterm=bold,reverse           ctermfg=89          ctermbg=15
+highlight CmdLine    cterm=bold                   ctermfg=14          ctermbg=default
+highlight ErrorMsg   cterm=bold                   ctermfg=15          ctermbg=red
+highlight Border     cterm=none                   ctermfg=15          ctermbg=default
+highlight OtherLine  cterm=none                   ctermfg=190         ctermbg=none
+highlight SuggestBox cterm=bold,reverse           ctermfg=190         ctermbg=default
+highlight TabLine    cterm=bold                   ctermfg=190         ctermbg=none
+highlight LineNr                                  ctermfg=15          ctermbg=none
 
-highlight Directory   cterm=bold           ctermfg=123     ctermbg=default
-highlight Link        cterm=bold           ctermfg=229     ctermbg=default
-highlight Executable  cterm=bold           ctermfg=119     ctermbg=default
-highlight Selected    cterm=bold           ctermfg=0       ctermbg=190
-highlight CmpMismatch cterm=bold           ctermfg=white   ctermbg=88
+highlight Directory   cterm=bold                 ctermfg=14           ctermbg=default
+highlight Link        cterm=bold                 ctermfg=229          ctermbg=default
+highlight Executable  cterm=bold                 ctermfg=119          ctermbg=default
+highlight Selected    cterm=bold                 ctermfg=15           ctermbg=89
+highlight CmpMismatch cterm=bold                 ctermfg=15           ctermbg=88
 
 " software documentation
 highlight {COPYRIGHT,COPYING*,BUGS,ChangeLog*,FAQ,INSTALL*,LICEN[CS]E,NEWS,
@@ -70,10 +72,10 @@ highlight {*.aac,*.anx,*.asf,*.au,*.avi,*.ts,*.axa,*.axv,*.divx,*.flac,*.m2a,
 " images
 highlight {*.bmp,*.gif,*.jpeg,*.jpg,*.ico,*.png,*.ppm,*.svg,*.svgz,*.tga,*.tif,
           \*.tiff,*.xbm,*.xcf,*.xpm,*.xspf,*.xwd}
-        \ cterm=none ctermfg=117 ctermbg=default
+        \ cterm=none ctermfg=123 ctermbg=default
 " executables
 highlight {*.sh,*.bash,*.bat,*.btm,*.cmd,*.com,*.dll,*.exe,*.run,*.msu,*.msi}
-        \ cterm=none ctermfg=77 ctermbg=default
+        \ cterm=bold ctermfg=77 ctermbg=default
 " source code
 highlight {*.patch,*.diff,*.py,*.[ch]pp,*.mk,*.c,*.h,*.[ch]pp,*.cc,*.hs,*.php}
         \ cterm=none ctermfg=193 ctermbg=default

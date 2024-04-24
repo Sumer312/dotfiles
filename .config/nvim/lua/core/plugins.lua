@@ -34,6 +34,7 @@ return {
   "nvim-tree/nvim-web-devicons",
   "folke/zen-mode.nvim",
   "ThePrimeagen/vim-be-good",
+  "norcalli/nvim-colorizer.lua",
   "ap/vim-css-color",
   { "christoomey/vim-tmux-navigator", lazy = false },
   {
