@@ -14,7 +14,7 @@ local opts = {
   ui_width_ratio = 0.62569,
 }
 
-vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end)
+vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
 vim.keymap.set("n", "<A-h>", function() harpoon.ui:toggle_quick_menu(harpoon:list(), opts) end)
 
 vim.keymap.set("n", "<A-1>", function() harpoon:list():select(1) end)

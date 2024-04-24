@@ -101,3 +101,8 @@ lsp_config.htmx.setup({
   filetypes = { "html", "templ" },
   cmd = { "htmx-lsp" }
 })
+
+lsp_config.somesass_ls.setup({
+  on_attach = opts.on_attach,
+  capabilities = opts.capabilities,
+})

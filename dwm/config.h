@@ -40,7 +40,7 @@ static const Rule rules[] = {
 	 */
 	/* class                   instance          title       tags mask        isfloating   monitor */
 	{ "librewolf-default",    "Navigator",       NULL,       1 << 1,            0,           -1 },
-	{ "thunderbird-default",  "Mail",            NULL,       1 << 2,            0,           -1 },
+	{ "thunderbird-default",  "Mail",            NULL,       1 << 3,            0,           -1 },
 };
 
 /* layout(s) */
@@ -83,18 +83,20 @@ static const char *vol_mute[]           = { "/home/sumer/shellScripts/volumeNoti
 static const char *brightness_up[]      = {"/home/sumer/shellScripts/brightnessNotification.sh", "up", NULL };
 static const char *brightness_down[]    = {"/home/sumer/shellScripts/brightnessNotification.sh", "down", NULL };
 
-static const char *browsercmd[]            = { "librewolf", NULL };
-static const char *emailcmd[]              = { "thunderbird", NULL };
-static const char *topcmd[]               = { "st", "-g", "144x36", "-i", "-e", "top", NULL };
+static const char *browsercmd[]                   = { "librewolf", NULL };
+static const char *browserprivatecmd[]            = { "librewolf", "--private-window", NULL };
+static const char *emailcmd[]                     = { "thunderbird", NULL };
+static const char *topcmd[]                       = { "st", "-g", "144x36", "-i", "-e", "top", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key                          function               argument */
 	{ MODKEY,                       XK_Return,                   spawn,                 {.v = termcmd } },
 	{ MODKEY,                       XK_b,                        spawn,                 {.v = browsercmd } },
+	{ MODKEY | ShiftMask,           XK_b,                        spawn,                 {.v = browserprivatecmd } },
 	{ MODKEY,                       XK_s,                        spawn,                 {.v = topcmd } },
 	{ MODKEY,                       XK_e,                        spawn,                 {.v = emailcmd } },
 	{ MODKEY,                       XK_r,                        spawn,                 {.v = rofirun } },
-	{ MODKEY| ShiftMask,            XK_r,                        spawn,                 {.v = rofidrun } },
+	{ MODKEY | ShiftMask,           XK_r,                        spawn,                 {.v = rofidrun } },
 	{ MODKEY,                       XK_n,                        spawn,                 {.v = rofiwifi } },
 	{ MODKEY,                       XK_q,                        spawn,                 {.v = rofipower } },
 	{ MODKEY,                       XK_p,                        spawn,                 {.v = rofipass } },
@@ -106,18 +108,18 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_h,                        setmfact,              {.f = -0.05} },
 	{ MODKEY,                       XK_l,                        setmfact,              {.f = +0.05} },
 	{ MODKEY,                       XK_Tab,                      view,                  {0} },
-	{ MODKEY|ShiftMask,             XK_c,                        killclient,            {0} },
+	{ MODKEY | ShiftMask,           XK_c,                        killclient,            {0} },
 	{ MODKEY,                       XK_t,                        setlayout,             {.v = &layouts[0]} },
 	{ MODKEY,                       XK_m,                        setlayout,             {.v = &layouts[1]} },
 	{ MODKEY,                       XK_space,                    setlayout,             {0} },
-	{ MODKEY|ShiftMask,             XK_space,                    togglefloating,        {0} },
+	{ MODKEY | ShiftMask,           XK_space,                    togglefloating,        {0} },
 	{ MODKEY,                       XK_0,                        view,                  {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,                        tag,                   {.ui = ~0 } },
+	{ MODKEY | ShiftMask,           XK_0,                        tag,                   {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,                    focusmon,              {.i = -1 } },
 	{ MODKEY,                       XK_period,                   focusmon,              {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,                    tagmon,                {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period,                   tagmon,                {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_q,                        quit,                  {0} },
+	{ MODKEY | ShiftMask,           XK_comma,                    tagmon,                {.i = -1 } },
+	{ MODKEY | ShiftMask,           XK_period,                   tagmon,                {.i = +1 } },
+	{ MODKEY | ShiftMask,           XK_q,                        quit,                  {0} },
   { 0,                            XF86XK_AudioRaiseVolume,     spawn,                 {.v = vol_up} },
   { 0,                            XF86XK_AudioLowerVolume,     spawn,                 {.v = vol_down} },
   { 0,                            XF86XK_AudioMute,            spawn,                 {.v = vol_mute} },

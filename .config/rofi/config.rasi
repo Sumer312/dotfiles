@@ -15,8 +15,8 @@ configuration {
 
 * {
     accent-color:                #F0CEFF;   
-    height:                      272;
-    spacing:                     7;
+    height:                      250;
+    spacing:                     3;
     border-color:                @accent-color;
     foreground:                  white;
     urgent-foreground:           red;
@@ -54,8 +54,7 @@ window {
 message {
     border: 1px;
     padding: 1em;
-    background-color: @normal-background;
-    text-color: white;
+    background-color: #F0CEFFDD;
 }
 
 inputbar {

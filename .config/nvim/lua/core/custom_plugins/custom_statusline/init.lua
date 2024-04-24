@@ -30,11 +30,11 @@ Statusline.active = function()
 
     if #lspTable == 0 then
       lspString = " "
-      lsPrefix = "Language Server"
+      lsPrefix = "  Language Server"
     elseif #lspTable == 1 then
-      lsPrefix = "Language Server"
+      lsPrefix = "  Language Server"
     else
-      lsPrefix = "Language Servers"
+      lsPrefix = "  Language Servers"
     end
   end)
   return table.concat {

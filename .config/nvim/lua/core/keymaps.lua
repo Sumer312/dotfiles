@@ -19,12 +19,18 @@ keymap("n", "<leader>fc", "<cmd>Telescope colorscheme theme=ivy<CR>", opts)
 keymap("n", "<leader>lg", "<cmd>Telescope live_grep theme=ivy<CR>", opts)
 
 keymap("n", "<leader>dl", "<cmd>TroubleToggle<CR>", opts)
+keymap("n", "<leader>mkv", "<cmd>mkview<CR>", opts)
+keymap("n", "<leader>lv", "<cmd>loadview<CR>", opts)
+
+keymap("n", "<leader>ct", "<cmd>ColorizerToggle<CR>", opts)
+keymap("n", "<leader>cr", "<cmd>ColorizerReloadAllBuffers<CR>", opts)
 
 keymap("n", "<leader>son", "<cmd>lua ColorMyPencils('sonokai')<CR>", opts)
 keymap("n", "<leader>kan", "<cmd>lua ColorMyPencils('kanagawa-wave')<CR>", opts)
 keymap("n", "<leader>u", "<cmd>UndotreeToggle <bar> UndotreeFocus<CR>", opts)
 
 keymap("n", "<leader>lzg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
+keymap("n", "<leader>glo", "<cmd>lua _GLOW_TOGGLE()<CR>", opts)
 keymap("n", "<leader>db", "<cmd>DBUIToggle<CR>", opts)
 keymap("n", "<A-Return>", "o<Esc>", opts)
 keymap("n", "J", "mzJ`z", opts)

@@ -25,7 +25,7 @@ else
   success_message="You are now connected to the Wi-Fi network \"$chosen_id\"."
   secure_connection=$(echo "$selected_option" | grep "")
   if [ -n secure_connection ]; then
-    wifi_password=$(rofi -dmenu -p "Password: ")
+    wifi_password=$(rofi -dmenu -p " Password: ")
   fi
   if nmcli device wifi connect "$chosen_id" password "$wifi_password" | grep "successfully"; then
     dunstify "Connection Established" "$success_message" -t 2000
