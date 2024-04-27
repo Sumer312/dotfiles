@@ -457,17 +457,17 @@ local globalkeys = gears.table.join(
   --[[ end, { description = "lua execute prompt", group = "awesome" }), ]]
 
   awful.key({ modkey }, "q", function()
-    awful.util.spawn_with_shell("/home/sumer/Documents/bashScripts/rofi.sh -q")
+    awful.util.spawn_with_shell("/home/sumer/shellScripts/rofi.sh -q")
   end, { description = "power off", group = "awesome" }),
 
   awful.key({ modkey }, "i", function()
-    awful.util.spawn_with_shell("/home/sumer/Documents/bashScripts/rofi.sh -i")
+    awful.util.spawn_with_shell("/home/sumer/shellScripts/rofi.sh -n")
   end, { description = "wifi", group = "awesome" }),
   awful.key({ modkey }, "r", function()
-    awful.util.spawn("/home/sumer/Documents/bashScripts/rofi.sh -r")
+    awful.util.spawn("/home/sumer/shellScripts/rofi.sh -r")
   end, { description = "rofi run", group = "launcher" }),
   awful.key({ modkey, "Shift" }, "r", function()
-    awful.util.spawn("/home/sumer/Documents/bashScripts/rofi.sh -a")
+    awful.util.spawn("/home/sumer/shellScripts/rofi.sh -d")
   end, { description = "rofi applications", group = "launcher" }),
   awful.key({ modkey }, "b", function()
     awful.util.spawn_with_shell("librewolf")
