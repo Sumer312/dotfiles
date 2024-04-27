@@ -69,7 +69,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *termcmd[]            = { "alacritty", NULL };
+static const char *termcmd[]            = { "st", NULL };
 
 static const char *rofirun[]            = { "/home/sumer/shellScripts/rofi.sh", "-r", NULL };
 static const char *rofidrun[]           = { "/home/sumer/shellScripts/rofi.sh", "-d", NULL };
@@ -86,7 +86,7 @@ static const char *brightness_down[]    = {"/home/sumer/shellScripts/brightnessN
 static const char *browsercmd[]                   = { "librewolf", NULL };
 static const char *browserprivatecmd[]            = { "librewolf", "--private-window", NULL };
 static const char *emailcmd[]                     = { "thunderbird", NULL };
-static const char *topcmd[]                       = { "st", "-g", "144x36", "-i", "-e", "top", NULL };
+static const char *topcmd[]                       = { "st", "-g", "144x30", "-i", "-e", "top", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key                          function               argument */
