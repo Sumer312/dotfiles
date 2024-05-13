@@ -44,7 +44,7 @@ while :; do
   fi
 
   if [ -n "$bool_charging" ]; then
-    icon_battery=" "
+    icon_battery=""
   else 
     if [ "$bool_battery_check" -ge 80 ]; then
       icon_battery=" "
@@ -72,10 +72,10 @@ while :; do
     if [ -n "$bool_charging" ]; then
       break
     fi
-    dwm -s " $icon_memory $var_memory  $icon_time $var_time  $icon_date $var_date  $icon_wifi $var_wifi  $icon_temp $var_temp 󰔄  $icon_battery $var_battery "
+    dwm -s " $icon_time $var_time  $icon_date $var_date  $icon_wifi $var_wifi  $icon_memory $var_memory  $icon_temp $var_temp 󰔄  $icon_battery $var_battery "
     send_notification 
     sleep 30s
   done
-  dwm -s " $icon_memory $var_memory  $icon_time $var_time  $icon_date $var_date  $icon_wifi $var_wifi  $icon_temp $var_temp 󰔄  $icon_battery $var_battery "
+    dwm -s " $icon_time $var_time  $icon_date $var_date  $icon_wifi $var_wifi  $icon_memory $var_memory  $icon_temp $var_temp 󰔄  $icon_battery $var_battery "
   sleep 5s
 done

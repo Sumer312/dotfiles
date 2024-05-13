@@ -12,6 +12,7 @@ static const char dmenufont[]            = "JetBrainsMono Nerd Font:size=12";
 static const char col_gray1[]            = "#222222";
 static const char col_gray2[]            = "#444444";
 static const char col_gray3[]            = "#bbbbbb";
+static const char col_inactive[]         = "#54546D";
 static const char col_gray4[]            = "#eeeeee";
 static const char col_white[]            = "#ffffff";
 static const char col_accent[]           = "#F0CEFF";
@@ -26,7 +27,7 @@ static const unsigned int alphas[][3] = {
 };
 static const char *colors[][3] = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_accent, col_black, col_gray2 },
+	[SchemeNorm] = { col_accent, col_black, col_inactive },
 	[SchemeSel]  = { col_black, col_accent,  col_accent  },
 };
 
@@ -69,7 +70,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *termcmd[]            = { "st", NULL };
+static const char *termcmd[]            = { "alacritty", NULL };
 
 static const char *rofirun[]            = { "/home/sumer/shellScripts/rofi.sh", "-r", NULL };
 static const char *rofidrun[]           = { "/home/sumer/shellScripts/rofi.sh", "-d", NULL };

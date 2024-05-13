@@ -27,12 +27,11 @@ font:
   bold_italic:
     family: JetBrainsMono Nerd Font 
     style:  ExtraBold Italic
-  size: 8.5
+  size: 9.0
 
   builtin_box_drawing: true
 
 draw_bold_text_with_bright_colors: true
-
 
 cursor:
   style:
@@ -42,7 +41,7 @@ cursor:
 live_config_reload: true
 
 shell:
- program: /bin/zsh
+ program: /bin/bash
 
 key_bindings:
   - { key: PageUp,    mods: Shift,   mode: ~Alt,        action: ScrollPageUp   }
