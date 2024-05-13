@@ -6,7 +6,7 @@ configuration {
   show-icons: false;
   icon-theme: "Adwaita";
   modi: "window,run,drun";
-  terminal: "/usr/bin/alacritty";
+  terminal: "st";
   kb-accept-entry: "Return";
   kb-cancel: "Control+c";
 }
@@ -14,9 +14,9 @@ configuration {
 @theme "/dev/null"
 
 * {
-    accent-color:                #C9F658;
-    height:                      272;
-    spacing:                     7;
+    accent-color:                #F0CEFF;   
+    height:                      250;
+    spacing:                     3;
     border-color:                @accent-color;
     foreground:                  white;
     urgent-foreground:           red;
@@ -40,6 +40,13 @@ configuration {
     alternate-active-background: none;
 }
 
+error-message {
+    expand: true;
+    background-color: white;
+    border: 1px;
+    padding: 1em;
+}
+
 window {
   children: [ inputbar, message, listview ];
 }
@@ -47,8 +54,7 @@ window {
 message {
     border: 1px;
     padding: 1em;
-    background-color: @normal-background;
-    text-color: white;
+    background-color: #F0CEFFDD;
 }
 
 inputbar {
@@ -81,7 +87,7 @@ inputbar {
 listview {
     border: 1px;
     padding: 4px 4px 4px 4px;
-    columns: 2;
+    columns: 5;
     background-color: @normal-background;
 }
 
@@ -140,3 +146,4 @@ element.alternate.active {
   background-color: #FFFFFF;
   text-color:       black;
 }
+

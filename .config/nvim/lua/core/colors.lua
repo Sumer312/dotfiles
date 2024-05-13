@@ -64,9 +64,9 @@ function ColorMyPencils(color)
   set(0, "TelescopePromptBorder", { bg = "none", fg = palatte.springGreen })
   set(0, "TelescopePreviewBorder", { bg = "none", fg = palatte.oniViolet2 })
 
-  set(0, "TreesitterContext", { bg = "none", bold = true, italic = true, underdotted = true })
+  set(0, "TreesitterContext", { bg = palatte.sumiInk2, bold = true, italic = true, underdashed = true })
   set(0, "TreesitterContextLineNumber",
-    { bg = "none", fg = palatte.sakuraPink, bold = true, italic = true, underdotted = true })
+    { bg = palatte.sumiInk2, fg = palatte.sakuraPink, bold = true, italic = true, underdashed = true })
 
   set(0, "GitSignsAdd", { fg = palatte.springGreen, bg = "none" })
   set(0, "GitSignsChange", { fg = palatte.roninYellow, bg = "none" })
@@ -78,6 +78,9 @@ function ColorMyPencils(color)
   set(0, "NotificationError", { bg = palatte.lotusRed3, fg = palatte.dragonBlack0 })
 
   set(0, "LspInfoBorder", { bg = "none", fg = palatte.carpYellow })
+
+  set(0, "LazyProgressDone", { bg = "none", fg = palatte.lotusCyan })
+  set(0, "LazyProgressTodo", { bg = "none", fg = palatte.carpYellow })
   ColorMyLines()
 end
 

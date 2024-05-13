@@ -1,0 +1,4 @@
+$include /etc/inputrc
+
+"\ek":history-search-backward
+"\ej":history-search-forward

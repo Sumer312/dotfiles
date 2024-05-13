@@ -1,12 +1,12 @@
 configuration {
-  font: "JetBrainsMono Nerd Font 13";
+  font: "JetBrainsMono Nerd Font 14";
   display-drun: "󰧨 Drun";
   display-window: " Windows";
   display-run: " Run";
   show-icons: false;
   icon-theme: "Adwaita";
   modi: "window,run,drun";
-  terminal: "/usr/bin/alacritty";
+  terminal: "st";
   kb-accept-entry: "Return";
   kb-cancel: "Control+c";
 }
@@ -15,7 +15,7 @@ configuration {
 
 * {
     accent-color:                #F0CEFF;   
-    height:                      250;
+    height:                      228;
     spacing:                     3;
     border-color:                @accent-color;
     foreground:                  white;
@@ -62,12 +62,12 @@ inputbar {
 }
 
 entry {
-  font: "JetBrainsMono Nerd Font Bold Italic 13";
+  font: "JetBrainsMono Nerd Font Bold Italic 14";
   text-color: @accent-color;
 }
 
 prompt {
-  font: "JetBrainsMono Nerd Font ExtraBold 13";
+  font: "JetBrainsMono Nerd Font ExtraBold 14";
   text-color: @accent-color;
 }
 

@@ -19,7 +19,7 @@ toggleterm.setup({
   float_opts = {
     border = "single",
     width = 190,
-    height = 35,
+    height = 33,
     zindex = 10,
     winblend = 0,
   },
@@ -31,12 +31,13 @@ toggleterm.setup({
 })
 
 function _G.set_terminal_keymaps()
-  local opts = { noremap = true }
-  vim.api.nvim_buf_set_keymap(0, "t", "<ESC>", [[<C-\><C-n>]], opts)
-  vim.api.nvim_buf_set_keymap(0, "t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
-  vim.api.nvim_buf_set_keymap(0, "t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
-  vim.api.nvim_buf_set_keymap(0, "t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)
-  vim.api.nvim_buf_set_keymap(0, "t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
+  local opts = { noremap = true, silent = true }
+  local keymap = vim.api.nvim_buf_set_keymap
+  keymap(0, "t", "<ESC>", [[<C-\><C-n>]], opts)
+  keymap(0, "t", "<C-k>", "<C-k>", opts)
+  keymap(0, "t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
+  keymap(0, "t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
+  keymap(0, "t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
 end
 
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")

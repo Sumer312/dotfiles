@@ -18,11 +18,11 @@ session_icon="$(tmux_get '@tmux_power_session_icon' '')"
 user_icon="$(tmux_get '@tmux_power_user_icon' '')"
 
 C1=#ffffff   #238
-C2=#43242B   #244
+C2=#301934   #244
 C3=#0c0c0c   #244
 C4=#000000FF #248
 NC=#f0ceff
-PFX=#ccff33
+PFX=#0FFF50
 TC=$(tmux_get '@tmux_power_theme' "#{?client_prefix,$PFX,$NC}")
 
 tmux_set mode-style "bg=$TC,fg=$C3,bold"
@@ -50,5 +50,5 @@ tmux_set display-panes-colour "$C1"
 tmux_set display-panes-active-colour "$TC"
 
 tmux_set message-style "fg=$TC,bg=default, bold"
-tmux_set message-command-style "fg=$TC,bg=default"
-
+:mux_set message-command-style "fg=$TC,bg=default"
+tmux_set mode-style "bg=$TC,fg=$C3"
