@@ -7,15 +7,15 @@ static const unsigned int gappx          = 8;        /* gaps between windows */
 static const unsigned int snap           = 32;       /* snap pixel */
 static const int showbar                 = 1;        /* 0 means no bar */
 static const int topbar                  = 1;        /* 0 means bottom bar */
-static const char *fonts[]               = { "JetBrainsMono Nerd Font:size=12" };
-static const char dmenufont[]            = "JetBrainsMono Nerd Font:size=12";
+static const char *fonts[]               = { "JetBrainsMono Nerd Font:size=13" };
+static const char dmenufont[]            = "JetBrainsMono Nerd Font:size=13";
 static const char col_gray1[]            = "#222222";
 static const char col_gray2[]            = "#444444";
 static const char col_gray3[]            = "#bbbbbb";
 static const char col_inactive[]         = "#54546D";
 static const char col_gray4[]            = "#eeeeee";
 static const char col_white[]            = "#ffffff";
-static const char col_accent[]           = "#F0CEFF";
+static const char col_accent[]           = "#fffdd0";
 static const char col_black[]            = "#000000";
 static const unsigned int baralpha       = 0xDD;
 static const unsigned int borderalpha    = OPAQUE;
@@ -87,7 +87,7 @@ static const char *brightness_down[]    = {"/home/sumer/shellScripts/brightnessN
 static const char *browsercmd[]                   = { "librewolf", NULL };
 static const char *browserprivatecmd[]            = { "librewolf", "--private-window", NULL };
 static const char *emailcmd[]                     = { "thunderbird", NULL };
-static const char *topcmd[]                       = { "st", "-g", "144x30", "-i", "-e", "top", NULL };
+static const char *topcmd[]                       = { "st", "-g", "124x27", "-i", "-e", "top", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key                          function               argument */

@@ -53,7 +53,7 @@ filextype *.pptx, *.docx
         \libreoffice %f
 
 filextype *.png,*.jpg,*jpeg,*.bmp,*.gif,*.xpm,*.webp
-     \ feh -F %f
+     \ feh -F -Z %f
 
 fileviewer *.png,*.jpg,*jpeg,*.bmp,*.gif,*.xpm,*.webp
      \ jp2a %f --colors --border --color-depth=24 
@@ -71,11 +71,15 @@ set classify+=' ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.ico,,*.png,,*.ppm,,*.svg,,*.
 set classify+=' ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.mid,,*.midi,,*.mp3,,*.mpc,,*.oga,,*.ogg,,*.ogx,,*.ra,,*.ram,,*.rm,,*.spx,,*.wav,,*.wma,,*.ac3::'
 set classify+=' ::*.avi,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mkv,,*.mov,,*.mp4,,*.flv,,*.mp4v,,*.mpeg,,*.mpg,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.wmv,,*.xvid::'
 set classify+=' ::*.go::, ::*.js::,󰛦 ::*.ts::, ::*.css::, ::*.yml,,*.yaml::, ::*.lua::,󰌠 ::*.py::, ::*.vim::, :: *.sol::, ::*.json*::, ::*.[jt]sx::'
-set classify+=' :: *.vue::, ::*.templ::, ::*.org::, ::*.el::, ::.gitignore::, ::dockerfile::, ::.env::, ::*.md::, ::.dockerignore::, ::yarn.lock::, ::*.diff,,*.rej::'
+set classify+=' :: *.vue::,  ::*.templ::, ::*.org::, ::*.el::, ::.gitignore::, ::dockerfile::, ::.env::, ::*.md::, ::.dockerignore::, ::yarn.lock::, ::*.diff,,*.rej::'
 set classify+=' ::*.doc,,*.docx::, ::*.xls,,*.xls[mx]::, ::*.pptx,,*.ppt::'
 set classify+=' ::Makefile::, ::*.conf,,.*rc,,*rc::, ::*.log::,󰬷 ::*.java::, ::*.scss,,*.sass::'
 
 map <space> <nop> 
+map <C-h> <C-w><C-h>
+map <C-l> <C-w><C-l>
+map <C-j> <C-w><C-j>
+map <C-k> <C-w><C-k>
 map w :view<cr>
 map s :shell<cr>
 map <space>t :touch<space>

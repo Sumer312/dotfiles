@@ -14,7 +14,7 @@ configuration {
 @theme "/dev/null"
 
 * {
-    accent-color:                #F0CEFF;   
+    accent-color:                #FFFDD0;   
     height:                      228;
     spacing:                     3;
     border-color:                @accent-color;
@@ -113,7 +113,7 @@ element.normal.urgent {
 }
 
 element.normal.active {
-  background-color: #FFFFFF;
+  background-color: #F0CEFF;
   text-color:       black;
 }
 
@@ -143,7 +143,7 @@ element.alternate.urgent {
 }
 
 element.alternate.active {
-  background-color: #FFFFFF;
+  background-color: #F0CEFF;
   text-color:       black;
 }
 
