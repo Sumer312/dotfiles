@@ -74,8 +74,8 @@ while :; do
     fi
     dwm -s " $icon_time $var_time  $icon_date $var_date  $icon_wifi $var_wifi  $icon_memory $var_memory  $icon_temp $var_temp 󰔄  $icon_battery $var_battery "
     send_notification 
-    sleep 30s
+    sleep 45s
   done
     dwm -s " $icon_time $var_time  $icon_date $var_date  $icon_wifi $var_wifi  $icon_memory $var_memory  $icon_temp $var_temp 󰔄  $icon_battery $var_battery "
-  sleep 5s
+  sleep 4s
 done

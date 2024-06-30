@@ -4,7 +4,7 @@ lock=" Lock screen"
 reboot="󰜉 Reboot"
 shutdown="󰐥 Shut down"
 confirmation_yes="󰡕 Yes"
-confirmation_no=" No"
+confirmation_no="󰛉 No"
 
 display_list=""
 set -- "$shutdown" "$lock" "$reboot"
@@ -26,7 +26,7 @@ for ele in "$@"; do
   fi
 done
 
-selected_option=$(echo "$display_list" | rofi -dmenu -p "󰐦 Power Menu")
+selected_option=$(echo "$display_list" | rofi -dmenu -i -p "󰐦 Power Menu")
 
 if [ "$selected_option" = "" ]; then 
   exit 130
@@ -35,14 +35,14 @@ fi
 if [ "$selected_option" = "$lock" ]; then
   xautolock -locknow
 elif [ "$selected_option" = "$reboot" ]; then
-  selected_confirmation_option=$(echo "$confirmation_list" | rofi -dmenu -p "Sure  ")
+  selected_confirmation_option=$(echo "$confirmation_list" | rofi -dmenu -i -p "Sure ")
   if [ "$selected_confirmation_option" = "$confirmation_yes" ]; then
     systemctl reboot
   else
     exit 0
   fi
 elif [ "$selected_option" = "$shutdown" ]; then
-  selected_confirmation_option=$(echo "$confirmation_list" | rofi -dmenu -p "Sure  ")
+  selected_confirmation_option=$(echo "$confirmation_list" | rofi -dmenu -i -p "Sure ")
   if [ "$selected_confirmation_option" = "$confirmation_yes" ]; then
     systemctl poweroff
   else

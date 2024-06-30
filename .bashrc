@@ -6,14 +6,12 @@ esac
 
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
+HISTSIZE=10000
+HISTFILESIZE=10000
+HISTFILE=~/.bash_history
 
 # append to the history file, don't overwrite it
 shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
-HISTFILE=~/.bash_history
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -42,7 +40,7 @@ export LANG="en_IN.utf8"
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/.cargo/bin
 
-# . "$HOME/.cargo/env"
 source /usr/share/autojump/autojump.sh
+
 eval "$(starship init bash)"
 colorscript -r

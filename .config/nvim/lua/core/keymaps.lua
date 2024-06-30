@@ -16,6 +16,8 @@ keymap("n", "<leader>ff", "<cmd>Telescope find_files theme=ivy<CR>", opts)
 keymap("n", "<leader>fc", "<cmd>Telescope colorscheme theme=ivy<CR>", opts)
 keymap("n", "<leader>lg", "<cmd>Telescope live_grep theme=ivy<CR>", opts)
 
+keymap("n", "<leader>md", "<cmd>MarkdownPreviewToggle<CR>", opts)
+
 keymap("n", "<A-Return>", "o<Esc>", opts)
 
 keymap("n", "<leader>dl", "<cmd>TroubleToggle<CR>", opts)

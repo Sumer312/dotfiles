@@ -9,8 +9,11 @@ nmap <C-l> <C-w><C-l>
 nmap <C-j> <C-w><C-j>
 nmap <C-k> <C-w><C-k>
 imap <C-c> <esc>
+colorscheme slate
 highlight LineNr ctermfg=15
 highlight CursorLineNr cterm=bold,italic ctermbg=NONE ctermfg=190
+highlight StatusLine cterm=bold,italic ctermbg=190 ctermfg=0
+highlight Normal ctermbg=NONE
 highlight CursorLine cterm=NONE
 highlight ModeMsg cterm=bold ctermbg=NONE ctermfg=87
 highlight MessageWindow cterm=bold ctermbg=NONE ctermfg=87
