@@ -1,5 +1,5 @@
-local colors = require("core.custom_plugins.custom_statusline.colors").colors
-local black_bg_colors = require("core.custom_plugins.custom_statusline.colors").black_bg_colors
+local colors = require("core.custom.statusline.colors").colors
+local black_bg_colors = require("core.custom.statusline.colors").black_bg_colors
 
 local M = {}
 

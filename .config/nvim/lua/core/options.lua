@@ -60,7 +60,7 @@ vim.cmd([[set iskeyword+=-]])
 vim.cmd([[
 let g:startify_fortune_use_unicode = 1
 let g:startify_custom_header = 'startify#pad(startify#fortune#cowsay())'
-let g:startify_bookmarks = [{"B" : "/home/sumer/.bashrc"}, {"Z": "/home/sumer/.zshrc"}, {"S" : "/home/sumer/.config/starship.toml"}, {"I": "/home/sumer/.config/nvim/init.lua"}, {"K": "/home/sumer/.config/alacritty/alacritty.yml"}, {"J": "/home/sumer/dwm/config.h"}]
+let g:startify_bookmarks = [{"B" : "/home/sumer/.bashrc"}, {"A": "/home/sumer/.zshrc"}, {"S" : "/home/sumer/.config/starship.toml"}, {"I": "/home/sumer/.config/nvim/init.lua"}, {"K": "/home/sumer/.config/alacritty/alacritty.yml"}, {"J": "/home/sumer/dwm/config.h"}]
 
 let g:sonokai_style = 'shusia'
 let g:sonokai_better_performance = 0

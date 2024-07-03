@@ -1,4 +1,4 @@
-local colors = require("core.custom_plugins.custom_statusline.colors").colors
+local colors = require("core.custom.statusline.colors").colors
 
 local M = {}
 
