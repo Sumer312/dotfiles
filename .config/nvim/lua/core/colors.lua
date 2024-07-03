@@ -1,5 +1,5 @@
 local palatte = require("core.color_palatte")
-local ColorMyLines = require("core.custom_plugins.custom_statusline.theme").ColorMyLines
+local ColorMyLines = require("core.custom.statusline.theme").ColorMyLines
 
 function ColorMyPencils(color)
   color = color or "kanagawa-wave"
@@ -64,9 +64,9 @@ function ColorMyPencils(color)
   set(0, "TelescopePromptBorder", { bg = "none", fg = palatte.springGreen })
   set(0, "TelescopePreviewBorder", { bg = "none", fg = palatte.oniViolet2 })
 
-  set(0, "TreesitterContext", { bg = palatte.sumiInk2, bold = true, italic = true, underdashed = true })
+  set(0, "TreesitterContext", { bg = "none", bold = true, italic = true, underdashed = true })
   set(0, "TreesitterContextLineNumber",
-    { bg = palatte.sumiInk2, fg = palatte.sakuraPink, bold = true, italic = true, underdashed = true })
+    { bg = "none", fg = palatte.sakuraPink, bold = true, italic = true, underdashed = true })
 
   set(0, "GitSignsAdd", { fg = palatte.springGreen, bg = "none" })
   set(0, "GitSignsChange", { fg = palatte.roninYellow, bg = "none" })

@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 gitsigns.setup({
-  signs = {
+  signs_staged = {
     add = { hl = "GitSignsAdd", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
     change = { hl = "GitSignsChange", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
     delete = { hl = "GitSignsDelete", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
@@ -28,9 +28,6 @@ gitsigns.setup({
     delay = 100,
     ignore_whitespace = false,
   },
-  current_line_blame_formatter_opts = {
-    relative_time = false,
-  },
   sign_priority = 6,
   update_debounce = 100,
   status_formatter = nil, -- Use default
@@ -42,8 +39,5 @@ gitsigns.setup({
     relative = "cursor",
     row = 0,
     col = 1,
-  },
-  yadm = {
-    enable = false,
   },
 })

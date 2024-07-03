@@ -20,7 +20,6 @@ keymap("n", "<leader>md", "<cmd>MarkdownPreviewToggle<CR>", opts)
 
 keymap("n", "<A-Return>", "o<Esc>", opts)
 
-keymap("n", "<leader>dl", "<cmd>TroubleToggle<CR>", opts)
 keymap("n", "<leader>mkv", "<cmd>mkview<CR>", opts)
 keymap("n", "<leader>lv", "<cmd>loadview<CR>", opts)
 

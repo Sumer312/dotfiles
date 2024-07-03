@@ -10,21 +10,22 @@ M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
 M.setup = function()
-  local signs = {
-    { name = "DiagnosticSignError", text = "", texthl = "DiagnosticSignError" },
-    { name = "DiagnosticSignWarn", text = "", texthl = "DiagnosticSignWarn" },
-    { name = "DiagnosticSignHint", text = "󰌵", texthl = "DiagnosticSignHint" },
-    { name = "DiagnosticSignInfo", text = "", texthl = "DiagnosticSignInfo" },
-  }
-
-  --[[ for _, sign in ipairs(signs) do ]]
-  --[[   vim.fn.sign_define(sign.name, { texthl = sign.texthl, text = sign.text, numhl = sign.texthl }) ]]
-  --[[ end ]]
-
   local config = {
     virtual_text = true,
     signs = {
-      active = signs, -- show signs
+      text = {
+        [vim.diagnostic.severity.ERROR] = "",
+        [vim.diagnostic.severity.WARN] = "",
+        [vim.diagnostic.severity.HINT] = "󰌵",
+        [vim.diagnostic.severity.INFO] = "",
+
+      },
+      linehl = {
+        [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+        [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+        [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+        [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+      },
     },
     update_in_insert = true,
     underline = true,
@@ -63,7 +64,7 @@ local function lsp_keymaps(bufnr)
   keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
   keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<CR>", opts)
   keymap(bufnr, "n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-  --[[ keymap(bufnr, "n", "<leader>dl", "<cmd>Telescope diagnostics theme=ivy<cr>", opts) ]]
+  keymap(bufnr, "n", "<leader>dl", "<cmd>Telescope diagnostics theme=ivy<cr>", opts)
   keymap(bufnr, "n", "<leader>dj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", opts)
   keymap(bufnr, "n", "<leader>dk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", opts)
   keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)

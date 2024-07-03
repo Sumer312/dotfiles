@@ -1,13 +1,13 @@
-local mode = require("core.custom_plugins.custom_statusline.modes").get_mode
-local colors = require("core.custom_plugins.custom_statusline.colors").colors
-local black_bg_colors = require("core.custom_plugins.custom_statusline.colors").black_bg_colors
-local inverse_colors = require("core.custom_plugins.custom_statusline.colors").inverse_colors
-local diagnostics = require("core.custom_plugins.custom_statusline.diagnostics").diagnostics
-local filename = require("core.custom_plugins.custom_statusline.file").filename
-local lineinfo = require("core.custom_plugins.custom_statusline.file").lineinfo
-local getIcon = require("core.custom_plugins.custom_statusline.icons").getIcon
-local git = require("core.custom_plugins.custom_statusline.git_branch")
-require("core.custom_plugins.custom_statusline.theme")
+local mode = require("core.custom.statusline.modes").get_mode
+local colors = require("core.custom.statusline.colors").colors
+local black_bg_colors = require("core.custom.statusline.colors").black_bg_colors
+local inverse_colors = require("core.custom.statusline.colors").inverse_colors
+local diagnostics = require("core.custom.statusline.diagnostics").diagnostics
+local filename = require("core.custom.statusline.file").filename
+local lineinfo = require("core.custom.statusline.file").lineinfo
+local getIcon = require("core.custom.statusline.icons").getIcon
+local git = require("core.custom.statusline.git_branch")
+require("core.custom.statusline.theme")
 
 Statusline = {}
 
