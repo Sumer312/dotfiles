@@ -1,13 +1,18 @@
 # Dotfiles
 
 There are my dotfiles.
-Feel free to copy any script or config files.
+Feel free to copy any script or config files.\
+Custom Scripts avalible in "shellScripts" dir
 
 # My Setup
 
 * OS: Debian
 * Window Manager: DWM
 * Shell: Bash
+* bin/sh: dash
+* Prompt: 
+    - bash: starship
+    - zsh: powerlevel10k
 * Terminal: Alacritty
 * Application Launcher: Rofi
 * Editor: Neovim
@@ -18,27 +23,24 @@ Feel free to copy any script or config files.
 * PDF/EPUB: zathura
 * Lock: i3lock
 
+
 # Screenshots
 
-*DWM*
-
-<img src="./screenshots/Screenshot from 2024-06-30 13-12-24.png" />
-
-*Bash prompt(starship) in Alacritty*
+*Alacritty*
 
 <img src="./screenshots/Screenshot from 2024-06-30 13-12-57.png" />
 
 *Rofi*
 
-<img src="./screenshots/Screenshot from 2024-06-30 13-12-41.png" />
+<img src="./screenshots/Screenshot from 2024-07-09 01-38-02.png" />
 
-*Rofi Power Menu*
+*Rofi Power Menu (custom script)*
 
 <img src="./screenshots/Screenshot from 2024-06-30 13-13-22.png" />
 
 *Top in ST*
 
-<img src="./screenshots/Screenshot from 2024-06-30 13-13-33.png" />
+<img src="./screenshots/Screenshot from 2024-07-09 01-37-27.png" />
 
 *Vifm*
 

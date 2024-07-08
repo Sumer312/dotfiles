@@ -20,7 +20,7 @@ M.setup = function()
         [vim.diagnostic.severity.INFO] = "",
 
       },
-      linehl = {
+      numhl = {
         [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
         [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
         [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
