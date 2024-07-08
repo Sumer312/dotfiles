@@ -15,7 +15,7 @@ static const char col_gray3[]            = "#bbbbbb";
 static const char col_inactive[]         = "#54546D";
 static const char col_gray4[]            = "#eeeeee";
 static const char col_white[]            = "#ffffff";
-static const char col_accent[]           = "#fffdd0";
+static const char col_accent[]           = "#c0eee4";
 static const char col_black[]            = "#000000";
 static const unsigned int baralpha       = 0xDD;
 static const unsigned int borderalpha    = OPAQUE;
@@ -88,6 +88,7 @@ static const char *browsercmd[]                   = { "librewolf", NULL };
 static const char *browserprivatecmd[]            = { "librewolf", "--private-window", NULL };
 static const char *emailcmd[]                     = { "thunderbird", NULL };
 static const char *topcmd[]                       = { "st", "-g", "124x27", "-i", "-e", "top", NULL };
+static const char *wavemoncmd[]                       = { "st", "-g", "124x27", "-i", "-e", "wavemon", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key                          function               argument */
@@ -95,6 +96,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_b,                        spawn,                 {.v = browsercmd } },
 	{ MODKEY | ShiftMask,           XK_b,                        spawn,                 {.v = browserprivatecmd } },
 	{ MODKEY,                       XK_s,                        spawn,                 {.v = topcmd } },
+	{ MODKEY,                       XK_a,                        spawn,                 {.v = wavemoncmd } },
 	{ MODKEY,                       XK_e,                        spawn,                 {.v = emailcmd } },
 	{ MODKEY,                       XK_r,                        spawn,                 {.v = rofirun } },
 	{ MODKEY | ShiftMask,           XK_r,                        spawn,                 {.v = rofidrun } },
