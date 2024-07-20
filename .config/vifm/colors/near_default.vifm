@@ -71,7 +71,7 @@ highlight {*.aac,*.anx,*.asf,*.au,*.avi,*.ts,*.axa,*.axv,*.divx,*.flac,*.m2a,
         \ cterm=none ctermfg=49 ctermbg=default
 " images
 highlight {*.bmp,*.gif,*.jpeg,*.jpg,*.ico,*.png,*.ppm,*.svg,*.svgz,*.tga,*.tif,
-          \*.tiff,*.xbm,*.xcf,*.xpm,*.xspf,*.xwd}
+          \*.tiff,*.xbm,*.xcf,*.xpm,*.xspf,*.xwd,*.webp}
         \ cterm=none ctermfg=123 ctermbg=default
 " executables
 highlight {*.sh,*.bash,*.bat,*.btm,*.cmd,*.com,*.dll,*.exe,*.run,*.msu,*.msi}

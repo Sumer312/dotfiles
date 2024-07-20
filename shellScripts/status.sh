@@ -13,7 +13,7 @@ while :; do
   bool_battery_check=$(acpi | grep "Battery 0"  | awk -F "%" '{print $1}' | awk -F "," '{print $2}')
 
   var_time=$(date +"%H:%M")
-  var_date=$(date +"%a %d-%m-%y")
+  var_date=$(date +"%a %d.%m.%y")
   var_temp=$(acpi -t | awk '{print $4}')
   var_battery=$(acpi | grep "Battery 0" | awk -F "," '{print $2}' | xargs)
   var_memory=$(free | awk '/Mem/ {printf "%.2f GiB", $3 / 1048576.0}')
@@ -72,10 +72,10 @@ while :; do
     if [ -n "$bool_charging" ]; then
       break
     fi
-    dwm -s " $icon_time $var_time  $icon_date $var_date  $icon_wifi $var_wifi  $icon_memory $var_memory  $icon_temp $var_temp 󰔄  $icon_battery $var_battery "
+    dwm -s " $icon_time $var_time  $icon_date $var_date  $icon_wifi $var_wifi  $icon_memory $var_memory  $icon_temp $var_temp  $icon_battery $var_battery "
     send_notification 
     sleep 45s
   done
-    dwm -s " $icon_time $var_time  $icon_date $var_date  $icon_wifi $var_wifi  $icon_memory $var_memory  $icon_temp $var_temp 󰔄  $icon_battery $var_battery "
+    dwm -s " $icon_time $var_time  $icon_date $var_date  $icon_wifi $var_wifi  $icon_memory $var_memory  $icon_temp $var_temp  $icon_battery $var_battery "
   sleep 4s
 done

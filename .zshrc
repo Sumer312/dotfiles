@@ -18,7 +18,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 #   export EDITOR='mvim'
 # fi
 
-alias py="python3"
 alias lock="/home/sumer/shellScripts/lock.sh"
 alias toggleascii="/home/sumer/shellScripts/toggleAscii.sh"
 alias tt="tt -theme harper"
