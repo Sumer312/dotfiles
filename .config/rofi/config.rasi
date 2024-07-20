@@ -14,7 +14,7 @@ configuration {
 @theme "/dev/null"
 
 * {
-    accent-color:                #FFFDD0;   
+    accent-color:                #C0EEE4;   
     height:                      228;
     spacing:                     3;
     border-color:                @accent-color;
@@ -54,7 +54,8 @@ window {
 message {
     border: 1px;
     padding: 1em;
-    background-color: #F0CEFFDD;
+    background-color: #C0EEE4CC;
+    border-color: #000000;
 }
 
 inputbar {
@@ -113,7 +114,7 @@ element.normal.urgent {
 }
 
 element.normal.active {
-  background-color: #F0CEFF;
+  background-color: #C0EEE4;
   text-color:       black;
 }
 
@@ -143,7 +144,7 @@ element.alternate.urgent {
 }
 
 element.alternate.active {
-  background-color: #F0CEFF;
+  background-color: #C0EEE4;
   text-color:       black;
 }
 

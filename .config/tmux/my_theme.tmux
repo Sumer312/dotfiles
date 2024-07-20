@@ -17,38 +17,37 @@ tmux_set() {
 session_icon="$(tmux_get '@tmux_power_session_icon' '')"
 user_icon="$(tmux_get '@tmux_power_user_icon' '')"
 
-C1=#ffffff   #238
-C2=#0c0c0c   #244
-C3=#0c0c0c   #244
-C4=#000000ff #248
-NC=#fffdd0
-PFX=#0FFF50
-TC=$(tmux_get '@tmux_power_theme' "#{?client_prefix,$PFX,$NC}")
+color1=#ffffff   #238
+color2=#0c0c0c   #244
+color3=#000000ff #248
+normal_color=#c0eee4
+Prefix_color=#90EE90
+Accent_color=$(tmux_get '@tmux_power_theme' "#{?client_prefix,$Prefix_color,$normal_color}")
 
-tmux_set mode-style "bg=$TC,fg=$C3,bold"
+tmux_set mode-style "bg=$Accent_color,fg=$color2,bold"
 
 tmux_set status on
-tmux_set status-fg "$C1"
-tmux_set status-bg "$C4"
+tmux_set status-fg "$color1"
+tmux_set status-bg "$color3"
 
 user=$(whoami)
-LS="#[fg=$C3,bg=$TC,bold] $user_icon $user@#h #[fg=$TC,bg=$C3] $session_icon #S #[fg=default,bg=default] "
+LS="#[fg=$color2,bg=$Accent_color,bold] $user_icon $user@#h #[fg=$Accent_color,bg=$color2] $session_icon #S #[fg=default,bg=default] "
 tmux_set status-left-length 150
 tmux_set status-left "$LS"
 
 tmux_set status-right-length 150
 tmux_set status-right "$RS"
 
-tmux_set window-status-format "#[fg=$TC,bg=$C2] #I.#W#F "
-tmux_set window-status-current-format "#[fg=$C3,bg=$TC,bold] #I.#W#F "
+tmux_set window-status-format "#[fg=$Accent_color,bg=$color2] #I.#W#F "
+tmux_set window-status-current-format "#[fg=$color2,bg=$Accent_color,bold] #I.#W#F "
 tmux_set window-status-separator " "
 
-tmux_set pane-border-style "fg=$C1,bg=default"
-tmux_set pane-active-border-style "fg=$TC,bg=default"
+tmux_set pane-border-style "fg=$color1,bg=default"
+tmux_set pane-active-border-style "fg=$Accent_color,bg=default"
 
-tmux_set display-panes-colour "$C1"
-tmux_set display-panes-active-colour "$TC"
+tmux_set display-panes-colour "$color1"
+tmux_set display-panes-active-colour "$Accent_color"
 
-tmux_set message-style "fg=$TC,bg=default, bold"
-:mux_set message-command-style "fg=$TC,bg=default"
-tmux_set mode-style "bg=$TC,fg=$C3"
+tmux_set message-style "fg=$Accent_color,bg=default, bold"
+:mux_set message-command-style "fg=$Accent_color,bg=default"
+tmux_set mode-style "bg=$Accent_color,fg=$color2"

@@ -20,7 +20,7 @@ shopt -s checkwinsize
 alias lock="/home/sumer/shellScripts/lock.sh"
 alias tt="tt -theme harper"
 alias audio="mpv --no-video"
-alias ls="lsd -lF"
+alias ls="lsd -lFi"
 alias cat="batcat"
 alias lzg="lazygit"
 
@@ -43,4 +43,4 @@ export PATH=$PATH:$HOME/.cargo/bin
 source /usr/share/autojump/autojump.sh
 
 eval "$(starship init bash)"
-colorscript -r
+# colorscript -r

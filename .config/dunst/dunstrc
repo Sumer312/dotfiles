@@ -19,7 +19,7 @@
     # will be ignored.
     follow = none
 
-    highlight = "#fffdd0"
+    highlight = "#c0eee4"
 
     ### Geometry ###
 
@@ -319,8 +319,8 @@
 
 [urgency_normal]
     background = "#000000BB"
-    foreground = "#fffdd0"
-    frame_color = "#fffdd0"
+    foreground = "#c0eee4"
+    frame_color = "#c0eee4"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #default_icon = /path/to/icon
