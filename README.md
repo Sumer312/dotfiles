@@ -1,11 +1,9 @@
 # Dotfiles
-
 There are my dotfiles.
 Feel free to copy any script or config files.\
 Custom Scripts avalible in "shellScripts" dir
 
 # My Setup
-
 * OS: Debian
 * Window Manager: DWM
 * Shell: Bash
@@ -25,10 +23,9 @@ Custom Scripts avalible in "shellScripts" dir
 
 
 # Screenshots
-
 *Alacritty*
 
-<img src="./screenshots/Screenshot from 2024-06-30 13-12-57.png" />
+<img src="./screenshots/Screenshot from 2024-07-24 13-35-17.png" />
 
 *Rofi*
 
@@ -52,7 +49,7 @@ Custom Scripts avalible in "shellScripts" dir
 
 *Neovim and Tmux*
 
-<img src="./screenshots/Screenshot from 2024-06-30 13-16-44.png" />
+<img src="./screenshots/Screenshot from 2024-07-24 18-00-36.png" />
 
 *Dunst*
 
