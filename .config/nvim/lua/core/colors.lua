@@ -31,6 +31,7 @@ function ColorMyPencils(color)
   set(0, "Pmenu", { bg = "none" })
   set(0, "PmenuSel", { bg = palatte.carpYellow, fg = palatte.dragonBlack0, bold = true, italic = true })
   set(0, "PmenuThumb", { bg = palatte.lotusCyan })
+  set(0, "MatchParen", { fg = palatte.surimiOrange, bold = true, underline = true,  italic = true })
 
   set(0, "DiagnosticWarn", { fg = palatte.roninYellow })
   set(0, "DiagnosticHint", { fg = palatte.lightBlue })
