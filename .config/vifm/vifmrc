@@ -39,7 +39,7 @@ set sortnumbers
 
 colorscheme near_default
 
-set statusline=" %u  %1*%A %6E %=%20d "
+set statusline=" %u %1*%A %=%6E %20d "
 
 filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c
 
@@ -70,11 +70,11 @@ set classify+=' ::*.7z,,*.ace,,*.arj,,*.bz2,,*.cpio,,*.deb,,*.dz,,*.gz,,*.jar
 set classify+='󰋩 ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.ico,,*.png,,*.ppm,,*.svg,,*.svgz,,*.tga,,*.tif,,*.tiff,,*.xbm,,*.xcf,,*.xpm,,*.xspf,,*.xwd,,*.webp::'
 set classify+=' ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.mid,,*.midi,,*.mp3,,*.mpc,,*.oga,,*.ogg,,*.ogx,,*.ra,,*.ram,,*.rm,,*.spx,,*.wav,,*.wma,,*.ac3::'
 set classify+=' ::*.avi,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mkv,,*.mov,,*.mp4,,*.flv,,*.mp4v,,*.mpeg,,*.mpg,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.wmv,,*.xvid::'
-set classify+=' ::*.go::, ::*.js::,󰛦 ::*.ts::, ::*.css::, ::*.yml,,*.yaml::, ::*.lua::,󰌠 ::*.py::, ::*.vim::, :: *.sol::, ::*.json*::, ::*.toml::, ::*.[jt]sx::'
+set classify+=' ::*.go::, ::*.js::,󰛦 ::*.ts::, ::*.css::, ::*.yml,,*.yaml::, ::*.lua::,󰌠 ::*.py::, ::*.vim,,.vimrc::, :: *.sol::, ::*.json*::, ::*.toml::, ::*.[jt]sx::'
 set classify+=' :: *.vue::,  ::*.templ::, ::*.org::, ::*.el::, ::.gitignore::, ::dockerfile::, ::.env::, ::*.md::, ::.dockerignore::, ::yarn.lock::, ::*.diff,,*.rej::'
 set classify+=' ::*.doc,,*.docx::,󱎏 ::*.xls,,*.xls[mx]::,󱎐 ::*.pptx,,*.ppt::'
 set classify+=' ::*.odt::,  ::*.ods::,  ::*.odp::'
-set classify+=' ::Makefile::, ::*.conf,,.*rc,,*rc::, ::*.log::,󰬷 ::*.java::, ::*.scss,,*.sass::'
+set classify+=' ::Makefile::, ::*.conf,,.*rc,,*rc,,*.rasi::, ::*.log::,󰬷 ::*.java::, ::*.scss,,*.sass::, ::*.sql::, ::*gpg::,󱁿 ::.config/::/,󱞞 ::.*/::/,󰘓 ::.*::'
 
 map <space> <nop> 
 map <C-h> <C-w><C-h>

@@ -23,6 +23,8 @@ alias audio="mpv --no-video"
 alias ls="lsd -lFi"
 alias cat="batcat"
 alias lzg="lazygit"
+alias ff="fastfetch"
+alias storagehealth="sudo nvme smart-log /dev/nvme0"
 
 # bash completions
 if ! shopt -oq posix; then
@@ -41,6 +43,4 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/.cargo/bin
 
 source /usr/share/autojump/autojump.sh
-
 eval "$(starship init bash)"
-# colorscript -r
