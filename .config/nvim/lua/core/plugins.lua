@@ -35,7 +35,6 @@ return {
   "folke/zen-mode.nvim",
   "ThePrimeagen/vim-be-good",
   "norcalli/nvim-colorizer.lua",
-  "ap/vim-css-color",
   { "christoomey/vim-tmux-navigator", lazy = false },
   {
     "iamcco/markdown-preview.nvim",
@@ -61,7 +60,6 @@ return {
   "neovim/nvim-lspconfig", -- enable LSP
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
-
 
   -- Telescope
   "nvim-telescope/telescope.nvim",
