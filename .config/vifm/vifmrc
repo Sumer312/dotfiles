@@ -39,42 +39,48 @@ set sortnumbers
 
 colorscheme near_default
 
-set statusline=" %u %1*%A %=%6E %20d "
+highlight User1 ctermbg=195 ctermfg=16
+highlight User2 ctermbg=224 ctermfg=16 cterm=bold
+set statusline="%1* %-26t %2* %= %1* %A %2* %7u:%-7g %1* %-5s %2* %d "
 
-filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c
+filextype *.pdf 
+  \ zathura %c %i &, apvlv %c, xpdf %c
 
 filextype *.xcf
-        \ {Open in GIMP}
-        \ gimp %f,
+  \ gimp %f
 
-filextype *.epub zathura %c %i &, apvlv %c, xepub %c
+filextype *.epub 
+  \ zathura %c %i &, apvlv %c, xepub %c
 
 filextype *.pptx, *.docx
-        \libreoffice %f
+  \libreoffice %f
 
 filextype *.png,*.jpg,*jpeg,*.bmp,*.gif,*.xpm,*.webp
-     \ feh -F -Z %f
-
-fileviewer *.png,*.jpg,*jpeg,*.bmp,*.gif,*.xpm,*.webp
-     \ jp2a %f --colors --border --color-depth=24 
+  \ feh -F -Z %f
 
 filextype *.mp4
-        \ mpv %f
+  \ mpv %f
 
 filextype *.mp3
-        \ mpv --no-video %f
+  \ mpv --no-video %f
+
+fileviewer *.png,*.jpg,*jpeg,*.bmp,*.gif,*.xpm,*.webp
+  \ chafa %f --dither bayer --dither-grain 4 --dither-intensity 2.0
+
+fileviewer *.md,*.[ch],*.[ch]pp,*.py,*.json,*.xml,*.xhtml,*.opf,*.md,Makefile,Makefile.*,*.html,*.go,*.css,*.c,*.js,*.jsx,*.sh,*.java,*.rb,*.rs,*.zig,*.ts,*.lua,*.tsx,*.sql,*.vim,*.yml,*.yaml,
+  \ highlight -s moria -O xterm256 %c
 
 set classify='󰉋 :dir:/, :exe:, :reg:, :link:'
-set classify+=' ::../::, ::*.sh,,*.zsh,,.*.zsh::, ::*.[hc]pp::, ::*.[hc]::, ::/^copying|license$/::, ::.git/,,*.git/::, ::*.epub,,*.fb2,,*.djvu::, ::*.pdf::, ::*.htm,,*.html,,**.[sx]html,,*.xml::, ::*text,,*.txt::, ::*.iso::'
+set classify+=' ::../::, ::*.sh,,*.zsh,,.*.zsh::, ::*.[hc]pp::, ::*.[hc]::, ::/^copying|license$/::, ::.git/,,*.git/::, ::*.epub,,*.fb2,,*.djvu::, ::*.pdf::, ::*.htm,,*.html,,**.[sx]html,,*.xml::, ::*text,,*.txt::, ::*.iso::'
 set classify+=' ::*.7z,,*.ace,,*.arj,,*.bz2,,*.cpio,,*.deb,,*.dz,,*.gz,,*.jar,,*.lzh,,*.lzma,,*.rar,,*.rpm,,*.rz,,*.tar,,*.taz,,*.tb2,,*.tbz,,*.tbz2,,*.tgz,,*.tlz,,*.trz,,*.txz,,*.tz,,*.tz2,,*.xz,,*.z,,*.zip,,*.zoo::'
-set classify+='󰋩 ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.ico,,*.png,,*.ppm,,*.svg,,*.svgz,,*.tga,,*.tif,,*.tiff,,*.xbm,,*.xcf,,*.xpm,,*.xspf,,*.xwd,,*.webp::'
-set classify+=' ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.mid,,*.midi,,*.mp3,,*.mpc,,*.oga,,*.ogg,,*.ogx,,*.ra,,*.ram,,*.rm,,*.spx,,*.wav,,*.wma,,*.ac3::'
+set classify+=' ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.ico,,*.png,,*.ppm,,*.svg,,*.svgz,,*.tga,,*.tif,,*.tiff,,*.xbm,,*.xcf,,*.xpm,,*.xspf,,*.xwd,,*.webp::'
+set classify+=' ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.mid,,*.midi,,*.mp3,,*.mpc,,*.oga,,*.ogg,,*.ogx,,*.ra,,*.ram,,*.rm,,*.spx,,*.wav,,*.wma,,*.ac3::'
 set classify+=' ::*.avi,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mkv,,*.mov,,*.mp4,,*.flv,,*.mp4v,,*.mpeg,,*.mpg,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.wmv,,*.xvid::'
-set classify+=' ::*.go::, ::*.js::,󰛦 ::*.ts::, ::*.css::, ::*.yml,,*.yaml::, ::*.lua::,󰌠 ::*.py::, ::*.vim,,.vimrc::, :: *.sol::, ::*.json*::, ::*.toml::, ::*.[jt]sx::'
+set classify+=' ::*.go::, ::*.js::, ::*.ts::, ::*.css::,󰬷 ::*.java::, ::*.yml,,*.yaml::, ::*.lua::,󰌠 ::*.py::, ::*.vim,,.vimrc::, :: *.sol::, ::*.json*::, ::*.toml::, ::*.[jt]sx::'
 set classify+=' :: *.vue::,  ::*.templ::, ::*.org::, ::*.el::, ::.gitignore::, ::dockerfile::, ::.env::, ::*.md::, ::.dockerignore::, ::yarn.lock::, ::*.diff,,*.rej::'
-set classify+=' ::*.doc,,*.docx::,󱎏 ::*.xls,,*.xls[mx]::,󱎐 ::*.pptx,,*.ppt::'
-set classify+=' ::*.odt::,  ::*.ods::,  ::*.odp::'
-set classify+=' ::Makefile::, ::*.conf,,.*rc,,*rc,,*.rasi::, ::*.log::,󰬷 ::*.java::, ::*.scss,,*.sass::, ::*.sql::, ::*gpg::,󱁿 ::.config/::/,󱞞 ::.*/::/,󰘓 ::.*::'
+set classify+=' ::*.doc,,*.docx::,󱎏 ::*.xls,,*.xls[mx]::,󱎐 ::*.pptx,,*.ppt::, ::*.odt::,  ::*.ods::,  ::*.odp::'
+set classify+=' ::Makefile::, ::*.conf,,.*rc,,*rc,,*.rasi::, ::*.log::, ::*.scss,,*.sass::, ::*.sql::, ::*gpg::'
+set classify+='󱁿 ::.config/::/,󰢬 ::.password-store/,,.gnupg/::/,󱞞 ::.*/::/,󰘓 ::.*::,󰲂 ::Documents/::/,󰉏 ::Pictures/::/,󱧺 ::Videos/::/,󰉍 ::Downloads/::/,󱍙 ::Music/::/'
 
 map <space> <nop> 
 map <C-h> <C-w><C-h>
@@ -88,3 +94,6 @@ map <space>ch :chmod<cr>
 map <space>mk :mkdir<space>
 map <space>mv :rename<space>
 map <space>ed :edit<cr>
+cmap <C-j> <tab> 
+cmap <C-k> <S-tab> 
+qnoremap <C-c> <S-tab>
