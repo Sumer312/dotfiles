@@ -26,10 +26,10 @@
     # dynamic width from 0 to 300
     # width = (0, 300)
     # constant width of 300
-    width = 275
+    width = 245
 
     # The maximum height of a single notification, excluding the frame.
-    height = 275
+    height = 295
 
     # Position the notification in the top right corner
     origin = top-right
@@ -51,7 +51,7 @@
 
     # Set the progress bar height. This includes the frame, so make sure
     # it's at least twice as big as the frame width.
-    progress_bar_height = 6
+    progress_bar_height = 5
 
     # Set the frame width of the progress bar
     progress_bar_frame_width = 1
@@ -60,7 +60,7 @@
     progress_bar_min_width = 150
 
     # Set the maximum width for the progress bar
-    progress_bar_max_width = 275
+    progress_bar_max_width = 245
 
 
     # Show how many messages are currently hidden (because of
@@ -120,7 +120,7 @@
 
     ### Text ###
 
-    font = JetBrainsMono Nerd Font 14
+    font = JetBrainsMono Nerd Font 15
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
