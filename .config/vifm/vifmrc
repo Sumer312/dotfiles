@@ -41,6 +41,7 @@ colorscheme near_default
 
 highlight User1 ctermbg=195 ctermfg=16
 highlight User2 ctermbg=224 ctermfg=16 cterm=bold
+
 set statusline="%1* %-26t %2* %= %1* %A %2* %7u:%-7g %1* %-5s %2* %d "
 
 filextype *.pdf 
@@ -67,7 +68,7 @@ filextype *.mp3
 fileviewer *.png,*.jpg,*jpeg,*.bmp,*.gif,*.xpm,*.webp
   \ chafa %f --dither bayer --dither-grain 4 --dither-intensity 2.0
 
-fileviewer *.md,*.[ch],*.[ch]pp,*.py,*.json,*.xml,*.xhtml,*.opf,*.md,Makefile,Makefile.*,*.html,*.go,*.css,*.c,*.js,*.jsx,*.sh,*.java,*.rb,*.rs,*.zig,*.ts,*.lua,*.tsx,*.sql,*.vim,*.yml,*.yaml,
+fileviewer *.md,*.[ch],*.[ch]pp,*.py,*.json,*.xml,*.xhtml,*.opf,*.md,Makefile,Makefile.*,*.html,*.go,*.css,*.c,*.js,*.jsx,*.sh,*.java,*.rb,*.rs,*.zig,*.ts,*.lua,*.sql,*.vim,*.yml,*.yaml,dockerfile,
   \ highlight -s moria -O xterm256 %c
 
 set classify='󰉋 :dir:/, :exe:, :reg:, :link:'
@@ -94,6 +95,7 @@ map <space>ch :chmod<cr>
 map <space>mk :mkdir<space>
 map <space>mv :rename<space>
 map <space>ed :edit<cr>
+map <space>cfg :cd /home/sumer/.config/<cr>
 cmap <C-j> <tab> 
 cmap <C-k> <S-tab> 
 qnoremap <C-c> <S-tab>
