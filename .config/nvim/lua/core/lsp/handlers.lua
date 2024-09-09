@@ -109,6 +109,11 @@ M.on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = true
   end
 
+  if client.name == "pyright" then
+    client.server_capabilities.documentFormattingProvider = true
+  end
+
+
   lsp_keymaps(bufnr)
   local status_ok, illuminate = pcall(require, "illuminate")
   if not status_ok then

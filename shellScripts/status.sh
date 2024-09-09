@@ -77,5 +77,5 @@ while :; do
     sleep 45s
   done
     dwm -s " $icon_time $var_time  $icon_date $var_date  $icon_wifi $var_wifi  $icon_memory $var_memory  $icon_temp $var_temp  $icon_battery $var_battery "
-  sleep 4s
+  sleep 3s
 done

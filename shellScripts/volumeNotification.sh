@@ -12,18 +12,18 @@ send_notification() {
 case $1 in
   up)
     pamixer -i 5 
-    send_notification $1
+    send_notification
     ;;
   down)
     pamixer -d 5 
-    send_notification $1
+    send_notification
     ;;
   mute)
     pamixer -t
     if $(pamixer --get-mute); then
       dunstify -a "changeVolume" -u critical -r 9992  "󰖁 Muted" -t 2000
     else 
-      send_notification up
+      send_notification
     fi
     ;;
 esac
