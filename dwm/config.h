@@ -15,7 +15,7 @@ static const char col_gray3[]            = "#bbbbbb";
 static const char col_inactive[]         = "#54546D";
 static const char col_gray4[]            = "#eeeeee";
 static const char col_white[]            = "#ffffff";
-static const char col_accent[]           = "#c0eee4";
+static const char col_accent[]           = "#f1eedc";
 static const char col_black[]            = "#000000";
 static const unsigned int baralpha       = 0xDD;
 static const unsigned int borderalpha    = OPAQUE;
@@ -26,9 +26,9 @@ static const unsigned int alphas[][3] = {
 	[SchemeSel]  = { baralpha, baralpha, borderalpha },
 };
 static const char *colors[][3] = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_accent, col_black, col_inactive },
-	[SchemeSel]  = { col_black, col_accent,  col_accent  },
+	/*               fg          bg           border   */
+	[SchemeNorm] = { col_accent, col_black,   col_inactive },
+	[SchemeSel]  = { col_black,  col_accent,  col_accent  },
 };
 
 /* tagging */

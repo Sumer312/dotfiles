@@ -25,6 +25,11 @@ alias cat="batcat"
 alias lzg="lazygit"
 alias ff="fastfetch"
 alias storagehealth="sudo nvme smart-log /dev/nvme0"
+# autoclean images
+dockeraci(){
+  none_images=$(docker images -a | grep "<none>" | awk '{print $3}')
+  docker rmi $none_images
+}
 
 # bash completions
 if ! shopt -oq posix; then
