@@ -21,7 +21,7 @@ color1=#ffffff   #238
 color2=#0c0c0c   #244
 color3=#000000ff #248
 normal_color=#f1eedc
-Prefix_color=#d1df39
+Prefix_color=#BED7DC
 Accent_color=$(tmux_get '@tmux_power_theme' "#{?client_prefix,$Prefix_color,$normal_color}")
 
 tmux_set mode-style "bg=$Accent_color,fg=$color2,bold"

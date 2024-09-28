@@ -6,7 +6,7 @@
       "top": 2
     },
     "color": {
-      "1": "cyan",
+      "1": "blue",
       "2": "red"
     }
   },
@@ -51,17 +51,17 @@
     {
       "type": "wm",
       "key": "  DE/WM",
-      "keyColor": "blue"
+      "keyColor": "cyan"
     },
     {
       "type": "lm",
       "key": "├󰧨",
-      "keyColor": "blue"
+      "keyColor": "cyan"
     },
     {
       "type": "terminal",
       "key": "└",
-      "keyColor": "blue"
+      "keyColor": "cyan"
     },
     "break",
     {
@@ -114,17 +114,17 @@
     {
       "type": "sound",
       "key": "  Sound",
-      "keyColor": "cyan"
+      "keyColor": "magenta"
     },
     {
       "type": "player",
       "key": "├󰥠",
-      "keyColor": "cyan"
+      "keyColor": "magenta"
     },
     {
       "type": "media",
       "key": "└󰎇",
-      "keyColor": "cyan"
+      "keyColor": "magenta"
     },
     "break",
     {

@@ -22,4 +22,5 @@ lxpolkit &
 /home/sumer/shellScripts/status.sh &
 xautolock -time 8 -locker /home/sumer/shellScripts/lock.sh -notify 20 -notifier /home/sumer/shellScripts/lockNotification.sh &
 nitrogen --set-zoom-fill --random /home/sumer/Pictures/Wallpapers/ 
-compton --config /home/sumer/.config/compton/compton.conf
+picom --config /home/sumer/.config/picom/picom.conf
+# compton --config /home/sumer/.config/compton/compton.conf
