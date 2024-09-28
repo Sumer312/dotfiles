@@ -1,26 +1,23 @@
-# Colours (Monokai Charcoal)
 colors:
-  # Default Colours
   primary:
     background: '#000000'
-    foreground: '#FFFFFF'
-  # Normal Colours
+    foreground: '#f8f8f2'
   normal:
-    black:   '#1a1a1a'
-    red:     '#f4005f'
-    green:   '#98e024'
-    yellow:  '#fa8419'
-    blue:    '#9d65ff'
-    magenta: '#f4005f'
-    cyan:    '#58d1eb'
-    white:   '#c4c5b5'
-  # Bright Colours
+    black: '#272822'
+    red: '#f92672'
+    green: '#a6e22e'
+    yellow: '#f4bf75'
+    blue: '#66d9ef'
+    magenta: '#ae81ff'
+    cyan: '#a1efe4'
+    white: '#f8f8f2'
   bright:
-    black:   '#625e4c'
-    red:     '#f4005f'
-    green:   '#98e024'
-    yellow:  '#f9d791'
-    blue:    '#9d65ff'
-    magenta: '#f4005f'
-    cyan:    '#58d1eb'
-    white:   '#ffffff'
+    black: '#75715e'
+    red: '#f92672'
+    green: '#a6e22e'
+    yellow: '#f4bf75'
+    blue: '#66d9ef'
+    magenta: '#ae81ff'
+    cyan: '#a1efe4'
+    white: '#f9f8f5'
+

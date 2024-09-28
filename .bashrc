@@ -1,7 +1,7 @@
 # If not running interactively, don't do anything
 case $- in
-    *i*) ;;
-      *) return;;
+*i*) ;;
+*) return ;;
 esac
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -25,19 +25,28 @@ alias cat="batcat"
 alias lzg="lazygit"
 alias ff="fastfetch"
 alias storagehealth="sudo nvme smart-log /dev/nvme0"
+
 # autoclean images
-dockeraci(){
-  none_images=$(docker images -a | grep "<none>" | awk '{print $3}')
-  docker rmi $none_images
+dockeraci() {
+	none_images=$(docker images -a | grep "<none>" | awk '{print $3}')
+	if [ -z "$none_images" ]; then
+		echo "Nothing to clean"
+	else
+		docker rmi $none_images
+	fi
+}
+
+dockerresume() {
+	docker start $(docker ps -a | grep $1 | awk -F '   +' '{print $1}')
 }
 
 # bash completions
 if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
+	if [ -f /usr/share/bash-completion/bash_completion ]; then
+		. /usr/share/bash-completion/bash_completion
+	elif [ -f /etc/bash_completion ]; then
+		. /etc/bash_completion
+	fi
 fi
 
 export MANPAGER="sh -c 'col -bx | batcat -l man -p'"

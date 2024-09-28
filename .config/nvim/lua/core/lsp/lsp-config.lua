@@ -1,5 +1,6 @@
 local status_ok, lsp_config = pcall(require, "lspconfig")
 if not status_ok then
+  print("error loading lsp config")
   return
 end
 
