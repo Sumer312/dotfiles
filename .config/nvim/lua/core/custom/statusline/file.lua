@@ -10,7 +10,8 @@ local symbols = {
 }
 
 function M.filename()
-  local fpath = vim.fn.expand("%:p:~")
+  local fpath = vim.fn.expand("%:F")
+  --[[ local fpath = vim.fn.expand("%:p:~") ]]
   if vim.bo.modifiable == true and vim.bo.modified then
     fpath = string.format("%s %s", fpath, symbols.modified)
   end
