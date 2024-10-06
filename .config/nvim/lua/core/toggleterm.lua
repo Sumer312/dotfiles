@@ -45,6 +45,7 @@ vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 local Terminal = require("toggleterm.terminal").Terminal
 local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
 local glow = Terminal:new({ cmd = "glow", hidden = true })
+local gpt = Terminal:new({ cmd = "ollama run llama3.2", hidden = true })
 
 function _LAZYGIT_TOGGLE()
   lazygit:toggle()
@@ -52,4 +53,8 @@ end
 
 function _GLOW_TOGGLE()
   glow:toggle()
+end
+
+function _GPT_TOGGLE()
+  gpt:toggle()
 end

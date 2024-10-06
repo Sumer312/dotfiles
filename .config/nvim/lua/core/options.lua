@@ -21,22 +21,21 @@ local options = {
   sidescrolloff = 9,
   guifont = "JetBrainsMono Nerd Font:h8",
   backup = false,
-  clipboard = "unnamedplus",
   cmdheight = 1,
+  signcolumn = "yes",
+  wrap = false,
+  guicursor = "",
+  undofile = true,
+  clipboard = "unnamedplus",
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp
   conceallevel = 0,                        -- so that `` is visible in markdown files
   timeoutlen = 500,                        -- time to wait for a mapped sequence to complete (in milliseconds)
-  undofile = true,                         -- enable persistent undo
   updatetime = 50,                         -- faster completion (4000ms default)
   writebackup = false,                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
   expandtab = true,                        -- convert tabs to spaces
   shiftwidth = 2,                          -- the number of spaces inserted for each indentation
   tabstop = 2,                             -- insert 2 spaces for a tab
-  signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
-  wrap = false,                            -- display lines as one long line, or true to wrap within screen
   linebreak = true,                        -- companion to wrap, don't split words
-  guicursor = "",
-  --[[ showtabline = 2, -- always show tabs ]]
 }
 
 vim.opt.shortmess:append("c")

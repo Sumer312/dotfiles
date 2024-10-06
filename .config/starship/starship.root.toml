@@ -21,11 +21,12 @@ $nodejs\
 $nim\
 $rust\
 $scala\
-[](fg:#86BBD8 bg:#282727)\
+[](fg:#86BBD8 bg:#8C9699)\
+$time\
+[](fg:#8C9699 bg:#282727)\
 $status\
 [ ](fg:#282727)\
 """
-
 # Disable the blank line at the start of the prompt
 # add_newline = false
 
@@ -40,7 +41,7 @@ disabled = false
 
 [status]
 style = 'bg:#282727 fg:#FF5D62 bold'
-format = '[ $symbol$status $signal_name ]($style)'
+format = '[ $status $signal_name ]($style)'
 map_symbol = false
 disabled = false
 
@@ -85,7 +86,7 @@ style = "bg:#F7A072 fg:#000000 bold"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:#F7A072 bold"
+style = "bg:#F7A072 fg:#000000 bold"
 format = '[$all_status$ahead_behind ]($style)'
 
 [golang]
@@ -140,5 +141,5 @@ disabled = false
 [time]
 disabled = false
 time_format = "%R" # Hour:Minute Format
-style = "bg:#33658A"
-format = '[ ♥ $time ]($style)'
+style = "bg:#8C9699 fg:#EDDEA4 bold"
+format = '[ $time ]($style)'

@@ -15,13 +15,12 @@ tmux_set() {
 
 # Options
 session_icon="$(tmux_get '@tmux_power_session_icon' '')"
-user_icon="$(tmux_get '@tmux_power_user_icon' '')"
 
-color1=#ffffff   #238
-color2=#0c0c0c   #244
-color3=#000000ff #248
+color1=#ffffff
+color2=#0c0c0c
+color3=#000000ff
 normal_color=#f1eedc
-Prefix_color=#BED7DC
+Prefix_color=#91ff40
 Accent_color=$(tmux_get '@tmux_power_theme' "#{?client_prefix,$Prefix_color,$normal_color}")
 
 tmux_set mode-style "bg=$Accent_color,fg=$color2,bold"
@@ -30,13 +29,12 @@ tmux_set status on
 tmux_set status-fg "$color1"
 tmux_set status-bg "$color3"
 
-user=$(whoami)
-LS="#[fg=$color2,bg=$Accent_color,bold] $user_icon $user@#h #[fg=$Accent_color,bg=$color2] $session_icon #S #[fg=default,bg=default] "
+LEFT_SIDE="#[fg=$color2,bg=$Accent_color] $session_icon #S #[fg=default,bg=default] "
 tmux_set status-left-length 150
-tmux_set status-left "$LS"
+tmux_set status-left "$LEFT_SIDE"
 
 tmux_set status-right-length 150
-tmux_set status-right "$RS"
+tmux_set status-right "$RIGHT_SIDE"
 
 tmux_set window-status-format "#[fg=$Accent_color,bg=$color2] #I.#W#F "
 tmux_set window-status-current-format "#[fg=$color2,bg=$Accent_color,bold] #I.#W#F "
