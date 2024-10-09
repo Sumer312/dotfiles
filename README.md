@@ -6,6 +6,7 @@ Custom Scripts avalible in "shellScripts" dir
 # My Setup
 * OS: Debian
 * Window Manager: DWM
+* Compositer: picom
 * Shell: Bash
 * bin/sh: dash
 * Prompt: 
@@ -25,32 +26,32 @@ Custom Scripts avalible in "shellScripts" dir
 # Screenshots
 *Alacritty*
 
-<img src="./screenshots/Screenshot from 2024-07-24 13-35-17.png" />
+<img src="./screenshots/alacritty.png" />
 
 *Rofi*
 
-<img src="./screenshots/Screenshot from 2024-07-09 01-38-02.png" />
+<img src="./screenshots/rofi_run.png" />
 
 *Rofi Power Menu (custom script)*
 
-<img src="./screenshots/Screenshot from 2024-06-30 13-13-22.png" />
+<img src="./screenshots/rofi_power.png" />
 
 *Top in ST*
 
-<img src="./screenshots/Screenshot from 2024-07-09 01-37-27.png" />
+<img src="./screenshots/top.png" />
 
 *Vifm*
 
-<img src="./screenshots/Screenshot from 2024-06-30 13-14-38.png" />
+<img src="./screenshots/vifm.png" />
 
 *Zsh*
 
-<img src="./screenshots/Screenshot from 2024-06-30 13-15-20.png" />
+<img src="./screenshots/powerlevel10k.png" />
 
 *Neovim and Tmux*
 
-<img src="./screenshots/Screenshot from 2024-07-24 18-00-36.png" />
+<img src="./screenshots/nvim_tmux.png" />
 
 *Dunst*
 
-<img src="./screenshots/Screenshot from 2024-06-30 13-19-36.png" />
+<img src="./screenshots/dunst.png" />
