@@ -1,4 +1,4 @@
-# Dotfiles
+# <img src="./pictures/icons/gears.png" height="50" width="50"/> Dotfiles
 There are my dotfiles.
 Feel free to copy any script or config files.\
 Custom Scripts avalible in "shellScripts" dir
@@ -26,32 +26,32 @@ Custom Scripts avalible in "shellScripts" dir
 # Screenshots
 *Alacritty*
 
-<img src="./screenshots/alacritty.png" />
+<img src="./pictures/screenshots/alacritty.png" />
 
 *Rofi*
 
-<img src="./screenshots/rofi_run.png" />
+<img src="./pictures/screenshots/rofi_run.png" />
 
 *Rofi Power Menu (custom script)*
 
-<img src="./screenshots/rofi_power.png" />
+<img src="./pictures/screenshots/rofi_power.png" />
 
 *Top in ST*
 
-<img src="./screenshots/top.png" />
+<img src="./pictures/screenshots/top.png" />
 
 *Vifm*
 
-<img src="./screenshots/vifm.png" />
+<img src="./pictures/screenshots/vifm.png" />
 
 *Zsh*
 
-<img src="./screenshots/powerlevel10k.png" />
+<img src="./pictures/screenshots/powerlevel10k.png" />
 
 *Neovim and Tmux*
 
-<img src="./screenshots/nvim_tmux.png" />
+<img src="./pictures/screenshots/nvim_tmux.png" />
 
 *Dunst*
 
-<img src="./screenshots/dunst.png" />
+<img src="./pictures/screenshots/dunst.png" />
