@@ -39,7 +39,7 @@ set sortnumbers
 
 colorscheme near_default
 
-highlight User1 ctermbg=195 ctermfg=16
+highlight User1 ctermbg=224 ctermfg=16
 highlight User2 ctermbg=224 ctermfg=16 cterm=bold
 
 set statusline="%1* %-26t %2* %= %1* %A %2* %7u:%-7g %1* %-5s %2* %d "
@@ -96,6 +96,8 @@ map <space>mk :mkdir<space>
 map <space>mv :rename<space>
 map <space>ed :edit<cr>
 map <space>cfg :cd /home/sumer/.config/<cr>
+map <space>pas :cd /home/sumer/.password-store<cr>
+map <space>cod :cd /home/sumer/Code<cr>
 cmap <C-j> <tab> 
 cmap <C-k> <S-tab> 
 qnoremap <C-c> <S-tab>
