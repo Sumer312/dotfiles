@@ -28,7 +28,7 @@ lsp_config.gopls.setup({
   capabilities = opts.capabilities,
 })
 
-lsp_config.tsserver.setup({
+lsp_config.ts_ls.setup({
   on_attach = opts.on_attach,
   capabilities = opts.capabilities,
 })

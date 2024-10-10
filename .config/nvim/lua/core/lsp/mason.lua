@@ -7,7 +7,7 @@ local servers = {
   "gopls",
   "templ",
   "html",
-  "tsserver",
+  "ts_ls",
   "tailwindcss"
 }
 
