@@ -8,13 +8,7 @@ static const unsigned int snap           = 32;       /* snap pixel */
 static const int showbar                 = 1;        /* 0 means no bar */
 static const int topbar                  = 1;        /* 0 means bottom bar */
 static const char *fonts[]               = { "JetBrainsMono Nerd Font:size=13" };
-static const char dmenufont[]            = "JetBrainsMono Nerd Font:size=13";
-static const char col_gray1[]            = "#222222";
-static const char col_gray2[]            = "#444444";
-static const char col_gray3[]            = "#bbbbbb";
 static const char col_inactive[]         = "#54546D";
-static const char col_gray4[]            = "#eeeeee";
-static const char col_white[]            = "#ffffff";
 static const char col_accent[]           = "#f1eedc";
 static const char col_black[]            = "#000000";
 static const unsigned int baralpha       = 0xDD;
@@ -40,21 +34,20 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class                   instance          title       tags mask        isfloating   monitor */
-	{ "librewolf-default",    "Navigator",       NULL,       1 << 1,            0,           -1 },
+	{ "LibreWolf",            "Navigator",       NULL,       1 << 1,            0,           -1 },
 	{ "thunderbird-default",  "Mail",            NULL,       1 << 3,            0,           -1 },
 };
 
 /* layout(s) */
-static const float mfact          = 0.6; /* factor of master area size [0.05..0.95] */
+static const float mfact          = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster          = 1;    /* number of clients in master area */
 static const int resizehints      = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen   = 1;    /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
+	{ "[]=",      tile },
 	{ "[M]",      monocle },
-	// { "><>",      NULL },    /* no layout function means floating behavior */
 };
 
 /* key definitions */
@@ -70,25 +63,28 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *termcmd[]            = { "alacritty", NULL };
+static const char *termcmd[]            =   { "alacritty", NULL };
 
-static const char *rofirun[]            = { "/home/sumer/shellScripts/rofi.sh", "-r", NULL };
-static const char *rofidrun[]           = { "/home/sumer/shellScripts/rofi.sh", "-d", NULL };
-static const char *rofipower[]          = { "/home/sumer/shellScripts/rofi.sh", "-q", NULL };
-static const char *rofiwifi[]           = { "/home/sumer/shellScripts/rofi.sh", "-n",  NULL };
-static const char *rofipass[]           = { "/home/sumer/shellScripts/rofi.sh", "-p",  NULL };
+static const char *rofirun[]            =   { "/home/sumer/shellScripts/rofi.sh", "-r", NULL };
+static const char *rofidrun[]           =   { "/home/sumer/shellScripts/rofi.sh", "-d", NULL };
+static const char *rofipower[]          =   { "/home/sumer/shellScripts/rofi.sh", "-q", NULL };
+static const char *rofiwifi[]           =   { "/home/sumer/shellScripts/rofi.sh", "-n",  NULL };
+static const char *rofipass[]           =   { "/home/sumer/shellScripts/rofi.sh", "-p",  NULL };
 
-static const char *vol_down[]           = { "/home/sumer/shellScripts/volumeNotification.sh", "down", NULL };
-static const char *vol_up[]             = { "/home/sumer/shellScripts/volumeNotification.sh", "up", NULL };
-static const char *vol_mute[]           = { "/home/sumer/shellScripts/volumeNotification.sh", "mute", NULL };
-static const char *brightness_up[]      = {"/home/sumer/shellScripts/brightnessNotification.sh", "up", NULL };
-static const char *brightness_down[]    = {"/home/sumer/shellScripts/brightnessNotification.sh", "down", NULL };
+static const char *vol_up[]             =   { "/home/sumer/shellScripts/volumeNotification.sh", "up",   NULL };
+static const char *vol_down[]           =   { "/home/sumer/shellScripts/volumeNotification.sh", "down", NULL };
+static const char *vol_mute[]           =   { "/home/sumer/shellScripts/volumeNotification.sh", "mute", NULL };
 
-static const char *browsercmd[]                   = { "librewolf", NULL };
-static const char *browserprivatecmd[]            = { "librewolf", "--private-window", NULL };
-static const char *emailcmd[]                     = { "thunderbird", NULL };
-static const char *topcmd[]                       = { "st", "-g", "124x27", "-i", "-e", "top", NULL };
-static const char *wavemoncmd[]                       = { "st", "-g", "124x27", "-i", "-e", "wavemon", NULL };
+static const char *brightness_up[]      =   { "/home/sumer/shellScripts/brightnessNotification.sh", "up", NULL };
+static const char *brightness_down[]    =   { "/home/sumer/shellScripts/brightnessNotification.sh", "down", NULL };
+
+static const char *emailcmd[]           =   { "thunderbird", NULL };
+
+static const char *browsercmd[]         =   { "librewolf", NULL };
+static const char *browserprivatecmd[]  =   { "librewolf", "--private-window", NULL };
+
+static const char *topcmd[]             =   { "st", "-g", "124x27", "-i", "-e", "top", NULL };
+static const char *wavemoncmd[]         =   { "st", "-g", "124x27", "-i", "-e", "wavemon", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key                          function               argument */
@@ -144,7 +140,6 @@ static const Key keys[] = {
 static const Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
-	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
@@ -155,4 +150,3 @@ static const Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-

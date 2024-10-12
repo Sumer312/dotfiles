@@ -12,12 +12,11 @@ require("core.custom.statusline.theme")
 Statusline = {}
 
 Statusline.active = function()
-  local lspTable = {}
-  local lspString = ""
-  local lsPrefix = ""
+  local lsp_display
   pcall(function()
+    local lspTable = {}
+    local lspString = ""
     local length = #vim.lsp.get_clients({ bufnr = vim.fn.bufnr() })
-
     for i = 1, length, 1 do
       lspTable[i] = tostring(vim.lsp.get_clients({ bufnr = vim.fn.bufnr() })[i].name)
       if i == 1 then
@@ -29,9 +28,9 @@ Statusline.active = function()
     end
 
     if #lspTable == 0 then
-      lspString = " "
+      lsp_display = string.format("  %s ", lspString)
     else
-      lsPrefix = " :"
+      lsp_display = string.format(" : %s ", lspString)
     end
   end)
   return table.concat {
@@ -45,7 +44,7 @@ Statusline.active = function()
     diagnostics(),
     inverse_colors(),
     "%=",
-    string.format("%s %s ", lsPrefix, lspString),
+    lsp_display,
     colors(),
     lineinfo(),
   }
