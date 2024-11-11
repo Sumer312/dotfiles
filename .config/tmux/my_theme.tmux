@@ -44,11 +44,11 @@ tmux_set window-status-current-format "#[fg=$Black,bg=$Accent_color,bold] #I.#W#
 tmux_set window-status-separator " "
 
 tmux_set pane-border-style "fg=$White,bg=default"
-tmux_set pane-active-border-style "fg=$Accent_color,bg=default"
+tmux_set pane-active-border-style "fg=$Prefix_color,bg=default"
 
 tmux_set display-panes-colour "$White"
-tmux_set display-panes-active-colour "$Accent_color"
+tmux_set display-panes-active-colour "$Prefix_color"
 
-tmux_set message-style "fg=$Accent_color,bg=default, bold"
-:mux_set message-command-style "fg=$Accent_color,bg=default"
-tmux_set mode-style "bg=$Accent_color,fg=$Color1"
+tmux_set message-style "fg=$Prefix_color,bg=default, bold"
+:mux_set message-command-style "fg=$Prefix_color,bg=default"
+tmux_set mode-style "bg=$Prefix_color,fg=$Color1"

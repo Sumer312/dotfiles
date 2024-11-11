@@ -36,10 +36,6 @@ alias lzg="lazygit"
 alias ff="fastfetch"
 alias storagehealth="sudo nvme smart-log /dev/nvme0"
 
-gpt() {
-	ollama run llama3.2
-}
-
 # autoclean images
 Daci() {
 	none_images=$(docker images -a | grep "<none>" | awk '{print $3}')
@@ -64,6 +60,7 @@ export PASSWORD_STORE_CLIP_TIME=25
 export LANG="en_IN.utf8"
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/.cargo/bin
+export EDITOR=/bin/vim
 
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
@@ -139,6 +136,7 @@ alias Gac='git add -Av && git commit'
 alias Gpu='git push '
 alias Gck='git checkout'
 alias Gck-='git checkout -- .'
+alias Gckf='git checkout -f'
 alias Gckb='git checkout -b'
 Gpu_() { # push and set upstream to same name
 	git push --set-upstream $@ origin $(git branch | grep \* | cut -c3-)

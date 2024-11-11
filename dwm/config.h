@@ -34,7 +34,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class                   instance          title       tags mask        isfloating   monitor */
-	{ "librewolf-default",    "Navigator",       NULL,       1 << 1,            0,           -1 },
+	{ "LibreWolf",            "Navigator",       NULL,       1 << 1,            0,           -1 },
 	{ "thunderbird-default",  "Mail",            NULL,       1 << 3,            0,           -1 },
 };
 

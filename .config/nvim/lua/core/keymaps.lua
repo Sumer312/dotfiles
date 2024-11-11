@@ -34,7 +34,7 @@ keymap("n", "<leader>cr", "<cmd>ColorizerReloadAllBuffers<CR>", opts)
 keymap("n", "<leader>son", '<cmd>lua ColorMyPencils("sonokai")<CR>', opts)
 keymap("n", "<leader>lzg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 keymap("n", "<leader>glo", "<cmd>lua _GLOW_TOGGLE()<CR>", opts)
-keymap("n", "<leader>gpt", "<cmd>lua _GPT_TOGGLE()<CR>", opts)
+keymap("n", "<leader>wd", "<cmd>!pwd<CR>", opts)
 keymap("n", "<A-k>", '<cmd>lua require("treesitter-context").go_to_context()<CR>', { silent = true })
 
 keymap("i", "<C-c>", "<esc>", opts)
