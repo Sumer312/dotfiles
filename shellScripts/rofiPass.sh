@@ -3,8 +3,8 @@
 export PASSWORD_STORE_DIR=/home/sumer/.password-store
 export PASSWORD_STORE_CLIP_TIME=25
 pw_list=$(find -L "$PASSWORD_STORE_DIR" -name '*.gpg')
-gpg_file=$(printf "%s\n" "$pw_list" | awk -F "$PASSWORD_STORE_DIR/" '{print $2}' | awk -F ".gpg" '{print $1}')
-selected_option=$(printf "%s\n" "$gpg_file" | rofi -dmenu -i -p "󰢬 Passwords")
+gpg_file=$(echo "$pw_list\n" | awk -F "$PASSWORD_STORE_DIR/" '{print $2}' | awk -F ".gpg" '{print $1}')
+selected_option=$(echo "$gpg_file\n" | rofi -dmenu -i -p "󰢬 Passwords")
 if [ "$selected_option" = "" ]; then
 	dunstify -u low "  not in clip" -t 2000
 	exit 130

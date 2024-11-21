@@ -3,6 +3,6 @@ local git = function()
   if not git_info or git_info.head == "" then
     return ""
   end
-  return string.format("  %s ", git_info.head)
+  return string.format("  %s ", git_info.head)
 end
 return git

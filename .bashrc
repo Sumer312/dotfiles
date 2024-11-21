@@ -54,6 +54,31 @@ Dsa() {
 	docker stop $(docker ps -q)
 }
 
+zt() {
+	if [ -z "$1" ]; then
+		path=$(zoxide query -i)
+	else
+		path=$(zoxide query -i "$1")
+	fi
+	if [ -z "$path" ]; then
+		return
+	fi
+	session_name=$(echo "$path" | awk -F "/" '{print $NF}')
+	if [ -n "$TMUX" ]; then
+		tmux new -ds "$session_name" -c "$path"
+		tmux switch-client -t "$session_name"
+	else
+		tmux new -s "$session_name" -c "$path"
+	fi
+}
+
+Gacpu_() {
+	if [ -n "$1" ]; then
+		git add . && git commit -m "$1" && git push --set-upstream $@ origin $(git branch | grep \* | cut -c3-)
+	else
+		git add . && git commit -m "x" && git push --set-upstream $@ origin $(git branch | grep \* | cut -c3-)
+	fi
+}
 export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
 export PASSWORD_STORE_DIR=$HOME/.password-store
 export PASSWORD_STORE_CLIP_TIME=25
@@ -82,7 +107,7 @@ dg() {
 }
 
 dps() {
-	docker ps --format '{{.ID}}\t{{.Status}}\t{{.Names}}'
+	docker ps --format '{{.ID}}\t{{.Status}}\t{{.Names}}\t{{.Ports}}'
 }
 
 dat() {

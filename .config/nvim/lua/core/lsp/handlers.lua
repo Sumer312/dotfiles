@@ -72,18 +72,6 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-  if client.name == "ts_ls" then
-    client.server_capabilities.documentFormattingProvider = true
-  end
-
-  if client.name == "lua_ls" then
-    client.server_capabilities.documentFormattingProvider = true
-  end
-
-  if client.name == "gopls" then
-    client.server_capabilities.documentFormattingProvider = true
-  end
-
   if client.name == "templ" then
     client.server_capabilities.documentFormattingProvider = true
   end
@@ -96,19 +84,7 @@ M.on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = true
   end
 
-  if client.name == "cssls" then
-    client.server_capabilities.documentFormattingProvider = true
-  end
-
-  if client.name == "sqlls" then
-    client.server_capabilities.documentFormattingProvider = true
-  end
-
   if client.name == "solidity_ls_nomicfoundation" then
-    client.server_capabilities.documentFormattingProvider = true
-  end
-
-  if client.name == "pyright" then
     client.server_capabilities.documentFormattingProvider = true
   end
 
