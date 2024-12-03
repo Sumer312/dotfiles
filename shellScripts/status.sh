@@ -13,7 +13,7 @@ while :; do
 	bool_battery_check=$(upower -i $(upower -e | grep BAT) | grep -E "percentage" | awk '{print $2}' | awk -F "%" '{print $1}')
 
 	var_time=$(date +"%H:%M")
-	var_uptime=$(uptime | awk -F ',' '{print $1}'  | awk -F 'up' '{print $2}' | xargs)
+	var_uptime=$(uptime | awk -F ',' '{print $1}' | awk -F 'up' '{print $2}' | xargs)
 	var_date=$(date +"%a %d.%m.%y")
 	var_temp=$(acpi -t | awk '{print $4}')
 	var_battery=$(upower -i $(upower -e | grep BAT) | grep -E "percentage" | awk '{print $2}')
@@ -73,16 +73,19 @@ while :; do
 
 		var_wifi=$bool_wifi_name
 		var_time=$(date +"%H:%M")
-		var_uptime=$(uptime | awk -F ',' '{print $1}'  | awk -F 'up' '{print $2}' | xargs)
+		var_uptime=$(uptime | awk -F ',' '{print $1}' | awk -F 'up' '{print $2}' | xargs)
 		var_date=$(date +"%a %d-%m-%y")
 		var_temp=$(acpi -t | awk '{print $4}')
 		var_battery=$(upower -i $(upower -e | grep BAT) | grep -E "percentage" | awk '{print $2}')
 		var_memory=$(free | awk '/Mem/ {printf "%.2f GiB", $3 / 1048576.0}')
 
 		dwm -s " $icon_time $var_time  $icon_date $var_date  $icon_wifi $var_wifi  $icon_uptime $var_uptime  $icon_memory $var_memory  $icon_temp $var_temp  $icon_battery $var_battery "
-		send_notification
+		if [ "$bool_battery_check" -eq 19 ] || [ "$bool_battery_check" -eq 15 ] || [ "$bool_battery_check" -le 12 ]; then
+			send_notification
+		fi
 		sleep 45s
 	done
+
 	dwm -s " $icon_time $var_time  $icon_date $var_date  $icon_wifi $var_wifi  $icon_uptime $var_uptime  $icon_memory $var_memory  $icon_temp $var_temp  $icon_battery $var_battery "
 	sleep 3s
 done

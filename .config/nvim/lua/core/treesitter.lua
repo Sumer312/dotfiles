@@ -23,7 +23,6 @@ configs.setup({
 		"vimdoc",
 		"query",
 		"dockerfile",
-		"solidity",
 		"tsx",
 		"ocaml",
 		"markdown",
