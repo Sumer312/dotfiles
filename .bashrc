@@ -33,8 +33,10 @@ alias audio="mpv --no-video"
 alias ls="lsd -lFi"
 alias cat="batcat"
 alias lzg="lazygit"
+alias lzd="lazydocker"
 alias ff="fastfetch"
 alias storagehealth="sudo nvme smart-log /dev/nvme0"
+alias firefox="flatpak run org.mozilla.firefox"
 
 # autoclean images
 Daci() {
@@ -63,7 +65,10 @@ zt() {
 	if [ -z "$path" ]; then
 		return
 	fi
-	session_name=$(echo "$path" | awk -F "/" '{print $NF}')
+
+	dir_name=$(echo "$path" | awk -F "/" '{print $NF}')
+	session_number=$(echo "$(tmux ls 2>/dev/null | wc -l) + 1" | bc)
+	session_name=" $session_number | ${dir_name} "
 	if [ -n "$TMUX" ]; then
 		tmux new -ds "$session_name" -c "$path"
 		tmux switch-client -t "$session_name"
@@ -74,11 +79,12 @@ zt() {
 
 Gacpu_() {
 	if [ -n "$1" ]; then
-		git add . && git commit -m "$1" && git push --set-upstream $@ origin $(git branch | grep \* | cut -c3-)
+		git add . && git commit -m "$1" && git push --set-upstream origin $(git branch | grep \* | cut -c3-)
 	else
-		git add . && git commit -m "x" && git push --set-upstream $@ origin $(git branch | grep \* | cut -c3-)
+		git add . && git commit -m "x" && git push --set-upstream origin $(git branch | grep \* | cut -c3-)
 	fi
 }
+
 export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
 export PASSWORD_STORE_DIR=$HOME/.password-store
 export PASSWORD_STORE_CLIP_TIME=25
@@ -86,6 +92,14 @@ export LANG="en_IN.utf8"
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export EDITOR=/bin/vim
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+  --color=fg:#d0d0d0,fg+:#d0d0d0,bg:-1,bg+:#262626
+  --color=hl:#5f87af,hl+:#5fd7ff,info:#bed7dc,marker:#87ff00
+  --color=prompt:#bed7dc,spinner:#e5ddc5,pointer:#e5ddc5,header:#87afaf
+  --color=border:#707070,label:#aeaeae,query:#d9d9d9
+  --border="sharp" --border-label="" --preview-window="border-sharp" --prompt="> "
+  --marker=">" --separator="─" --scrollbar="│"
+  --layout="reverse"'
 
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"

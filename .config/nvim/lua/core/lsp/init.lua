@@ -9,7 +9,6 @@ vim.filetype.add({
   },
 })
 
---[[ vim.lsp.buf.format({ timeout_ms = 3000 }) ]]
 
 require('lspconfig.ui.windows').default_options.border = 'single'
 require("core.lsp.lsp-config")
