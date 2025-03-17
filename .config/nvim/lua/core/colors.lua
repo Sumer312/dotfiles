@@ -7,7 +7,7 @@ function ColorMyPencils(color)
 	local set = vim.api.nvim_set_hl
 
 	set(0, "Normal", { bg = "none" })
-	set(0, "StatusLine", { bg = palatte.waveAqua1, fg = palatte.dragonBlack0, bold = true, italic = true })
+	set(0, "StatusLine", { bg = "none", fg = palatte.fujiWhite, bold = true, italic = true })
 	set(0, "MsgArea", { bg = "none", fg = palatte.carpYellow, italic = true })
 	set(0, "Visual", { bg = palatte.oniViolet2, fg = palatte.dragonBlack0, italic = true, bold = true })
 	set(0, "FloatBorder", { fg = palatte.carpYellow })

@@ -42,7 +42,6 @@ local kind_icons = {
   Operator = "",
   TypeParameter = "󰊄",
 }
--- find more here: https://www.nerdfonts.com/cheat-sheet
 cmp.setup({
   performance = {
     debounce = 50,
@@ -121,17 +120,14 @@ cmp.setup({
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
-  -- window.documentation =
   window = {
     completion = {
       winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,CursorLine:PmenuSel",
       border = "single",
     },
     documentation = {
-      border = "single",
       winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,CursorLine:PmenuSel",
-      scrollbar = "",
-      -- other options
+      border = "single",
     },
   },
   experimental = {

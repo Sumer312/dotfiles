@@ -43,23 +43,23 @@ end
 
 function M.black_bg_colors()
   local current_mode = vim.api.nvim_get_mode().mode
-  local blach_bg_color = "%#NormalBlackBg#"
+  local black_bg_color = "%#NormalBlackBg#"
   if current_mode == "n" then
-    blach_bg_color = "%#NormalBlackBg#"
+    black_bg_color = "%#NormalBlackBg#"
   elseif current_mode == "i" or current_mode == "ic" then
-    blach_bg_color = "%#InsertBlackBg#"
+    black_bg_color = "%#InsertBlackBg#"
   elseif current_mode == "niI" then
-    blach_bg_color = "%#INormalBlackBg#"
+    black_bg_color = "%#INormalBlackBg#"
   elseif current_mode == "v" or current_mode == "V" or current_mode == "" then
-    blach_bg_color = "%#VisualBlackBg#"
+    black_bg_color = "%#VisualBlackBg#"
   elseif current_mode == "R" then
-    blach_bg_color = "%#ReplaceBlackBg#"
+    black_bg_color = "%#ReplaceBlackBg#"
   elseif current_mode == "c" then
-    blach_bg_color = "%#CmdBlackBg#"
+    black_bg_color = "%#CmdBlackBg#"
   elseif current_mode == "t" then
-    blach_bg_color = "%#TerminalBlackBg#"
+    black_bg_color = "%#TerminalBlackBg#"
   end
-  return blach_bg_color
+  return black_bg_color
 end
 
 return M

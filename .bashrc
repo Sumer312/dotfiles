@@ -63,7 +63,25 @@ zt() {
 	if [ -z "$path" ]; then
 		return
 	fi
-	session_name=$(echo "$path" | awk -F "/" '{print $NF}')
+	i=1
+	flag=0
+	dir_name=$(echo "$path" | awk -F "/" '{print $NF}')
+
+	tmux has-session -t "${dir_name}_${i}" 2>/dev/null
+
+	if [ $? -eq 0 ]; then
+		flag=1
+	fi
+
+	while [ $flag -eq 1 ]; do
+		i=$((i + 1))
+		tmux has-session -t "${dir_name}_${i}" 2>/dev/null
+		if [ $? -eq 1 ]; then
+			flag=0
+		fi
+	done
+
+	session_name="${dir_name}_${i}"
 	if [ -n "$TMUX" ]; then
 		tmux new -ds "$session_name" -c "$path"
 		tmux switch-client -t "$session_name"
@@ -74,11 +92,12 @@ zt() {
 
 Gacpu_() {
 	if [ -n "$1" ]; then
-		git add . && git commit -m "$1" && git push --set-upstream $@ origin $(git branch | grep \* | cut -c3-)
+		git add . && git commit -m "$1" && git push --set-upstream origin $(git branch | grep \* | cut -c3-)
 	else
-		git add . && git commit -m "x" && git push --set-upstream $@ origin $(git branch | grep \* | cut -c3-)
+		git add . && git commit -m "x" && git push --set-upstream origin $(git branch | grep \* | cut -c3-)
 	fi
 }
+
 export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
 export PASSWORD_STORE_DIR=$HOME/.password-store
 export PASSWORD_STORE_CLIP_TIME=25

@@ -1,11 +1,8 @@
-P = function(v)
-  print(vim.inspect(v))
-  return v
-end
-
 require("core.options")
-require("core.keymaps")
 require("core.plugins_config")
+require("core.keymaps")
+require("core.colors")
+require("core.custom.statusline")
 require("core.web_devicons")
 require("core.cmp")
 require("core.lsp")
@@ -17,5 +14,9 @@ require("core.comments")
 require("core.git_signs")
 require("core.harpoon")
 require("core.zen_mode")
-require("core.colors")
-require("core.custom.statusline")
+
+P = function(v)
+  print(vim.inspect(v))
+  return v
+end
+
