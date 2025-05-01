@@ -9,6 +9,7 @@ vim.filetype.add({
   },
 })
 
+
 require('lspconfig.ui.windows').default_options.border = 'single'
 require("core.lsp.lsp-config")
 require("core.lsp.mason")

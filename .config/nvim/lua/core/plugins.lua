@@ -21,10 +21,11 @@ return {
 	{
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		ft = { "markdown" },
-		build = function()
-			vim.fn["mkdp#util#install"]()
+		build = "cd app && yarn install",
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
 		end,
+		ft = { "markdown" },
 	},
 	{ "christoomey/vim-tmux-navigator", lazy = false },
 	{
@@ -72,7 +73,7 @@ return {
 	},
 
 	-- Git
-  "lewis6991/gitsigns.nvim",
+	"lewis6991/gitsigns.nvim",
 
 	--Optional
 	"folke/zen-mode.nvim",

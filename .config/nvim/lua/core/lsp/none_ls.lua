@@ -8,6 +8,7 @@ null_ls.setup({
   sources = {
     null_ls.builtins.formatting.stylua,
     null_ls.builtins.formatting.prettier,
+    null_ls.builtins.formatting.cbfmt,
     null_ls.builtins.formatting.black,
     null_ls.builtins.formatting.shfmt,
     null_ls.builtins.formatting.sqlfmt,
@@ -16,3 +17,4 @@ null_ls.setup({
 })
 
 vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, {})
+vim.lsp.buf.format({ timeout_ms = 4000 })
