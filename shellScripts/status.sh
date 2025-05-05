@@ -80,7 +80,7 @@ while :; do
 		var_memory=$(free | awk '/Mem/ {printf "%.2f GiB", $3 / 1048576.0}')
 
 		dwm -s " $icon_time $var_time  $icon_date $var_date  $icon_wifi $var_wifi  $icon_uptime $var_uptime  $icon_memory $var_memory  $icon_temp $var_temp  $icon_battery $var_battery "
-		if [ "$bool_battery_check" -eq 19 ] || [ "$bool_battery_check" -eq 15 ] || [ "$bool_battery_check" -le 12 ]; then
+		if [ "$bool_battery_check" -le 15 ]; then
 			send_notification
 		fi
 		sleep 45s

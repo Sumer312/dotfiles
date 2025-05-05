@@ -1,29 +1,22 @@
 #!/bin/sh
 
-path=$(zoxide query -l | fzf --reverse)
+path=$(zoxide query -l | fzf --reverse --tmux center --border=sharp) 
 if [ -z "$path" ]; then
 	exit 0
 fi
 
-i=1
-flag=0
+# >/dev/null redirects stdout to /dev/null
+# 1>/dev/null redirects stdout to /dev/null
+#
+# 2>/dev/null redirects stderr to /dev/null
+#
+# &>/dev/null redirects stdout and stderr to /dev/null
+# >/dev/null2>&1 redirects stdout and stderr to /dev/null
+
 dir_name=$(echo "$path" | awk -F "/" '{print $NF}')
+session_number=$(echo "$(tmux ls 2>/dev/null | wc -l) + 1" | bc)
+session_name=" $session_number | ${dir_name} "
 
-tmux has-session -t "${dir_name}_${i}" 2>/dev/null
-
-if [ $? -eq 0 ]; then
-	flag=1
-fi
-
-while [ $flag -eq 1 ]; do
-	i=$((i + 1))
-	tmux has-session -t "${dir_name}_${i}" 2>/dev/null
-	if [ $? -eq 1 ]; then
-		flag=0
-	fi
-done
-
-session_name="${dir_name}_${i}"
 if [ -z "$TMUX" ]; then
 	tmux new -s "$session_name" -c "$path"
 	exit 0
