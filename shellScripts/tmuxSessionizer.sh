@@ -1,6 +1,6 @@
 #!/bin/sh
 
-path=$(zoxide query -l | fzf --reverse --tmux center --border=sharp) 
+path=$(zoxide query -l | fzf --reverse --tmux center) 
 if [ -z "$path" ]; then
 	exit 0
 fi
