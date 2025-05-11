@@ -11,23 +11,18 @@ if [ $# -ge 1 ] && [ $1 != "" ]; then
 	extras=$(echo "$content" | eval "$1")
 fi
 
-items=$(
-	printf '%s\n' "$urls" "$wwws" "$gh" "$ips" "$gits" "$extras" |
-		grep -v '^$' |
-		sort -u |
-		nl -w3 -s '  '
-)
+items=$(printf '%s\n' "$urls" "$wwws" "$gh" "$ips" "$gits" "$extras" | grep -v '^$' | sort -u | nl -w3 -s "  ")
 if [ -z "$items" ]; then
 	tmux display "No URLs found" && exit
 fi
 
 selected_url=$(echo "$items" | awk '{print $2}' | fzf --reverse --tmux center)
-if [ -n $selected_url ]; then
+if [ -z $selected_url ]; then
+	tmux display "No URLs chosen" && exit
+else
 	if [ -z $BROWSER ]; then
 		tmux display "BROWSER variable not defined in bashrc" && exit
 	else
 		$BROWSER $selected_url
 	fi
-else
-	tmux display "No URLs chosen" && exit
 fi
