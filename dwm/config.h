@@ -83,16 +83,18 @@ static const char *emailcmd[]           =   { "thunderbird", NULL };
 static const char *browsercmd[]         =   { "librewolf", NULL };
 static const char *browserprivatecmd[]  =   { "librewolf", "--private-window", NULL };
 
-static const char *topcmd[]             =   { "st", "-g", "124x27", "-i", "-e", "top", NULL };
-static const char *wavemoncmd[]         =   { "st", "-g", "124x27", "-i", "-e", "wavemon", NULL };
+static const char *top_cmd[]            =   { "st", "-g", "124x27", "-i", "-e", "top", NULL };
+static const char *wavemon_cmd[]        =   { "st", "-g", "124x27", "-i", "-e", "wavemon", NULL };
+static const char *qalc_cmd[]          =   { "st", "-g", "70x14",  "-i", "-e", "qalc", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key                          function               argument */
 	{ MODKEY,                       XK_Return,                   spawn,                 {.v = termcmd } },
 	{ MODKEY,                       XK_b,                        spawn,                 {.v = browsercmd } },
 	{ MODKEY | ShiftMask,           XK_b,                        spawn,                 {.v = browserprivatecmd } },
-	{ MODKEY,                       XK_s,                        spawn,                 {.v = topcmd } },
-	{ MODKEY,                       XK_a,                        spawn,                 {.v = wavemoncmd } },
+	{ MODKEY,                       XK_s,                        spawn,                 {.v = top_cmd } },
+	{ MODKEY,                       XK_a,                        spawn,                 {.v = wavemon_cmd } },
+	{ MODKEY,                       XK_equal,                    spawn,                 {.v = qalc_cmd } },
 	{ MODKEY,                       XK_e,                        spawn,                 {.v = emailcmd } },
 	{ MODKEY,                       XK_r,                        spawn,                 {.v = rofirun } },
 	{ MODKEY | ShiftMask,           XK_r,                        spawn,                 {.v = rofidrun } },
