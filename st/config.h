@@ -7,6 +7,11 @@
  */
 // static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
 static char *font = "JetBrainsMono Nerd Font:size=14:antialias=true";
+/* Spare fonts */
+static char *font2[] = {
+/*	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true", */
+/*	"Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true", */
+};
 static int borderpx = 0;
 float alpha = 0.85;
 const int boxdraw = 1;
@@ -101,24 +106,25 @@ unsigned int tabspaces = 8;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
-  "#1a1a1a",
-  "#f4005f",
-  "#98e024",
-  "#fa8419",
-  "#9d65ff",
-  "#f4005f",
-  "#58d1eb",
-  "#c4c5b5",
-	/* 8 bright colors */
+  "#272822",
+  "#f92672",
+  "#a6e22e",
+  "#f4bf75",
+  "#66d9ef",
+  "#ae81ff",
+  "#a1efe4",
+  "#f8f8f2",
 
-  "#625e4c",
-  "#f4005f",
-  "#98e024",
-  "#f9d791",
-  "#9d65ff",
-  "#f4005f",
-  "#58d1eb",
-  "#f6f6ef",
+	/* 8 bright colors */
+  "#75715e",
+  "#f92672",
+  "#a6e22e",
+  "#f4bf75",
+  "#66d9ef",
+  "#ae81ff",
+  "#a1efe4",
+  "#f9f8f5",
+
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
@@ -181,10 +187,10 @@ static uint forcemousemod = ShiftMask;
 static MouseShortcut mshortcuts[] = {
 	/* mask                 button   function        argument       release */
 	{ XK_ANY_MOD,           Button2, selpaste,       {.i = 0},      1 },
+	{ XK_ANY_MOD,           Button4, kscrollup,      {.i = -1} },
+	{ XK_ANY_MOD,           Button5, kscrolldown,    {.i = -1} },
 	{ ShiftMask,            Button4, ttysend,        {.s = "\033[5;2~"} },
-	{ XK_ANY_MOD,           Button4, ttysend,        {.s = "\031"} },
 	{ ShiftMask,            Button5, ttysend,        {.s = "\033[6;2~"} },
-	{ XK_ANY_MOD,           Button5, ttysend,        {.s = "\005"} },
 };
 
 /* Internal keyboard shortcuts. */
@@ -205,6 +211,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
+ 	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
+  { ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
 };
 
 /*

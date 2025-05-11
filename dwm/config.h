@@ -7,7 +7,7 @@ static const unsigned int gappx          = 8;        /* gaps between windows */
 static const unsigned int snap           = 32;       /* snap pixel */
 static const int showbar                 = 1;        /* 0 means no bar */
 static const int topbar                  = 1;        /* 0 means bottom bar */
-static const char *fonts[]               = { "JetBrainsMono Nerd Font:size=13" };
+static const char *fonts[]               = { "JetBrainsMono Nerd Font:size=14" };
 static const char col_inactive[]         = "#54546D";
 static const char col_accent[]           = "#f1eedc";
 static const char col_black[]            = "#000000";
@@ -33,7 +33,7 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class                   instance          title       tags mask        isfloating   monitor */
+	/* class                   instance          title      tags mask           isfloating   monitor */
 	{ "LibreWolf",            "Navigator",       NULL,       1 << 1,            0,           -1 },
 	{ "thunderbird-default",  "Mail",            NULL,       1 << 3,            0,           -1 },
 };
@@ -63,7 +63,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *termcmd[]            =   { "alacritty", NULL };
+static const char *termcmd[]            =   { "st", NULL };
 
 static const char *rofirun[]            =   { "/home/sumer/shellScripts/rofi.sh", "-r", NULL };
 static const char *rofidrun[]           =   { "/home/sumer/shellScripts/rofi.sh", "-d", NULL };
@@ -83,16 +83,18 @@ static const char *emailcmd[]           =   { "thunderbird", NULL };
 static const char *browsercmd[]         =   { "librewolf", NULL };
 static const char *browserprivatecmd[]  =   { "librewolf", "--private-window", NULL };
 
-static const char *topcmd[]             =   { "st", "-g", "124x27", "-i", "-e", "top", NULL };
-static const char *wavemoncmd[]         =   { "st", "-g", "124x27", "-i", "-e", "wavemon", NULL };
+static const char *top_cmd[]            =   { "st", "-g", "124x27", "-i", "-e", "top", NULL };
+static const char *wavemon_cmd[]        =   { "st", "-g", "124x27", "-i", "-e", "wavemon", NULL };
+static const char *qalc_cmd[]          =   { "st", "-g", "70x14",  "-i", "-e", "qalc", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key                          function               argument */
 	{ MODKEY,                       XK_Return,                   spawn,                 {.v = termcmd } },
 	{ MODKEY,                       XK_b,                        spawn,                 {.v = browsercmd } },
 	{ MODKEY | ShiftMask,           XK_b,                        spawn,                 {.v = browserprivatecmd } },
-	{ MODKEY,                       XK_s,                        spawn,                 {.v = topcmd } },
-	{ MODKEY,                       XK_a,                        spawn,                 {.v = wavemoncmd } },
+	{ MODKEY,                       XK_s,                        spawn,                 {.v = top_cmd } },
+	{ MODKEY,                       XK_a,                        spawn,                 {.v = wavemon_cmd } },
+	{ MODKEY,                       XK_equal,                    spawn,                 {.v = qalc_cmd } },
 	{ MODKEY,                       XK_e,                        spawn,                 {.v = emailcmd } },
 	{ MODKEY,                       XK_r,                        spawn,                 {.v = rofirun } },
 	{ MODKEY | ShiftMask,           XK_r,                        spawn,                 {.v = rofidrun } },
