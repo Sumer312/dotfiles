@@ -1,10 +1,10 @@
 configuration {
-  font: "JetBrainsMono Nerd Font 13";
+  font: "JetBrainsMono Nerd Font 15";
   display-drun: "󰧨 Drun";
   display-window: " Windows";
   display-run: " Run";
   show-icons: false;
-  icon-theme: "Adwaita";
+  icon-theme: "Papirus";
   modi: "window,run,drun";
   terminal: "st";
   kb-accept-entry: "Return";
@@ -14,8 +14,8 @@ configuration {
 @theme "/dev/null"
 
 * {
-    accent-color:                #F0CEFF;   
-    height:                      250;
+    accent-color:                #F1EEDC;   
+    height:                      233;
     spacing:                     3;
     border-color:                @accent-color;
     foreground:                  white;
@@ -54,7 +54,8 @@ window {
 message {
     border: 1px;
     padding: 1em;
-    background-color: #F0CEFFDD;
+    background-color: #F1EEDCDD;
+    border-color: #000000;
 }
 
 inputbar {
@@ -62,12 +63,12 @@ inputbar {
 }
 
 entry {
-  font: "JetBrainsMono Nerd Font Bold Italic 13";
+  font: "JetBrainsMono Nerd Font Bold Italic 15";
   text-color: @accent-color;
 }
 
 prompt {
-  font: "JetBrainsMono Nerd Font ExtraBold 13";
+  font: "JetBrainsMono Nerd Font ExtraBold 15";
   text-color: @accent-color;
 }
 
@@ -87,7 +88,7 @@ inputbar {
 listview {
     border: 1px;
     padding: 4px 4px 4px 4px;
-    columns: 5;
+    columns: 2;
     background-color: @normal-background;
 }
 
@@ -113,7 +114,7 @@ element.normal.urgent {
 }
 
 element.normal.active {
-  background-color: #FFFFFF;
+  background-color: #F1EEDC;
   text-color:       black;
 }
 
@@ -143,7 +144,7 @@ element.alternate.urgent {
 }
 
 element.alternate.active {
-  background-color: #FFFFFF;
+  background-color: #F1EEDC;
   text-color:       black;
 }
 
