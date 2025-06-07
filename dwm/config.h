@@ -34,7 +34,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class                   instance          title      tags mask           isfloating   monitor */
-	{ "LibreWolf",            "Navigator",       NULL,       1 << 1,            0,           -1 },
+	{ "libreWolf",            "Navigator",       NULL,       1 << 1,            0,           -1 },
 	{ "thunderbird-default",  "Mail",            NULL,       1 << 3,            0,           -1 },
 };
 
@@ -65,11 +65,11 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *termcmd[]            =   { "st", NULL };
 
-static const char *rofirun[]            =   { "/home/sumer/shellScripts/rofi.sh", "-r", NULL };
-static const char *rofidrun[]           =   { "/home/sumer/shellScripts/rofi.sh", "-d", NULL };
-static const char *rofipower[]          =   { "/home/sumer/shellScripts/rofi.sh", "-q", NULL };
-static const char *rofiwifi[]           =   { "/home/sumer/shellScripts/rofi.sh", "-n",  NULL };
-static const char *rofipass[]           =   { "/home/sumer/shellScripts/rofi.sh", "-p",  NULL };
+static const char *rofi_run[]            =   { "/home/sumer/shellScripts/rofi.sh", "-r", NULL };
+static const char *rofi_drun[]           =   { "/home/sumer/shellScripts/rofi.sh", "-d", NULL };
+static const char *rofi_power[]          =   { "/home/sumer/shellScripts/rofi.sh", "-q", NULL };
+static const char *rofi_wifi[]           =   { "/home/sumer/shellScripts/rofi.sh", "-n",  NULL };
+static const char *rofi_pass[]           =   { "/home/sumer/shellScripts/rofi.sh", "-p",  NULL };
 
 static const char *vol_up[]             =   { "/home/sumer/shellScripts/volumeNotification.sh", "up",   NULL };
 static const char *vol_down[]           =   { "/home/sumer/shellScripts/volumeNotification.sh", "down", NULL };
@@ -78,29 +78,29 @@ static const char *vol_mute[]           =   { "/home/sumer/shellScripts/volumeNo
 static const char *brightness_up[]      =   { "/home/sumer/shellScripts/brightnessNotification.sh", "up", NULL };
 static const char *brightness_down[]    =   { "/home/sumer/shellScripts/brightnessNotification.sh", "down", NULL };
 
-static const char *emailcmd[]           =   { "thunderbird", NULL };
+static const char *email_client_cmd[]           =   { "thunderbird", NULL };
 
-static const char *browsercmd[]         =   { "librewolf", NULL };
-static const char *browserprivatecmd[]  =   { "librewolf", "--private-window", NULL };
+static const char *browser1_cmd[]       =   { "librewolf", NULL };
+static const char *browser2_cmd[]       =   { "flatpak", "run", "org.mozilla.firefox", NULL };
 
 static const char *top_cmd[]            =   { "st", "-g", "124x27", "-i", "-e", "top", NULL };
 static const char *wavemon_cmd[]        =   { "st", "-g", "124x27", "-i", "-e", "wavemon", NULL };
-static const char *qalc_cmd[]          =   { "st", "-g", "70x14",  "-i", "-e", "qalc", NULL };
+static const char *qalc_cmd[]           =   { "st", "-g", "70x14",  "-i", "-e", "qalc", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key                          function               argument */
 	{ MODKEY,                       XK_Return,                   spawn,                 {.v = termcmd } },
-	{ MODKEY,                       XK_b,                        spawn,                 {.v = browsercmd } },
-	{ MODKEY | ShiftMask,           XK_b,                        spawn,                 {.v = browserprivatecmd } },
+	{ MODKEY,                       XK_b,                        spawn,                 {.v = browser1_cmd } },
+	{ MODKEY | ShiftMask,           XK_b,                        spawn,                 {.v = browser2_cmd } },
 	{ MODKEY,                       XK_s,                        spawn,                 {.v = top_cmd } },
 	{ MODKEY,                       XK_a,                        spawn,                 {.v = wavemon_cmd } },
 	{ MODKEY,                       XK_equal,                    spawn,                 {.v = qalc_cmd } },
-	{ MODKEY,                       XK_e,                        spawn,                 {.v = emailcmd } },
-	{ MODKEY,                       XK_r,                        spawn,                 {.v = rofirun } },
-	{ MODKEY | ShiftMask,           XK_r,                        spawn,                 {.v = rofidrun } },
-	{ MODKEY,                       XK_n,                        spawn,                 {.v = rofiwifi } },
-	{ MODKEY,                       XK_q,                        spawn,                 {.v = rofipower } },
-	{ MODKEY,                       XK_p,                        spawn,                 {.v = rofipass } },
+	{ MODKEY,                       XK_e,                        spawn,                 {.v = email_client_cmd } },
+	{ MODKEY,                       XK_r,                        spawn,                 {.v = rofi_run } },
+	{ MODKEY | ShiftMask,           XK_r,                        spawn,                 {.v = rofi_drun } },
+	{ MODKEY,                       XK_n,                        spawn,                 {.v = rofi_wifi } },
+	{ MODKEY,                       XK_q,                        spawn,                 {.v = rofi_power } },
+	{ MODKEY,                       XK_p,                        spawn,                 {.v = rofi_pass } },
 	{ MODKEY,                       XK_f,                        togglebar,             {0} },
 	{ MODKEY,                       XK_j,                        focusstack,            {.i = +1 } },
 	{ MODKEY,                       XK_k,                        focusstack,            {.i = -1 } },

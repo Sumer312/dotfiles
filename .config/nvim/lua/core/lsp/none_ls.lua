@@ -17,4 +17,4 @@ null_ls.setup({
 })
 
 vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, {})
-vim.lsp.buf.format({ timeout_ms = 4000 })
+vim.lsp.buf.format({ timeout_ms = 2000 })

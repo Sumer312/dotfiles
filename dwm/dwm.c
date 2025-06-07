@@ -1689,7 +1689,7 @@ spawn(const Arg *arg)
 {
 	struct sigaction sa;
 
-	if (arg->v == rofirun)
+	if (arg->v == rofi_run)
 		dmenumon[0] = '0' + selmon->num;
 	if (fork() == 0) {
 		if (dpy)
