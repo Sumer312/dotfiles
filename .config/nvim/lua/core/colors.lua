@@ -65,7 +65,11 @@ function ColorMyPencils(color)
 	set(0, "TelescopePromptBorder", { bg = "none", fg = palatte.carpYellow })
 	set(0, "TelescopePreviewBorder", { bg = "none", fg = palatte.oniViolet })
 
-	set(0, "TreesitterContext", { bg = "none", bold = true, italic = true, underdashed = true })
+	set(
+		0,
+		"TreesitterContext",
+		{ bg = "none", fg = palatte.sakuraPink, bold = true, italic = true, underdashed = true }
+	)
 	set(
 		0,
 		"TreesitterContextLineNumber",
@@ -81,10 +85,14 @@ function ColorMyPencils(color)
 	set(0, "NotificationWarning", { bg = palatte.roninYellow, fg = palatte.dragonBlack0 })
 	set(0, "NotificationError", { bg = palatte.lotusRed3, fg = palatte.dragonBlack0 })
 
-
 	set(0, "LazyProgressDone", { bg = "none", fg = palatte.lotusCyan })
 	set(0, "LazyProgressTodo", { bg = "none", fg = palatte.carpYellow })
+
+	set(0, "DiffChange", { bg = palatte.sumiInk3, bold = true, italic = true })
+	set(0, "DiffAdd", { bg = palatte.winterGreen, bold = true, italic = true })
+	set(0, "DiffDelete", { bg = palatte.winterRed, bold = true, italic = true })
+	set(0, "FoldColumn", { bg = "none", bold = true })
 	ColorMyLines()
 end
 
-ColorMyPencils("kanagawa")
+ColorMyPencils("kanagawa-wave")

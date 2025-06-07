@@ -19,7 +19,7 @@ toggleterm.setup({
 	float_opts = {
 		border = "single",
 		width = 200,
-		height = 36,
+		height = 34,
 		zindex = 10,
 		winblend = 0,
 	},
