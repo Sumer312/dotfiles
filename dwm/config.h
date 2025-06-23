@@ -7,7 +7,7 @@ static const unsigned int gappx          = 8;        /* gaps between windows */
 static const unsigned int snap           = 32;       /* snap pixel */
 static const int showbar                 = 1;        /* 0 means no bar */
 static const int topbar                  = 1;        /* 0 means bottom bar */
-static const char *fonts[]               = { "JetBrainsMono Nerd Font:size=14" };
+static const char *fonts[]               = { "GeistMono Nerd Font:size=14" };
 static const char col_inactive[]         = "#54546D";
 static const char col_accent[]           = "#f1eedc";
 static const char col_black[]            = "#000000";
@@ -34,7 +34,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class                   instance          title      tags mask           isfloating   monitor */
-	{ "libreWolf",            "Navigator",       NULL,       1 << 1,            0,           -1 },
+	{ "librewolf",            "Navigator",       NULL,       1 << 1,            0,           -1 },
 	{ "thunderbird-default",  "Mail",            NULL,       1 << 3,            0,           -1 },
 };
 

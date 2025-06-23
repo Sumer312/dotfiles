@@ -1,6 +1,6 @@
 configuration {
-  font: "JetBrainsMono Nerd Font 15";
-  display-drun: "󰧨 Drun";
+  font: "GeistMono  Nerd Font 15";
+  display-drun: "󰨇 Drun";
   display-window: " Windows";
   display-run: " Run";
   show-icons: false;

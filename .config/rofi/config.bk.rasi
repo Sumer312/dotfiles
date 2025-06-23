@@ -14,13 +14,12 @@ configuration {
 @theme "/dev/null"
 
 * {
-    accent-color:                #F1EEDC;   
+    accent-color:                #f1eedc;   
     height:                      233;
     spacing:                     3;
     border-color:                @accent-color;
     foreground:                  white;
     urgent-foreground:           red;
-    active-foreground:           #DAF7A6;
     normal-foreground:           @foreground;
     active-background:           @accent-color;
     background-color:            #00000000;
@@ -114,7 +113,7 @@ element.normal.urgent {
 }
 
 element.normal.active {
-  background-color: #F1EEDC;
+  background-color: @accent-color;
   text-color:       black;
 }
 
@@ -144,7 +143,7 @@ element.alternate.urgent {
 }
 
 element.alternate.active {
-  background-color: #F1EEDC;
+  background-color: #bed7dc;
   text-color:       black;
 }
 
