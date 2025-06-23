@@ -40,7 +40,7 @@ function M.get_mode()
   if M.modes[current_mode] == nil then
     return current_mode
   end
-  return string.format("  %s ", M.modes[current_mode])
+  return string.format("  %s ", M.modes[current_mode])
 end
 
 return M

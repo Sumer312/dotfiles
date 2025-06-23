@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 // static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
-static char *font = "JetBrainsMono Nerd Font:size=14:antialias=true";
+static char *font = "GeistMono Nerd Font:size=14.5:antialias=true";
 /* Spare fonts */
 static char *font2[] = {
 /*	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true", */
@@ -211,8 +211,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-  { MODKEY,               XK_k,           kscrollup,      {.i = -1} },
-  { MODKEY,               XK_j,           kscrolldown,    {.i = -1} },
+  { TERMMOD,              XK_k,           kscrollup,      {.i = -1} },
+  { TERMMOD,              XK_j,           kscrolldown,    {.i = -1} },
 };
 
 /*
