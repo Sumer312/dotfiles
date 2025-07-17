@@ -5,7 +5,7 @@ run(){
 }
 
 drun(){
-   rofi -show drun
+   rofi -show drun -show-icons
 }
 
 quit(){

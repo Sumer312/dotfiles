@@ -95,4 +95,4 @@ function ColorMyPencils(color)
 	ColorMyLines()
 end
 
-ColorMyPencils("kanagawa-wave")
+ColorMyPencils("sonokai")

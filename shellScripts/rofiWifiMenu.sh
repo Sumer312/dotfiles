@@ -2,10 +2,10 @@
 
 dunstify "Getting list of available Wi-Fi networks..." -t 2500
 
-wifi_list=$(nmcli --fields "SECURITY,SSID" device wifi list | sed 1d | sed 's/  */ /g' | sed -E "s/WPA*.?\S//g" | sed "s/^--//g" | sed "s/  //g" | sed "/--/d")
-connected=$(nmcli --fields WIFI g)
+wifi_list=$(nmcli --fields "SECURITY,SSID" device wifi list | sed 1d | sed 's/  */ /g' | sed -E "s/WPA*.?\S//g" | sed "s/^--//g" | sed "s/ //g" | sed "/--/d")
+connection=$(nmcli --fields WIFI g)
 
-if echo "$connected" | grep -q "disabled"; then
+if echo "$connection" | grep -q "disabled"; then
 	toggle="󰤨 Enable Wi-Fi"
 else
 	toggle="󰤮 Disable Wi-Fi"

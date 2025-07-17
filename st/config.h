@@ -5,18 +5,9 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-// static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
 static char *font = "GeistMono Nerd Font:size=14.5:antialias=true";
-/* Spare fonts */
-static char *font2[] = {
-/*	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true", */
-/*	"Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true", */
-};
 static int borderpx = 0;
 float alpha = 0.85;
-const int boxdraw = 1;
-const int boxdraw_bold = 1;
-const int boxdraw_braille = 1;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -55,7 +46,7 @@ int allowaltscreen = 1;
 
 /* allow certain non-interactive (insecure) window operations such as:
    setting the clipboard text */
-int allowwindowops = 1;
+int allowwindowops = 0;
 
 /*
  * draw latency range in ms - from new content/keypress/etc until drawing.
@@ -63,7 +54,7 @@ int allowwindowops = 1;
  * near minlatency, but it waits longer for slow updates to avoid partial draw.
  * low minlatency will tear/flicker more, as it can "detect" idle too early.
  */
-static double minlatency = 8;
+static double minlatency = 2;
 static double maxlatency = 33;
 
 /*
@@ -81,7 +72,7 @@ static unsigned int cursorthickness = 2;
  * bell volume. It must be a value between -100 and 100. Use 0 for disabling
  * it
  */
-static int bellvolume = 50;
+static int bellvolume = 0;
 
 /* default TERM value */
 char *termname = "st-256color";
@@ -134,7 +125,6 @@ static const char *colorname[] = {
 	"#000000", /* default background colour */
 };
 
-
 /*
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
@@ -157,8 +147,8 @@ static unsigned int cursorshape = 2;
  * Default columns and rows numbers
  */
 
-static unsigned int cols = 85;
-static unsigned int rows = 25;
+static unsigned int cols = 80;
+static unsigned int rows = 24;
 
 /*
  * Default colour and shape of the mouse cursor
@@ -195,7 +185,7 @@ static MouseShortcut mshortcuts[] = {
 
 /* Internal keyboard shortcuts. */
 #define MODKEY Mod1Mask
-#define TERMMOD (ControlMask | ShiftMask)
+#define TERMMOD (ControlMask|ShiftMask)
 
 static Shortcut shortcuts[] = {
 	/* mask                 keysym          function        argument */
@@ -203,16 +193,16 @@ static Shortcut shortcuts[] = {
 	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
 	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
 	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
-	{ ControlMask,          XK_equal,       zoom,           {.f = +1} },
-	{ ControlMask,          XK_minus,       zoom,           {.f = -1} },
+	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
+	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },
 	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
 	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
 	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-  { TERMMOD,              XK_k,           kscrollup,      {.i = -1} },
-  { TERMMOD,              XK_j,           kscrolldown,    {.i = -1} },
+  { TERMMOD,              XK_K,           kscrollup,      {.i = -1} },
+  { TERMMOD,              XK_J,           kscrolldown,    {.i = -1} },
 };
 
 /*
@@ -484,26 +474,3 @@ static char ascii_printable[] =
 	" !\"#$%&'()*+,-./0123456789:;<=>?"
 	"@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
 	"`abcdefghijklmnopqrstuvwxyz{|}~";
-/**
- * Undercurl style. Set UNDERCURL_STYLE to one of the available styles.
- *
- * Curly: Dunno how to draw it *shrug*
- *  _   _   _   _
- * ( ) ( ) ( ) ( )
- *	 (_) (_) (_) (_)
- *
- * Spiky:
- * /\  /\   /\	/\
- *   \/  \/	  \/
- *
- * Capped:
- *	_     _     _
- * / \   / \   / \
- *    \_/   \_/
- */
-// Available styles
-#define UNDERCURL_CURLY 0
-#define UNDERCURL_SPIKY 1
-#define UNDERCURL_CAPPED 2
-// Active style
-#define UNDERCURL_STYLE UNDERCURL_SPIKY

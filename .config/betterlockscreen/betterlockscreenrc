@@ -1,8 +1,8 @@
 # default options
-display_on=0
-span_image=false
+  display_on=0
+  span_image=false
   lock_timeout=300
-fx_list=(dim blur dimblur pixel dimpixel color)
+  fx_list=(dim blur dimblur pixel dimpixel color)
   dim_level=40
   blur_level=1
   pixel_scale=10,1000
@@ -15,34 +15,34 @@ fx_list=(dim blur dimblur pixel dimpixel color)
   composite_command="magick composite"
 
   if ! cmd_exists "$i3lockcolor_bin" && cmd_exists "i3lock"; then
-  i3lockcolor_bin="i3lock"
+    i3lockcolor_bin="i3lock"
   fi
 
   if ! cmd_exists "magick"; then
-  convert_command="convert"
-  composite_command="composite"
+    convert_command="convert"
+    composite_command="composite"
   fi
 
 # default theme
-  loginbox=00000066
+  loginbox=00000022
   loginshadow=00000000
   locktext="Type password..."
-  font="JetBrainsMono Nerd Font"
-  ringcolor=ffffffff
+  font="GeistMono Nerd Font:size=14"
+  ringcolor=5f87afff
   insidecolor=00000000
   separatorcolor=00000000
-  ringvercolor=ffffffff
+  ringvercolor=f1eedcff
   insidevercolor=00000000
-  ringwrongcolor=ffffffff
-  insidewrongcolor=d23c3dff
-  timecolor=ffffffff
+  ringwrongcolor=d23c3dff
+  insidewrongcolor=00000000
+  timecolor=f1eedcff
   time_format="%H:%M:%S"
-  greetercolor=ffffffff
-  layoutcolor=ffffffff
-  keyhlcolor=d23c3dff
+  greetercolor=f1eedcff
+  layoutcolor=f1eedcff
+  keyhlcolor=f1eedcff
   bshlcolor=d23c3dff
   veriftext="Verifying..."
-  verifcolor=ffffffff
+  verifcolor=f1eedcff
   wrongtext="Failure!"
   wrongcolor=d23c3dff
   modifcolor=d23c3dff
