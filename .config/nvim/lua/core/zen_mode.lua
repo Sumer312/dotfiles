@@ -15,6 +15,8 @@ vim.keymap.set("n", "<leader>zz", function()
 			plugins = {
 				options = {
 					enabled = true,
+          ruler = false,
+          showcmd = false,
 					laststatus = 0,
 				},
 				tmux = { enabled = false },

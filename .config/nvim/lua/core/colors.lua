@@ -34,9 +34,9 @@ function ColorMyPencils(color)
 	set(0, "PmenuSel", { bg = palatte.carpYellow, fg = palatte.dragonBlack0, bold = true, italic = true })
 	set(0, "PmenuThumb", { bg = palatte.lotusCyan })
 	set(0, "MatchParen", { fg = palatte.surimiOrange, bold = true, underline = true, italic = true })
-	set(0, "SpellBad", { bg = "none", fg = palatte.samuraiRed, undercurl = true })
+	set(0, "SpellBad", { bg = "none", fg = palatte.samuraiRed, underline = true })
 
-	set(0, "CmpItemAbbrMatch", { fg = palatte.lotusCyan, underdotted = true })
+	set(0, "CmpItemAbbrMatch", { fg = palatte.lotusCyan, underline = true })
 	set(0, "CmpItemAbbr", { fg = palatte.carpYellow })
 	set(0, "CmpItemMenu", { fg = palatte.katanaGray })
 
@@ -65,16 +65,8 @@ function ColorMyPencils(color)
 	set(0, "TelescopePromptBorder", { bg = "none", fg = palatte.carpYellow })
 	set(0, "TelescopePreviewBorder", { bg = "none", fg = palatte.oniViolet })
 
-	set(
-		0,
-		"TreesitterContext",
-		{ bg = "none", fg = palatte.sakuraPink, bold = true, italic = true, underdashed = true }
-	)
-	set(
-		0,
-		"TreesitterContextLineNumber",
-		{ bg = "none", fg = palatte.sakuraPink, bold = true, italic = true, underdashed = true }
-	)
+	set(0, "TreesitterContext", { bg = "none", bold = true })
+	set(0, "TreesitterContextLineNumber", { bg = "none", fg = palatte.lotusBlue3, bold = true })
 
 	set(0, "GitSignsAdd", { fg = palatte.springGreen, bg = "none" })
 	set(0, "GitSignsChange", { fg = palatte.roninYellow, bg = "none" })
@@ -95,4 +87,4 @@ function ColorMyPencils(color)
 	ColorMyLines()
 end
 
-ColorMyPencils("sonokai")
+ColorMyPencils("kanagawa-wave")

@@ -21,7 +21,7 @@ while :; do
 	var_time=$(date +"%H:%M")
 	var_uptime=$(uptime | awk -F ',' '{print $1}' | awk -F 'up' '{print $2}' | xargs)
 	var_date=$(date +"%a %d.%m.%y")
-	var_temp=$(acpi -t | awk '{print $4}')
+	var_temp=$(acpi -t | awk -F ',' '{print $2}' | awk -F 'degrees' '{print $1 $2}' | xargs)
 	var_battery=$(upower -i $(upower -e | grep BAT) | grep -E "percentage" | awk '{print $2}')
 	var_memory=$(free | awk '/Mem/ {printf "%.2f GiB", $3 / 1048576.0}')
 	var_wifi=$wifi_name
@@ -32,8 +32,8 @@ while :; do
 	icon_wifi="󰤨"
 	icon_time=""
 	icon_uptime=""
-	icon_date=""
-	icon_temp=""
+	icon_date="󰸗"
+	icon_temp=" "
 	icon_memory=" "
 
 	if [ -n "$wifi_name" ]; then

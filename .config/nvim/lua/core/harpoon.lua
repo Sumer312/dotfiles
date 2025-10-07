@@ -11,7 +11,7 @@ local opts = {
   title_pos = "center",
   border = "single",
   ui_fallback_width = 69,
-  ui_width_ratio = 0.62569,
+  ui_width_ratio = 0.4,
 }
 
 vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)

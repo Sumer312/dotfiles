@@ -12,7 +12,7 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 keymap("n", "<A-Return>", "o<Esc>", opts)
-keymap("n", "-", "<cmd>Explore<CR>", opts)
+keymap("n", "-", "<cmd>Oil<CR>", opts)
 
 -- View
 keymap("n", "<leader>mkv", "<cmd>mkview<CR>", opts)
@@ -20,7 +20,7 @@ keymap("n", "<leader>lv", "<cmd>loadview<CR>", opts)
 
 -- Telescope
 keymap("n", "<leader>ff", "<cmd>Telescope find_files theme=ivy<CR>", opts)
-keymap("n", "<leader>fc", "<cmd>Telescope colorscheme theme=ivy<CR>", opts)
+keymap("n", "<leader>fc", "<cmd>Telescope colorscheme theme=cursor<CR>", opts)
 keymap("n", "<leader>lg", "<cmd>Telescope live_grep theme=ivy<CR>", opts)
 
 -- Other plugins
@@ -31,7 +31,7 @@ keymap("n", "<leader>ct", "<cmd>ColorizerToggle<CR>", opts)
 keymap("n", "<leader>cr", "<cmd>ColorizerReloadAllBuffers<CR>", opts)
 
 -- Lua commands
-keymap("n", "<leader>son", '<cmd>lua ColorMyPencils("sonokai")<CR>', opts)
+keymap("n", "<leader>sp", "<cmd>set spell<CR>", opts)
 keymap("n", "<leader>lzg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 keymap("n", "<leader>glo", "<cmd>lua _GLOW_TOGGLE()<CR>", opts)
 keymap("n", "<leader>wd", "<cmd>!pwd<CR>", opts)
