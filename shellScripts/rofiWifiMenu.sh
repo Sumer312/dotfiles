@@ -15,7 +15,7 @@ else
 fi
 
 selected_option=$(echo "$toggle\n$wifi_list" | uniq -u | rofi -dmenu -i -p "  SSID")
-substring=$(echo "$selected_option" | cut -c 4-)
+substring=$(echo "$selected_option" | cut -c 5-)
 chosen_id=$(echo "$substring" | xargs)
 
 if [ "$selected_option" = "" ]; then
@@ -26,7 +26,9 @@ elif echo "$selected_option" | grep -q "Enable Wi-Fi"; then
 	nmcli radio wifi on
 else
 	flag=0
-	if nmcli connection show | grep wifi | grep -q "$chosen_id"; then
+	if [ -n $(nmcli connection show | grep wifi | grep -q "$chosen_id") ]; then
+    echo $chosen_id
+    echo $selected_option
 		if nmcli connection up "$chosen_id"; then
 			flag=1
 		fi
