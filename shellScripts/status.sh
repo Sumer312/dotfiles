@@ -25,6 +25,7 @@ while :; do
 	var_battery=$(upower -i $(upower -e | grep BAT) | grep -E "percentage" | awk '{print $2}')
 	var_memory=$(free | awk '/Mem/ {printf "%.2f GiB", $3 / 1048576.0}')
 	var_wifi=$wifi_name
+  var_bluetooth=$(systemctl status bluetooth | awk 'NR==3' | awk -F':' '{print $2}' | awk '{print $1}')
 
 	wifi_speed=$(awk 'NR==3 {print $4}' /proc/net/wireless | awk -F "." '{print $1}')
 
@@ -35,6 +36,7 @@ while :; do
 	icon_date="󰸗"
 	icon_temp=" "
 	icon_memory=" "
+  icon_bluetooth=""
 
 	if [ -n "$wifi_name" ]; then
 		if [ "$wifi_speed" -ge -50 ]; then
@@ -70,7 +72,7 @@ while :; do
 		fi
 	fi
 
-	dwm -s " $icon_time $var_time  $icon_date $var_date  $icon_wifi $var_wifi  $icon_uptime $var_uptime  $icon_memory $var_memory  $icon_temp $var_temp  $icon_battery $var_battery "
+	dwm -s " $icon_time $var_time  $icon_date $var_date  $icon_wifi $var_wifi  $icon_bluetooth $var_bluetooth  $icon_uptime $var_uptime  $icon_memory $var_memory  $icon_temp $var_temp  $icon_battery $var_battery "
 
 	if [ -z "$is_charging" ] && [ "$battery_check" -eq "$send_notification_at" ]; then
 		notify

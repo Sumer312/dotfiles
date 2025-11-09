@@ -4,6 +4,10 @@ case $- in
 *) return ;;
 esac
 
+# if [ -f /usr/bin/fastfetch ]; then
+#   fastfetch
+# fi
+
 # bash completions
 # these provide completions for commands ig
 # if ! shopt -oq posix; then
@@ -28,6 +32,8 @@ shopt -s histappend
 shopt -s checkwinsize
 
 alias lock="/home/sumer/shellScripts/lock.sh"
+alias hdmi="/home/sumer/shellScripts/displayScript.sh -h"
+alias edp="/home/sumer/shellScripts/displayScript.sh -d"
 alias tt="tt -theme harper"
 alias audio="mpv --no-video"
 alias ls="lsd -lFi"
@@ -85,12 +91,16 @@ Gacpu_() {
 	fi
 }
 
+PATH=$PATH:/usr/sbin
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$HOME/Git_clones/nvim/bin
+export PATH=$PATH:$HOME/.local/share/pipx/venvs/jrnl/bin
+export PATH=$PATH:$HOME/.cargo/bin
+export LANG="en_IN.utf8"
+export BROWSER=/usr/bin/librewolf
 export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
 export PASSWORD_STORE_DIR=$HOME/.password-store
 export PASSWORD_STORE_CLIP_TIME=25
-export LANG="en_IN.utf8"
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$HOME/.cargo/bin
 export EDITOR=/bin/vim
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
   --color=fg:#d0d0d0,fg+:#d0d0d0,bg:-1,bg+:#262626
@@ -177,6 +187,10 @@ alias Gck='git checkout'
 alias Gck-='git checkout -- .'
 alias Gckf='git checkout -f'
 alias Gckb='git checkout -b'
-Gpu_() { # push and set upstream to same name
+Gpu_() {
 	git push --set-upstream $@ origin $(git branch | grep \* | cut -c3-)
 }
+
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

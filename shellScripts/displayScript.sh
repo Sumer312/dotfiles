@@ -1,9 +1,14 @@
 #!/bin/sh
 
-if [ -z "$(xrandr | grep "HDMI-A-0 disconnected")" ]; then
-	xrandr --output HDMI-A-0 --mode 1360x768 --rate 60 --primary && xrandr --output eDP --off
-else
-	xrandr --output eDP --auto --mode 1920x1080 --primary && xrandr --output HDMI-A-0 --off
-fi
-
-exit 0
+while getopts 'hd' OPTION; do
+	case "${OPTION}" in
+	h)
+		xrandr --output eDP --off --output HDMI-A-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+		exit 0
+		;;
+	d)
+		xrandr --output eDP --primary --mode 1920x1080 --pos 2318x0 --rotate normal --output HDMI-A-0 --off
+		exit 0
+		;;
+	esac
+done
