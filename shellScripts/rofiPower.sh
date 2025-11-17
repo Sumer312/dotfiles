@@ -35,14 +35,14 @@ fi
 if [ "$selected_option" = "$lock" ]; then
 	xautolock -locknow
 elif [ "$selected_option" = "$reboot" ]; then
-	selected_confirmation_option=$(echo "$confirmation_list" | rofi -dmenu -i -p "Sure ")
+	selected_confirmation_option=$(echo "$confirmation_list" | rofi -dmenu -i -p "Sure?")
 	if [ "$selected_confirmation_option" = "$confirmation_yes" ]; then
 		systemctl reboot
 	else
 		exit 0
 	fi
 elif [ "$selected_option" = "$shutdown" ]; then
-	selected_confirmation_option=$(echo "$confirmation_list" | rofi -dmenu -i -p "Sure ")
+	selected_confirmation_option=$(echo "$confirmation_list" | rofi -dmenu -i -p "Sure?")
 	if [ "$selected_confirmation_option" = "$confirmation_yes" ]; then
 		systemctl poweroff
 	else

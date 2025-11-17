@@ -73,6 +73,8 @@ static const char *rofi_power[]          =   { "/home/sumer/shellScripts/rofi.sh
 static const char *rofi_wifi[]           =   { "/home/sumer/shellScripts/rofi.sh", "-n",  NULL };
 static const char *rofi_pass[]           =   { "/home/sumer/shellScripts/rofi.sh", "-p",  NULL };
 
+static const char *writer[]              =   { "flatpak", "run", "org.libreoffice.LibreOffice", "--writer", "/home/sumer/Documents/resumes/general_resume.odt",  NULL };
+
 static const char *vol_up[]             =   { "/home/sumer/shellScripts/volumeNotification.sh", "up",   NULL };
 static const char *vol_down[]           =   { "/home/sumer/shellScripts/volumeNotification.sh", "down", NULL };
 static const char *vol_mute[]           =   { "/home/sumer/shellScripts/volumeNotification.sh", "mute", NULL };
@@ -92,6 +94,7 @@ static const char *qalc_cmd[]           =   { "st", "-g", "70x14",  "-i", "-e", 
 static const Key keys[] = {
 	/* modifier                     key                          function               argument */
 	{ MODKEY,                       XK_Return,                   spawn,                 {.v = termcmd } },
+	{ MODKEY,                       XK_w,                        spawn,                 {.v = writer } },
 	{ MODKEY,                       XK_b,                        spawn,                 {.v = browser1_cmd } },
 	{ MODKEY | ShiftMask,           XK_b,                        spawn,                 {.v = browser2_cmd } },
 	{ MODKEY,                       XK_s,                        spawn,                 {.v = top_cmd } },
