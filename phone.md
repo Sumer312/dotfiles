@@ -1,0 +1,14 @@
+- https://www.amazon.jobs/en/search?country%5B%5D=IND&industry_experience=one_to_three_years&base_query=software&sort=recent
+- https://www.metacareers.com/jobs?offices[0]=Hyderabad%2C%20India&offices[1]=Bangalore%2C%20India&offices[2]=Mumbai%2C%20India&roles[0]=Full%20time%20employment&teams[0]=Software%20Engineering&sort_by_new=true
+- https://www.google.com/about/careers/applications/jobs/results?q=%22software%20engineer%22&employment_type=FULL_TIME&location=India&target_level=EARLY&target_level=MID&company=Verily%20Life%20Sciences&company=X&company=Waymo&company=YouTube&company=Wing&company=GFiber&company=Google&sort_by=date
+- https://careers.oracle.com/en/sites/jobsearch/jobs?lastSelectedFacet=CATEGORIES&location=India&locationId=300000000106947&mode=location&selectedCategoriesFacet=300000001917356&sortBy=POSTING_DATES_DESC
+- https://jobs.careers.microsoft.com/global/en/search?lc=India&p=Software%20Engineering&l=en_us&pg=1&pgSz=20&o=Recent
+- https://www.atlassian.com/company/careers/all-jobs?team=Engineering%2CAtlassian%20Corporate%20Engineering%20%28ACE%29&location=India&search=
+- https://jobs.apple.com/en-us/search?location=india-INDC&key=software
+- https://www.att.jobs/search-jobs/India/117/2/1269750/22/79/50/2
+- https://paypal.eightfold.ai/careers?start=0&location=Bangalore&pid=274916415274&sort_by=timestamp&filter_distance=160&filter_include_remote=1&filter_job_category=Software+Engineering%2CMachine+Learning+Engineering%2CData+Engineering%2CDatabase+Engineering%2CEnterprise+Systems%2CTechnical+Program+Management%2CCybersecurity+Engineering%2CCybersecurity+Risk%2CCybersecurity+Operations%2CSystem+%26+Cloud+Engineering%2CSite+Reliability+Engineering%2CQuality+Engineering
+- https://careers.salesforce.com/en/jobs/?search=&country=India&team=Software+Engineering&pagesize=20#results
+- https://www.ibm.com/in-en/careers/search?field_keyword_08[0]=Software%20Engineering&field_keyword_05[0]=India&sort=dcdate_desc
+- https://jobs.weekday.works/?jobsTab=search&filters=%7B%22locations%22%3A%5B%22Remote%20(India)%22%2C%22India%22%5D%7D
+- https://www.linkedin.com/jobs/search/?f_TPR=r86400&f_E=2,3,4
+- https://in.indeed.com/jobs?q=software&l=India&radius=25&advn=7344410566378027&sort=date&vjk=978f62359a68490f
