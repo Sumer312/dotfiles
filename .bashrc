@@ -32,6 +32,7 @@ shopt -s histappend
 shopt -s checkwinsize
 
 alias lock="/home/sumer/shellScripts/lock.sh"
+alias resume="flatpak run org.libreoffice.LibreOffice --writer ~/Documents/resumes/general_resume.odt"
 alias hdmi="/home/sumer/shellScripts/displayScript.sh -h"
 alias edp="/home/sumer/shellScripts/displayScript.sh -d"
 alias tt="tt -theme harper"
@@ -93,7 +94,7 @@ Gacpu_() {
 
 PATH=$PATH:/usr/sbin
 export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$HOME/Git_clones/nvim/bin
+export PATH=$PATH:$HOME/GitClones/nvim/bin
 export PATH=$PATH:$HOME/.local/share/pipx/venvs/jrnl/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export LANG="en_IN.utf8"

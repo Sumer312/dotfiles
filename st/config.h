@@ -7,7 +7,7 @@
  */
 static char *font = "GeistMono Nerd Font:size=14.5:antialias=true";
 static int borderpx = 0;
-float alpha = 0.8;
+float alpha = 0.85;
 
 /*
  * What program is execed by st depends of these precedence rules:

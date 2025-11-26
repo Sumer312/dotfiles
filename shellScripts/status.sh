@@ -72,7 +72,7 @@ while :; do
 		fi
 	fi
 
-	dwm -s " $icon_time $var_time  $icon_date $var_date  $icon_wifi $var_wifi  $icon_bluetooth $var_bluetooth  $icon_uptime $var_uptime  $icon_memory $var_memory  $icon_temp $var_temp  $icon_battery $var_battery "
+	dwm -s " $icon_time $var_time  $icon_date $var_date  $icon_wifi $var_wifi  $icon_uptime $var_uptime  $icon_memory $var_memory  $icon_temp $var_temp  $icon_battery $var_battery "
 
 	if [ -z "$is_charging" ] && [ "$battery_check" -eq "$send_notification_at" ]; then
 		notify

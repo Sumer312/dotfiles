@@ -73,7 +73,7 @@ static const char *rofi_power[]          =   { "/home/sumer/shellScripts/rofi.sh
 static const char *rofi_wifi[]           =   { "/home/sumer/shellScripts/rofi.sh", "-n",  NULL };
 static const char *rofi_pass[]           =   { "/home/sumer/shellScripts/rofi.sh", "-p",  NULL };
 
-static const char *writer[]              =   { "flatpak", "run", "org.libreoffice.LibreOffice", "--writer", "/home/sumer/Documents/resumes/general_resume.odt",  NULL };
+static const char *writer[]              =   { "flatpak", "run", "org.libreoffice.LibreOffice", "--writer", "/home/sumer/Documents/Resumes/general_resume.odt",  NULL };
 
 static const char *vol_up[]             =   { "/home/sumer/shellScripts/volumeNotification.sh", "up",   NULL };
 static const char *vol_down[]           =   { "/home/sumer/shellScripts/volumeNotification.sh", "down", NULL };
