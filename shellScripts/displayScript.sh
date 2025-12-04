@@ -1,14 +1,24 @@
 #!/bin/sh
 
-while getopts 'hd' OPTION; do
+hdmi() {
+	xrandr --output eDP --off --output HDMI-A-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+}
+edp() {
+	xrandr --output eDP --primary --mode 1920x1080 --pos 2318x0 --rotate normal --output HDMI-A-0 --off
+}
+
+while getopts 'hdb' OPTION; do
 	case "${OPTION}" in
 	h)
-		xrandr --output eDP --off --output HDMI-A-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal
-		exit 0
+		hdmi
 		;;
 	d)
-		xrandr --output eDP --primary --mode 1920x1080 --pos 2318x0 --rotate normal --output HDMI-A-0 --off
-		exit 0
+		edp
+		;;
+	b)
+		if [ -n "$(xrandr | grep "HDMI-A-0 connected")" ]; then
+			hdmi
+		fi
 		;;
 	esac
 done
