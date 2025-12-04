@@ -2,17 +2,17 @@
 
 #include <X11/XF86keysym.h>
 /* appearance */
-static const unsigned int borderpx       = 2;        /* border pixel of windows */
-static const unsigned int gappx          = 8;        /* gaps between windows */
-static const unsigned int snap           = 32;       /* snap pixel */
-static const int showbar                 = 1;        /* 0 means no bar */
-static const int topbar                  = 1;        /* 0 means bottom bar */
-static const char *fonts[]               = { "GeistMono Nerd Font:size=14" };
-static const char col_inactive[]         = "#54546D";
-static const char col_accent[]           = "#f1eedc";
-static const char col_black[]            = "#000000";
-static const unsigned int baralpha       = 0xDD;
-static const unsigned int borderalpha    = OPAQUE;
+static const unsigned int borderpx     =  2;        /* border pixel of windows */
+static const unsigned int gappx        =  8;        /* gaps between windows */
+static const unsigned int snap         =  32;       /* snap pixel */
+static const int showbar               =  1;        /* 0 means no bar */
+static const int topbar                =  1;        /* 0 means bottom bar */
+static const char *fonts[]             =  { "GeistMono Nerd Font:size=14" };
+static const char col_inactive[]       =  "#54546D";
+static const char col_accent[]         =  "#f1eedc";
+static const char col_black[]          =  "#000000";
+static const unsigned int baralpha     =  0xDD;
+static const unsigned int borderalpha  =  OPAQUE;
 
 static const unsigned int alphas[][3] = {
   /*               fg      bg        border*/
@@ -33,10 +33,10 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class                   instance          title      tags mask           isfloating   monitor */
-	{ "librewolf",            "Navigator",       NULL,       1 << 1,            0,           -1 },
-	{ "firefox",              "Navigator",       NULL,       1 << 2,            0,           -1 },
-	{ "thunderbird-default",  "Mail",            NULL,       1 << 3,            0,           -1 },
+	/* class                   instance          title       tags mask     isfloating   monitor */
+	{ "librewolf",            "Navigator",       NULL,       1 << 1,       0,           -1 },
+	{ "firefox",              "Navigator",       NULL,       1 << 2,       0,           -1 },
+	{ "thunderbird-default",  "Mail",            NULL,       1 << 3,       0,           -1 },
 };
 
 /* layout(s) */
@@ -67,11 +67,11 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *termcmd[]            =   { "st", NULL };
 
-static const char *rofi_run[]            =   { "/home/sumer/shellScripts/rofi.sh", "-r", NULL };
-static const char *rofi_drun[]           =   { "/home/sumer/shellScripts/rofi.sh", "-d", NULL };
-static const char *rofi_power[]          =   { "/home/sumer/shellScripts/rofi.sh", "-q", NULL };
-static const char *rofi_wifi[]           =   { "/home/sumer/shellScripts/rofi.sh", "-n",  NULL };
-static const char *rofi_pass[]           =   { "/home/sumer/shellScripts/rofi.sh", "-p",  NULL };
+static const char *rofi_run[]           =   { "/home/sumer/shellScripts/rofi.sh", "-r", NULL };
+static const char *rofi_drun[]          =   { "/home/sumer/shellScripts/rofi.sh", "-d", NULL };
+static const char *rofi_power[]         =   { "/home/sumer/shellScripts/rofi.sh", "-q", NULL };
+static const char *rofi_wifi[]          =   { "/home/sumer/shellScripts/rofi.sh", "-n",  NULL };
+static const char *rofi_pass[]          =   { "/home/sumer/shellScripts/rofi.sh", "-p",  NULL };
 
 
 static const char *vol_up[]             =   { "/home/sumer/shellScripts/volumeNotification.sh", "up",   NULL };
@@ -90,14 +90,14 @@ static const char *top_cmd[]            =   { "st", "-g", "124x27", "-i", "-e", 
 static const char *wavemon_cmd[]        =   { "st", "-g", "124x27", "-i", "-e", "wavemon", NULL };
 static const char *qalc_cmd[]           =   { "st", "-g", "70x14",  "-i", "-e", "qalc", NULL };
 
-static const char *writer_cmd[]             =   { "flatpak", "run", "org.libreoffice.LibreOffice", "--writer", "/home/sumer/Documents/Resumes/general_resume.odt",  NULL };
-static const char *gpt_cmd[]                =   { "flatpak", "run", "org.mozilla.firefox", "--new-window", "https://chatgpt.com",  NULL };
+static const char *writer_cmd[]         =   { "flatpak", "run", "org.libreoffice.LibreOffice", "--writer", "/home/sumer/Documents/Resumes/general_resume.odt",  NULL };
+static const char *ai_chat_cmd[]        =   { "flatpak", "run", "org.mozilla.firefox", "--new-window", "https://chatgpt.com",  NULL };
 
 static const Key keys[] = {
-	/* modifier                     key                          function               argument */
+/* modifier                       key                          function               argument */
 	{ MODKEY,                       XK_Return,                   spawn,                 {.v = termcmd } },
 	{ MODKEY,                       XK_w,                        spawn,                 {.v = writer_cmd } },
-	{ MODKEY,                       XK_g,                        spawn,                 {.v = gpt_cmd } },
+	{ MODKEY,                       XK_g,                        spawn,                 {.v = ai_chat_cmd } },
 	{ MODKEY,                       XK_b,                        spawn,                 {.v = browser1_cmd } },
 	{ MODKEY | ShiftMask,           XK_b,                        spawn,                 {.v = browser2_cmd } },
 	{ MODKEY,                       XK_s,                        spawn,                 {.v = top_cmd } },
