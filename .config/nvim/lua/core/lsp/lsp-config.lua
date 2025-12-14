@@ -1,103 +1,74 @@
-local opts = {
-	on_attach = require("core.lsp.handlers").on_attach,
-	capabilities = require("core.lsp.handlers").capabilities,
-	lua_ls_opts = require("core.lsp.settings.lua-ls").settings,
-	jsonls_opts = require("core.lsp.settings.jsonls"),
+vim.lsp.config.lua_ls = {
+	cmd = { "lua-language-server" },
+	filetypes = { "lua" },
+	root_markers = { ".git" },
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { "vim" },
+			},
+		},
+	},
 }
 
-vim.filetype.add({
-	extension = {
-		templ = "templ",
-	},
-})
+vim.lsp.config.bashls = {
+	cmd = { "bashls" },
+	root_markers = { ".git" },
+	filetypes = { "sh" },
+}
 
-vim.lsp.config("lua_ls", {
-	on_attach = opts.on_attach,
-	capabilities = opts.capabilities,
-	settings = opts.lua_ls_opts,
-})
+vim.lsp.config.gopls = {
+	cmd = { "gopls" },
+	root_markers = { ".git" },
+	filetypes = { "go", "templ" },
+}
 
-vim.lsp.config("bashls", {
-	on_attach = opts.on_attach,
-	capabilities = opts.capabilities,
-})
+vim.lsp.config.ts_ls = {
+	cmd = { "typescript-language-server" },
+	root_markers = { ".git" },
+	filetypes = { "ts", "tsx" },
+}
 
-vim.lsp.config("gopls", {
-	on_attach = opts.on_attach,
-	capabilities = opts.capabilities,
-})
-
-vim.lsp.config("ts_ls", {
-	on_attach = opts.on_attach,
-	capabilities = opts.capabilities,
-})
-
-vim.lsp.config("tailwindcss", {
-	on_attach = opts.on_attach,
-	capabilities = opts.capabilities,
-})
-
-vim.lsp.config("solidity_ls_nomicfoundation", {
-	on_attach = opts.on_attach,
-	capabilities = opts.capabilities,
-})
-
-vim.lsp.config("dockerls", {
-	on_attach = opts.on_attach,
-	capabilities = opts.capabilities,
-})
-
-vim.lsp.config("html", {
-	on_attach = opts.on_attach,
-	capabilities = opts.capabilities,
-	filetypes = { "html", "templ" },
-})
-
-vim.lsp.config("cssls", {
-	on_attach = opts.on_attach,
-	capabilities = opts.capabilities,
-})
-
-vim.lsp.config("pyright", {
-	on_attach = opts.on_attach,
-	capabilities = opts.capabilities,
-})
-
-vim.lsp.config("clangd", {
-	on_attach = opts.on_attach,
-	capabilities = opts.capabilities,
-})
-
-vim.lsp.config("sqlls", {
-	on_attach = opts.on_attach,
-	capabilities = opts.capabilities,
-})
-
-vim.lsp.config("yamlls", {
-	on_attach = opts.on_attach,
-	capabilities = opts.capabilities,
-})
-
-vim.lsp.config("vimls", {
-	on_attach = opts.on_attach,
-	capabilities = opts.capabilities,
-})
-
-vim.lsp.config("jsonls", {
-	on_attach = opts.on_attach,
-	capabilities = opts.capabilities,
-	opts = opts.jsonls_opts,
-})
-
-vim.lsp.config("templ", {
-	on_attach = opts.on_attach,
-	capabilities = opts.capabilities,
+vim.lsp.config.tailwindcss = {
+	cmd = { "tailwindcss-language-server" },
+	root_markers = { ".git" },
 	filetypes = { "templ" },
-})
+}
 
-vim.lsp.config("htmx", {
-	on_attach = opts.on_attach,
-	capabilities = opts.capabilities,
+vim.lsp.config.dockerls = {
+	cmd = { "dockerfile-language-server" },
+	root_markers = { ".git" },
+	filetypes = { "Dockerfile" },
+}
+
+vim.lsp.config.html = {
+	cmd = { "vscode-html-language-server" },
+	root_markers = { ".git" },
 	filetypes = { "html", "templ" },
+}
+
+vim.lsp.config.clangd = {
+	cmd = { "clangd" },
+	root_markers = { ".git" },
+	filetypes = { "c", "cpp" },
+}
+
+vim.lsp.config.sqlls = {
+	cmd = { "sql-language-server" },
+	root_markers = { ".git" },
+	filetypes = { "sql" },
+}
+
+vim.lsp.config.templ = {
+	cmd = { "templ" },
+	root_markers = { ".git" },
+	filetypes = { "templ" },
+}
+
+vim.lsp.config.htmx = {
 	cmd = { "htmx-lsp" },
-})
+	root_markers = { ".git" },
+	filetypes = { "html", "templ" },
+}
+
+vim.lsp.enable({ "lua_ls", "gopls", "clangd", "htmx", "dockerls", "bashls", "ts_ls", "html", "sqlls", "templ" })

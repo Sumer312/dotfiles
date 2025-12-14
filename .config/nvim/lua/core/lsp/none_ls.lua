@@ -1,19 +1,21 @@
-local status_ok, null_ls = pcall(require, "null-ls")
+local status_ok, none_ls = pcall(require, "null-ls")
 if not status_ok then
-  print("error loading none ls")
-  return
+	print("error loading none ls")
+	return
 end
 
-null_ls.setup({
-  sources = {
-    null_ls.builtins.formatting.stylua,
-    null_ls.builtins.formatting.prettier,
-    null_ls.builtins.formatting.cbfmt,
-    null_ls.builtins.formatting.black,
-    null_ls.builtins.formatting.shfmt,
-    null_ls.builtins.formatting.sqlfmt,
-    null_ls.builtins.formatting.gofmt,
-  },
+none_ls.setup({
+	debug = true,
+	sources = {
+		none_ls.builtins.formatting.stylua,
+		none_ls.builtins.formatting.gofmt,
+		none_ls.builtins.formatting.prettier.with({
+			filetypes = { "json", "jsonc", "javascript", "typescript", "html", "css", "yaml", "markdown" },
+		}),
+		none_ls.builtins.formatting.cbfmt,
+		none_ls.builtins.formatting.shfmt,
+		none_ls.builtins.formatting.sqlfmt,
+	},
 })
 
 vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, {})

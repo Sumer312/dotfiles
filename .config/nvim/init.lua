@@ -15,7 +15,6 @@ require("core.harpoon")
 require("core.zen_mode")
 
 P = function(v)
-  print(vim.inspect(v))
-  return v
+	print(vim.inspect(v))
+	return v
 end
-

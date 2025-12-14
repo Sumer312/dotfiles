@@ -44,3 +44,13 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 keymap("v", "J", ":move '>+1<CR>gv=gv", opts)
 keymap("v", "K", ":move '<-2<CR>gv=gv", opts)
+
+-- LSP
+keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+keymap("n", "gT", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
+keymap("n", "K", "<cmd>lua vim.lsp.buf.hover({ border = 'single'})<CR>", opts)
+keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float(0, { focusable = false })<CR>", opts)
+keymap("n", "<leader>dl", "<cmd>Telescope diagnostics theme=dropdown<cr>", opts)
+keymap("n", "<leader>dq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
