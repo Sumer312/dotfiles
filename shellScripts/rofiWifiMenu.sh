@@ -26,9 +26,7 @@ elif echo "$selected_option" | grep -q "Enable Wi-Fi"; then
 	nmcli radio wifi on
 else
 	flag=0
-	if [ -n $(nmcli connection show | grep wifi | grep -q "$chosen_id") ]; then
-    echo $chosen_id
-    echo $selected_option
+	if nmcli connection show | grep wifi | grep -q "$chosen_id"; then
 		if nmcli connection up "$chosen_id"; then
 			flag=1
 		fi
@@ -44,6 +42,7 @@ else
 			fi
 		fi
 	fi
+
 	if [ "$flag" = 1 ]; then
 		success_message="You are now connected to the Wi-Fi network \"$chosen_id\"."
 		dunstify "Connection Established" "$success_message" -t 2000
