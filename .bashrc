@@ -31,10 +31,10 @@ shopt -s histappend
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-alias lock="/home/sumer/shellScripts/lock.sh"
-alias resume="flatpak run org.libreoffice.LibreOffice --writer ~/Documents/resumes/general_resume.odt"
 alias hdmi="/home/sumer/shellScripts/displayScript.sh -h"
 alias edp="/home/sumer/shellScripts/displayScript.sh -d"
+alias lock="/home/sumer/shellScripts/lock.sh"
+alias resume="flatpak run org.libreoffice.LibreOffice --writer ~/Documents/resumes/general_resume.odt"
 alias tt="tt -theme harper"
 alias audio="mpv --no-video"
 alias ls="lsd -lFi"
@@ -42,6 +42,7 @@ alias cat="batcat"
 alias lzg="lazygit"
 alias lzd="lazydocker"
 alias ff="fastfetch"
+alias yarn="yarnpkg"
 alias storagehealth="sudo nvme smart-log /dev/nvme0"
 alias firefox="flatpak run org.mozilla.firefox"
 
@@ -92,9 +93,9 @@ Gacpu_() {
 	fi
 }
 
-PATH=$PATH:/usr/sbin
+export PATH=$PATH:/usr/sbin
 export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$HOME/GitClones/nvim/bin
+export PATH=$PATH:$HOME/Clones/nvim/bin
 export PATH=$PATH:$HOME/.local/share/pipx/venvs/jrnl/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export LANG="en_IN.utf8"
