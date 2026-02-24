@@ -79,5 +79,5 @@ while :; do
 		send_notification_at=$((send_notification_at - 2))
 	fi
 
-	sleep 3s
+	sleep 2s
 done
