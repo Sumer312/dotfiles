@@ -75,6 +75,8 @@ let g:everforest_better_performance = 0
 
 let g:undotree_WindowLayout = 4
 let g:undotree_SplitWidth = 40
+
+let g:mkdp_theme = 'dark'
 ]])
 
 vim.cmd([[

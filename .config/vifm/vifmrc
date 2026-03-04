@@ -36,7 +36,7 @@ set incsearch
 set nofollowlinks
 set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
 set sortnumbers
-:65 wincmd |
+:60 wincmd |
 view
 
 colorscheme near_default
@@ -67,13 +67,25 @@ filextype *.mp4
 filextype *.mp3
   \ mpv --no-video %f
 
-fileviewer *.png,*.jpg,*jpeg,*.bmp,*.gif,*.xpm,*.webp
-  \ chafa %f --dither bayer --dither-grain 4 --dither-intensity 2.0 --font-ratio=10/12
+fileviewer *.png,*.jpg,*jpeg,*.bmp,*.gif,*.xpm,*.webp,*.gif
+    \ chafa
+    \ --colors=256 
+    \ --dither bayer
+    \ --dither-grain 4
+    \ --dither-intensity 2.0
+    \ --work=9
+    \ --size=%pwxe%ph
+    \ --scale=max
+    \ --center=on
+    \ --optimize=9
+    \ --polite on %c
+    \ --format=symbols
+    \ %pc
 
 
 fileviewer *.md,*.[ch],*.[ch]pp,*.py,*.json,*.xml,*.xhtml,*.opf,*.md,Makefile,Makefile.*,*.html,*.go,*.css,*.c,*.js,*.jsx,*.sh,*.java,*.rb,*.rs,*.zig,*.ts,*.lua,*.sql,*.vim,*.yml,*.yaml,dockerfile,
-"  \ highlight -s moria -O xterm256 %c
-   \ env -u COLORTERM batcat --color=always --style=numbers,changes --pager=never %c
+   "\ highlight -s moria -O xterm256 %c
+   \ batcat --color=always --style=numbers,changes --pager=never --wrap=never --force-colorization %c
 
 set classify='󰉋 :dir:/, :exe:, :reg:, :link:'
 set classify+=' ::../::,󱆃 ::*.sh,,*.zsh,,.*.zsh::, ::*.[hc]pp::, ::*.[hc]::, ::/^copying|license$/::, ::.git/,,*.git/::, ::*.epub,,*.fb2,,*.djvu::, ::*.pdf::, ::*.htm,,*.html,,**.[sx]html,,*.xml::, ::*text,,*.txt::, ::*.iso::'
