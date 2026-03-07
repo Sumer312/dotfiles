@@ -86,9 +86,10 @@ static const char *email_client_cmd[]   =   { "thunderbird", NULL };
 static const char *browser1_cmd[]       =   { "librewolf", NULL };
 static const char *browser2_cmd[]       =   { "flatpak", "run", "org.mozilla.firefox", NULL };
 
-static const char *top_cmd[]            =   { "st", "-g", "125x30", "-i", "-e", "top", NULL };
-static const char *wavemon_cmd[]        =   { "st", "-g", "125x30", "-i", "-e", "wavemon", NULL };
-static const char *qalc_cmd[]           =   { "st", "-g", "70x14",  "-i", "-e", "qalc", NULL };
+static const char *top_cmd[]            =   { "st", "-g", "125x30", "-ie", "btop", "--utf-force", NULL };
+static const char *wavemon_cmd[]        =   { "st", "-g", "125x30", "-ie", "wavemon", NULL };
+static const char *pulsemixer_cmd[]      =   { "st", "-g", "125x30", "-ie", "pulsemixer", NULL };
+static const char *qalc_cmd[]           =   { "st", "-g", "70x14",  "-ie", "qalc", NULL };
 
 static const char *writer_cmd[]         =   { "flatpak", "run", "org.libreoffice.LibreOffice", "--writer", "/home/sumer/Documents/Resumes/general_resume.odt",  NULL };
 static const char *ai_chat_cmd[]        =   { "flatpak", "run", "org.mozilla.firefox", "--new-window", "https://gemini.google.com/app",  NULL };
@@ -101,7 +102,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_b,                        spawn,                 {.v = browser1_cmd } },
 	{ MODKEY | ShiftMask,           XK_b,                        spawn,                 {.v = browser2_cmd } },
 	{ MODKEY,                       XK_s,                        spawn,                 {.v = top_cmd } },
-	{ MODKEY,                       XK_a,                        spawn,                 {.v = wavemon_cmd } },
+	{ MODKEY,                       XK_a,                        spawn,                 {.v = pulsemixer_cmd } },
 	{ MODKEY,                       XK_equal,                    spawn,                 {.v = qalc_cmd } },
 	{ MODKEY,                       XK_e,                        spawn,                 {.v = email_client_cmd } },
 	{ MODKEY,                       XK_r,                        spawn,                 {.v = rofi_run } },
