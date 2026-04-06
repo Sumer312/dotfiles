@@ -5,6 +5,9 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+--[[ keymap('i', '<C-BS>', '<C-w>', opts) ]]
+--[[ keymap('c', '<C-BS>', '<C-w>', opts) ]]
+
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
@@ -51,6 +54,7 @@ keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 keymap("n", "gT", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
 keymap("n", "K", "<cmd>lua vim.lsp.buf.hover({ border = 'single'})<CR>", opts)
 keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+keymap("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float(0, { focusable = false })<CR>", opts)
 keymap("n", "<leader>dl", "<cmd>Telescope diagnostics theme=dropdown<cr>", opts)
 keymap("n", "<leader>dq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
