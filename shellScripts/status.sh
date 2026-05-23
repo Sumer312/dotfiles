@@ -6,9 +6,10 @@ notify() {
 	wait
 }
 
-battery_check=$(upower -i $(upower -e | grep BAT) | grep -E "percentage" | awk '{print $2}' | awk -F "%" '{print $1}')
+battery_flag=$(upower -e | grep BAT)
+battery_check=$(upower -i "$battery_flag" | grep -E "percentage" | awk '{print $2}' | awk -F "%" '{print $1}')
 send_notification_at=19
-if [ "$battery_check" -lt 20 ]; then
+if [ -n "$battery_flag" ] && [ "$battery_check" -lt 20 ]; then
 	send_notification_at="$battery_check"
 fi
 
@@ -22,10 +23,10 @@ while :; do
 	var_uptime=$(uptime | awk -F ',' '{print $1}' | awk -F 'up' '{print $2}' | xargs)
 	var_date=$(date +"%a %d.%m.%y")
 	var_temp=$(acpi -t | awk -F ',' '{print $2}' | awk -F 'degrees' '{print $1 $2}' | xargs)
-	var_battery=$(upower -i $(upower -e | grep BAT) | grep -E "percentage" | awk '{print $2}')
+	var_battery=$(upower -i "$battery_flag" | grep -E "percentage" | awk '{print $2}')
 	var_memory=$(free | awk '/Mem/ {printf "%.2f GiB", $3 / 1048576.0}')
 	var_wifi=$wifi_name
-  var_bluetooth=$(systemctl status bluetooth | awk 'NR==3' | awk -F':' '{print $2}' | awk '{print $1}')
+	var_bluetooth=$(systemctl status bluetooth | awk 'NR==3' | awk -F':' '{print $2}' | awk '{print $1}')
 
 	wifi_speed=$(awk 'NR==3 {print $4}' /proc/net/wireless | awk -F "." '{print $1}')
 
@@ -36,7 +37,7 @@ while :; do
 	icon_date="󰸗"
 	icon_temp=" "
 	icon_memory=" "
-  icon_bluetooth=""
+	icon_bluetooth=""
 
 	if [ -n "$wifi_name" ]; then
 		if [ "$wifi_speed" -ge -50 ]; then
@@ -53,28 +54,33 @@ while :; do
 		var_wifi=$is_connected
 	fi
 
-	if [ -n "$is_charging" ]; then
+	if [ -n "$battery_flag" ] && [ -n "$is_charging" ]; then
 		icon_battery=""
 		if [ "$battery_check" -lt 20 ]; then
 			send_notification_at="$battery_check"
 		fi
 	else
-		if [ "$battery_check" -ge 80 ]; then
+		if [ -n "$battery_flag" ] && [ "$battery_check" -ge 80 ]; then
 			icon_battery=" "
-		elif [ "$battery_check" -lt 80 ] && [ "$battery_check" -ge 60 ]; then
+		elif [ -n "$battery_flag" ] && [ "$battery_check" -lt 80 ] && [ "$battery_check" -ge 60 ]; then
 			icon_battery=" "
-		elif [ "$battery_check" -lt 60 ] && [ "$battery_check" -ge 40 ]; then
+		elif [ -n "$battery_flag" ] && [ "$battery_check" -lt 60 ] && [ "$battery_check" -ge 40 ]; then
 			icon_battery=" "
-		elif [ "$battery_check" -lt 40 ] && [ "$battery_check" -ge 20 ]; then
+		elif [ -n "$battery_flag" ] && [ "$battery_check" -lt 40 ] && [ "$battery_check" -ge 20 ]; then
 			icon_battery=" "
-		elif [ "$battery_check" -lt 20 ]; then
+		elif [ -n "$battery_flag" ] && [ "$battery_check" -lt 20 ]; then
 			icon_battery=" "
 		fi
 	fi
 
+	if [ -z "$battery_flag" ]; then
+		icon_battery=""
+		var_battery="AC"
+	fi
+
 	dwm -s " $icon_time $var_time  $icon_date $var_date  $icon_wifi $var_wifi  $icon_uptime $var_uptime  $icon_memory $var_memory  $icon_temp $var_temp  $icon_battery $var_battery "
 
-	if [ -z "$is_charging" ] && [ "$battery_check" -eq "$send_notification_at" ]; then
+	if [ -n "$battery_flag" ] && [ -z "$is_charging" ] && [ "$battery_check" -eq "$send_notification_at" ]; then
 		notify
 		send_notification_at=$((send_notification_at - 2))
 	fi

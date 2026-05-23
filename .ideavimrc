@@ -1,0 +1,14 @@
+set clipboard=unnamedplus
+set number
+set relativenumber
+set incsearch
+set cursorline
+set NERDTree
+nmap <C-h> <C-w><C-h>
+nmap <C-l> <C-w><C-l>
+nmap <C-j> <C-w><C-j>
+nmap <C-k> <C-w><C-k>
+imap <C-c> <esc>
+nnoremap Q <nop>
+let mapleader = " "
+nnoremap <leader>ff :NERDTreeFind<CR>
