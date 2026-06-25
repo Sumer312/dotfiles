@@ -1,5 +1,5 @@
 $include /etc/inputrc
 
 set completion-ignore-case On
-"\ep":history-search-backward
-"\en":history-search-forward
+"\C-p":history-search-backward
+"\C-n":history-search-forward
