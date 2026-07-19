@@ -31,9 +31,13 @@ shopt -s histappend
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+alias lhm="xmodmap -e \"pointer = 3 2 1\""
+alias rhm="xmodmap -e \"pointer = 1 2 3\""
+alias batterycheck="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 alias hdmi="/home/sumer/shellScripts/displayScript.sh -h"
 alias edp="/home/sumer/shellScripts/displayScript.sh -d"
 alias lock="/home/sumer/shellScripts/lock.sh"
+alias debloat="sudo /home/sumer/shellScripts/debloat.sh"
 alias resume="flatpak run org.libreoffice.LibreOffice --writer ~/Documents/resumes/general_resume.odt"
 alias tt="tt -theme harper"
 alias audio="mpv --no-video"
