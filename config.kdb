@@ -1,0 +1,52 @@
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc
+  z x a ;
+  h j k l
+  y u i o
+  spc ralt
+)
+
+(deflayer base
+  @z_mod @x-mouse @a_mod @scl_mod
+  h j k l
+  y u i o
+  spc ralt
+)
+
+(deflayer z_arrows
+  _ _ _ _
+  left down up right
+  @mwl @mwd @mwu @mwr
+  _ _
+)
+
+(deflayer mouse
+  _ _ _ _
+  @msl @msd @msu @msr
+  _ _ _ _
+  mlft mrgt
+)
+
+(defalias
+
+  a_mod (tap-hold 200 200 a (multi lctl lsft))
+  scl_mod (tap-hold 200 200 ; (multi rctl rsft))
+  z_mod (tap-hold 200 200 z (layer-toggle z_arrows))
+  x-mouse (tap-hold 200 200 x (layer-toggle mouse))
+
+  ;; Accelerated mouse movement:
+  ;; (movemouse-accel-<dir> interval_ms time_to_max_ms min_speed max_speed)
+
+  msl (movemouse-accel-left  4 1000 1 9)
+  msd (movemouse-accel-down  4 1000 1 9)
+  msu (movemouse-accel-up    4 1000 1 9)
+  msr (movemouse-accel-right 4 1000 1 9)
+
+  mwl (mwheel-accel-left  4 1000 1 0.7)
+  mwd (mwheel-accel-down  4 1000 1 0.7)
+  mwu (mwheel-accel-up    4 1000 1 0.7)
+  mwr (mwheel-accel-right 4 1000 1 0.7)
+)
