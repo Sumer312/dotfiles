@@ -3,23 +3,23 @@
 )
 
 (defsrc
-  z x a ;
+  z f a ;
   h j k l
-  y u i o
+  n p , .
   spc ralt
 )
 
 (deflayer base
-  @z_mod @x-mouse @a_mod @scl_mod
+  @z_mod @f-mouse @a_mod @scl_mod
   h j k l
-  y u i o
+  n p , .
   spc ralt
 )
 
 (deflayer z_arrows
   _ _ _ _
   left down up right
-  @mwl @mwd @mwu @mwr
+  @mwd @mwu @mwl @mwr
   _ _
 )
 
@@ -35,18 +35,24 @@
   a_mod (tap-hold 200 200 a (multi lctl lsft))
   scl_mod (tap-hold 200 200 ; (multi rctl rsft))
   z_mod (tap-hold 200 200 z (layer-toggle z_arrows))
-  x-mouse (tap-hold 200 200 x (layer-toggle mouse))
+  f-mouse (tap-hold 200 200 f (layer-toggle mouse))
 
   ;; Accelerated mouse movement:
   ;; (movemouse-accel-<dir> interval_ms time_to_max_ms min_speed max_speed)
 
-  msl (movemouse-accel-left  4 1000 1 9)
-  msd (movemouse-accel-down  4 1000 1 9)
-  msu (movemouse-accel-up    4 1000 1 9)
-  msr (movemouse-accel-right 4 1000 1 9)
+  msl (movemouse-accel-left  10 500 3 10)
+  msd (movemouse-accel-down  10 500 3 10)
+  msu (movemouse-accel-up    10 500 3 10)
+  msr (movemouse-accel-right 10 500 3 10)
 
-  mwl (mwheel-accel-left  4 1000 1 0.7)
-  mwd (mwheel-accel-down  4 1000 1 0.7)
-  mwu (mwheel-accel-up    4 1000 1 0.7)
-  mwr (mwheel-accel-right 4 1000 1 0.7)
+  mwl (mwheel-left  50 120)
+  mwd (mwheel-down  50 120)
+  mwu (mwheel-up    50 120)
+  mwr (mwheel-right 50 120)
+
+
+  ;; mwl (mwheel-accel-left  3 1200 1.15 0.93)
+  ;; mwd (mwheel-accel-down  3 1200 1.15 0.93)
+  ;; mwu (mwheel-accel-up    3 1200 1.15 0.93)
+  ;; mwr (mwheel-accel-right 3 1200 1.15 0.93)
 )
