@@ -3,30 +3,30 @@
 )
 
 (defsrc
-  z f a ;
+  d f a ;
   h j k l
   n p , .
   spc ralt
 )
 
 (deflayer base
-  @z_mod @f-mouse @a_mod @scl_mod
+  @d_mod @f-mouse @a_mod @scl_mod
   h j k l
   n p , .
   spc ralt
 )
 
-(deflayer z_arrows
+(deflayer d_arrows
   _ _ _ _
   left down up right
-  @mwd @mwu @mwl @mwr
+  _ _ _ _
   _ _
 )
 
 (deflayer mouse
   _ _ _ _
   @msl @msd @msu @msr
-  _ _ _ _
+  @mwd @mwu @mwl @mwr
   mlft mrgt
 )
 
@@ -34,7 +34,7 @@
 
   a_mod (tap-hold 200 200 a (multi lctl lsft))
   scl_mod (tap-hold 200 200 ; (multi rctl rsft))
-  z_mod (tap-hold 200 200 z (layer-toggle z_arrows))
+  d_mod (tap-hold 200 200 d (layer-toggle d_arrows))
   f-mouse (tap-hold 200 200 f (layer-toggle mouse))
 
   ;; Accelerated mouse movement:
