@@ -23,9 +23,9 @@ local opts = {
   ui = {
     size = { width = 0.8, height = 0.8 },
     wrap = true,
-    border = "single",
+    border = "double",
     title = " Package Manager ",
-    title_pos = "center",
+    title_pos = "left",
   },
 }
 

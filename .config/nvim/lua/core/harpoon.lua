@@ -8,8 +8,8 @@ harpoon:setup()
 
 local opts = {
   title = " Harpoon ",
-  title_pos = "center",
-  border = "single",
+  title_pos = "left",
+  border = "double",
   ui_fallback_width = 69,
   ui_width_ratio = 0.4,
 }

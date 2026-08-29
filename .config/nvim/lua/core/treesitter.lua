@@ -1,47 +1,51 @@
-local status_ok, configs = pcall(require, "nvim-treesitter.configs")
+local status_ok, treesitter = pcall(require, "nvim-treesitter")
 if not status_ok then
-	return
+  return
 end
 
-configs.setup({
-	ensure_installed = {
-		"c",
-		"go",
-		"templ",
-		"java",
-		"lua",
-		"bash",
-		"sql",
-		"html",
-		"css",
-		"typescript",
-		"javascript",
-		"scss",
-		"rust",
-		"python",
-		"vim",
-		"vimdoc",
-		"query",
-		"dockerfile",
-		"tsx",
-		"ocaml",
-		"markdown",
-		"rasi",
-	},
-	sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-	ignore_install = { "" }, -- List of parsers to ignore installing
-	auto_install = true,
-	autopairs = {
-		enable = true,
-	},
-	highlight = {
-		enable = true, -- false will disable the whole extension
-		disable = { "" }, -- list of language that will be disabled
-		additional_vim_regex_highlighting = false,
-	},
-	indent = { enable = true, disable = { "yaml" } },
-	context_commentstring = {
-		enable = true,
-		enable_autocmd = false,
-	},
+local ensure_installed = {
+  "c",
+  "go",
+  "templ",
+  "java",
+  "lua",
+  "bash",
+  "sql",
+  "html",
+  "css",
+  "typescript",
+  "javascript",
+  "scss",
+  "rust",
+  "python",
+  "vim",
+  "vimdoc",
+  "query",
+  "dockerfile",
+  "tsx",
+  "ocaml",
+  "markdown",
+  "markdown_inline",
+  "rasi",
+}
+treesitter.install(ensure_installed)
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function(args)
+    local buf = args.buf
+    local ft = vim.bo[buf].filetype
+
+    local lang = vim.treesitter.language.get_lang(ft)
+    if not lang then
+      return
+    end
+
+    local ok_add = pcall(vim.treesitter.language.add, lang)
+    if not ok_add then
+      return
+    end
+
+    pcall(vim.treesitter.start, buf, lang)
+  end,
 })

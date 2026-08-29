@@ -36,8 +36,7 @@ set incsearch
 set nofollowlinks
 set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
 set sortnumbers
-:60 wincmd |
-view
+:65 wincmd |
 
 colorscheme near_default
 
@@ -87,17 +86,18 @@ fileviewer *.md,*.[ch],*.[ch]pp,*.py,*.json,*.xml,*.xhtml,*.opf,*.md,Makefile,Ma
    "\ highlight -s moria -O xterm256 %c
    \ batcat --color=always --style=numbers,changes --pager=never --wrap=never --force-colorization %c
 
-set classify='󰉋 :dir:/, :exe:, :reg:, :link:'
-set classify+=' ::../::,󱆃 ::*.sh,,*.zsh,,.*.zsh::, ::*.[hc]pp::, ::*.[hc]::, ::/^copying|license$/::, ::.git/,,*.git/::, ::*.epub,,*.fb2,,*.djvu::, ::*.pdf::, ::*.htm,,*.html,,**.[sx]html,,*.xml::, ::*text,,*.txt::, ::*.iso::'
+set classify='󰉋 :dir:/, :exe:, :reg:, :link:,'
+set classify+=' ::../::,󱆃 ::*.sh,,*.zsh,,.*.zsh::, ::*.[hc]pp::, ::*.[hc]::, ::/^copying|license$/::, ::.git/,,*.git/::, ::*.epub,,*.fb2,,*.djvu::, ::*.pdf::, ::*text,,*.txt::,'
 set classify+=' ::*.7z,,*.ace,,*.arj,,*.bz2,,*.cpio,,*.deb,,*.dz,,*.gz,,*.jar,,*.lzh,,*.lzma,,*.rar,,*.rpm,,*.rz,,*.tar,,*.taz,,*.tb2,,*.tbz,,*.tbz2,,*.tgz,,*.tlz,,*.trz,,*.txz,,*.tz,,*.tz2,,*.xz,,*.z,,*.zip,,*.zoo::'
 set classify+=' ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.ico,,*.png,,*.ppm,,*.svg,,*.svgz,,*.tga,,*.tif,,*.tiff,,*.xbm,,*.xcf,,*.xpm,,*.xspf,,*.xwd,,*.webp::'
 set classify+=' ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.mid,,*.midi,,*.mp3,,*.mpc,,*.oga,,*.ogg,,*.ogx,,*.ra,,*.ram,,*.rm,,*.spx,,*.wav,,*.wma,,*.ac3::'
 set classify+=' ::*.avi,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mkv,,*.mov,,*.mp4,,*.flv,,*.mp4v,,*.mpeg,,*.mpg,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.wmv,,*.xvid::'
-set classify+=' ::*.go::, ::*.js::, ::*.ts::, ::*.css::,󰬷 ::*.java::, ::*.yml,,*.yaml::, ::*.lua::,󰌠 ::*.py::, ::*.vim,,.vimrc::, ::*.sol::, ::*.json*::, ::*.toml::, ::*.[jt]sx::, ::*.db::'
-set classify+=' ::go.mod,,go.sum::, ::*.kt::'
-set classify+=' :: *.vue::,  ::*.templ::, ::*.org::, ::*.el::, ::.gitignore::, ::dockerfile::, ::.env::, ::*.md::, ::.dockerignore::, ::yarn.lock::, ::*.diff,,*.rej::'
+set classify+=' ::*.htm,,*.html,,**.[sx]html,,*.xml::, ::*.js::, ::*.ts::, ::*.css::, ::*.yml,,*.yaml::, ::*.[jt]sx::, ::*.db::, :: *.vue::,  ::*.templ::'
+set classify+=' ::*.go::, ::go.mod,,go.sum::, ::*.kt::,󰬷 ::*.java::, ::*.sc,,*.sbt::'
+set classify+=' ::*.lua::,󰌠 ::*.py::, ::*.vim,,.vimrc::, ::*.sol::, ::*.json*::, ::*.toml::'
+set classify+=' ::*.org::, ::*.el::, ::.gitignore::, ::dockerfile::, ::.env::, ::*.md::, ::.dockerignore::, ::yarn.lock::, ::*.diff,,*.rej::'
 set classify+=' ::*.doc,,*.docx::,󱎏 ::*.xls,,*.xls[mx]::,󱎐 ::*.pptx,,*.ppt::, ::*.odt::,  ::*.ods::,  ::*.odp::'
-set classify+=' ::Makefile::, ::*.conf,,.*rc,,*rc,,*.rasi::, ::*.log::, ::*.scss,,*.sass::, ::*.sql::, ::*gpg::'
+set classify+=' ::Makefile::, ::*.conf,,.*rc,,*rc,,*.rasi::, ::*.log::, ::*.scss,,*.sass::, ::*.sql::, ::*.gpg::, ::*.iso::,󰧺 ::*.kdb::'
 set classify+='󱁿 ::.config/::/,󰢬 ::.password-store/,,.gnupg/::/,󱞞 ::.*/::/,󰘓 ::.*::,󰲂 ::Documents/::/,󰉏 ::Pictures/::/,󱧺 ::Videos/::/,󰉍 ::Downloads/::/,󱍙 ::Music/::/'
 
 map <space> <nop> 

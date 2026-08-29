@@ -1,5 +1,5 @@
 local opts = { noremap = true, silent = true }
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
@@ -41,6 +41,7 @@ keymap("n", "<leader>wd", "<cmd>!pwd<CR>", opts)
 keymap("n", "<A-k>", '<cmd>lua require("treesitter-context").go_to_context()<CR>', { silent = true })
 
 keymap("i", "<C-c>", "<esc>", opts)
+keymap("i", "<C-h>", "<C-w>", opts)
 
 keymap("v", "<leader>p", [["_dP]], opts)
 keymap("v", "<", "<gv", opts)

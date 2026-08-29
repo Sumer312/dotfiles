@@ -17,7 +17,7 @@ return {
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
-    dependencies = { "nvim-lua/plenary.nvim" }
+    dependencies = { "nvim-lua/plenary.nvim" },
   },
   {
     "iamcco/markdown-preview.nvim",
@@ -66,12 +66,13 @@ return {
   "nvim-telescope/telescope.nvim",
 
   -- Treesitter
-  "JoosepAlviste/nvim-ts-context-commentstring",
-  "nvim-treesitter/nvim-treesitter-context",
   {
     "nvim-treesitter/nvim-treesitter",
+    lazy = false,
     build = ":TSUpdate",
   },
+  "JoosepAlviste/nvim-ts-context-commentstring",
+  "nvim-treesitter/nvim-treesitter-context",
 
   -- Git
   "lewis6991/gitsigns.nvim",
@@ -86,5 +87,5 @@ return {
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
     lazy = false,
   },
-  "vifm/vifm.vim"
+  "vifm/vifm.vim",
 }
