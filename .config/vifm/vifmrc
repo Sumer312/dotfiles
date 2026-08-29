@@ -57,16 +57,16 @@ filextype *.epub
 filextype *.pptx, *.docx
   \ libreoffice %f
 
-filextype *.png,*.jpg,*jpeg,*.bmp,*.gif,*.xpm,*.webp
+filextype *.png,*.jpg,*jpeg,*.bmp,*.gif,*.xpm,*.webp,*.avif
   \ feh -F -Z %f
 
-filextype *.mp4
+filextype *.mp4,*.m4a
   \ mpv %f
 
-filextype *.mp3
+filextype *.mp3,.*.opus
   \ mpv --no-video %f
 
-fileviewer *.png,*.jpg,*jpeg,*.bmp,*.gif,*.xpm,*.webp,*.gif
+fileviewer *.png,*.jpg,*jpeg,*.bmp,*.gif,*.xpm,*.webp,*.gif,*.avif
     \ chafa
     \ --colors=256 
     \ --dither bayer
@@ -89,7 +89,7 @@ fileviewer *.md,*.[ch],*.[ch]pp,*.py,*.json,*.xml,*.xhtml,*.opf,*.md,Makefile,Ma
 set classify='󰉋 :dir:/, :exe:, :reg:, :link:,'
 set classify+=' ::../::,󱆃 ::*.sh,,*.zsh,,.*.zsh::, ::*.[hc]pp::, ::*.[hc]::, ::/^copying|license$/::, ::.git/,,*.git/::, ::*.epub,,*.fb2,,*.djvu::, ::*.pdf::, ::*text,,*.txt::,'
 set classify+=' ::*.7z,,*.ace,,*.arj,,*.bz2,,*.cpio,,*.deb,,*.dz,,*.gz,,*.jar,,*.lzh,,*.lzma,,*.rar,,*.rpm,,*.rz,,*.tar,,*.taz,,*.tb2,,*.tbz,,*.tbz2,,*.tgz,,*.tlz,,*.trz,,*.txz,,*.tz,,*.tz2,,*.xz,,*.z,,*.zip,,*.zoo::'
-set classify+=' ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.ico,,*.png,,*.ppm,,*.svg,,*.svgz,,*.tga,,*.tif,,*.tiff,,*.xbm,,*.xcf,,*.xpm,,*.xspf,,*.xwd,,*.webp::'
+set classify+=' ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.ico,,*.png,,*.ppm,,*.svg,,*.svgz,,*.tga,,*.tif,,*.tiff,,*.xbm,,*.xcf,,*.xpm,,*.xspf,,*.xwd,,*.webp,,*.avif::'
 set classify+=' ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.mid,,*.midi,,*.mp3,,*.mpc,,*.oga,,*.ogg,,*.ogx,,*.ra,,*.ram,,*.rm,,*.spx,,*.wav,,*.wma,,*.ac3::'
 set classify+=' ::*.avi,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mkv,,*.mov,,*.mp4,,*.flv,,*.mp4v,,*.mpeg,,*.mpg,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.wmv,,*.xvid::'
 set classify+=' ::*.htm,,*.html,,**.[sx]html,,*.xml::, ::*.js::, ::*.ts::, ::*.css::, ::*.yml,,*.yaml::, ::*.[jt]sx::, ::*.db::, :: *.vue::,  ::*.templ::'
